@@ -10,12 +10,12 @@
 \usepackage{hyperref}
 \hypersetup{
     colorlinks=true,
-    linkcolor=blue,
+    linkcolor=black,
     filecolor=magenta,      
     urlcolor=cyan,
 }
 
-\title{\LaTeX\ for Peter}
+\title{Discrete Math for Computer Science}
 \author{Peter Schaefer}
 \date{Freshman Fall}
 
@@ -30,67 +30,147 @@
 \section{Logic}
 \subsection{Propositions and Logical Operations}
 
-\textbf{Proposition}: a statement that is either \underline{true} or \underline{false}
-
-Some examples include: "It is raining today",  "\(3 \cdot 8 = 20 \)".
-
-However, not all statements are propositions:"open the door"
+\textbf{Proposition}: a statement that is either \underline{true} or \underline{false}.
 
 
-\begin{tabular}{|c|c|c|}
-  \hline
-  \textbf{Name} & \textbf{Symbol} & \textbf{alternate name} \\
-  \hline
-  NOT & $\lnot$ & negation \\
-  AND & $\land$ & conjunction \\
-  OR & $\lor$ & dijunction \\
-  XOR & $\oplus$ & exclusive or \\
-  \hline
-\end{tabular}
-\quad
-\begin{tabular}{|c|c||c|c|c|c|}
-  \hline
-  \textbf{$p$} & \textbf{$q$} & \textbf{$\lnot p$} & \textbf{$p \land q$} & \textbf{$p \lor q$} & \textbf{$p \oplus q$} \\
-  \hline
-  T & T & F & T & T & F \\
-  T & F & F & F & T & T \\
-  F & T & T & F & T & T \\
-  F & F & T & F & F & F \\
-  \hline
-\end{tabular}
+Some examples include "It is raining today" and "\(3 \cdot 8 = 20 \)".
+
+
+However, not all statements are propositions, such as "open the door"
+
+\begin{center}
+  \begin{tabular}{c|c|c}
+    \textbf{Name} & \textbf{Symbol} & \textbf{alternate name} \\
+    \hline
+    NOT           & $\lnot$         & negation                \\
+    AND           & $\land$         & conjunction             \\
+    OR            & $\lor$          & dijunction              \\
+    XOR           & $\oplus$        & exclusive or            \\
+  \end{tabular}
+  \qquad
+  \begin{tabular}{c|c|c|c|c|c}
+    \textbf{$p$} & \textbf{$q$} & \textbf{$\lnot p$} & \textbf{$p \land q$} & \textbf{$p \lor q$} & \textbf{$p \oplus q$} \\
+    \hline
+    T            & T            & F                  & T                    & T                   & F                     \\
+    T            & F            & F                  & F                    & T                   & T                     \\
+    F            & T            & T                  & F                    & T                   & T                     \\
+    F            & F            & T                  & F                    & F                   & F                     \\
+  \end{tabular}
+\end{center}
 
 XOR is very useful for encryption and binary arithmetic.
-  
+
 \subsection{Evaluating Compound Propositions}
 
 \begin{align*}
-  p&: \text{The weather is bad.} \\
-  q&: \text{The trip is cancelled.} \\
-  r&: \text{The trip is delayed.}
-\end{align*}
-
-\begin{center}
-  \textbf{then}
-\end{center}
-
-\begin{align*}
-  p \land q &: \text{The weather is bad \textit{and} the trip is cancelled} \\
-  p \lor q &: \text{The weather is bad \textit{or} the trip is cancelled} \\
-  p \land (q \oplus r)&: \text{The weather is bad \textit{and} either the trip is cancelled \textit{or} delayed}
+  p & : \text{The weather is bad.}    &                &  & p \land q            & : \text{The weather is bad \textit{and} the trip is cancelled}                            \\
+  q & : \text{The trip is cancelled.} & \triangleright &  & p \lor q             & : \text{The weather is bad \textit{or} the trip is cancelled}                             \\
+  r & : \text{The trip is delayed.}   &                &  & p \land (q \oplus r) & : \text{The weather is bad \textit{and} either the trip is cancelled \textit{or} delayed} \\
 \end{align*}
 
 \textbf{Order of Evaluation} \(\lnot\), then \(\land\), then \(\lor\), but parenthesis always help for clarity.
 
+\begin{center}
+  Example Truth Table:
+  \qquad
+  \begin{tabular}{c|c|c|c|c}
+    \(p\) & \(q\) & \(p \land q\) & \(\lnot q\) & \((p \land q) \oplus \lnot q\) \\
+    \hline
+    T     & T     & T             & F           & T                              \\
+    T     & F     & F             & T           & T                              \\
+    F     & T     & F             & F           & F                              \\
+    F     & F     & F             & T           & T                              \\
+  \end{tabular}
+\end{center}
+
 \subsection{Conditional Statements}
+
+\begin{center}
+  \(p \rightarrow q\) \ where \(p\) is the \underline{hypothesis} and \(q\) is the \underline{conclusion}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{c|c}
+    Format                          & Terminology   \\
+    \hline
+    \(p \rightarrow q\)             & given         \\
+    \(\lnot q \rightarrow \lnot p\) & contrapostive \\
+    \(q \rightarrow p\)             & converse      \\
+    \(\lnot p \rightarrow \lnot q\) & inverse       \\
+  \end{tabular}
+  \qquad
+  \begin{tabular}{ccccc}
+    given   & \(p \rightarrow q\)             & \(\equiv\) & \(\lnot q \rightarrow \lnot p\) & contrapostive \\
+    inverse & \(\lnot p \rightarrow \lnot q\) & \(\equiv\) & \(q \rightarrow p\)             & converse
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \begin{tabular}{c|c|c}
+    \(p\) & \(q\) & \(p \rightarrow q\) \\
+    \hline
+    T     & T     & T                   \\
+    T     & F     & F                   \\
+    F     & T     & T                   \\
+    F     & F     & T                   \\
+  \end{tabular}
+  \quad
+  \begin{tabular}{c}
+    \(p\) is a \underline{sufficient} condition for \(q\) \\
+    \(q\) is a \underline{necessary} condition for \(p\)
+  \end{tabular}
+  \quad
+  \begin{tabular}{c|c}
+    Phrase                     & Logic                   \\
+    \hline
+    \(q\) if \(p\)             & \(p \rightarrow q\)     \\
+    \(q\) only if \(p\)        & \(q \rightarrow p\)     \\
+    \(q\) if and only if \(p\) & \(p \leftrightarrow q\)
+  \end{tabular}
+\end{center}
+
+\begin{center}
+  \textbf{Order of Operations}: \(p \land q \rightarrow r \equiv (p \land q) \rightarrow r\)
+\end{center}
+
 \subsection{Logical Equivalence}
+
+
+
 \subsection{Laws of Propositional Logic}
+
+
+
 \subsection{Predicates and Quantifiers}
+
+
+
 \subsection{Quantified Statements}
+
+
+
 \subsection{DeMorgan's law for Quantified Statements}
+
+
+
 \subsection{Nested Quantifiers}
+
+
+
 \subsection{More Nested Quantifiers}
+
+
+
 \subsection{Logical Reasoning}
+
+
+
 \subsection{Rules of Inference with Propositions}
+
+
+
 \subsection{Rules of Interence with Quantifiers}
+
+
 
 \end{document}
