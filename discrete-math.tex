@@ -3,6 +3,7 @@
 \usepackage[margin=1in]{geometry}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
+\usepackage{centernot}
 
 \usepackage{fancyhdr}
 \pagestyle{fancy}
@@ -44,7 +45,7 @@ However, not all statements are propositions, such as "open the door"
     \hline
     NOT           & $\lnot$         & negation                \\
     AND           & $\land$         & conjunction             \\
-    OR            & $\lor$          & dijunction              \\
+    OR            & $\lor$          & disjunction             \\
     XOR           & $\oplus$        & exclusive or            \\
   \end{tabular}
   \qquad
@@ -63,9 +64,9 @@ XOR is very useful for encryption and binary arithmetic.
 \subsection{Evaluating Compound Propositions}
 
 \begin{align*}
-  p & : \text{The weather is bad.}    &                &  & p \land q            & : \text{The weather is bad \textit{and} the trip is cancelled}                            \\
-  q & : \text{The trip is cancelled.} & \triangleright &  & p \lor q             & : \text{The weather is bad \textit{or} the trip is cancelled}                             \\
-  r & : \text{The trip is delayed.}   &                &  & p \land (q \oplus r) & : \text{The weather is bad \textit{and} either the trip is cancelled \textit{or} delayed} \\
+  p & : \text{The weather is bad.}    & p \land q            & : \text{The weather is bad \textit{and} the trip is cancelled}                            \\
+  q & : \text{The trip is cancelled.} & p \lor q             & : \text{The weather is bad \textit{or} the trip is cancelled}                             \\
+  r & : \text{The trip is delayed.}   & p \land (q \oplus r) & : \text{The weather is bad \textit{and} either the trip is cancelled \textit{or} delayed} \\
 \end{align*}
 
 \textbf{Order of Evaluation} \(\lnot\), then \(\land\), then \(\lor\), but parenthesis always help for clarity.
@@ -91,16 +92,16 @@ XOR is very useful for encryption and binary arithmetic.
 
 \begin{center}
   \begin{tabular}{c|c}
-    Format                          & Terminology   \\
+    Format                          & Terminology    \\
     \hline
-    \(p \rightarrow q\)             & given         \\
-    \(\lnot q \rightarrow \lnot p\) & contrapostive \\
-    \(q \rightarrow p\)             & converse      \\
-    \(\lnot p \rightarrow \lnot q\) & inverse       \\
+    \(p \rightarrow q\)             & given          \\
+    \(\lnot q \rightarrow \lnot p\) & contrapositive \\
+    \(q \rightarrow p\)             & converse       \\
+    \(\lnot p \rightarrow \lnot q\) & inverse        \\
   \end{tabular}
   \qquad
   \begin{tabular}{ccccc}
-    given   & \(p \rightarrow q\)             & \(\equiv\) & \(\lnot q \rightarrow \lnot p\) & contrapostive \\
+    given   & \(p \rightarrow q\)             & \(\equiv\) & \(\lnot q \rightarrow \lnot p\) & contrapositive \\
     inverse & \(\lnot p \rightarrow \lnot q\) & \(\equiv\) & \(q \rightarrow p\)             & converse
   \end{tabular}
 \end{center}
@@ -135,27 +136,167 @@ XOR is very useful for encryption and binary arithmetic.
 
 \subsection{Logical Equivalence}
 
+\begin{center}
+  \textbf{Tautology}: a proposition that is always \underline{true}
+  \qquad
+  \textbf{Contradiction}: a proposition that is always \underline{false}
+\end{center}
 
+\textbf{Logically equivalent}: same truth value regardless of the truth values of their individual propositions
+
+\textbf{DeMorgan's Laws}:
+\qquad
+\begin{tabular}{c}
+  \(\lnot (p \lor q) \equiv \lnot p \land \lnot q\) \\
+  \(\lnot (p \land q) \equiv \lnot p \lor \lnot q\)
+\end{tabular}
+
+\begin{center}
+  \begin{tabular}{c}
+    Verbally,                                                                                     \\
+    It is not true that the patient has migraines \textit{or} high blood pressure \(\equiv\)      \\
+    \(\equiv\) The patient does not have migraines \textit{and} does not have high blood pressure \\
+    \hline
+    It is not true that the patient has migraines \textit{and} high blood pressure \(\equiv\)     \\
+    \(\equiv\) The patient does not have migraines \textit{or} does not have high blood pressure  \\
+  \end{tabular}
+\end{center}
 
 \subsection{Laws of Propositional Logic}
 
+\begin{center}
+  You can use \textbf{substitution} on logically equivalent propositions.
+\end{center}
 
+\begin{center}
+  \begin{tabular}{r|c|c}
+    \textbf{Law Name} & \(\lor\) or                                               & \(\land\) and                                                            \\
+    \hline
+    Idempotent        & \(p \lor p \equiv p\)                                     & \(p \land p \equiv p\)                                                   \\
+    Associative       & \((p \lor q) \lor r \equiv p \lor (q \lor r)\)            & \((p \land q) \land r \equiv p \land (q \land r)\)                       \\
+    Commutative       & \(p \lor q \equiv q \lor p\)                              & \(p \land q \equiv q \land p\)                                           \\
+    Distributive      & \(p \lor (q \land r) \equiv (p \lor q) \land (p \lor r)\) & \(p \land (q \lor r) \equiv (p \land q) \lor (p \land r)\)               \\
+    Identity          & \(p \lor \) F \(\equiv p\)                                & \(p \land \) T \(\equiv p\)                                              \\
+    Domination        & \(p \lor \) T \(\equiv \) T                               & \(p \land \) F \(\equiv \) F                                             \\
+    Double Negation   & \(\lnot \lnot p \equiv p\)                                                                                                           \\
+    Complement        & \(p \lor \lnot p \equiv\) T                               & \(p \land \lnot p \equiv\) F                                             \\
+    DeMorgan          & \(\lnot (p \lor q) \equiv \lnot p \land \lnot q\)         & \(\lnot (p \land q) \equiv \lnot p \lor \lnot q\)                        \\
+    Absorption        & \(p \lor (p \land q) \equiv p\)                           & \(p \land (p \lor q) \equiv p\)                                          \\
+    Conditional       & \(p \rightarrow q \equiv \lnot p \lor q\)                 & \(p \leftrightarrow q \equiv (p \rightarrow q) \land (q \rightarrow p)\)
+  \end{tabular}
+\end{center}
 
 \subsection{Predicates and Quantifiers}
 
+\textbf{Predicate}: a logical statement where truth value is a \underline{function} of a variable.
 
+\begin{center}
+  P(\(x\)): \(x\) is an even number. \qquad P(5): false \qquad P(2): true
+\end{center}
+
+\noindent \textbf{Domain}: the set of all possible values for a variable in a predicate.
+
+\begin{center}
+  Ex. \( \mathbb{Z}^+ \) is the set of all positive integers.
+
+  *If domain is not clear from context, it should be given as part of the definition of the predicate.
+\end{center}
+
+\noindent \textbf{Quantifier}: converts a predicate to a proposition.
+\qquad
+\begin{tabular}{c|c|c}
+  Quantifier  & Symbol       & Meaning        \\
+  \hline
+  Universal   & \(\forall \) & "for all"      \\
+  Existential & \(\exists\)  & "there exists" \\
+\end{tabular}
+
+\begin{center}
+  \(\exists x (x+1 < x)\) is false.
+\end{center}
+
+\noindent \textbf{Counter Example}: universally quantified statement where an element in the domain
+for which the predicate is false. Useful to prove a \(\forall\) statement false.
 
 \subsection{Quantified Statements}
 
+Consider the two following two predicates:
+\begin{align*}
+  P(x) & : x \text{ is prime, } x \in \mathbb{Z}^+ \\
+  O(x) & : x \text{ is odd}
+\end{align*}
 
+\begin{center}
+  Proposition made of predicates: \qquad \(\exists x (\text{P}(x) \land \lnot \text{O}(x))\) \\
+  Verbally: there exists a positive integer that is prime but is \underline{not} odd.
+\end{center}
+
+\noindent \textbf{Free Variable}: a variable that is free to be any value in the domain.
+
+\noindent \textbf{Bound Variable}: a variable that is bound to a quantifier.
+
+\begin{center}
+  \begin{tabular}{rl}
+    \(\text{P}(x)\): & \(x \text{ came to the party}\) \\
+    \(\text{S}(x)\): & \(x \text{ was sick}\)          \\
+  \end{tabular}
+  \qquad
+  \begin{tabular}{c}
+    \(\text{P}(x) \overset{?}{\equiv} \lnot \text{S}(x)\) \\
+    \(\text{P}(x) \centernot{\equiv} \lnot \text{S}(x)\)
+  \end{tabular}
+  \qquad
+  \begin{tabular}{c|ccc}
+         & P\((x)\) & S\((x)\) & \(\lnot\)S\((x)\) \\
+    \hline
+    Joe  & T        & F        & T                 \\
+    Theo & F        & T        & F                 \\
+    Gert & T        & F        & T                 \\
+    Sam  & F        & F        & T
+  \end{tabular}
+\end{center}
 
 \subsection{DeMorgan's law for Quantified Statements}
 
 
+Consider the predicate: F\((x):\) "\(x\) can fly", where \(x\) is a bird.
+According to the DeMorgan Identity for Quantified Statements,
+
+\begin{align*}
+  \lnot \forall x \text{F}(x)    & \equiv \exists x \lnot \text{F}(x)                 \\
+  \text{"not every bird can fly} & \equiv \text{"there exists a bird that cannot fly}
+\end{align*}
+
+Example using DeMorgan Identities:
+\begin{align*}
+  \lnot \exists x (\text{P}(x) \rightarrow \lnot \text{Q}(x)) & \equiv \forall x \lnot (\text{P}(x) \rightarrow \lnot \text{Q}(x))       \\
+                                                              & \equiv \forall x (\lnot \lnot \text{P}(x) \land \lnot \lnot \text{Q}(x)) \\
+                                                              & \equiv \forall x (\text{P}(x) \land \text{Q}(x))
+\end{align*}
 
 \subsection{Nested Quantifiers}
 
+A logical expression with more than one quantifier that binds different variables in the same predicate
+is said to have \textbf{Nested Quantifiers}.
 
+\begin{center}
+  \begin{tabular}{c|c}
+    Logic                                      & Variable Boundedness           \\
+    \hline
+    \(\forall x \exists y \text{ P}(x, y)\)    & \(x\), \(y\) bound             \\
+    \(\forall x \text{ P}(x, y)\)              & \(x\) bound, \(y\) free        \\
+    \(\exists x \exists y \text{ T}(x, y, z)\) & \(x\), \(y\) bound, \(z\) free \\
+  \end{tabular}
+  \quad
+  \begin{tabular}{c|c}
+    Logic                                  & Meaning                              \\
+    \hline
+    \(\forall x \forall y \text{ M}(x, y)\) & "everyone sent an email to everyone" \\
+    \(\forall x \exists y \text{ M}(x, y)\) & "everyone sent an email to someone"  \\
+    \(\exists x \forall y \text{ M}(x, y)\) & "someone sent an email to everyone"  \\
+    \(\exists x \exists y \text{ M}(x, y)\) & "someone sent an email to someone"   \\
+  \end{tabular}
+\end{center}
 
 \subsection{More Nested Quantifiers}
 
@@ -169,7 +310,7 @@ XOR is very useful for encryption and binary arithmetic.
 
 
 
-\subsection{Rules of Interence with Quantifiers}
+\subsection{Rules of Inference with Quantifiers}
 
 
 
