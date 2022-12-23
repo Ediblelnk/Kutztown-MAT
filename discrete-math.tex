@@ -289,7 +289,7 @@ is said to have \textbf{Nested Quantifiers}.
   \end{tabular}
   \quad
   \begin{tabular}{c|c}
-    Logic                                  & Meaning                              \\
+    Logic                                   & Meaning                              \\
     \hline
     \(\forall x \forall y \text{ M}(x, y)\) & "everyone sent an email to everyone" \\
     \(\forall x \exists y \text{ M}(x, y)\) & "everyone sent an email to someone"  \\
@@ -297,6 +297,27 @@ is said to have \textbf{Nested Quantifiers}.
     \(\exists x \exists y \text{ M}(x, y)\) & "someone sent an email to someone"   \\
   \end{tabular}
 \end{center}
+
+There is a two-player game analogy for how quantifiers work:
+
+\begin{center}
+  \begin{tabular}{c|c|c}
+    Player                         & Action                                          & Goal                                       \\
+    \hline
+    Existential Player \(\exists\) & selects value for existentially-bound variables & tries to make expression \underline{true}  \\
+    Universal Player \(\forall\)   & selects value for universally-bound variables   & tries to make expression \underline{false}
+  \end{tabular}
+\end{center}
+
+Consider the predicate L\((x,y):\) "\(x\) likes \(y\)".
+\begin{align*}
+  \exists x \forall y \text{L}(x, y)       & \text{ means "there is a student who likes everyone in the school".}  \\
+  \lnot \exists x \forall y \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".} \\
+\end{align*}
+After applying DeMorgan's Laws,
+\begin{align*}
+  \forall x \exists y \lnot \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".} \\
+\end{align*}
 
 \subsection{More Nested Quantifiers}
 
