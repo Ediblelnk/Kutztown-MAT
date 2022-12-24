@@ -298,7 +298,7 @@ is said to have \textbf{Nested Quantifiers}.
   \end{tabular}
 \end{center}
 
-There is a two-player game analogy for how quantifiers work:
+\noindent There is a two-player game analogy for how quantifiers work:
 
 \begin{center}
   \begin{tabular}{c|c|c}
@@ -309,23 +309,79 @@ There is a two-player game analogy for how quantifiers work:
   \end{tabular}
 \end{center}
 
-Consider the predicate L\((x,y):\) "\(x\) likes \(y\)".
+\noindent Consider the predicate L\((x,y):\) "\(x\) likes \(y\)".
 \begin{align*}
   \exists x \forall y \text{L}(x, y)       & \text{ means "there is a student who likes everyone in the school".}  \\
-  \lnot \exists x \forall y \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".} \\
+  \lnot \exists x \forall y \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".}
 \end{align*}
 After applying DeMorgan's Laws,
 \begin{align*}
-  \forall x \exists y \lnot \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".} \\
+  \forall x \exists y \lnot \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".}
 \end{align*}
 
 \subsection{More Nested Quantifiers}
 
+M\((x, y):\) "x sent an email to y". Consider \(\forall x \forall y\) M \((x, y)\).
+It means that "email sent an email to everyone including themselves".
+Using \(( x \not = y \rightarrow \text{ M}(x, y))\) can fix this quirk.
+\begin{align*}
+  \forall x \forall y (x \not = y \rightarrow \text{ M}(x, y))
+  \text{ means "everyone sent an email to everyone else}
+\end{align*}
 
+\subsubsection{Expressing Uniqueness in Quantified Statements}
+
+Consider L($x$): $x$ was late to the meeting. If someone was late to the meeting,
+how could you express that that someone was the only person late to the meeting?
+You want to express that there is someone where everyone else was not late, which
+can be done with
+\begin{align*}
+  \exists x (\text{L}(x) \land \forall y (x \not = y \rightarrow \lnot \text{L}(y)))
+\end{align*}
+
+\subsubsection{Moving Quantifiers in Logical Statements}
+
+Consider M($x, y$): "$x$ is married to $y$" and A($x$): "$x$ is an adult".
+One way of expressing "For every person $x$, if $x$ is an adult, then
+there is a person $y$ to whom $x$ is married to" is by this statement:
+\begin{align*}
+  \forall x (\text{ A}(x) \rightarrow \exists \text{ M}(x, y))
+\end{align*}
+Since $y$ does not appear in A($x$), "\(\exists y\)" can be moved so that it appears
+just after the "\(\forall\)", resulting with
+\begin{align*}
+  \forall x \exists y (\text{ A}(x) \rightarrow \text{ M}(x, y))
+\end{align*}
+When doing this, keep in mind that \(\forall x \exists y \centernot \equiv \exists y \forall x\):
+\begin{align*}
+  \forall x \exists y & (\text{ A}(x) \rightarrow \text{ M}(x, y)) \text{ means}                              \\
+                      & \text{for every $x$, if $x$ is an adult, there exists $y$ who is married to $x$.}     \\
+  \exists y \forall x & (\text{ A}(x) \rightarrow \text{ M}(x, y)) \text{ means}                              \\
+                      & \text{There exists a $y$, such that every $x$ who is an adult is also married to $y$} \\
+\end{align*}
 
 \subsection{Logical Reasoning}
 
+\textbf{Argument}: a sequence of propositions, called \underline{hypothesis}, followed
+by a final proposition, called the \underline{conclusion}.
 
+An argument is \textbf{valid} if the conclusion is true whenever the hypothesis
+are \underline{all} true, otherwise the argument is \textbf{invalid}.
+
+An argument is denoted as:
+\begin{tabular}{c}
+  \(p_1\)     \\
+  \(p_2\)     \\
+  \(\vdots \) \\
+  \(p_n\)     \\
+  \hline
+  \(\therefore c\)
+\end{tabular}
+\quad where \quad
+\begin{tabular}{rl}
+  \(p_1, p_2, \ldots, p_n\) & are hypothesis    \\
+  \(c\)                     & is the conclusion
+\end{tabular}
 
 \subsection{Rules of Inference with Propositions}
 
