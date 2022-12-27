@@ -368,20 +368,23 @@ by a final proposition, called the \underline{conclusion}.
 An argument is \textbf{valid} if the conclusion is true whenever the hypothesis
 are \underline{all} true, otherwise the argument is \textbf{invalid}.
 
-An argument is denoted as:
-\begin{tabular}{c}
-  \(p_1\)     \\
-  \(p_2\)     \\
-  \(\vdots \) \\
-  \(p_n\)     \\
-  \hline
-  \(\therefore c\)
-\end{tabular}
-\quad where \quad
-\begin{tabular}{rl}
-  \(p_1, p_2, \ldots, p_n\) & are hypothesis    \\
-  \(c\)                     & is the conclusion
-\end{tabular}
+\begin{center}
+  An argument is denoted as:
+  \begin{tabular}{c}
+    \(p_1\)     \\
+    \(p_2\)     \\
+    \(\vdots \) \\
+    \(p_n\)     \\
+    \hline
+    \(\therefore c\)
+  \end{tabular}
+  \quad where \quad
+  \begin{tabular}{rl}
+    \(p_1, p_2, \ldots, p_n\) & are hypothesis    \\
+    \(c\)                     & is the conclusion
+  \end{tabular}
+\end{center}
+
 The argument is valid whenever the proposition \((p_1 \land p_1 \land \dots \land p_n) \rightarrow c\) is a tautology.
 Additionally, because of the commutative law, hypothesis can be reordered without changing the argument.
 \begin{center}
@@ -400,6 +403,24 @@ Additionally, because of the commutative law, hypothesis can be reordered withou
     \hline
     \(\therefore q\)
   \end{tabular}
+\end{center}
+
+\subsubsection{The Form of an Argument}
+
+\begin{center}
+  \begin{tabular}{l}
+    It is raining today.                                            \\
+    If it is raining today, then I will not ride my bike to school. \\
+    \hline
+    \(\therefore\) I will not ride my bike to school.
+  \end{tabular}
+
+  \begin{align*}
+    p & : \text{ It is raining today.}           &  & p                                    \\
+    q & : \text{ I will ride my bike to school.} &  & \underbar{\(p \rightarrow \lnot q\)} \\
+      &                                          &  & \therefore \lnot q
+  \end{align*}
+
 \end{center}
 
 \subsection{Rules of Inference with Propositions}
