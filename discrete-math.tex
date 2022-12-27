@@ -4,7 +4,10 @@
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
 \usepackage{centernot}
-
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{etoolbox}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
@@ -378,57 +381,343 @@ are \underline{all} true, otherwise the argument is \textbf{invalid}.
     \hline
     \(\therefore c\)
   \end{tabular}
-  \quad where \quad
-  \begin{tabular}{rl}
-    \(p_1, p_2, \ldots, p_n\) & are hypothesis    \\
-    \(c\)                     & is the conclusion
+  where
+  \begin{tabular}{l}
+    \(p_1, p_2, \ldots, p_n\) are hypothesis \\
+    \(c\) is the conclusion
   \end{tabular}
 \end{center}
 
 The argument is valid whenever the proposition \((p_1 \land p_1 \land \dots \land p_n) \rightarrow c\) is a tautology.
 Additionally, because of the commutative law, hypothesis can be reordered without changing the argument.
 \begin{center}
-  \begin{tabular}{c}
-    \(p\)               \\
-    \(p \rightarrow q\) \\
-    \hline
-    \(\therefore q\)
-  \end{tabular}
-  \quad
-  \(\equiv\)
-  \quad
-  \begin{tabular}{c}
-    \(p \rightarrow q\) \\
-    \(p\)               \\
-    \hline
-    \(\therefore q\)
+  \begin{tabular}{lcl}
+    \(p\)               & \multirow{3}{*}{\(\equiv\)} & \(p \rightarrow q\) \\
+    \(p \rightarrow q\) &                             & \(p\)               \\
+    \hhline{-~-}
+    \(\therefore q\)    &                             & \(\therefore q\)
   \end{tabular}
 \end{center}
 
 \subsubsection{The Form of an Argument}
 
 \begin{center}
-  \begin{tabular}{l}
-    It is raining today.                                            \\
-    If it is raining today, then I will not ride my bike to school. \\
-    \hline
-    \(\therefore\) I will not ride my bike to school.
+  \begin{tabular}{lcl}
+    It is raining today.                                            &  & \(p\)               \\
+    If it is raining today, then I will not ride my bike to school. &  & \(p \rightarrow q\) \\
+    \hhline{-~-}
+    \(\therefore\) I will not ride my bike to school.               &  & \(\therefore q\)
   \end{tabular}
 
-  \begin{align*}
-    p & : \text{ It is raining today.}           &  & p                                    \\
-    q & : \text{ I will ride my bike to school.} &  & \underbar{\(p \rightarrow \lnot q\)} \\
-      &                                          &  & \therefore \lnot q
-  \end{align*}
+  The argument is \underline{valid} because its form,
+  \begin{tabular}{l}
+    \(p\)               \\
+    \(p \rightarrow q\) \\
+    \hline
+    \(\therefore q\)
+  \end{tabular}
+  is an valid argument.
 
+\end{center}
+
+\begin{center}
+  \begin{tabular}{lcl}
+    5 is not an even number.                          &  & \(p\)               \\
+    If 5 is an even number, then 7 is an even number. &  & \(p \rightarrow q\) \\
+    \hhline{-~-}
+    \(\therefore\) 7 is not an even number.           &  & \(\therefore q\)
+  \end{tabular}
+
+  The argument is \underline{invalid} because its form,
+  \begin{tabular}{l}
+    \(\lnot p\)         \\
+    \(p \rightarrow q\) \\
+    \hline
+    \(\therefore \lnot q\)
+  \end{tabular}
+  is an invalid argument.
 \end{center}
 
 \subsection{Rules of Inference with Propositions}
 
+Using truth tables to establish the validity of an argument can become tedious, especially if an argument uses a large number of variables.
 
+\begin{center}
+  \begin{tabular}{llrll}
+    \(p\)                   & \multirow{3}{*}{Modus Ponens}   & \quad & \(p\)                          & \multirow{3}{*}{Conjunction}            \\
+    \(p \rightarrow q\)     &                                 &       & \(q\)                          &                                         \\
+    \hhline{-~~-~}
+    \(\therefore q\)        &                                 &       & \(\therefore p \land q\)       &                                         \\
+    \\
+    \(\lnot q\)             & \multirow{3}{*}{Modus Tollens}  &       & \(p \rightarrow q\)            & \multirow{3}{*}{Hypothetical Syllogism} \\
+    \(p \rightarrow q\)     &                                 &       & \(q \rightarrow r\)            &                                         \\
+    \hhline{-~~-~}
+    \(\therefore \lnot p\)  &                                 &       & \(\therefore p \rightarrow r\) &                                         \\
+    \\
+                            & \multirow{3}{*}{Addition}       &       & \(p \lor q\)                   & \multirow{3}{*}{Disjunctive Syllogism}  \\
+    \(p\)                   &                                 &       & \(\lnot p\)                    &                                         \\
+    \hhline{-~~-~}
+    \(\therefore p \lor q\) &                                 &       & \(\therefore q\)               &                                         \\
+    \\
+                            & \multirow{3}{*}{Simplification} &       & \(p \rightarrow q\)            & \multirow{3}{*}{Resolution}             \\
+    \(p \land q\)           &                                 &       & \(q \rightarrow r\)            &                                         \\
+    \hhline{-~~-~}
+    \(\therefore p\)        &                                 &       & \(\therefore q \lor r\)        &                                         \\
+    \\
+  \end{tabular}
+\end{center}
+
+Example expressed in English:
+\begin{center}
+  \begin{tabular}{lrl}
+    If it is raining or windy or both, the game will be cancelled. &  & \((r \lor w) \rightarrow c\) \\
+    The game will not be cancelled                                 &  & \(\lnot c\)                  \\
+    \hhline{-~-}
+    \(\therefore\) It is not windy.                                &  & \(\therefore \lnot w\)
+  \end{tabular}
+
+  Steps to Solve:
+  \begin{align}
+     & (r \lor w) \rightarrow c &  & \qquad \text{Hypothesis}          \\
+     & \lnot c                  &  & \qquad \text{Hypothesis}          \\
+     & \lnot (r \lor w)         &  & \qquad \text{Modus Tollens: 1, 2} \\
+     & \lnot r \land \lnot w    &  & \qquad \text{DeMorgan's Law: 3}   \\
+     & \lnot w \land \lnot r    &  & \qquad \text{Commutative Law: 4}  \\
+     & \lnot w                  &  & \qquad \text{Simplification: 5}
+  \end{align}
+\end{center}
 
 \subsection{Rules of Inference with Quantifiers}
 
+In order to apply the rules of quantified expressions, such as \(\forall x \lnot (\text{ P}(x) \land \text{ Q}(x))\),
+we need to remove the quantifier by plugging in a value from the domain to replace the variable x.
 
+For example:
+\begin{center}
+  \begin{tabular}{lrl}
+    Every employee who received a large bonus works hard. &  & \(\forall x (\text{B}(x) \rightarrow \text{ H}(x))\) \\
+    Linda is an employee at the company.                  &  & Linda \(\in x\)                                      \\
+    Linda received a large bonus.                         &  & B(Linda)                                             \\
+    \hhline{-~-}
+    \(\therefore\) Some employee works hard.              &  & \(\therefore \exists x \text{ H}(x)\)
+  \end{tabular}
+\end{center}
 
+\textbf{Arbitrary Element}: has no special properties other than those shared by all elements of the domain.
+
+\textbf{Particular Element}: may have special properties that are not shared by all the elements of the domain.
+For example, if the domain is the set of all integers, \(\mathbb{Z}\), a particular element is 3, because it is odd,
+which is not true for all integers.
+
+\begin{center}
+  \begin{tabular}{lclc}
+    \multicolumn{4}{c}{\textbf{Rules of Inference for Quantified Statements}}                                                                                                       \\
+    \(c\) is an element             & \multirow{3}{*}{Universal Instantiation}  &                                                     & \multirow{3}{*}{Existential Instantiation*} \\
+    \(\forall x\) P \((x)\)         &                                           & \(\exists x\) P\((x)\)                              &                                             \\
+    \hhline{-~-~}
+    \(\therefore\) P\((c)\)         &                                           & \(\therefore c\) is particular  \(\land\) P \((c)\) &                                             \\
+    \\
+    \(c\) is arbitrary              & \multirow{3}{*}{Universal Generalization} & \(c\) is an element                                 & \multirow{3}{*}{Existential Generalization} \\
+    P \((c)\)                       &                                           & P\((c)\)                                            &                                             \\
+    \hhline{-~-~}
+    \(\therefore \forall\) P\((x)\) &                                           & \(\therefore \exists x\) P\((x)\)                   &                                             \\
+  \end{tabular}
+\end{center}
+
+*Each use of Existential Instantiation must define a new element with its own symbol or name.
+
+\subsubsection{Example of using the Laws of Inference for Quantified Statements}
+
+Consider the following argument:
+\begin{tabular}{l}
+  \(\forall x (\text{P}(x) \lor \text{ Q}(x))\) \\
+  \(3 \text{ is an integer}\)                   \\
+  \(\lnot \text{ P}(3)\)                        \\
+  \hline
+  \(\therefore \text{ Q}(3)\)
+\end{tabular}
+
+\begin{center}
+  Steps to Solve:
+  \begin{align}
+     & \forall x (\text{P}(x) \lor \text{ Q}(x)) &  & \qquad \text{Hypothesis}                    \\
+     & 3 \text{ is an integer}                   &  & \qquad \text{Hypothesis}                    \\
+     & (\text{P}(3) \lor \text{Q}(3))            &  & \qquad \text{Universal Instantiation: 1, 2} \\
+     & \lnot \text{ P}(3)                        &  & \qquad \text{ Hypothesis}                   \\
+     & \text{ Q}(3)                              &  & \qquad \text{Disjunctive Syllogism: 3, 4}
+  \end{align}
+\end{center}
+
+\subsubsection{Showing an Argument with Quantified Statements is Invalid}
+
+Consider the following argument:
+\begin{tabular}{l}
+  \(\exists x \text{P}(x)\) \\
+  \(\exists x \text{Q}(x)\) \\
+  \hline
+  \(\therefore \exists x (\text{P}(x) \land \text{ Q}(x))\)
+\end{tabular}
+
+Using a supposed domain \{\(c, d\)\}, with truth values of
+\begin{tabular}{c|cc}
+    & P & Q \\
+  \hline
+  c & T & F \\
+  d & F & T
+\end{tabular},
+the argument is invalid.
+
+\section{Proofs}
+\subsection{Mathematical Definitions}
+\subsection{Introduction to Proofs}
+\subsection{Writing Proofs: Best Practices}
+\subsection{Writing Direct Proofs}
+\subsection{Proof by Contrapositive}
+\subsection{Proof by Contradiction}
+\subsection{Proof by Cases}
+
+a
+
+\section{Sets}
+\subsection{Sets and Subsets}
+\subsection{Sets of sets}
+\subsection{Union and Intersection}
+\subsection{More set operations}
+\subsection{Set identities}
+\subsection{Cartesian products}
+\subsection{Partitions}
+
+a
+
+\section{Functions}
+\subsection{Definition of functions}
+\subsection{Floor and Ceiling functions}
+\subsection{Properties of functions}
+\subsection{The inverse of a function}
+\subsection{Composition of functions}
+\subsection{Logarithms and exponents}
+
+a
+
+\section{Boolean Algebra}
+\subsection{An introduction to Boolean Algebra}
+\subsection{Boolean functions}
+\subsection{Disjunctive and conjunctive normal form}
+\subsection{Functional completeness}
+\subsection{Boolean satisfiability}
+\subsection{Gates and circuits}
+
+a
+
+\section{Relation and Digraphs}
+\subsection{Introduction to binary relations}
+\subsection{Properties of binary relations}
+\subsection{Directed graphs, paths, and cycles}
+\subsection{Composition of relations}
+\subsection{Graph powers and the transitive closure}
+\subsection{Matrix multiplication and graph powers}
+\subsection{Partial orders}
+\subsection{Strict orders and directed acyclic graphs}
+\subsection{Equivalence relations}
+\subsection{N-ary relations and relational databases}
+
+a
+
+\section{Computation}
+\subsection{An introduction to algorithms}
+\subsection{Asymptotic growth of functions}
+\subsection{Analysis of algorithms}
+\subsection{Finite state machines}
+\subsection{Turing machines}
+\subsection{Decision problems and languages}
+
+a
+
+\section{Induction and Recursion}
+\subsection{Sequences}
+\subsection{Recurrence relations}
+\subsection{Summations}
+\subsection{Mathematical induction}
+\subsection{More inductive proofs}
+\subsection{Strong induction and well-ordering}
+\subsection{Loop invariants}
+\subsection{Recursive definitions}
+\subsection{Structural induction}
+\subsection{Recursive algorithms}
+\subsection{Induction and recursive algorithms}
+\subsection{Analyzing the time complexity of recursive algorithms}
+\subsection{Divide-and-conquer algorithms: Introduction and mergesort}
+\subsection{Divide-and-conquer algorithms: Binary Search}
+\subsection{Solving linear homogeneous recurrence relations}
+\subsection{Solving linear non-homogeneous recurrence relations}
+\subsection{Divide-and-conquer recurrence relations}
+
+a
+
+\section{Integer Properties}
+\subsection{The Division Algorithm}
+\subsection{Modular arithmetic}
+\subsection{Prime factorizations}
+\subsection{Factoring and primality testing}
+\subsection{Greatest common factor divisor and Euclid's algorithm}
+\subsection{Number representation}
+\subsection{Fast exponentiation}
+\subsection{Introduction to cryptography}
+\subsection{The RSA cryptosystem}
+
+a
+
+\section{Introduction to Counting}
+\subsection{Sum and Product Rules}
+\subsection{The Bijection Rules}
+\subsection{The generalized product rule}
+\subsection{Counting permutations}
+\subsection{Counting subsets}
+\subsection{Subset and permutation examples}
+\subsection{Counting by complement}
+\subsection{Permutations with repetitions}
+\subsection{Counting multisets}
+\subsection{Assignment problems: Balls in bins}
+\subsection{Inclusion-exclusion principle}
+
+\section{Advanced Counting}
+\subsection{Generating permutations}
+\subsection{Binomial coefficients and combinatorial identities}
+\subsection{The pigeonhole principle}
+\subsection{Generating functions}
+
+a
+
+\section{Discrete Probability}
+\subsection{Probability of an event}
+\subsection{Unions and complements of events}
+\subsection{Conditional probability and independence}
+\subsection{Bayes' Theorem}
+\subsection{Random variables}
+\subsection{Expectation of random variables}
+\subsection{Linearity of expectations}
+\subsection{Bernoulli trials and the binomial distribution}
+
+a
+
+\section{Graphs}
+\subsection{Introduction to Graphs}
+\subsection{Graph representations}
+\subsection{Graph isomorphism}
+\subsection{Walks, trails, circuits, paths, and cycles}
+\subsection{Graph connectivity}
+\subsection{Euler circuits and trails}
+\subsection{Hamiltonian cycles and paths}
+\subsection{Planar coloring}
+\subsection{Graph coloring}
+
+a
+
+\section{Trees}
+\subsection{Introduction to trees}
+\subsection{Tree application examples}
+\subsection{Properties of trees}
+\subsection{Tree traversals}
+\subsection{Spanning trees and graph traversals}
+\subsection{Minimum spanning trees}
 \end{document}
