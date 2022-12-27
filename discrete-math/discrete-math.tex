@@ -1,0 +1,50 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{tikz}
+\usepackage{centernot}
+\usepackage{multirow}
+\usepackage{hhline}
+\usepackage{etoolbox}
+\AtBeginEnvironment{align}{\setcounter{equation}{0}}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    filecolor=magenta,      
+    urlcolor=cyan,
+}
+
+\title{Discrete Math for Computer Science}
+\author{Peter Schaefer}
+\date{Freshman Fall}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+
+\newpage
+
+\include{logic.tex}
+\include{proofs.tex}
+\include{sets.tex}
+\include{functions.tex}
+\include{boolean-algebra.tex}
+\include{relations-and-digraphs.tex}
+\include{computation.tex}
+\include{induction-and-recursion.tex}
+\include{integer-properties.tex}
+\include{introduction-to-counting.tex}
+\include{advanced-counting.tex}
+\include{discrete-probability.tex}
+\include{graphs.tex}
+\include{trees.tex}
+
+\end{document}
