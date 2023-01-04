@@ -153,7 +153,7 @@ Reversing the cartesian pair does not always create a well-defined function.
 \textbf{Examples}:
 \begin{align*}
   X & = \{1, 2, 3\} & f = \{(1, 7), (2, 9), (3, 9)\} \\
-  Y & = \{7, 8, 9\}
+  Y & = \{7, 8, 9\} & g = \{(1, 9), (2, 7), (3, 8)\}
 \end{align*}
 
 \begin{center}
@@ -218,7 +218,7 @@ Reversing the cartesian pair does not always create a well-defined function.
     \end{scope}
     \node[draw, fit=(\set), label={[name=\i]above:$\set$}] {};
     }
-    \foreach \domain/\target in {9/1,7/2,8,3} { %function pairs, uses indices
+    \foreach \domain/\target in {9/1,7/2,8/3} { %function pairs, uses indices
         \draw[->] (1-\domain) -- (2-\target);
       }
     \draw[->] (1) -- node[above]{$g^{-1}$}(2); %function name
@@ -252,7 +252,7 @@ Let $f: A \rightarrow B$ be a bijection. Then,
 
 \subsection{Logarithms and exponents}
 
-The \textbf{exponential} function, $\text{exp}_b: \mathbb{R} \rightarrow \mathbb{R}^+, \text{exp}_b(x) = b^x$.
+The \textbf{Exponential} function, $\text{exp}_b: \mathbb{R} \rightarrow \mathbb{R}^+, \text{exp}_b(x) = b^x$.
 $b$ is the base of the exponent and $x$ is the exponent.
 
 Properties of exponents:
@@ -261,4 +261,32 @@ Properties of exponents:
   (b^x)^{y}       & = b^{xy}  & x & \in \mathbb{R}   & y & \in \mathbb{R}   \\
   \frac{b^x}{b^y} & = b^{x-y}                                               \\
   (bc)^x          & = b^xc^x
+\end{align*}
+
+\begin{center}
+  \begin{tikzpicture}
+    \draw[<->] (-3,0) -- (3,0) node[right] {$x$};
+    \draw[<->] (0,-3) -- (0,3) node[above] {$y$};
+    \begin{scope}
+      \clip (-3,-3) rectangle (3,3);
+      \draw[domain=-3:3, variable=\x, samples=50, smooth, blue, thick] plot ({\x}, {(exp(\x))});
+    \end{scope}
+    \begin{scope}
+      \clip (-3,-3) rectangle (3,3);
+      \draw[domain=0.0001:3, variable=\x, samples=50, smooth, red, thick] plot ({\x}, {(ln(\x))});
+    \end{scope}
+    \draw (-1,-1) node[red] {log$(x)$};
+    \draw (2,2) node[blue] {exp$(x)$};
+  \end{tikzpicture}
+\end{center}
+
+The \textbf{Logarithms} function, $\text{log}_b: \mathbb{R} \rightarrow \mathbb{R}^+, \text{log}_b(y) = x$.
+$b$ is the base of the logarithm and $x$ is the exponent.
+
+Properties of exponents:
+\begin{align*}
+  \text{log}_b(xy)          & = \text{log}_bx + \text{log}_by       & b & \in \mathbb{R}^+ \\
+  \text{log}_b(\frac{x}{y}) & = \text{log}_bx - \text{log}_by       & c & \in \mathbb{R}^+ \\
+  \text{log}_b(x^y)         & = y\text{log}_bx                      & x & \in \mathbb{R}   \\
+  \text{log}_cx             & = \frac{\text{log}_bx}{\text{log}_bc} & y & \in \mathbb{R}
 \end{align*}

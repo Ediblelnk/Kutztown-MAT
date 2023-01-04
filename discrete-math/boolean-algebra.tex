@@ -1,5 +1,76 @@
 \section{Boolean Algebra}
 \subsection{An introduction to Boolean Algebra}
+
+\textbf{Boolean Algebra} is a set of rules/operations for working with variables whose values are either 0 or 1.
+It corresponds highly to propositional logic.
+
+\textbf{Boolean Multiplication}, denoted by $\cdot$.
+\begin{align*}
+  \text{Boolean } & \cdot & \text{Logic }           & \land      \\
+  0 \cdot 0       & = 0   & \text{F} \land \text{F} & = \text{F} \\
+  0 \cdot 1       & = 0   & \text{F} \land \text{T} & = \text{F} \\
+  1 \cdot 0       & = 0   & \text{T} \land \text{F} & = \text{F} \\
+  1 \cdot 1       & = 1   & \text{T} \land \text{T} & = \text{T}
+\end{align*}
+
+\textbf{Boolean Addition}, denoted by $+$.
+\begin{align*}
+  \text{Boolean } & \cdot & \text{Logic }          & \lor       \\
+  0 + 0           & = 0   & \text{F} \lor \text{F} & = \text{F} \\
+  0 + 1           & = 1   & \text{F} \lor \text{T} & = \text{T} \\
+  1 + 0           & = 1   & \text{T} \lor \text{F} & = \text{T} \\
+  1 + 1           & = 1   & \text{T} \lor \text{T} & = \text{T} \\
+\end{align*}
+
+\textbf{Boolean Complement}, denoted by $\bar{ }$.
+\begin{align*}
+  \text{Boolean } & \bar{ } & \text{Logic }  & \lnot      \\
+  \bar{0}         & = 1     & \lnot \text{F} & = \text{T} \\
+  \bar{1}         & = 0     & \lnot \text{T} & = \text{F} \\
+\end{align*}
+
+\begin{center}
+  \begin{circuitikz}
+    \draw (0,0) to[battery] (0,2)
+    to[switch, l=$x$] (2,2)
+    to[switch, l=$y$](4,2)
+    to[lamp] (4,0) -- (0,0);
+    \draw (2,-1) node[] {Shannon Circuit (AND $\cdot$)};
+  \end{circuitikz}
+  \qquad
+  \begin{circuitikz}
+    \draw (0,0) to[battery] (0,2) -- (1,2) -- (1,1.5)
+    to[switch, l=$x$] (3,1.5) -- (3,2) -- (4,2) to[lamp] (4,0) -- (0,0)
+    (1,2) -- (1,2.5)
+    to[switch, l=$y$] (3,2.5) -- (3,2);
+    \draw (2,-1) node[] {Switching Circuit (OR $+$)};
+  \end{circuitikz}
+\end{center}
+
+Variables that can have a value of either $1$ or $0$ are called \textbf{Boolean Variables}.
+Boolean expressions are made of boolean variables. There are also common shorthand ways of notating operations.
+\begin{align*}
+  x \cdot y + 1 \cdot \bar{z} & = xy + \bar{z}        \\
+  x + z + \overline{0 + y}    & = x + z \cdot \bar{y}
+\end{align*}
+
+\begin{center}
+  \begin{tabular}{r|c|c}
+    \textbf{Law Name} & $+$ OR                                               & $\cdot$ AND                                          \\
+    \hline
+    Idempotent        & $x + x = x$                                          & $x \cdot x = x$                                      \\
+    Associative       & $(x + y) + z = x + (y + z)$                          & $(x \cdot y) \cdot z = x \cdot (y \cdot z)$          \\
+    Commutative       & $x + y = y + x$                                      & $x \cdot y = y \cdot x$                              \\
+    Distributive      & $x + (y \cdot z) = (x + y) \cdot (x + z)$            & $x \cdot (y + z) = (x \cdot y) + (x \cdot z)$        \\
+    Identity          & $x + 0 = x$                                          & $x \cdot 1 = x$                                      \\
+    Domination        & $x + 1 = 1$                                          & $x \cdot 0 = 0$                                      \\
+    Double Complement & $\overline{\overline{x}} = x$                                                                               \\
+    Complement        & $x + \overline{x} =$ 1                               & $x \cdot \overline{x} =$ 0                           \\
+    DeMorgan          & $\overline{x + y} = \overline{x} \cdot \overline{y}$ & $\overline{x \cdot y} = \overline{x} + \overline{y}$ \\
+    Absorption        & $x + (x \cdot y) = x$                                & $x \cdot (x + y) = x$
+  \end{tabular}
+\end{center}
+
 \subsection{Boolean functions}
 \subsection{Disjunctive and conjunctive normal form}
 \subsection{Functional completeness}
