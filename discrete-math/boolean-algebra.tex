@@ -33,7 +33,7 @@ It corresponds highly to propositional logic.
   \begin{circuitikz}
     \draw (0,0) to[battery] (0,2)
     to[switch, l=$x$] (2,2)
-    to[switch, l=$y$](4,2)
+    to[switch, l=$y$] (4,2)
     to[lamp] (4,0) -- (0,0);
     \draw (2,-1) node[] {Shannon Circuit (AND $\cdot$)};
   \end{circuitikz}
@@ -228,6 +228,57 @@ Circuits are built from electrical devices called \textbf{gates}.
 
 The boolean function $f(x_1,x_2): (f(x_1,x_2) \cdot x_1) + x_2$. Yes, circuits can contain recursion.
 \begin{center}
-  \begin{circuitikz}
-  \end{circuitikz}
+  \includegraphics[width=.6\linewidth]{resources/recursive.png}
+\end{center}
+
+Boolean expressions can also be constructed by following the logic or a circuit.
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/construction_from_circuit.png}
+\end{center}
+\[
+  f(x_1,x_2,x_3) = \bar{x}_1 x_2 (\bar{x}_1 + x_3)
+\]
+
+An example of constructing a circuit from a boolean expression, $f(x,y,z):(x+y)(\bar{z}+\bar{y})$
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/construction_from_function.png}
+\end{center}
+
+\subsubsection{Designing Circuits}
+
+\begin{enumerate}
+  \item Build an input/output table with the desired output for every combination of input
+  \item Construct a boolean expression that computes the same function as the function specified in the input/output table
+  \item Construct a digital circuit that realizes the boolean expression
+\end{enumerate}
+
+I/O for sum of two bits, $x,y$
+\begin{center}
+  \begin{tabular}{cccc}
+    x & y & m & l \\
+    \hline
+    0 & 0 & 0 & 0 \\
+    1 & 0 & 0 & 1 \\
+    0 & 1 & 0 & 1 \\
+    1 & 1 & 1 & 0 \\
+  \end{tabular}
+\end{center}
+\begin{align*}
+  m & = xy                  & \text{most significant bit}  \\
+  l & = x\bar{y} + \bar{x}y & \text{least significant bit}
+\end{align*}
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/sum_of_two_bits.png}
+\end{center}
+\begin{center}
+  *\textit{this method does not necessarily give the most \underline{efficient} circuit}.
+\end{center}
+Circuits with fewer gates cost less to manufacture. Here is a simplified circuit to add two bits:
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/better_sum_of_two_bits.png}
+\end{center}
+
+Here is another example with boolean logic for light switches:
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/switches.png}
 \end{center}

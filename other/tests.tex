@@ -36,4 +36,19 @@
     }
   \draw[->] (1) -- node[above]{$f$}(2); %function name
 \end{tikzpicture}
+
+%use for digraphs for center
+\begin{tikzpicture}
+  \foreach[count=\i] \element in {a,b,c,d} { %domain
+      \node (\element) at (\i * 360 / 4 + 90:2) {$\element$};
+      \node (\element') at (\i * 360 / 4 + 90:3) {};
+    }
+  \foreach \j/\l in {a/b, b/c, c/d, e/b, e/a} { %a to b
+      \draw[->] (\j) -- (\l);
+    }
+  \foreach \j/\l in {a/a} { %a to a
+      \draw[--] (\j) to[bend right=90] (\j');
+      \draw[->] (\j') to[bend right=90] (\j);
+  }
+\end{tikzpicture}
 \end{document}

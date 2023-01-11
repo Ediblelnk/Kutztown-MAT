@@ -1,5 +1,44 @@
 \section{Relation and Digraphs}
 \subsection{Introduction to binary relations}
+
+A \textbf{Binary Relation} between two sets $A$ and $B$ is a subset $R$ of $A \times B$.
+It is binary because it is between two sets.
+\[
+  \text{for } a \in A \land b \in B, (a,b) \in R \text{ is denoted as } a\text{R}b
+\]
+
+For example, consider the relation C between $\mathbb{R}$ and $\mathbb{Z}$:
+\[
+  x\text{C}y \text{ if } \left\lvert x-y\right\rvert \leq 1, \text{ where } x \in \mathbb{R} \text{ and } y \in \mathbb{Z}
+\]
+If $A$ and $B$ are finite, then relation R between $A$ and $B$ can be represented by a set of ordered pairs.
+
+\subsubsection{Matrix Representation}
+\begin{align*}
+  P           & = \{\text{Sue}, \text{Harry}, \text{Sam}\}                       \\
+  \text{File} & = \{\text{File A}, \text{File B}, \text{File C}, \text{File D}\}
+\end{align*}
+\[
+  \bordermatrix{ & \text{File A} & \text{File B} & \text{File C} & \text{File D} \cr
+    \text{Sue}   & 0 & 1 & 1 & 1 \cr
+    \text{Harry} & 1 & 0 & 0 & 0 \cr
+    \text{Sam}   & 0 & 0 & 0 & 0 \cr }
+\]
+\begin{center}
+  An element is
+  \begin{tabular}{c}
+    1 if $p$R$f$ is true \\
+    0 if $p$R$f$ is false
+  \end{tabular}
+\end{center}
+
+\subsubsection{Arrow Diagram}
+\begin{align*}
+  A & = \{a,b,c,d,e\}                                \\
+  R & \subseteq A \times A                           \\
+  R & = \{(a,b), (b,c), (e,c), (c,e), (d,a), (d,d)\}
+\end{align*}
+
 \subsection{Properties of binary relations}
 \subsection{Directed graphs, paths, and cycles}
 \subsection{Composition of relations}
