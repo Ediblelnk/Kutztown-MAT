@@ -13,7 +13,7 @@ For example, consider the relation C between $\mathbb{R}$ and $\mathbb{Z}$:
 \]
 If $A$ and $B$ are finite, then relation R between $A$ and $B$ can be represented by a set of ordered pairs.
 
-\subsubsection{Matrix Representation}
+\subsubsection*{Matrix Representation}
 \begin{align*}
   P           & = \{\text{Sue}, \text{Harry}, \text{Sam}\}                       \\
   \text{File} & = \{\text{File A}, \text{File B}, \text{File C}, \text{File D}\}
@@ -32,7 +32,7 @@ If $A$ and $B$ are finite, then relation R between $A$ and $B$ can be represente
   \end{tabular}
 \end{center}
 
-\subsubsection{Arrow Diagram}
+\subsubsection*{Arrow Diagram}
 \begin{align*}
   A & = \{a,b,c,d,e\}                                \\
   R & \subseteq A \times A                           \\
@@ -62,7 +62,7 @@ If $A$ and $B$ are finite, then relation R between $A$ and $B$ can be represente
   \end{tikzpicture}
 \end{center}
 
-\subsubsection{Arrow Diagram vs. Matrix Representation}
+\subsubsection*{Arrow Diagram vs. Matrix Representation}
 \begin{align*}
   A & = \{1,2,3,4\}                                  \\
   R & = \{(1,2), (1,3), (2,2), (2,3), (3,4), (4,3)\}
@@ -70,7 +70,7 @@ If $A$ and $B$ are finite, then relation R between $A$ and $B$ can be represente
 \begin{center}
   \begin{tikzpicture}
     %VARIABLES
-    \pgfmathsetmacro{\gsize}{2}
+    \pgfmathsetmacro{\gsize}{1}
     \pgfmathsetmacro{\gnum}{4}
 
     \foreach[count=\i] \element in {1,2,3,4} { %domain
@@ -158,7 +158,7 @@ For Arrow Diagrams, this means that every arrow has an arrow going the other way
   \begin{tikzpicture}
     %VARIABLES
     \pgfmathsetmacro{\gsize}{1}
-    \pgfmathsetmacro{\gnum}{3}
+    \pgfmathsetmacro{\gnum}{4}
 
     \foreach[count=\i] \element in {a,b,c} { %domain
         \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
@@ -170,7 +170,7 @@ For Arrow Diagrams, this means that every arrow has an arrow going the other way
       }
   \end{tikzpicture}
 \end{center}
-For Matrix Representation, this means that the top left to bottom right diagonal are all 0's:
+For Matrix Representation, this means that the matrix is symmetric along the top left to bottom right diagonal:
 \begin{center}
   $
     \bordermatrix{ & a & b & c & d \cr
@@ -208,7 +208,7 @@ For Arrow Diagrams, this means that each arrow does not have an arrow going the 
       }
   \end{tikzpicture}
 \end{center}
-For Matrix Representation, this means that the top left to bottom right diagonal are all 0's:
+For Matrix Representation, this means that the matrix is anti-symmetric along the top left to bottom right diagonal:
 \begin{center}
   $
     \bordermatrix{ & a & b & c & d \cr
@@ -225,7 +225,122 @@ For Matrix Representation, this means that the top left to bottom right diagonal
   \end{tabular}
 \end{center}
 
+A binary relation of R on set $A$ is \textbf{Transitive} if for \textit{every} three elements $x,y,z \in A$,
+if $x$R$y$ and $y$R$z$, then $x$R$z$. Logically, ($x$R$y \land y$R$z) \implies x$R$z$.
+For Arrow Diagrams, this means the graph follows a hierarchy or kind of flow:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{5}
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b,b/c,a/c} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {d/e} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {d,a} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+For Matrix Representation, it is much more difficult to determine transitivity, but here is an example:
+\[
+  \bordermatrix{ & a & b & c & d & e \cr
+    a & 1 & 1 & 1 & 0 & 0 \cr
+    b & 0 & 0 & 1 & 0 & 0 \cr
+    c & 0 & 0 & 0 & 0 & 0 \cr
+    d & 0 & 0 & 0 & 1 & 1 \cr
+    e & 0 & 0 & 0 & 1 & 0 \cr }
+\]
+
 \subsection{Directed graphs, paths, and cycles}
+
+A directed graph, or \textbf{Diagraph}, consists of a pair $(V,E)$, where $V$ is the set of vertices
+and $E$ is the set of \textit{directed edges}. It is a subset of $V \times V$.
+\begin{itemize}
+  \item indegree: \# of edges pointing towards a vertex, $\text{indegree}(u) = \left\lvert\{v : (v,u) \in E\}\right\rvert$
+  \item outdegree: \# of edges pointing away from a vertex, $\text{outdegree}(u) = \left\lvert\{u : (v,u) \in E\}\right\rvert$
+\end{itemize}
+A digraph is organized into a cartesian pair of the set of vertices and edge pairs:
+\begin{align*}
+  \text{Graph } G & = (V,E)                      \\
+  V               & = \{a,b,c,d\}                \\
+  E               & = \{(a,b),(b,c)(a,c),(d,d)\}
+\end{align*}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{4}
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b,b/c,a/c} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {d} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+\begin{align*}
+  \text{indegree}(c) & = 2 & \text{outdegree}(a) & = 2 & a & \text{ is the \underline{tail} of edge $(a,b)$} \\
+  \text{indegree}(d) & = 1 & \text{outdegree}(d) & = 1 & b & \text{ is the \underline{head} of edge $(a,b)$} \\
+\end{align*}
+
+A digraph is mathematically the same as a relation. Here is an example of the internet as a graph:
+\begin{align*}
+  \text{Graph } G & = (V,E)                                                     \\
+  V               & = \text{ set of all URLs}                                   \\
+  E               & = \text{ set of all hyperlinks from one URL to another URL}
+\end{align*}
+\begin{align*}
+  B   & = \text{ Blog}                   \\
+  P   & = \text{ Pediatrician website}   \\
+  PC  & = \text{ Pharmaceutical Company} \\
+  AoP & = \text{ Academy of Pediatrics}
+\end{align*}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{4}
+
+    \foreach[count=\i] \element in {B, P, PC, AoP} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {B/P, B/PC, B/AoP, P/PC, P/AoP, PC/AoP} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+
+\subsubsection*{Walks in Directed Graphs}
+
 \subsection{Composition of relations}
 \subsection{Graph powers and the transitive closure}
 \subsection{Matrix multiplication and graph powers}
