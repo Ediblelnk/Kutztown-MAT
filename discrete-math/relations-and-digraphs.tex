@@ -38,8 +38,193 @@ If $A$ and $B$ are finite, then relation R between $A$ and $B$ can be represente
   R & \subseteq A \times A                           \\
   R & = \{(a,b), (b,c), (e,c), (c,e), (d,a), (d,d)\}
 \end{align*}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1.5}
+    \pgfmathsetmacro{\gnum}{5}
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum + 180 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum + 180 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b,b/c,d/a} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {e/c} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {d} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+
+\subsubsection{Arrow Diagram vs. Matrix Representation}
+\begin{align*}
+  A & = \{1,2,3,4\}                                  \\
+  R & = \{(1,2), (1,3), (2,2), (2,3), (3,4), (4,3)\}
+\end{align*}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{2}
+    \pgfmathsetmacro{\gnum}{4}
+
+    \foreach[count=\i] \element in {1,2,3,4} { %domain
+        \node (\element) at (\i * 360 / \gnum + 180 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum + 180 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {1/2,1/3,2/3} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {3/4} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {2} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+  \qquad
+  $
+    \bordermatrix{ & 1 & 2 & 3 & 4 \cr
+      1 & 0 & 1 & 1 & 0 \cr
+      2 & 0 & 1 & 1 & 0 \cr
+      3 & 0 & 0 & 0 & 1 \cr
+      4 & 0 & 0 & 1 & 0 \cr }
+  $
+\end{center}
 
 \subsection{Properties of binary relations}
+
+A binary relation of R on set $A$ is \textbf{Reflective} if for \textit{every} $x \in A$, $x$R$x$.
+For Arrow Diagrams, this means the graph contains self-loops:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{2}
+
+    \foreach[count=\i] \element in {a,b} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j in {a,b} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+For Matrix Representation, this means that the top left to bottom right diagonal are all 1's:
+\[
+  \bordermatrix{ & a & b & c & d \cr
+    a & 1 & - & - & - \cr
+    b & - & 1 & - & - \cr
+    c & - & - & 1 & - \cr
+    d & - & - & - & 1 \cr }
+\]
+
+A binary relation of R on set $A$ is \textbf{Anti-reflective} if for \textit{every} $x \in A$, $x$R$x$ is \textit{not} true.
+For Arrow Diagrams, this means the graph does not contain self-loops:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{2}
+
+    \foreach[count=\i] \element in {a,b} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+  \end{tikzpicture}
+\end{center}
+For Matrix Representation, this means that the top left to bottom right diagonal are all 0's:
+\[
+  \bordermatrix{ & a & b & c & d \cr
+    a & 0 & - & - & - \cr
+    b & - & 0 & - & - \cr
+    c & - & - & 0 & - \cr
+    d & - & - & - & 0 \cr }
+\]
+
+A binary relation of R on set $A$ is \textbf{Symmetric} if and only if for \textit{every} pair $x \in A$, $y \in Y$,
+either \textit{both} $x$R$y$ \underline{and} $y$R$x$, or \textit{both} not $x$R$y$ or not $y$R$x$ is true.
+For Arrow Diagrams, this means that every arrow has an arrow going the other way:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{3}
+
+    \foreach[count=\i] \element in {a,b,c} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b,b/c} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+For Matrix Representation, this means that the top left to bottom right diagonal are all 0's:
+\begin{center}
+  $
+    \bordermatrix{ & a & b & c & d \cr
+      a & - & u & v & x \cr
+      b & u & - & w & y \cr
+      c & v & w & - & z \cr
+      d & x & y & z & - \cr }
+  $
+  where
+  \begin{tabular}{c}
+    $u \in \{0,1\}$ \\
+    $\vdots$        \\
+    $z \in \{0,1\}$
+  \end{tabular}
+\end{center}
+
+A binary relation of R on set $A$ is \textbf{Anti-symmetric} if and only if for \textit{every} pair $x \in A$, $y \in Y$, $x$R$y$ xor $y$R$x$.
+For Arrow Diagrams, this means that each arrow does not have an arrow going the other way:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1}
+    \pgfmathsetmacro{\gnum}{5}
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b, b/c, a/c, b/e, d/e} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j in {a,e,d} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+  \end{tikzpicture}
+\end{center}
+For Matrix Representation, this means that the top left to bottom right diagonal are all 0's:
+\begin{center}
+  $
+    \bordermatrix{ & a & b & c & d \cr
+      a & - & \bar{u} & \bar{v} & \bar{x} \cr
+      b & u & - & \bar{w} & \bar{y} \cr
+      c & v & w & - & \bar{z} \cr
+      d & x & y & z & - \cr }
+  $
+  where
+  \begin{tabular}{c}
+    $u \in \{0,1\}$ \\
+    $\vdots$        \\
+    $z \in \{0,1\}$
+  \end{tabular}
+\end{center}
+
 \subsection{Directed graphs, paths, and cycles}
 \subsection{Composition of relations}
 \subsection{Graph powers and the transitive closure}
