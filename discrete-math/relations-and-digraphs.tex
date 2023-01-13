@@ -341,9 +341,455 @@ A digraph is mathematically the same as a relation. Here is an example of the in
 
 \subsubsection*{Walks in Directed Graphs}
 
+A \textit{walk} is a sequence of vertices and edges. For example, a walk from $v_0$ to $v_l$ is notated as:
+\[
+  \left\langle v_0,(v_0,v_1), v_1,(v_1,v_2), \ldots,(v_{l-1},v_l), v_l\right\rangle
+\]
+where each edge in the sequence appears after its tail and before its head. A walk can also be a set of vertices:
+\[
+  \left\langle v_0, v_1, \ldots, v_l\right\rangle
+\]
+provided that the edges between the vertices \textit{actually exist}.
+The \textbf{length} of a walk is the number of edges traversed.
+\begin{itemize}
+  \item \textbf{Open walk}: first and last vertices are \textit{not} the same
+  \item \textbf{Closed walk}: first and last vertices \textit{are} the same.
+\end{itemize}
+
+\subsubsection*{Trails, Circuits, Paths, Cycles}
+\begin{itemize}
+  \item \textbf{Trail}: \textit{open} walk in which no edge occurs more than once.
+  \item \textbf{Circuit}: \textit{closed} walk in which no edge occurs more than once. A circuit is a closed trail.
+  \item \textbf{Path}: \textit{trail} where no vertex occurs more than once.
+  \item \textbf{Cycle}: \textit{circuit} where no vertex occurs more than once, \textit{except} for the first and last, which are the same.
+\end{itemize}
+Here are some examples:
+\begin{align*}
+  \left\langle a,c,d,a\right\rangle   & \text{ is a \textbf{cycle}: only the first and last vertices are repeated.} \\
+  \left\langle a,c,a,d,a\right\rangle & \text{ is a \textbf{circuit}: vertices are repeated, but not edges}         \\
+  \left\langle a,b,c,b,d\right\rangle & \text{ is a \textbf{trail}: open, vertices are repeated, but not edges}
+\end{align*}
+
 \subsection{Composition of relations}
+
+\begin{itemize}
+  \item one-to-one correspondence between digraphs and binary relations
+  \item arrow diagram for a binary relation \textit{is} a directed graph
+\end{itemize}
+The \textbf{composition} of relations R and S on set $A$ is denoted as S$\circ$R. Logically, this is what is means:
+\[
+  (a,c) \in S \circ R \iff \exists b : (b \in A \land (a,b) \in R \land (b,c) \in S)
+\]
+Composition is applied \textit{right to left}, much like composition of functions, or matrix transformations.
+Therefore, S$\circ$R means R is applied first, then S.
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/d,b/c} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {c/d} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {b} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {R}; %relation name
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {b/a,b/d,d/c} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {S}; %relation name
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/c,b/a,b/d} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {c} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {S$\circ$R}; %relation name
+  \end{tikzpicture}
+\end{center}
+
 \subsection{Graph powers and the transitive closure}
+
+A relation can be composed with itself. For example, consider relation P, which expresses parent-child relationship.
+\begin{center}
+  \begin{tabular}{l}
+    $x$P$y$ means $x$ is the parent of $y$. \\
+    $x$P$\circ$P$z$ means $x$ is the grandparent of $z$
+  \end{tabular}
+\end{center}
+A relation composed with itself also represents walks of different lengths.
+\begin{center}
+  \begin{tabular}{l}
+    P$\circ$P represents all walks of length 2. \\
+    P$\circ$P$\circ$P represents all walks of length 3.
+  \end{tabular}
+\end{center}
+
+\subsubsection*{The Graph Power Theorem}:
+Let G be a directed graph. Let $u$ and $v$ be any two vertices in G. There is an edge from $u$ to $v$ in $G^k$
+if and only if there is a walk of length $k$ from $u$ to $v$ in G.
+\begin{align*}
+  R^1 & = R                                         \\
+  R^k & = R \circ R^{k-1} \text{ for all } k \geq 2
+\end{align*}
+
+\subsubsection*{Transitive Closure}
+\[
+  G^+ = G^1 \cup G^2 \cup G^3 \cup \cdots
+\]
+if $G$ is not infinite, only up to the number of vertices are required for a complete graph of $G^+$
+\[
+  G^+ = G^1 \cup G^2 \cup G^3 \cup \cdots \cup G^{\left\lvert V\right\rvert}
+\]
+Here is an example of a series of graph powers:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {b/a,c/b,c/d} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {a/d} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {$G$}; %relation name
+  \end{tikzpicture}
+  \quad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {b/d,c/a} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {a,d} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {$G^2$}; %relation name
+  \end{tikzpicture}
+  \quad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {b/a,c/d} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {a/d} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {$G^3$}; %relation name
+  \end{tikzpicture}
+  \quad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {c/a,b/d} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {a,d} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {$G^4$}; %relation name
+  \end{tikzpicture}
+\end{center}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+    \foreach[count=\i] \element in {a,b,c,d} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {b/a, b/d, c/b, c/a} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {a/d} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {a,d} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {$G^+$}; %relation name
+  \end{tikzpicture}
+\end{center}
+
+\subsubsection*{Finding the Transitive Closure of a Relation $R$ on set $A$}
+Repeat until no pair is added to $R$.
+\begin{center}
+  If there are 3 elements $x,y,z \in A$ such that $x$R$y$ and $y$R$z$ but not $x$R$z$, add $x$R$z$ to R.
+\end{center}
+For example:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1.5};
+    \pgfmathsetmacro{\gnum}{5};
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b, b/e, d/e} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {b/c} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {b,e} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {Relation}; %relation name
+  \end{tikzpicture}
+  \quad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1.5};
+    \pgfmathsetmacro{\gnum}{5};
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b, b/e, d/e} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {b/c} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {b,e} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \foreach \j/\l in {a/e,c/e} { %a to b in red
+        \draw[->, red] (\j) -- (\l);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {Relation with Transitive Closure}; %relation name
+  \end{tikzpicture}
+\end{center}
+\begin{center}
+  Edges added to find transitive closure are shown in red.
+\end{center}
+
 \subsection{Matrix multiplication and graph powers}
+An $n \times m$ \textbf{matrix} over set $S$ is an array of elements from $S$ with $n$ rows and $m$ columns.
+Each element in a matrix is called an \textit{entry}.
+A \textbf{square matrix} has the same number of rows and columns.
+Here are a number of example matrixes
+\begin{align*}
+  \begin{bmatrix}
+    1  & 3  \\
+    3  & -5 \\
+    -2 & -2
+  \end{bmatrix}
+                                             &  &
+  \begin{bmatrix}
+    1.1  & 3.0  & -5.4 \\
+    -2.2 & -2.1 & 1
+  \end{bmatrix}
+                                             &  &
+  \begin{bmatrix}
+    1 & 0 \\
+    1 & 1
+  \end{bmatrix}                                                                                                                          \\
+  3 \times 2 \text{ matrix over } \mathbb{Z} &  & 2 \times 3 \text{ matrix over } \mathbb{Z} &  & 2 \times 2 \text{ matrix over } \{0,1\}
+\end{align*}
+A directed graph $G$ can be represented by a Matrix.
+\begin{center}
+  $n$ vertices $\rightarrow$ $n \times n$ matrix over the set \{0,1\}, called an \textbf{adjacency matrix}
+\end{center}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{3};
+
+    \foreach[count=\i] \element in {1,2,3} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {3/2} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {1/2} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \foreach \j/\l in {3/1} { %a to b in red
+        \draw[->, red] (\j) -- (\l);
+      }
+  \end{tikzpicture}
+  $
+    \begin{bmatrix}
+      0                       & 1 & 0 \\
+      1                       & 0 & 0 \\
+      \text{\textcolor{red}1} & 1 & 0
+    \end{bmatrix}
+  $
+\end{center}
+A \textbf{boolean matrix} is a matrix over the set \{0,1\}, and boolean addition and multiplication are used.
+The \textbf{dot product} of a matrix $A$ and $B$ is defined only if \# of columns in $A$ = \# of rows in $B$
+\[
+  A =
+  \begin{bmatrix}
+    1                       & 1                       & 1                       \\
+    \text{\textcolor{red}1} & \text{\textcolor{red}0} & \text{\textcolor{red}1} \\
+    0                       & 1                       & 0
+  \end{bmatrix}
+  \qquad
+  B =
+  \begin{bmatrix}
+    1 & 0 & \text{\textcolor{green}1} \\
+    0 & 0 & \text{\textcolor{green}1} \\
+    1 & 0 & \text{\textcolor{green}1}
+  \end{bmatrix}
+\]
+\begin{center}
+  \begin{tabular}{cccccc}
+    {\textcolor{red}1}            &   & {\textcolor{red}0}           &   & {\textcolor{red}1}                                         \\
+    $\times$ {\textcolor{green}1} &   & $\times${\textcolor{green}1} &   & $\times$ {\textcolor{green}1}                              \\
+    \hhline{-~-~-}
+    1                             & + & 0                            & + & 1                             & = 1 = $(A \times B)_{2,3}$
+  \end{tabular}
+\end{center}
+
+\subsubsection*{Matrix Product}
+\begin{itemize}
+  \item denoted as $AB$ or $A \cdot B$
+  \item uses a series of dot products to compute
+\end{itemize}
+There are a number of properties of matrix multiplication:
+\begin{center}
+  \begin{tabular}{rc}
+    \sout{Commutative} & $AB \not = BA$                                   \\
+    Associative        & $(AB)C = A(BC)$                                  \\
+    Distributive       & $A(B + C) = AB + AC$                             \\
+                       & $(B+C)A = BA + CA$                               \\
+    Multiplicative     & $IA = A$ and $AI = A$                            \\
+                       & $OA = A$ and $AO = O$                            \\
+    Dimension          & $(m \times n) \cdot (n \times k) = (m \times k)$
+  \end{tabular}
+\end{center}
+$k^{th}$ power of a matrix:
+\[
+  A^k = \underbrace{A \cdot A \cdots A}_{k \text{ times}}
+\]
+
+If $G$ is a digraph, $G^k$ represents all walks of length $k$ in $G$.
+There is an edge from vertex $v$ to vertex $w$ in $G^k$ if and only if there is a walk of length \textit{exactly}
+$k$ from $v$ to $w$ in $G$. Matrix multiplication provides a systematic way of computing $G^k$.
+\begin{enumerate}
+  \item Take \textit{adjacency matrix} $A$ for graph $G$
+  \item Compute $A^k$ by repeated \textit{matrix multiplication}
+  \item Matrix $A^k$ is the \textit{adjacency matrix} for graph $G^k$.
+\end{enumerate}
+
+\subsubsection*{Relationship between powers of a graph and the powers of its adjacency matrix}
+Let $G$ be a directed graph with $n$ vertices and let $A$ be the adjacency matrix for $G$.
+Then for $k \geq 1$, $A^k$ is the adjacency matrix of $G^k$,
+where boolean addition and multiplication are used to compute $A^k$.
+
 \subsection{Partial orders}
 \subsection{Strict orders and directed acyclic graphs}
 \subsection{Equivalence relations}

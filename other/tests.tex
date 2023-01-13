@@ -40,8 +40,9 @@
 %use for digraphs for center
 \begin{tikzpicture}
   %VARIABLES
-  \pgfmathsetmacro{\gsize}{1}
-  \pgfmathsetmacro{\gnum}{4}
+  \pgfmathsetmacro{\gsize}{1};
+  \pgfmathsetmacro{\gnum}{4};
+
 
   \foreach[count=\i] \element in {a,b,c,d} { %domain
       \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
@@ -54,10 +55,11 @@
       \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
       \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
     }
-  \foreach \j in {a,b,c,d} { %a to a
+  \foreach \j in {a,b,d} { %a to a
       \draw[->] (\j) to[bend left=65] (\j-)
-       to[bend left=65] (\j);
+      to[bend left=65] (\j);
     }
+  \node[anchor=east] (name) at (145:\gsize+.5) {R}; %relation name
 \end{tikzpicture}
 
 
