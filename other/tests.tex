@@ -43,7 +43,6 @@
   \pgfmathsetmacro{\gsize}{1};
   \pgfmathsetmacro{\gnum}{4};
 
-
   \foreach[count=\i] \element in {a,b,c,d} { %domain
       \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
       \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};

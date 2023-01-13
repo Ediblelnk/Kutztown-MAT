@@ -789,8 +789,332 @@ $k$ from $v$ to $w$ in $G$. Matrix multiplication provides a systematic way of c
 Let $G$ be a directed graph with $n$ vertices and let $A$ be the adjacency matrix for $G$.
 Then for $k \geq 1$, $A^k$ is the adjacency matrix of $G^k$,
 where boolean addition and multiplication are used to compute $A^k$.
+\begin{center}
+  Example:
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{5};
+
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/b,a/d,b/e} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {d/e} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {c} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {G}; %relation name
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{5};
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/e,b/d} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {c,d,e} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {G$^2$}; %relation name
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{5};
+
+    \foreach[count=\i] \element in {a,b,c,d,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {a/d,b/e} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j/\l in {e/d} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \foreach \j in {c} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {G$^3$}; %relation name
+  \end{tikzpicture}
+\end{center}
+\[
+  A =
+  \begin{bmatrix}
+    0 & 1 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 & 0
+  \end{bmatrix}
+  \quad
+  A^2 =
+  \begin{bmatrix}
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 1
+  \end{bmatrix}
+  \quad
+  A^3 =
+  \begin{bmatrix}
+    0 & 0 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 1 & 0 & 0 \\
+    0 & 0 & 0 & 0 & 1 \\
+    0 & 0 & 0 & 1 & 0
+  \end{bmatrix}
+\]
+
+\subsubsection*{Matrix Sum}
+\begin{itemize}
+  \item denoted as $A + B$
+  \item well-defined if same \# of row and \# of columns
+\end{itemize}
+\[
+  (A+B)_{i,j} = A_{i,j} + B_{i,j} \text{ for all $i$ and $j$ in range of $A$ or $B$}
+\]
+For example,
+\begin{center}
+  \begin{tabular}{ccccc}
+    \text{\textcolor{blue}0} & + & \text{\textcolor{red}1} & = & \text{\textcolor{purple}1} \\
+    $
+      \begin{bmatrix}
+        1                        & 0 & 1 \\
+        \text{\textcolor{blue}0} & 1 & 0 \\
+        0                        & 0 & 1
+      \end{bmatrix}
+    $                        & + &
+    $
+      \begin{bmatrix}
+        0                       & 0 & 1 \\
+        \text{\textcolor{red}1} & 1 & 0 \\
+        0                       & 1 & 1
+      \end{bmatrix}
+    $                        & = &
+    $
+      \begin{bmatrix}
+        1                          & 0 & 1 \\
+        \text{\textcolor{purple}1} & 1 & 0 \\
+        0                          & 1 & 1
+      \end{bmatrix}
+    $                                                                                       \\
+    $A$                      & + & $B$                     & = & $A+B$
+  \end{tabular}
+\end{center}
+
+\subsubsection*{Addition and Graph Union}
+Let $G$ and $H$ be two directed graphs with the same vertex set.
+Let $A$ be adjacency matrix for $G$ and $B$ the adjacency matrix for $H$.
+
+Then the adjacency matrix for $G \cup H = A + B$, where boolean addition is used on the entries of matrices $A$ and $B$.
+\begin{center}
+  \begin{tabular}{ccccc}
+    \begin{tikzpicture}
+      %VARIABLES
+      \pgfmathsetmacro{\gsize}{1};
+      \pgfmathsetmacro{\gnum}{4};
+
+      \foreach[count=\i] \element in {1,2,3,4} { %domain
+          \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+          \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        }
+      \foreach \j/\l in {2/4,3/2} { %a to b
+          \draw[->] (\j) -- (\l);
+        }
+      \foreach \j/\l in {1/2} { %a to b AND b to a
+          \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+          \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+        }
+      \foreach \j in {4} { %a to a
+          \draw[->] (\j) to[bend left=65] (\j-)
+          to[bend left=65] (\j);
+        }
+    \end{tikzpicture} & $\cup$ &
+    \begin{tikzpicture}
+      %VARIABLES
+      \pgfmathsetmacro{\gsize}{1};
+      \pgfmathsetmacro{\gnum}{4};
+
+      \foreach[count=\i] \element in {1,2,3,4} { %domain
+          \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+          \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        }
+      \foreach \j/\l in {1/3,2/4,3/2,4/1} { %a to b
+          \draw[->] (\j) -- (\l);
+        }
+      \foreach \j/\l in {1/2} { %a to b AND b to a
+          \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+          \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+        }
+      \foreach \j in {4} { %a to a
+          \draw[->] (\j) to[bend left=65] (\j-)
+          to[bend left=65] (\j);
+        }
+    \end{tikzpicture} & =      &
+    \begin{tikzpicture}
+      %VARIABLES
+      \pgfmathsetmacro{\gsize}{1};
+      \pgfmathsetmacro{\gnum}{4};
+
+      \foreach[count=\i] \element in {1,2,3,4} { %domain
+          \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+          \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        }
+      \foreach \j/\l in {4/1,3/2,1/3} { %a to b
+          \draw[->] (\j) -- (\l);
+        }
+      \foreach \j/\l in {1/2} { %a to b AND b to a
+          \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+          \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+        }
+      \foreach \j in {4} { %a to a
+          \draw[->] (\j) to[bend left=65] (\j-)
+          to[bend left=65] (\j);
+        }
+    \end{tikzpicture}                                  \\
+    $G$                                                                           & $\cup$ & $H$ & = & $G \cup H$ \\
+    $A$                                                                           & +      & $B$ & = & $A+B$      \\
+    $
+      \begin{bmatrix}
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 1 \\
+        0 & 1 & 0 & 0 \\
+        0 & 0 & 0 & 1 \\
+      \end{bmatrix}
+    $                                                                             & +      &
+    $
+      \begin{bmatrix}
+        0 & 1 & 1 & 0 \\
+        0 & 0 & 0 & 1 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 0 \\
+      \end{bmatrix}
+    $                                                                             & =      &
+    $
+      \begin{bmatrix}
+        0 & 1 & 1 & 0 \\
+        1 & 0 & 0 & 1 \\
+        0 & 1 & 0 & 0 \\
+        1 & 0 & 0 & 1 \\
+      \end{bmatrix}
+    $
+  \end{tabular}
+\end{center}
+For digraph $G$ and adjacency matrix $A$ for $G$:
+\begin{align*}
+  G^+ & = G^1 \cup G^2 \cup G^3 \cup \cdots \cup G^n \\
+  A^+ & = A^1 + A^2 + A^3 + \cdots + A^n
+\end{align*}
+
+\subsubsection*{Condition for well-defined matrix multiplication}
+$A_{m \times n} \times B_{s \times t}$ is only defined when $n = s$, and $A \times B$ has dimensions $m \times t$.
+For example:
+\[
+  A_{3 \times 3}
+  \begin{bmatrix}
+    0 & 2 & 3 \\
+    1 & 0 & 1 \\
+    2 & 0 & 1
+  \end{bmatrix}
+  \times
+  B_{3 \times 1}
+  \begin{bmatrix}
+    1 \\
+    2 \\
+    0
+  \end{bmatrix}
+  =
+  (A \times B)_{3 \times 1}
+  \begin{bmatrix}
+    5 \\
+    4 \\
+    0
+  \end{bmatrix}
+\]
 
 \subsection{Partial orders}
+
+A relation on set $A$ is a \textbf{partial order} if it is:
+\begin{itemize}
+  \item reflexive
+  \item transitive
+  \item anti-symmetric
+\end{itemize}
+Notation:\quad $a \preceq b$ used to express $a$R$b$
+
+Domain along with a partial order defined on it is denoted $(A, \preceq)$
+and is called a \textbf{partial ordered set} or \textbf{poset}.
+\[
+  \preceq \not = \leq \text{ (notice the curves)}
+\]
+Two elements of a poset are said to be \textit{comparable} if $x \preceq y$ or $x \succeq y$.
+Otherwise they are said to be \textit{incomparable}.
+A partial order is a \textit{total order} if \underline{every} two elements in the domain are \textit{comparable}.
+
+Here is an example of a partial order:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{4};
+
+    \foreach[count=\i] \element in {3,6,12,15} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\l in {3/6,3/12,3/15,6/12,6/15,12/15} { %a to b
+        \draw[->] (\j) -- (\l);
+      }
+    \foreach \j in {3,6,12,15} { %a to a
+        \draw[->] (\j) to[bend left=65] (\j-)
+        to[bend left=65] (\j);
+      }
+    \node[anchor=east] (name) at (145:\gsize+.5) {$x$R$y$ if $x \leq y$}; %relation name
+  \end{tikzpicture}
+\end{center}
+\begin{itemize}
+  \item An element $x$ is \textbf{minimal} element if there is no such $y \not = x$ such that $y \preceq x$
+  \item An element $x$ is \textbf{maximal} element if there is no such $y \not = x$ such that $x \preceq y$
+\end{itemize}
+
+\subsubsection*{Hasse Diagram}
+\begin{itemize}
+  \item useful way to depict a partial order on a finite set
+  \item each element is represented by a point
+  \item shows relationships by placing elements that are greater than others toward the top of the diagram.
+\end{itemize}
+\textbf{Rules for placement and for connecting segments}
+\begin{itemize}
+  \item if $x \preceq y$, then make $x$ appear lower in the diagram than $y$
+  \item if $x \preceq y$, and there is no such $z$ that $x \preceq z \preceq y$, then draw a segment connecting $x$ and $y$
+\end{itemize}
+
 \subsection{Strict orders and directed acyclic graphs}
 \subsection{Equivalence relations}
 \subsection{N-ary relations and relational databases}
