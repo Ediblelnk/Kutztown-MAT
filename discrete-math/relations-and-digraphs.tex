@@ -1114,7 +1114,82 @@ Here is an example of a partial order:
   \item if $x \preceq y$, then make $x$ appear lower in the diagram than $y$
   \item if $x \preceq y$, and there is no such $z$ that $x \preceq z \preceq y$, then draw a segment connecting $x$ and $y$
 \end{itemize}
+Examples: Hasse Diagrams for a partial order on the power set of $\{1,2,3\}$, and $\{1,2,3,4,5,6\}$.
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\spacing}{1.5};
+
+    \foreach \rank/\elements/\size in {
+    1/{{\{1,2,3\}}}/1, 2/{{\{1,2\}},{\{1,3\}},{\{2,3\}}}/3, 3/{{\{1\}},{\{2\}},{\{3\}}}/3, 4/{$\emptyset$}/1
+    } {
+    \foreach[count = \i] \element in \elements {
+      \node (\rank-\i) at (\i * \spacing - \size / 2 * \spacing, -\rank) {\element};
+    }
+    }
+    \foreach \j/\ls in {1-1/{2-1,2-2,2-3},2-1/{3-1,3-2},2-2/{3-1,3-3},2-3/{3-2,3-3},4-1/{3-1,3-2,3-3}} {\foreach \l in \ls {\draw (\j) -- (\l);}}
+    \node (name) at (0.5,-0.5) {\underbar{Hasse Diagram 1}}; %name
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\spacing}{1.5};
+    \foreach \rank/\elements/\size in {1/{6}/1, 2/{5}/1, 3/{4}/1, 4/{3}/1, 5/{2}/1, 6/{1}/1} {
+    \foreach[count = \i] \element in \elements {
+      \node (\rank-\i) at (\i * \spacing - \size / 2 * \spacing, -\rank) {\element};
+    }
+    }
+    \foreach \j/\ls in {1-1/{2-1},2-1/{3-1},3-1/{4-1},4-1/{5-1},5-1/{6-1}} {\foreach \l in \ls {\draw (\j) -- (\l);}}
+    \node (name) at (0.5,-0.5) {\underbar{Hasse Diagram 2}}; %name
+  \end{tikzpicture}
+\end{center}
+The first example uses a rule of $A \preceq B \leftrightarrow A \subseteq B$,
+while the second example uses a rule of $x \preceq y \leftrightarrow x \leq y$.
+
+In general, if two elements are incomparable, then they are not connected \underline{at all} by a path of line segments
+or the only paths between $x$ and $y$ require a change in direction from up to down or down to up.
+Consider this partial order on the set $\{A,B,C,D,E,F,G\}$:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\spacing}{1.5};
+    \foreach \rank/\elements/\size in {1/{ ,D}/2, 2/{G,F,E}/3, 3/{B,C}/3, 4/{ ,A}/2} {
+    \foreach[count = \i] \element in \elements {
+      \node (\element) at (\i * \spacing - \size / 2 * \spacing, -\rank) {$\element$};
+    }
+    }
+    \foreach \j/\ls in {G/{B},D/{F,E},C/{F,A},E/{A}} {\foreach \l in \ls {\draw (\j) -- (\l);}}
+    \node (name) at (0.5,-0.5) {\underbar{Hasse Diagram 3}}; %name
+  \end{tikzpicture}
+\end{center}
+In this example, $B \preceq G$, and $A \preceq D$, but $B$ and $F$ are \underline{not} comparable.
 
 \subsection{Strict orders and directed acyclic graphs}
+
+\begin{itemize}
+  \item Partial Order acts $\preceq$ on a domain
+  \item Strict Order acts $\prec$ on a domain
+\end{itemize}
+A relation $R$ is a \textbf{Strict Order} if $R$ is \textit{transitive, anti-symmetric,} and \textit{anti-reflexive}.
+\begin{itemize}
+  \item two elements are comparable if $x \prec y$ or $x \succ y$, and otherwise incomparable
+  \item strict order is a \textit{total order} if \underline{every} pair of elements is comparable
+  \item element $x$ is \textbf{minimal} if no $y$ exists such that $y \prec x$
+  \item element $x$ is \textbf{maximal} if no $y$ exists such that $x \prec y$
+\end{itemize}
+Here is an example of a strict order:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{2};
+    \pgfmathsetmacro{\gnum}{6};
+
+    \foreach[count=\i] \element in {a,b,c,d,e,f} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\ls in {a/{b,c,e},d/{f},b/{e},c/{e}} {\foreach \l in \ls {\draw[->] (\j) -- (\l);}}
+  \end{tikzpicture}
+\end{center}
 \subsection{Equivalence relations}
 \subsection{N-ary relations and relational databases}

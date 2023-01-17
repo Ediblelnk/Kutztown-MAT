@@ -1,7 +1,9 @@
 \documentclass[10pt]{article}
 \usepackage{tikz}
 \usetikzlibrary{fit}
+\usetikzlibrary{math}
 \begin{document}
+
 
 %use for sets with non-alphanumeric characters
 \begin{tikzpicture}
@@ -20,6 +22,7 @@
   \draw[->] (1) -- node[above]{$f$}(2); %function name
 \end{tikzpicture}
 
+
 %use for sets for only alphanumeric characters
 \begin{tikzpicture}
   \foreach[count=\i] \set/\elements in {X/{1,2,3}, Y/{7,8,9}} { %domain and co-domain
@@ -36,6 +39,7 @@
     }
   \draw[->] (1) -- node[above]{$f$}(2); %function name
 \end{tikzpicture}
+
 
 %use for digraphs for center
 \begin{tikzpicture}
@@ -62,6 +66,18 @@
 \end{tikzpicture}
 
 
+%use for Hasse Diagrams
+\begin{tikzpicture}
+  %VARIABLES
+  \pgfmathsetmacro{\gsize}{1};
+  \pgfmathsetmacro{\gnum}{4};
+
+  \foreach \rank/\elements/\size in {1/{a}/1, 2/{b,c}/2, 3/{d,e,f}/3} {
+  \foreach[count = \i] \element in \elements {\node (\element) at (\i - \size / 2, -\rank) {$\element$};}
+  }
+  \foreach \j/\l in {a/c} {\draw (\j) -- (\l);}
+  \node (name) at (0.5,-0.5) {\underbar{Hasse Diagram}}; %name
+\end{tikzpicture}
 
 
 \end{document}
