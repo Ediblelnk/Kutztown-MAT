@@ -1184,12 +1184,300 @@ Here is an example of a strict order:
     \pgfmathsetmacro{\gsize}{2};
     \pgfmathsetmacro{\gnum}{6};
 
-    \foreach[count=\i] \element in {a,b,c,d,e,f} { %domain
+    \foreach[count=\i] \element in {c,b,a,d,f,e} { %domain
         \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
         \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
       }
     \foreach \j/\ls in {a/{b,c,e},d/{f},b/{e},c/{e}} {\foreach \l in \ls {\draw[->] (\j) -- (\l);}}
   \end{tikzpicture}
+  \qquad
+  \begin{tabular}{rl}
+    maximal: & $e$ and $f$ \\
+    minimal: & $a$ and $d$
+  \end{tabular}
 \end{center}
+Strict orders are also anti-symmetric. Consider a relation R that is transitive and anti-reflexive.
+Then R is also anti-symmetric.
+
+\subsubsection*{Directed Acyclic Graphs, DAGs}
+A directed acyclic graph is a directed graph that has no cycles. For example, consider this DAG:
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/dag prereq.png}
+\end{center}
+\textbf{Theorem: Directed Acyclic Graphs and Strict Orders}
+Let $G$ be a directed graph. $G$ has no cycles if and only if $G^+$ is a strict order.
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{2};
+    \pgfmathsetmacro{\gnum}{10};
+
+    \foreach[count=\i] \element in {e,b,a,d,c,f,g,h,i,j} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+      }
+    \foreach \j/\ls in {a/{b,c,d},b/{e},c/{g,f},d/{f},e/{g},h/{i},i/{j}} {\foreach \l in \ls {\draw[->] (\j) -- (\l);}}
+    \foreach \j/\ls in {a/{e,f,g},b/{g},h/{j}} {\foreach \l in \ls {\draw[->, red] (\j) -- (\l);}}
+  \end{tikzpicture}
+  \qquad
+  \begin{tabular}{c}
+    $G$ is a DAG                          \\
+    Edges added by $G^+$ are shown in red \\
+    Minimal: $a$ and $h$                  \\
+    Maximal: $g$, $f$, and $j$
+  \end{tabular}
+\end{center}
+Consider another example of precedence constraints for baking chocolate chip cookie:
+\begin{itemize}
+  \item Wash hands
+  \item Grease cooking sheet
+  \item Sift together dry ingredients
+  \item Beat together butter and sugar
+  \item Add eggs to butter and sugar
+  \item Add chocolate chips
+  \item Drop spoonfuls of batter onto cookie sheet and bake
+\end{itemize}
+Converting this into a DAG, notice how incomparable tasks can be done simultaneously by different people:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\spacing}{4};
+    \foreach \rank/\elements/\size in {1/{Wash hands}/1, 2/{Grease baking sheet, Sift dry ingredients, Beat butter and sugar}/3,
+    3/{ , , Add eggs}/3, 4/{ , Add dry ingredients}/2, 5/{ , Add chocolate chips}/2, 6/{Drop dough on baking sheet and bake}/1} {
+    \foreach[count = \i] \element in \elements {\node (\element) at (\i * \spacing - \size / 2 * \spacing, -\rank) {\element};}
+    }
+    \foreach \j/\ls in {Wash hands/{Grease baking sheet,Sift dry ingredients,Beat butter and sugar},
+    Grease baking sheet/{Drop dough on baking sheet and bake},Sift dry ingredients/{Add dry ingredients},
+    Beat butter and sugar/{Add eggs},Add eggs/{Add dry ingredients},Add dry ingredients/{Add chocolate chips},
+    Add chocolate chips/{Drop dough on baking sheet and bake}} {\foreach \l in \ls {\draw[->] (\j) -- (\l);}}
+  \end{tikzpicture}
+\end{center}
+
+\subsubsection*{Topological Sorts of DAGs}
+Consider a DAG which represents precedence constraints for a set of tasks.
+Need to find an ordering which does not violate any of the precedence constraints.
+A \textbf{topological} sort for a DAG is an ordering of vertices that is consistent with the edges in the graph.
+\begin{itemize}
+  \item If there is an edge $(u,v)$, then $u$ must appear earlier than $v$ in the topological sort.
+\end{itemize}
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{3};
+
+    \foreach[count=\i] \element in {a,b,c} {\node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};}
+    \foreach \j/\l in {a/c,a/b} {\draw[->] (\j) -- (\l);}
+  \end{tikzpicture}
+  \qquad
+  \begin{tabular}{c}
+    example topological sorts:         \\
+    $\left\langle a,b,c\right\rangle $ \\
+    $\left\langle a,c,b\right\rangle $
+  \end{tabular}
+\end{center}
+
 \subsection{Equivalence relations}
+A relation R is an \textbf{equivalence relation} if:
+\begin{itemize}
+  \item R is reflective
+  \item R is transitive
+  \item R is symmetric
+\end{itemize}
+For example:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{3};
+
+    \foreach[count=\i] \element in {a,c,b} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        \draw[->] (\element) to[bend left=65] (\element-) to[bend left=65] (\element);
+      }
+    \foreach \j/\l in {a/b,b/c,a/c} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{3};
+
+    \foreach[count=\i] \element in {d,f,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        \draw[->] (\element) to[bend left=65] (\element-) to[bend left=65] (\element);
+      }
+    \foreach \j/\l in {d/f} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+  \end{tikzpicture}
+  \qquad
+  \begin{tabular}{l}
+    - Reflective \\
+    - Symmetric  \\
+    - Transitive
+  \end{tabular}
+\end{center}
+If $A$ is the domain of a equivalence relation and $a \in A$, then $[a]$ is called an \textbf{equivalence class},
+defined to be the set of all $x \in A$, such that $a \sim x$.
+
+For example, consider domain $\mathbb{Z}^+$ and $x \sim y$ if $x$ and $y$ have the same remainder when divided by 3.
+\begin{align*}
+  [0] & \text{ is } \{x \in \mathbb{Z}^+: x \mod 3 = 0\} \\
+  [1] & \text{ is } \{x \in \mathbb{Z}^+: x \mod 3 = 1\} \\
+  [2] & \text{ is } \{x \in \mathbb{Z}^+: x \mod 3 = 2\} \\
+\end{align*}
+
+Equivalence classes are either:
+\begin{itemize}
+  \item completely identical, or
+  \item completely disjoint
+\end{itemize}
+\textbf{Theorem: Structure of Equivalence Relations}
+Consider an equivalence relation on a set $A$. Let $x,y \in A$:
+\begin{align*}
+  \text{If}~x \sim y,~\text{then}~[x]      & = [y]                \\
+  \text{If}~x \not \sim y,~\text{then}~[x] & \cap [y] = \emptyset \\
+\end{align*}
+\textbf{Theorem: Equivalence Relations define a Partition}
+Consider and equivalence relation over a set $A$. The set of all distinct equivalence classes defines a partition of set $A$.
+\begin{itemize}
+  \item The term "distinct" means that if there are two equivalent classes $[a] = [b]$, then set $[a]$ is the only included one.
+\end{itemize}
+For example:
+\begin{center}
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{3};
+
+    \foreach[count=\i] \element in {a,c,b} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        \draw[->] (\element) to[bend left=65] (\element-) to[bend left=65] (\element);
+      }
+    \foreach \j/\l in {a/b,b/c,a/c} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+    \node (name) at (90:\gsize+.5) {$A = \{a,b,c,d,e,f\}$}; %relation name
+  \end{tikzpicture}
+  \qquad
+  \begin{tikzpicture}
+    %VARIABLES
+    \pgfmathsetmacro{\gsize}{1};
+    \pgfmathsetmacro{\gnum}{3};
+
+    \foreach[count=\i] \element in {d,f,e} { %domain
+        \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+        \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+        \draw[->] (\element) to[bend left=65] (\element-) to[bend left=65] (\element);
+      }
+    \foreach \j/\l in {d/f} { %a to b AND b to a
+        \draw[->] (\j) to[bend left=20 / \gsize + 10] (\l);
+        \draw[->] (\l) to[bend left=20 / \gsize + 10] (\j);
+      }
+  \end{tikzpicture}
+  \qquad
+  \begin{tabular}{l}
+    $[a] = \{a,b,c\}$ \\
+    $[d] = \{d,f\}$   \\
+    $[e] = \{e\}$     \\
+  \end{tabular}
+\end{center}
+
 \subsection{N-ary relations and relational databases}
+A binary relation can be generalized to more than two sets. A relation on $n$ sets is called an \textbf{N-nary Relation}.
+For example:
+\begin{align*}
+  (w,x,y,z)  & \in \mathbb{R}^4~\text{such that}~wx=yz                                                  \\
+  (3,12,4,9) & ~\text{would be in the relation because}                 & 3 \cdot 12 & = 4 \cdot 9      \\
+  (3,8,5,6)  & ~\text{would \underline{not} be in the relation because} & 3 \cdot 8  & \not = 5 \cdot 6
+\end{align*}
+
+\subsubsection*{Databases}
+A database is a large collection of data records that is searched and manipulated by a computer.
+The \textit{regional database model} stores data records as relations.
+
+The type of data stored in each entry of the n-tuple is called an \underline{attribute}.
+
+A \underline{query} to a database is a request for a particular set of data.
+
+A \underline{key} is an attribute or set of attributes that uniquely identifies each n-tuple in the databases.
+
+For example, Airlines use the combination of flight number, date, and departure time to uniquely identify a flight.
+
+\subsubsection*{Selection}
+The \textbf{selection} operation chooses n-tuples from a relational database that satisfies particular conditions on their attributes.
+For example:
+\begin{center}
+  \begin{tabular}{cccc}
+    \# boxes & Order Date & Complete? & Client City      \\
+    \hline
+    8        & 6/19/2013  & NO        & Irvine           \\
+    12       & 6/20/2013  & YES       & Huntington Beach \\
+    15       & 6/20/2013  & YES       & Huntington Beach \\
+    21       & 6/20/2013  & NO        & Irvine           \\
+    3        & 6/21/2013  & NO        & Costa Mesa
+  \end{tabular}
+\end{center}
+Search[Complete=NO]
+\begin{center}
+  \begin{tabular}{cccc}
+    \# boxes & Order Date & Complete? & Client City \\
+    \hline
+    8        & 6/19/2013  & NO        & Irvine      \\
+    21       & 6/20/2013  & NO        & Irvine      \\
+    3        & 6/21/2013  & NO        & Costa Mesa
+  \end{tabular}
+\end{center}
+Search[Complete=NO $\land$ Data $<$ 6/21/2013]
+\begin{center}
+  \begin{tabular}{cccc}
+    \# boxes & Order Date & Complete? & Client City \\
+    \hline
+    8        & 6/19/2013  & NO        & Irvine      \\
+    21       & 6/20/2013  & NO        & Irvine
+  \end{tabular}
+\end{center}
+
+\subsubsection*{Projection}
+The \textbf{projection} operation takes a subset of the attributes and deletes all other attributes in each of the n-tuples.
+For example:
+\begin{center}
+  \begin{tabular}{cccc}
+    \# boxes & Order Date & Complete? & Client City      \\
+    \hline
+    8        & 6/19/2013  & NO        & Irvine           \\
+    12       & 6/20/2013  & YES       & Huntington Beach \\
+    15       & 6/20/2013  & YES       & Huntington Beach \\
+    21       & 6/20/2013  & NO        & Irvine           \\
+    3        & 6/21/2013  & NO        & Costa Mesa
+  \end{tabular}
+\end{center}
+Project[Order Date, Client City]
+\begin{center}
+  \begin{tabular}{cc}
+    Order Date & Client City      \\
+    \hline
+    6/19/2013  & Irvine           \\
+    6/20/2013  & Huntington Beach \\
+    6/20/2013  & Irvine           \\
+    6/21/2013  & Costa Mesa
+  \end{tabular}
+\end{center}
+Select[Complete=NO], Project[City]
+\begin{center}
+  \begin{tabular}{c}
+    Client City \\
+    \hline
+    Irvine      \\
+    Costa Mesa
+  \end{tabular}
+\end{center}
