@@ -79,5 +79,20 @@
   \node (name) at (0.5,-0.5) {\underbar{Hasse Diagram}}; %name
 \end{tikzpicture}
 
+%turing machine tape
+\begin{tikzpicture}
+  \pgfmathsetmacro{\x}{0.5};
+  \pgfmathsetmacro{\y}{0.5};
+  \pgfmathsetmacro{\vset}{0};
+  \pgfmathsetmacro{\qset}{7};
+
+  \foreach[count=\i] \element in {a,b,b,b,a,b,a,b,a,b,b,b,a} {
+      \draw (\i * \x,0) rectangle ++(\x,\y);
+      \node[anchor=south] (\element) at (\i*\x + \x * 0.5, \vset) {$\element$};
+    }
+  \draw[very thick] (\qset*\x, \y + 0.1) rectangle ++(\x,\y);
+  \node[anchor=south] (q) at (\qset*\x + \x*0.5, \y + 0.1) {$q$};
+\end{tikzpicture}
+
 
 \end{document}
