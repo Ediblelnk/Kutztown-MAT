@@ -1,18 +1,130 @@
 \section{Induction and Recursion}
 \subsection{Sequences}
+A \textbf{sequence} is a special type of function in which the domain
+is the set of consecutive integers.
+
+When a function is specified as a sequence, using subscripts to denote input
+is more common, so $g_k$ is used instead of $g(k)$
+
+A value $g_k$ is called a \textbf{term}, and $k$ is the \textit{index} of $g_k$
+
+For example:
+\begin{align*}
+  g_1 & = 3.67 & g_2 & = 2.88 \\
+  g_3 & = 3.25 & g_4 & = 3.75
+\end{align*}
+\[
+  g(k) = 3.67, 2.88, 3.25, 3.75
+\]
+
+An entire sequence is denoted by $\{gk\}$, whereas $g_k$ is used to denote a
+single term in the sequence.
+
+A sequence commonly starts with $0$ or $1$, but it could be \textit{any} integer.
+\subsubsection*{Finite sequence}
+A sequence with a finite domain is a \textbf{finite sequence}.
+In a finite sequence, there is an \textit{initial index $m$} and a \textit{final index $n$}.
+\subsubsection*{Infinite sequence}
+A sequence with an infinite domain is a \textbf{infinite sequence}.
+In an infinite sequence, there is an \textit{initial index m} and the sequence
+is defined for indices $k \geq m$:
+\[
+  a_m, a_{m+1}, a_{m+2}, a_{m+3}, \ldots
+\]
+A sequence can be specified by an \textbf{explicit formula}, such as $d_k = 2^k$
+for $k \geq 1$.
+\[
+  \{d_k\} = 2,4,8,16, \ldots
+\]
+\subsubsection*{Increasing and Decreasing Sequences}
+\begin{itemize}
+  \item a sequence is \textit{increasing} if for every two consecutive indices, $k$
+        and $k+1$, $a_k < a_{k+1}$
+  \item a sequence is \textit{non-decreasing} if for every two consecutive indices, $k$
+        and $k+1$, $a_k \leq a_{k+1}$
+\end{itemize}
+For example,
+\begin{align*}
+  2 < 4 < 5 < 6          & ~\text{increasing \textit{and} non-decreasing}     \\
+  2 \leq 4 \leq 5 \leq 6 & ~\text{non-decreasing \textit{but} not increasing}
+\end{align*}
+\textit{The same relationship can be said for \textbf{decreasing} and \textbf{non-increasing}}.
+\subsubsection*{Geometric Sequences}
+A \textbf{geometric sequence} is a sequence of real numbers where each term is found by taking
+the previous term and multiplying it by a fixed number called the \textbf{common ratio}.
+
+For example, with an \textit{initial term}: 4, and \textit{common ratio}: $\frac{1}{2}$,
+\[
+  4,2,\frac{1}{2},\frac{1}{4}, \ldots
+\]
+\subsubsection*{Arithmetic Sequence}
+An \textbf{arithmetic sequence} is a sequence of real numbers where each term after the initial
+term is found by taking the previous term and adding a fixed number called the \textbf{common difference}.
+
+For example, with an \textit{initial value}: 2, and \textit{common difference}: 3,
+\[
+  2,5,8,11, \ldots
+\]
+
 \subsection{Recurrence relations}
+A rule that defines a term $a_n$ as a function of previous terms in the sequence is called a
+\textbf{recurrence relation}
+
+For example,
+\begin{align*}
+  a_0 & = a~\text{initial value} \\
+  a_n & = d + a_{n-1}
+\end{align*}
+Fibonacci Sequence:
+\begin{align*}
+  f_0 & = 0                                     \\
+  f_1 & = 1                                     \\
+  f_n & = f_{n-1} + f_{n-2}~\text{for}~n \geq 2 \\
+\end{align*}
+A \textbf{dynamical system} is a system that changes over time. The state of the system
+at any point is determined by a set of well-defined rules that depend on the past states
+of the system.
+
 \subsection{Summations}
+
+
 \subsection{Mathematical induction}
+
+
 \subsection{More inductive proofs}
+
+
 \subsection{Strong induction and well-ordering}
+
+
 \subsection{Loop invariants}
+
+
 \subsection{Recursive definitions}
+
+
 \subsection{Structural induction}
+
+
 \subsection{Recursive algorithms}
+
+
 \subsection{Induction and recursive algorithms}
+
+
 \subsection{Analyzing the time complexity of recursive algorithms}
+
+
 \subsection{Divide-and-conquer algorithms: Introduction and mergesort}
+
+
 \subsection{Divide-and-conquer algorithms: Binary Search}
+
+
 \subsection{Solving linear homogeneous recurrence relations}
+
+
 \subsection{Solving linear non-homogeneous recurrence relations}
+
+
 \subsection{Divide-and-conquer recurrence relations}
