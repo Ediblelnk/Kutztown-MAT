@@ -64,8 +64,142 @@ An \textbf{axiom} is a statement assumed to be true.
     (x \cdot x \geq 1 \cdot x) = (x^2 \geq x)
   \]
 \end{proof}
+\subsubsection*{Proof by Exhaustion}
+\textit{if $n \in \{-1,0,1\}$, then $n^2 = \left\lvert n\right\rvert $}
+\begin{proof}
+  \begin{align*}
+    n & = -1 & (-1)^2 = 1 & = \left\lvert -1\right\rvert \\
+    n & = 0  & (0)^2 = 0  & = \left\lvert -1\right\rvert \\
+    n & = 1  & (1)^2 = 1  & = \left\lvert 1\right\rvert
+  \end{align*}
+\end{proof}
+
+\subsubsection*{Counter Example}
+An assignment of values to variables that shows that a universal statement is false.
+
 \subsection{Writing Proofs: Best Practices}
+\subsubsection*{Allowed assumptions in proofs}
+\begin{itemize}
+  \item the rules of algebra
+  \item the set of integers is closed under addition, multiplication, and subtraction
+  \item every integer is either even or odd
+  \item if $x$ is an integer, there is no integer between $x$ and $x+1$
+  \item the relative order of any two real numbers, $x,y \in \mathbb{R}$
+  \item the square of any real number is greater than or equal to 0
+\end{itemize}
+\subsubsection*{Best practices when writing proofs}
+\begin{itemize}
+  \item indicate when the proof starts and ends
+  \item write proofs in complete sentences
+  \item give the reader a road-map of what has been shown, what is assumed,
+        and where the proof is going
+  \item introduce each variable when the variable is used for the first time
+  \item a block of equations should be introduced with English text and each
+        step that does \underline{not} follow from algebra should be justified
+\end{itemize}
+\subsubsection*{Common mistakes in proofs}
+\begin{itemize}
+  \item generalizing from examples
+  \item skipping steps
+  \item circular reasoning
+  \item assuming facts that have not yet been proven
+\end{itemize}
+
 \subsection{Writing Direct Proofs}
+In a \textbf{direct proof} of a conditional statement, the hypothesis $p$ is assumed
+to be true and the conclusion $c$ is proven as a direct result of the assumption.
+
+After the assumptions are stated, a direct proof proceeds by proving the conclusion is true.
+
+For example,
+\begin{center}
+  \begin{tabular}{c}
+    The square of every odd integer is also odd. \\
+    $\downarrow$                                 \\
+    Let $n$ be an integer that is odd. We will show that $n^2$ is also odd.
+  \end{tabular}
+\end{center}
+\subsubsection*{Direct Proof format}
+\begin{center}
+  \begin{tabular}{|c|}
+    \hline
+    Assume hypothesis \\
+    $\vdots$          \\
+    Derive conclusion \\
+    \hline
+  \end{tabular}
+\end{center}
+
 \subsection{Proof by Contrapositive}
+A \textbf{proof by contrapositive} proves a conditional statement of the form $p \implies c$
+by showing that the contrapositive $\lnot c \implies \lnot p$ is true.
+In other words, $\lnot c$ is assumed to be true and $\lnot p$ is proven as a result of $\lnot c$.
+
+For example,
+\begin{center}
+  \begin{tabular}{c}
+    The square of every odd integer is also odd. \\
+    $\downarrow$                                 \\
+    Let $n^2$ be an integer that is \textit{not} odd. We will show that $n$ is also \textit{not} odd.
+  \end{tabular}
+\end{center}
+\subsubsection*{Contrapositive Proof format}
+\begin{center}
+  \begin{tabular}{|c|}
+    \hline
+    Assume $\lnot$conclusion \\
+    $\vdots$                 \\
+    Show $\lnot$hypothesis   \\
+    \hline
+  \end{tabular}
+\end{center}
+
 \subsection{Proof by Contradiction}
+A \textbf{proof by contradiction} starts by assuming that the theorem is false and then shows
+that some logical inconsistency arises as a result of the assumption.
+A proof by contradiction is sometimes called an \textbf{indirect proof}.
+A proof by contradiction shows the only option is for a theorem to be true to avoid logical errors.
+
+For example,
+\begin{center}
+  \begin{tabular}{c}
+    The square of every odd integer is also odd. \\
+    $\downarrow$                                 \\
+    Assume there is an even square of an odd integer. We will show there is a logical inconsistency.
+  \end{tabular}
+\end{center}
+\subsubsection*{Contradiction Proof format}
+\begin{center}
+  \begin{tabular}{|c|}
+    \hline
+    Assume $\lnot$theorem               \\
+    $\vdots$                            \\
+    Show \textit{logical inconsistency} \\
+    \hline
+  \end{tabular}
+\end{center}
+
 \subsection{Proof by Cases}
+A \textbf{proof by cases} of a universal statement breaks the domain into different classes
+and gives a different proof for each class. The proof for each class is called a \textbf{case}.
+\textbf{Every} value in the domain \textit{must} be included in at least one class.
+
+For example,
+\begin{center}
+  \begin{tabular}{c}
+    The square of every odd integer is also odd.                                             \\
+    $\downarrow$                                                                             \\
+    Consider case $n$, where \textit{condition}. We will show theorem is true for this case. \\
+    Consider case $n+1$, where \textit{condition}. We will show theorem is true for this case.
+  \end{tabular}
+\end{center}
+\subsubsection*{Cases Proof format}
+\begin{center}
+  \begin{tabular}{|c|}
+    \hline
+    Assume hypothesis, and partition domain              \\
+    $\vdots$                                             \\
+    Show \textit{for each} case, the conclusion is true. \\
+    \hline
+  \end{tabular}
+\end{center}
