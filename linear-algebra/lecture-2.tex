@@ -1,3 +1,66 @@
 \section{Real Vector Spaces}
 A \bld{real vector space} is simply a \itl{nonempty set} that satisfies 10
-properties called \uln{10 axioms of a real vector space}.
+properties called \bld{10 axioms of a real vector space}.
+\begin{itemize}
+  \item $\vec{v} \in $ vector space $V$ can be \itl{anything}
+  \item \bld{Never} assume that an element $\vec{v} \in V$ is an ordered pair
+\end{itemize}
+
+\subsection*{Addition}
+\begin{itemize}
+  \item denoted by $\oplus$
+  \item simply a map
+\end{itemize}
+\[
+  \oplus: V \times V \rightarrow V
+\]
+Example of a definition of $\oplus$ for $V=\{\text{apple}, \text{orange}, \text{banana}\}$:
+\begin{center}
+  \begin{tabular}{c|ccc}
+    $\oplus$ & apple  & orange       & banana \\
+    \hline
+    apple    & banana & \bld{banana} & apple  \\
+    orange   & orange & apple        & banana \\
+    banana   & banana & orange       & orange
+  \end{tabular}
+  \[
+    \oplus(\text{apple}, \text{orange}) = \text{banana} = \text{apple} \oplus \text{orange}
+  \]
+\end{center}
+
+\subsection*{Scalar Multiplication}
+\begin{itemize}
+  \item denoted by $\odot$
+  \item simply a map
+  \item \itl{must} be $r \times \vec{v}$ for $r \in \bb{R}, \vec{v} \in V$
+\end{itemize}
+\[
+  \odot: \bb{R} \times V \rightarrow V
+\]
+Example of a definition of $\odot$ for $V=\{\text{apple}, \text{orange}, \text{banana}\}$:
+\begin{center}
+  \begin{align*}
+    k \odot \text{apple}  & = \text{orange}, \forall k \in \bb{R} \\
+    k \odot \text{orange} & = \left\{
+    \begin{array}{lr}
+      \text{orange}, & \text{if}~k \leq 2, \\
+      \text{banana}, & \text{if}~k > 2,    \\
+    \end{array} \right.                          \\
+    k \odot \text{banana} & = \left\{
+    \begin{array}{ll}
+      \text{banana}, & \text{if}~k < -5\sqrt{2},          \\
+      \text{apple},  & \text{if}~-5\sqrt{2} \leq k < 1.2, \\
+      \text{banana}, & \text{if}~k = 1.2,                 \\
+      \text{orange}, & \text{if}~k > 2,                   \\
+    \end{array}
+    \right.
+  \end{align*}
+  \[
+    \odot(3, \text{orange}) = \text{banana} = 3 \odot \text{orange}
+  \]
+\end{center}
+
+\subsection*{10 Good Properties of Addition and Scalar Multiplication}
+\begin{enumerate}
+  \item 
+\end{enumerate}
