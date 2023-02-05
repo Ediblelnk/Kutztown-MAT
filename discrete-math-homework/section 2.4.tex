@@ -96,9 +96,8 @@
   \begin{proof}
     Let $x \in \bb{R}$ such that $x \leq 3$.
     \begin{align*}
-      x             & \leq 3                                                \\
-      x-3           & \leq 0                                                \\
-      (x-3)(x-4)    & \geq 0,~\text{since $x-4 < 0$ and therefore negative} \\
+      x-3           & \leq 0                                                               \\
+      (x-3)(x-4)    & \geq 0,~\text{sign changes since $x \leq 3$ and therefore $x-4 < 0$} \\
       12 - 7x + x^2 & \geq 0
     \end{align*}
     $\therefore$ if $x$ is a real number and $x \leq 3$, then $12 - 7x + x^2 \geq 0$
@@ -107,13 +106,25 @@
   \begin{proof}
     Let $n \in \bb{R}$ such that $n > 1$.
     \begin{align*}
-      n         & > 1                                       \\
-      n \cdot n & > 1 \cdot n,~\text{since $n$ is positive} \\
-      n^2       & > n                                       \\
+      n         & > 1                                                  \\
+      n \cdot n & > 1 \cdot n,~\text{sign stays since $n$ is positive} \\
+      n^2       & > n                                                  \\
     \end{align*}
     $\therefore$ if $n$ is a real number and $n > 1$, then $n^2 > n$
   \end{proof}
   \bitem{d} If $x$ is a real number such that $0 < x < 1$, then $\frac{1}{x(1-x)} \geq 4$
+  \begin{proof}
+    Let $x \in \bb{R}$ such that $0 < x < 1$.
+    \begin{align*}
+      (x-\frac{1}{2})^2 & \geq 0,~\text{since $n^2 \geq 0$ for $n \in \bb{R}$} \\
+      x^2-x+\frac{1}{4} & \geq 0                                               \\
+      4x^2-4x+1         & \geq 0                                               \\
+      1                 & \geq 4x - 4x^2                                       \\
+      \frac{1}{x-x^2}   & \geq 4,~\text{sign stays when $0 < x < 1$}           \\
+      \frac{1}{x(1-x)}  & \geq 4
+    \end{align*}
+    $\therefore$ if $x$ is a real number such that $0 < x < 1$, then $\frac{1}{x(1-x)} \geq 4$
+  \end{proof}
 \end{enumerate}
 
 \end{document}
