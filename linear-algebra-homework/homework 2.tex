@@ -1,0 +1,216 @@
+\documentclass{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amsthm, amssymb, fancyhdr, tikz, graphicx}
+\usepackage{centernot, xcolor, hhline, multirow, ulem, listings}
+\pagestyle{fancy}
+
+\newcommand{\bld}{\textbf}
+\newcommand{\itl}{\textit}
+\newcommand{\uln}{\underline}
+\newcommand{\bb}{\mathbb}
+
+\newcommand{\bitem}[1]{\item[\bld{#1.}]}
+\newcommand{\iitem}[1]{\item[\itl{#1.}]}
+
+\lhead{Linear Algebra}
+\chead{Homework 2}
+\rhead{Peter Schaefer}
+
+\begin{document}
+Determine whether each set equipped with the given operations is a vector space.
+If it is a vector space, show that all 10 axioms hold; if not, find ALL axioms that fail.
+
+\subsection*{Problem 13}
+The set of all triples of real numbers with the standard vector addition but with scalar multiplication defined by:
+\[
+  k \odot (x,y,z) = (k^2x,k^2y,k^2z)
+\]
+\begin{enumerate}
+  \bitem{Axiom 1}
+  \begin{proof}
+    Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    \begin{align*}
+      \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) \oplus (u_1,u_2,u_3) & = (v_1+u_1,v_2+u_2,v_3+u_3) \\
+      v_1+u_1,v_2+u_2,v_3+u_3                                     & \in \bb{R}                  \\
+    \end{align*}
+    $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} \in V$
+  \end{proof}
+  \bitem{Axiom 2}
+  \begin{proof}
+    Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    \begin{align*}
+      \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) & \oplus (u_1,u_2,u_3) = (v_1+u_1,v_2+u_2,v_3+u_3) \\
+      \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) & \oplus (v_1,v_2,v_3) = (u_1+v_1,u_2+v_2,u_3+v_3) \\
+      v_1+u_1                                & = u_1+v_1~\text{by prop. of}~\bb{R}              \\
+      v_2+u_2                                & = u_2+v_2~\text{by prop. of}~\bb{R}              \\
+      v_3+u_3                                & = u_3+v_3~\text{by prop. of}~\bb{R}
+    \end{align*}
+    $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} = \vec{u} \oplus \vec{v}$
+  \end{proof}
+  \bitem{Axiom 3}
+  \begin{proof}
+    Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3),\vec{w}=(w_1,w_2,w_3)$. $\forall~\vec{v},\vec{u},\vec{w} \in V$:
+    \begin{align*}
+      \vec{v} \oplus (\vec{u} \oplus \vec{w}) & = (v_1,v_2,v_3) \oplus ((u_1,u_2,u_3) \oplus (w_1,w_2,w_3)) \\
+                                              & = (v_1,v_2,v_3) \oplus (u_1+w_1,u_2+w_2,u_3+w_3)            \\
+                                              & = (v_1+(u_1+w_1),v_2+(u_2+w_2),v_3+(u_3+w_3))               \\ \\
+      (\vec{v} \oplus \vec{u}) \oplus \vec{w} & = ((v_1,v_2,v_3) \oplus (u_1,u_2,u_3)) \oplus (w_1,w_2,w_3) \\
+                                              & = (v_1+u_1,v_2+u_2,v_3+u_3) \oplus (w_1,w_2,w_3)            \\
+                                              & = ((v_1+u_1)+w_1,(v_2+u_2)+w_2,(v_3+u_3)+w_3)               \\
+    \end{align*}
+    Through the use of the properties of $\bb{R}$,
+    \begin{align*}
+      v_1+(u_1+w_1) & = (v_1+u_1)+w_1 \\
+      v_2+(u_2+w_2) & = (v_2+u_2)+w_2 \\
+      v_3+(u_3+w_3) & = (v_3+u_3)+w_3 \\
+    \end{align*}
+    $\therefore \forall~\vec{v},\vec{u},\vec{w} \in V:~\vec{v} \oplus (\vec{u} \oplus \vec{w}) = (\vec{v} \oplus \vec{u}) \oplus \vec{w}$
+  \end{proof}
+  \bitem{Axiom 4}
+  \begin{proof}
+    Let $\vec{v} = (0,0,0)$. $\forall~\vec{u} \in V$:
+    \begin{align*}
+      \vec{v} \oplus \vec{u} = (0,0,0) \oplus (u_1,u_2,u_3) & = (0+u_1,0+u_2,0+u_3) = (u_1,u_2,u_3) = \vec{u} \\
+      \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) \oplus (0,0,0) & = (u_1+0,u_2+0,u_3+0) = (u_1,u_2,u_3) = \vec{u}
+    \end{align*}
+    Using properties of $\bb{R}$. $\therefore \vec{v} = (0,0,0)$ is the additive identity for $V$, \bld{id}.
+  \end{proof}
+  \bitem{Axiom 5}
+  \begin{proof}
+    Let $\vec{v} = (v_1,v_2,v_3)$ and $\vec{u} = (-v_1,-v_2,-v_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    \begin{align*}
+      \vec{v} \oplus \vec{u} & = (v_1,v_2,v_3) \oplus (-v_1,-v_2,-v_3) & \vec{u} \oplus \vec{v} & = (-v_1,-v_2,-v_3) \oplus (v_1,v_2,v_3) \\
+                             & = (v_1+-v_1,v_2+-v_2,v_3+-v_3)          &                        & = (-v_1+v_1,-v_2+v_2,-v_3+v_3)          \\
+                             & = (0,0,0) =~\text{\bld{id}}             &                        & = (0,0,0) =~\text{\bld{id}}             \\
+    \end{align*}
+    $\therefore \vec{u}$ is the additive inverse of $\vec{v}$, $\forall~\vec{u} \in V$
+  \end{proof}
+  \bitem{Axiom 6}
+  \begin{proof}
+    Let $\vec{v}=(x,y,z)$. $\forall~\vec{v} \in V,~k \in \bb{R}$:
+    \begin{align*}
+      k \odot \vec{v} = k \odot (x,y,z) & = (k^2x,k^2y,k^2z)                   \\
+      k^2x,k^2y,k^2z                    & \in \bb{R}~\text{by prop. of}~\bb{R}
+    \end{align*}
+    $\therefore \forall~\vec{v} \in V,~k \in \bb{R}:~k \odot \vec{v} \in V$
+  \end{proof}
+  \bitem{Axiom 7}
+  \begin{proof}
+    $\forall~\vec{v},\vec{u} \in V,~k \in \bb{R}$:
+    \begin{align*}
+      LHS = k \odot (\vec{v} \oplus \vec{u})       & = k \odot ((v_1,v_2,v_3) \oplus (u_1,u_2,u_3))         \\
+                                                   & = k \odot (v_1+u_1,v_2+u_2,v_3+u_3)                    \\
+                                                   & = (k^2(v_1+u_1), k^2(v_2+u_2), k^2(v_3+u_3))           \\
+                                                   & = (k^2v_1+k^2u_1,k^2v_2+k^2u_2,k^2v_3+k^2u_3)          \\ \\
+      RHS = k \odot \vec{v} \oplus k \odot \vec{u} & = k \odot (v_1,v_2,v_3) \oplus k \odot (u_1,u_2,u_3)   \\
+                                                   & = (k^2v_1,k^2v_2,k^2v_3) \oplus (k^2u_1,k^2u_2,k^2u_3) \\
+                                                   & = (k^2v_1+k^2u_1,k^2v_2+k^2u_2,k^2v_3+k^2u_3) = LHS
+    \end{align*}
+    $\therefore \forall~\vec{v},\vec{u} \in V,~k \in \bb{R}:~k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
+  \end{proof}
+  \bitem{Axiom 8}
+  \begin{proof}
+    $\forall~\vec{v} \in V,~k,\ell \in \bb{R}$:
+    \begin{align*}
+      LHS = (k+\ell) \odot \vec{v}                    & = (k+\ell) \odot (v_1,v_2,v_3)                                                          \\
+                                                      & = ((k+\ell)^2v_1,(k+\ell)^2v_2,(k+\ell)^2v_3)                                           \\
+                                                      & = (k^2v_1+2k\ell v_1+\ell^2v_1,k^2v_2+2k\ell v_2+\ell^2v_2,k^2v_3+2k\ell v_3+\ell^2v_3) \\ \\
+      RHS = k \odot \vec{v} \oplus \ell \odot \vec{v} & = k \odot (v_1,v_2,v_3) \oplus \ell \odot (v_1,v_2,v_3)                                 \\
+                                                      & = (k^2v_1,k^2v_2,k^2v_3) \oplus (\ell^2v_1,\ell^2v_2,\ell^2v_3)                         \\
+                                                      & = (k^2v_1 + \ell^2v_1, k^2v_2 + \ell^2v_2, k^2v_3 + \ell^2v_3) \neq LHS
+    \end{align*}
+    $\therefore$ Axiom 8 does not hold.
+  \end{proof}
+  \bitem{Axiom 9}
+  \begin{proof}
+    $\forall~\vec{v} \in V,~k,\ell \in \bb{R}$:
+    \begin{align*}
+      LHS = (k \cdot \ell) \odot \vec{v} & = (k \cdot \ell) \odot (v_1,v_2,v_3)                              \\
+                                         & = ((k \cdot \ell)^2v_1, (k \cdot \ell)^2v_2, (k \cdot \ell)^2v_3) \\
+                                         & = (k^2\ell^2v_1,k^2\ell^2v_2,k^2\ell^2v_3)                        \\ \\
+      RHS = k \odot (\ell \odot \vec{v}) & = k \odot (\ell \odot (v_1,v_2,v_3))                              \\
+                                         & = k \odot (\ell^2v_1,\ell^2v_2,\ell^2v_3)                         \\
+                                         & = (k^2(\ell^2v_1),k^2(\ell^2v_2),k^2(\ell^2v_3)) = LHS
+    \end{align*}
+    $\therefore \forall~\vec{v} \in V,~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
+  \end{proof}
+  \bitem{Axiom 10}
+  \begin{proof}
+    $\forall~\vec{v} \in V$:
+    \begin{align*}
+      1 \odot \vec{v} & = 1 \odot (v_1,v_2,v_3)   \\
+                      & = (1^2v_1,1^2v_2,1^2v_3)  \\
+                      & = (v_1,v_2,v_3) = \vec{v}
+    \end{align*}
+    $\therefore \forall~\vec{v} \in V: 1 \odot \vec{v} = \vec{v}$
+  \end{proof}
+\end{enumerate}
+All Axioms \itl{except} Axiom 8 work, therefore this is not a real vector space.
+
+\subsection*{Problem 14} The set of all functions $f: \bb{R} \rightarrow \bb{R}$ such that $f(1)=0$,
+and the addition and scalar multiplication operations are the same as those introduced in Example 6:
+\begin{align*}
+  (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
+  (k \odot \vec{f})(x)        & = k\vec{f}(x)
+\end{align*}
+\begin{enumerate}
+  \bitem{Axiom 1}
+  \begin{proof}
+    $\forall~\vec{f},\vec{g} \in V,~x \in \bb{R}$:
+    \begin{align*}
+      \text{by definition}~(\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
+      \text{when}~x=1,~\vec{f}(1) + \vec{g}(1)         & = 0 + 0 = 0~\checkmark    \\
+    \end{align*}
+    $\therefore \forall~\vec{f},\vec{g} \in V: \vec{f}(x) + \vec{g}(x) \in V$
+  \end{proof}
+  \bitem{Axiom 2}
+  \begin{proof}
+    $\forall~\vec{f},\vec{g} \in V,~x \in \bb{R}$:
+    \begin{align*}
+      LHS = (\vec{f} \oplus \vec{g})(x)        & = \vec{f}(x) + \vec{g}(x)       \\
+      \text{when}~x=1,~\vec{f}(1) + \vec{g}(1) & = 0 + 0 = 0~\checkmark          \\
+      RHS = (\vec{g} \oplus \vec{f})(x)        & = \vec{g}(x) + \vec{f}(x) = LHS \\
+      \text{when}~x=1,~\vec{g}(1) + \vec{f}(1) & = 0 + 0 = 0~\checkmark          \\
+    \end{align*}
+    $\therefore \forall~\vec{f},\vec{g} \in V: \vec{f}(x) + \vec{g}(x) = \vec{g}(x) + \vec{f}(x)$
+  \end{proof}
+  \bitem{Axiom 3}
+  \begin{proof}
+    $\forall~\vec{f},\vec{g},\vec{h} \in V,~x \in \bb{R}$:
+    \begin{align*}
+      LHS = (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x)   & = \vec{f}(x) + (\vec{g} \oplus \vec{h})(x)     \\
+                                                           & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x))       \\
+      \text{when}~x=1,~\vec{f}(1) + (\vec{g}(1) + \vec{h}) & = 0 + (0 + 0) = 0~\checkmark                   \\ \\
+      RHS = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x)   & = (\vec{f} \oplus \vec{g})(x) + \vec{h}(x)     \\
+                                                           & = (\vec{f}(x) + \vec{g}(x)) + \vec{h}(x) = LHS \\
+      \text{when}~x=1,~(\vec{f}(1) + \vec{g}(1)) + \vec{h} & = (0 + 0) + 0 = 0~\checkmark
+    \end{align*}
+    $\therefore \forall~\vec{f},\vec{g},\vec{h} \in V: (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x) = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x)$
+  \end{proof}
+  \bitem{Axiom 4}
+  \begin{proof}
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in V$:
+    \begin{align*}
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x)~\text{for}~x \in \bb{R} \\
+      \text{when}~x=1,~\vec{f}(1)                                & + \vec{g}(1) = 0 + 0 = 0~\checkmark                  \\ \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x)~\text{for}~x \in \bb{R} \\
+      \text{when}~x=1,~\vec{g}(1)                                & + \vec{f}(1) = 0 + 0 = 0~\checkmark
+    \end{align*}
+    $\therefore \vec{f}(x) = 0$ is the additive identity for $V$, \bld{id}.
+  \end{proof}
+  \bitem{Axiom 5}
+  \begin{proof}
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~\vec{g} \in V$:
+    \begin{align*}
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0~\text{for}~x \in \bb{R} \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0~\text{for}~x \in \bb{R}
+    \end{align*}
+    $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in V$
+  \end{proof}
+  \bitem{Axiom 6}
+  \begin{proof}
+    
+  \end{proof}
+\end{enumerate}
+
+\end{document}
