@@ -153,30 +153,31 @@ and the addition and scalar multiplication operations are the same as those intr
   (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
   (k \odot \vec{f})(x)        & = k\vec{f}(x)
 \end{align*}
+Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such that $\vec{f}(x) = 0$.
 \begin{enumerate}
   \bitem{Axiom 1}
   \begin{proof}
-    $\forall~\vec{f},\vec{g} \in V,~x \in \bb{R}$:
+    $\forall~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
     \begin{align*}
       \text{by definition}~(\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
-      \text{when}~x=1,~\vec{f}(1) + \vec{g}(1)         & = 0 + 0 = 0~\checkmark    \\
+      \text{when}~x=1:~\vec{f}(1) + \vec{g}(1)         & = 0 + 0 = 0~\checkmark    \\
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in V: \vec{f}(x) + \vec{g}(x) \in V$
+    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f}(x) + \vec{g}(x) \in F$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
-    $\forall~\vec{f},\vec{g} \in V,~x \in \bb{R}$:
+    $\forall~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
     \begin{align*}
       LHS = (\vec{f} \oplus \vec{g})(x)        & = \vec{f}(x) + \vec{g}(x)       \\
       \text{when}~x=1,~\vec{f}(1) + \vec{g}(1) & = 0 + 0 = 0~\checkmark          \\
       RHS = (\vec{g} \oplus \vec{f})(x)        & = \vec{g}(x) + \vec{f}(x) = LHS \\
       \text{when}~x=1,~\vec{g}(1) + \vec{f}(1) & = 0 + 0 = 0~\checkmark          \\
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in V: \vec{f}(x) + \vec{g}(x) = \vec{g}(x) + \vec{f}(x)$
+    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f}(x) + \vec{g}(x) = \vec{g}(x) + \vec{f}(x)$
   \end{proof}
   \bitem{Axiom 3}
   \begin{proof}
-    $\forall~\vec{f},\vec{g},\vec{h} \in V,~x \in \bb{R}$:
+    $\forall~\vec{f},\vec{g},\vec{h} \in F,~x \in \bb{R}$:
     \begin{align*}
       LHS = (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x)   & = \vec{f}(x) + (\vec{g} \oplus \vec{h})(x)     \\
                                                            & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x))       \\
@@ -185,31 +186,61 @@ and the addition and scalar multiplication operations are the same as those intr
                                                            & = (\vec{f}(x) + \vec{g}(x)) + \vec{h}(x) = LHS \\
       \text{when}~x=1,~(\vec{f}(1) + \vec{g}(1)) + \vec{h} & = (0 + 0) + 0 = 0~\checkmark
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g},\vec{h} \in V: (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x) = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x)$
+    $\therefore \forall~\vec{f},\vec{g},\vec{h} \in F: (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x) = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x)$
   \end{proof}
   \bitem{Axiom 4}
   \begin{proof}
-    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in V$:
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in F$:
     \begin{align*}
-      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x)~\text{for}~x \in \bb{R} \\
-      \text{when}~x=1,~\vec{f}(1)                                & + \vec{g}(1) = 0 + 0 = 0~\checkmark                  \\ \\
-      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x)~\text{for}~x \in \bb{R} \\
-      \text{when}~x=1,~\vec{g}(1)                                & + \vec{f}(1) = 0 + 0 = 0~\checkmark
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x)~\text{for}~x \in \bb{R} \\
+      \text{when}~x=1,~\vec{f}(1)                           & + \vec{g}(1) = 0 + 0 = 0~\checkmark                  \\ \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) + \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x)~\text{for}~x \in \bb{R} \\
+      \text{when}~x=1,~\vec{g}(1)                           & + \vec{f}(1) = 0 + 0 = 0~\checkmark
     \end{align*}
-    $\therefore \vec{f}(x) = 0$ is the additive identity for $V$, \bld{id}.
+    $\therefore \vec{f}(x) = 0$ is the additive identity for $F$, \bld{id}.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~\vec{g} \in V$:
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~\vec{g} \in F$:
     \begin{align*}
       (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0~\text{for}~x \in \bb{R} \\
       (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0~\text{for}~x \in \bb{R}
     \end{align*}
-    $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in V$
+    $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in F$
   \end{proof}
   \bitem{Axiom 6}
   \begin{proof}
-    
+    $\forall~k,x \in \bb{R}$ and $\forall~\vec{f} \in F$:
+    \begin{align*}
+      (k \odot \vec{f})            & = k\vec{f}(x)              &  & \text{by definition} \\
+      \text{when}~x=1:~k\vec{f}(1) & = k \cdot 0 = 0~\checkmark
+    \end{align*}
+    $\therefore \forall~k \in \bb{R}$ and $\forall~\vec{f} \in F$, $k\odot\vec{f} \in F$
+  \end{proof}
+  \bitem{Axiom 7}
+  \begin{proof}
+    $\forall~\vec{f},\vec{g} \in F$ and $\forall~k, x \in \bb{R}$:
+    \begin{align*}
+      LHS = (k \odot (\vec{f} \oplus \vec{g}))(x)       & = k(\vec{f} \oplus \vec{g})(x)                \\
+                                                        & = k(\vec{f}(x) + \vec{g}(x))                  \\
+                                                        & = k\vec{f}(x) + k\vec{g}(x)                   \\ \\
+      RHS = (k \odot \vec{f} \oplus k \odot \vec{g})(x) & = (k \odot \vec{f})(x) + (k \odot \vec{g})(x) \\
+                                                        & = k\vec{f}(x) + k\vec{g}(x) = LHS             \\ \\
+      \text{when}~x=1:~k\vec{f}(1) + k\vec{g}(1)        & = k0 + k0 = 0~\checkmark
+    \end{align*}
+    $\therefore \forall~\vec{f},\vec{g} \in F$ and $\forall~k, x \in \bb{R}$, $(k \odot (\vec{f} \oplus \vec{g}))(x) = (k \odot \vec{f} \oplus k \odot \vec{g})(x)$
+  \end{proof}
+  \bitem{Axiom 8}
+  \begin{proof}
+    $\forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$:
+    \begin{align*}
+      LHS = ((k + \ell) \odot \vec{f})(x)                  & = (k+\ell)\vec{f}(x)                             \\
+                                                           & = k\vec{f}(x) + \ell\vec{f}(x)                   \\ \\
+      RHS = (k \odot \vec{f} \oplus \ell \odot \vec{f})(x) & = (k \odot \vec{f})(x) + (\ell \odot \vec{f})(x) \\
+                                                           & = k\vec{f}(x) + \ell\vec{f}(x) = LHS             \\ \\
+      \text{when}~x=1:~k\vec{f}(1) + \ell\vec{f}(1)        & = k0 + \ell0 = 0~\checkmark
+    \end{align*}
+    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$, $((k + \ell) \odot \vec{f})(x) = (k \odot \vec{f} \oplus \ell \odot \vec{f})(x)$
   \end{proof}
 \end{enumerate}
 
