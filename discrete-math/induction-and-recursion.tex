@@ -86,13 +86,64 @@ at any point is determined by a set of well-defined rules that depend on the pas
 of the system.
 
 \subsection{Summations}
-
+\textbf{Summation Notation} is used to express the sum of terms in a numerical sequence.
+\[
+  \sum_{i=s}^{t} a_i = a_{s} + a_{s+1} + \ldots + a_t
+\]
+\begin{center}
+  \begin{tabular}{l}
+    $i$ is the \textit{index}       \\
+    $s$ is the \textit{lower limit} \\
+    $t$ is the \textit{upper limit}
+  \end{tabular}
+\end{center}
+Any variable name could be used for index, but $i,j,k$ and $\ell$
+are most common.
+\begin{align*}
+  \sum_{j=1}^{4} j^3    & :~\text{summation form} \\
+  1^3 + 2^3 + 3^3 + 4^3 & :~\text{expanded form}
+\end{align*}
+\[
+  \sum_{k=m}^{n} a_k = \sum_{k=m}^{n-1} a_k + a_n,~\text{for}~n>m
+\]
+\[
+  \sum_{j=1}^{n} (j+2)^3 = \sum_{k=1}^{n} (k+2)^3 = \sum_{i=3}^{n+2} i^3
+\]
+\subsubsection*{Closed Form}
+A \textbf{closed form} for a mathematical sum expresses the value of the sum without
+summation notation. For example,
+\[
+  \sum_{k=0}^{n-1} (a+kd) = an + \frac{d(n-1)n}{2}
+\]
+\textbf{Arithmetic Sequence Closed Form}:
+\[
+  \sum_{k=0}^{n-1} (a+kd) = an + \frac{d(n-1)n}{2}
+\]
+\textbf{Geometric Sequence Closed Form}:
+\[
+  \sum_{k=0}^{n-1} (a \cdot r^k) = \frac{a(r^n-1)}{r-1}
+\]
 
 \subsection{Mathematical induction}
-
+Two Components of an inductive proof:
+\begin{itemize}
+  \item Base Case:
+        \subitem establishes that the theorem is true for the first value in the sequence
+  \item Inductive Step:
+        \subitem establishes that if the theorem is true for $k$, then the theorem holds for $k+1$
+\end{itemize}
+\[
+  \text{For a}~k \in \mathbb{Z}^+,~s(k) \implies s(k+1)
+  \iff [s(1) \implies s(2) \implies s(3) \implies s(4) \implies \cdots]
+\]
+The supposition that $s(k)$ is true is called the \underline{inductive hypothesis}.
 
 \subsection{More inductive proofs}
-
+Explicit formula for a sequence defined by a recurrence relation
+\begin{align*}
+  \{g_n\}:~g_0 & =1,~g_n=3g_{n-1} + 2n~\text{then for any $n \geq 0$,} \\
+  g_n          & = \frac{5}{2} \cdot 3^n - n - \frac{3}{2}
+\end{align*}
 
 \subsection{Strong induction and well-ordering}
 
