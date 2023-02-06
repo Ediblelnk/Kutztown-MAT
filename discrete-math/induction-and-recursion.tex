@@ -144,30 +144,236 @@ Explicit formula for a sequence defined by a recurrence relation
   \{g_n\}:~g_0 & =1,~g_n=3g_{n-1} + 2n~\text{then for any $n \geq 0$,} \\
   g_n          & = \frac{5}{2} \cdot 3^n - n - \frac{3}{2}
 \end{align*}
+\begin{proof}
+  by induction on $n$. \\
+  Base Case: $n=0$
+  \begin{align*}
+    g_o & = \frac{5}{2} \cdot 3^0 - 0 - \frac{3}{2} = 1    \\
+    g_0 & = 1~\checkmark\quad\text{(by initial condition)}
+  \end{align*}
+  Inductive Step: assume for any integer $k\geq0$, assume that $g_k=\frac{5}{2} \cdot 3^k-k-\frac{3}{2}$ is true.\\
+  For $k+1$:
+  \begin{align*}
+    g_{k+1} & = 3g_{k} + 2(k+1)\quad\text{by definition}                                  \\
+            & = 3(\frac{5}{2}3^k-k-\frac{3}{2})+2(k+1)\quad\text{by induction hypothesis} \\
+            & = \frac{5}{2}3^{k+1}-3k-\frac{9}{2}+2k+2                                    \\
+            & = \frac{5}{2}3^{k+1}-k-\frac{5}{2}                                          \\
+            & = \frac{5}{2}3^{k+1}-(k+1)-\frac{5}{2}\quad\text{by algebra}
+  \end{align*}
+  $\therefore g_n = \frac{5}{2} \cdot 3^n - n - \frac{3}{2}$, for all $n \in \mathbb{Z}^\geq$
+\end{proof}
 
 \subsection{Strong induction and well-ordering}
+The \textbf{principle of strong induction} assumes the fact to be proven holds for all values
+less than or equal to $k$ and proves the fact holds for $k+1$
+\begin{center}
+  \begin{tabular}{cllll}
+    \multicolumn{5}{c}{Inductive Step for Weak Induction}                  \\
+    \hline
+    \multicolumn{5}{c}{For all $k\geq1,~S(k) \implies S(k+1)$}             \\
+    $k=1$    & $S(1)\implies$ & $S(2)$         &                &          \\
+    $k=2$    &                & $S(2)\implies$ & $S(3)$         &          \\
+    $k=3$    &                &                & $S(3)\implies$ & $S(4)$   \\
+    $\vdots$ &                &                &                & $\ddots$
+  \end{tabular}
+  \qquad
+  \begin{tabular}{cllll}
+    \multicolumn{5}{c}{Inductive Step for Strong Induction}                                       \\
+    \hline
+    \multicolumn{5}{c}{For all $k\geq1,~S(0) \land S(1) \land \ldots \land S(k) \implies S(k+1)$} \\
+    $k=1$    & $S(1)\implies$    & $S(2)$            &                &                           \\
+    $k=2$    & $S(1)\quad\land $ & $S(2)\implies$    & $S(3)$         &                           \\
+    $k=3$    & $S(1)\quad\land $ & $S(2)\quad\land $ & $S(3)\implies$ & $S(4)$                    \\
+    $\vdots$ &                   &                   &                & $\ddots$
+  \end{tabular}
+\end{center}
+for $n\geq0,~f_n \leq 2^n$
+\begin{proof}
+  By Strong Induction of $n$
 
+  Base Case:
+  \begin{align*}
+    n & = 0:~f_0 = 0 \leq 2^0~\checkmark \\
+    n & = 1:~f_1 = 1 \leq 2^1~\checkmark \\
+  \end{align*}
+  Inductive Step:
+
+  For $k\geq1$, suppose that for any $j$ in the range from $0$ through $k$, $f_k\leq2^j$.
+  We will prove that $f_{k+1}\leq2^{k+1}$.
+
+  Since $k\geq1$, then $k-1\geq0$. Therefore both $k$ and $k-1$ fall in the range from
+  $0$ through $k$, and by the induction hypothesis $f_{k-1}\leq2^{k-1}$ and $f_k\leq2^k$
+  \begin{align*}
+    f_{k+1} & = f_k + f_{k-1}              &  & \text{by definition}           \\
+            & \leq 2^k + 2^{k-1}           &  & \text{by inductive hypothesis} \\
+            & \leq 2^k + 2^{k-1} + 2^{k-1} &  & \text{since $2^{k-1} \geq 0$}  \\
+            & \leq 2^k + 2 \cdot 2^{k-1}                                       \\
+            & \leq 2^k + 2^k                                                   \\
+            & \leq 2 \cdot 2^k                                                 \\
+    f_{k+1} & \leq 2^{k+1}                 &  & \text{by algebra}
+  \end{align*}
+  $\therefore f_{k+1} \leq 2^{k+1}$
+\end{proof}
 
 \subsection{Loop invariants}
-
+\subsubsection*{Program Verification}
+\begin{itemize}
+  \item formally proving that programs perform correctly
+  \item behavior is correct if:
+        \subitem a pre-condition is true before the program starts
+        \subitem a post-condition is true before the program ends
+\end{itemize}
+\subsubsection*{Loop Invariants for While Loops}
+A loop invariant is an assertion that is true before each iteration of a loop.
 
 \subsection{Recursive definitions}
+In a recursive definition of a function, the value of the function is defined in term
+of the output of the function on smaller input values.
 
+For examples, the factorial:
+\begin{align*}
+  n!   & = f(n)\quad\text{such that}   \\
+  f(0) & = 1                           \\
+  f(1) & = n \cdot f(n-1) for n \geq 1
+\end{align*}
 
 \subsection{Structural induction}
+\textbf{Structural induction} is a type of induction used to prove theorem about recursively
+defined sets that follow the structure of the recursive definition.
 
+For example, balanced parenthesis
+\begin{align*}
+  \text{right}[~))()~]  & = 3 & \text{left}[~)))~] = 0 \\
+  \text{left}[~((()))~] & = 3
+\end{align*}
+Recursive definition for the set of properly nested parenthesis:
+\begin{center}
+  \begin{tabular}{r|c}
+    Basis           & $()\in P$           \\
+    Recursive Rules & If $u,v\in P$, then \\
+    1               & $(u) \in P$         \\
+    2               & $uv \in P$
+  \end{tabular}
+\end{center}
+\textit{Theorem}: If string $x\in P$, then left$[~x~] =$ right $[~x~]$
+\begin{proof}
+  by structural induction
+
+  \textbf{Base Case}: $() \in P$
+  \[
+    \text{left}[~()~] = \text{right}[~()~] = 1
+  \]
+
+  \textbf{Inductive Step}: If $x\in P$, then $x$ was constructed by apply a sequence
+  of recursive rules starting with the string $()$ given in the basis.
+
+  We consider two case, depending on the last recursive rule that was applies to construct $x$.
+
+  \textbf{Case 1} Rules 1 was the last applied to construct $x$.
+  Then $x = (u)$, where $u\in P$. We assume that left$[~u~] =$ right $[~u~]$.
+  \begin{align*}
+    \text{left}[~x~] & = \text{left}[~(u)~]    &  & \text{because $x = (u)$}               \\
+                     & = 1 + \text{left}[~u~]  &  & \text{$(u)$ has one more $($ than $u$} \\
+                     & = 1 + \text{right}[~u~] &  & \text{by the inductive hypothesis}     \\
+                     & = \text{right}[~(u)~]   &  & \text{$(u)$ has one more $)$ than $u$} \\
+                     & = \text{right}[~x~]     &  & \text{because $x = (u)$}
+  \end{align*}
+
+  \textbf{Case 2} Rule 2 was the last rule applied to construct $x$.
+  Then $x=uv$, where $u,v\in P$. We assume that left$[~u~] =$ right $[~u~]$ and left$[~v~] =$ right $[~v~]$.
+  \begin{align*}
+    \text{left}[~x~] & = \text{left}[~uv~]                     &  & \text{because $x=uv$}          \\
+                     & = \text{left}[~u~] + \text{left}[~v~]                                       \\
+                     & = \text{right}[~u~] + \text{right}[~v~] &  & \text{by inductive hypothesis} \\
+                     & = \text{right}[~uv~]                                                        \\
+                     & = \text{right}[~x~]                     &  & \text{because $x=uv$}
+  \end{align*}
+  $\therefore \text{left}[~x~] = \text{right}[~x~]$
+\end{proof}
 
 \subsection{Recursive algorithms}
+A \textbf{recursive algorithm} is an algorithm that calls itself.
+
+Ex. a recursive algorithm to compute the factorial formula:
+\begin{lstlisting}
+  Factorial(n)
+
+  Input:  A non-negative integer n
+  Output: n!
+
+  If(n=0), Return(1)
+  r := Factorial(n-1) //the recursive call
+
+  Return(r*n)
+\end{lstlisting}
+
+Ex. recursive algorithm to compute the powerset of a set:
+\begin{lstlisting}
+  PowerSet(A)
+
+  Input:  set A
+  Output: the powerset of A
+
+  If(A=[emptyset]), return {[emptyset]}
+
+  Select an element a in A
+  A' := A - {a}
+  P := PowerSet(A') //recursive call
+  P' := P
+  For each S in P'
+    Add (S union {a}) to P
+  End-for
+
+  Return(P)
+\end{lstlisting}
 
 
 \subsection{Induction and recursive algorithms}
-
+Nothing very useful in this section, only kept for counting reasons.
 
 \subsection{Analyzing the time complexity of recursive algorithms}
+The \textbf{time complexity} of an algorithm is a function $T(n)$, whose $n$ is the input size
 
+Ex. Determining recurrence relation for factorial(n)
+\begin{lstlisting}
+  Factorial(n)
+
+  If(n=0), Return(1)    // two operations, comparison and returning
+
+  r := Factorial(n-1)   // n-1 recursive calls, 1 operation for assignment
+
+  Return(r*n)           // 2 ops, multiplying and returning
+\end{lstlisting}
+Therefore, $T(0) = 2$, $T(n) = T(n-1) + 5$
 
 \subsection{Divide-and-conquer algorithms: Introduction and mergesort}
+A \textbf{divide-and-conquer} algorithm solves a problem by recursively breaking
+the original input into smaller sub-problems of roughly equal size
 
+Ex.
+\begin{lstlisting}
+  Findmin(L)
+
+  If L has only one item x, return(x)
+
+  Break list L into two lists, A and B
+
+  a := Findmin(A)
+  b := Findmin(B)
+
+  If(a <= b) Return(a)
+  Else Return(B)
+\end{lstlisting}
+
+\subsubsection*{Queue}
+A \textbf{queue} maintains items in an ordered list
+\begin{itemize}
+  \item new items are added to back of queue
+  \item items are removed according to first-in, first-out
+\end{itemize}
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/queue.png}
+\end{center}
 
 \subsection{Divide-and-conquer algorithms: Binary Search}
 
