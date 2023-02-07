@@ -1,24 +1,5 @@
-\documentclass{article}
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amsthm, amssymb, fancyhdr, tikz, graphicx}
-\usepackage{centernot, xcolor, hhline, multirow, ulem, listings}
-\pagestyle{fancy}
-
-\newcommand{\bld}{\textbf}
-\newcommand{\itl}{\textit}
-\newcommand{\uln}{\underline}
-\newcommand{\bb}{\mathbb}
-
-\newcommand{\bitem}[1]{\item[\bld{#1.}]}
-\newcommand{\iitem}[1]{\item[\itl{#1.}]}
-
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,      
-    urlcolor=cyan,
-}
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
 
 \title{Linear Algebra}
 \author{Peter Schaefer}
@@ -27,8 +8,8 @@
 \begin{document}
 
 \maketitle
-
 \tableofcontents
+\newpage
 
 \include{lecture-1.tex}
 \include{lecture-2.tex}

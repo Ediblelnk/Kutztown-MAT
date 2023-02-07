@@ -1,32 +1,7 @@
-\documentclass{article}
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
 
-\usepackage[margin=1in]{geometry}
-\usepackage{amsmath, amssymb}
-\usepackage{amsthm}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{math}
-\usetikzlibrary{fit}
-\usepackage{circuitikz}
-\usepackage{amsmath,blkarray,booktabs, bigstrut}
-\usepackage{listings}
-\usepackage[normalem]{ulem}
-\usepackage{xcolor}
-\usepackage{centernot}
-\usepackage{multirow}
-\usepackage{hhline}
-\usepackage{etoolbox}
 \AtBeginEnvironment{align}{\setcounter{equation}{0}}
-\usepackage{fancyhdr}
-\pagestyle{fancy}
-
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    filecolor=magenta,      
-    urlcolor=cyan,
-}
 
 \title{Discrete Math for Computer Science}
 \author{Peter Schaefer}
@@ -35,9 +10,7 @@
 \begin{document}
 
 \maketitle
-
 \tableofcontents
-
 \newpage
 
 \include{logic.tex}
