@@ -242,6 +242,151 @@ Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such t
     \end{align*}
     $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$, $((k + \ell) \odot \vec{f})(x) = (k \odot \vec{f} \oplus \ell \odot \vec{f})(x)$
   \end{proof}
+  \bitem{Axiom 9}
+  \begin{proof}
+    $\forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$:
+    \begin{align*}
+      LHS = ((k \cdot \ell) \odot \vec{f})(x) & = (k \cdot \ell)\vec{f}(x) \\
+                                              & = k\ell\vec{f}(x)          \\ \\
+      RHS = (k \odot (\ell \odot \vec{f}))(x) & = k(\ell \odot \vec{f})(x) \\
+                                              & = k(\ell\vec{f}(x))        \\
+                                              & = k\ell\vec{f}(x) = LHS    \\ \\
+      \text{when}~x=1:~k\ell\vec{f}(1)        & = k\ell0 = 0~\checkmark
+    \end{align*}
+    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$, $((k \cdot \ell) \odot \vec{f})(x) = (k \odot (\ell \odot \vec{f}))(x)$
+  \end{proof}
+  \bitem{Axiom 10}
+  \begin{proof}
+    $\forall~\vec{f} \in F$:
+    \begin{align*}
+      (1 \odot \vec{f})(x)        & = 1\cdot\vec{f}(x) = \vec{f}(x) \\
+      \text{when}~x=1:~\vec{f}(1) & = 0~\checkmark
+    \end{align*}
+  \end{proof}
+  Since all 10 Axioms hold for $F$, $F$ is a real vector space.
+\end{enumerate}
+
+\subsection*{Problem 16}
+Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. For all $\vec{u} = u,\vec{v} = v \in V$, $k\in \bb{R}$ define $\oplus$ and $\odot$ as:
+\[
+  \vec{u} \oplus \vec{v} = u \cdot v\qquad\qquad k \odot \vec{u} = u^k
+\]
+\begin{enumerate}
+  \bitem{Axiom 1}
+  \begin{proof}
+    $\forall~\vec{u}=u,\vec{v}=v \in V$:
+    \begin{align*}
+      \vec{u} \oplus \vec{v} & = u \cdot v
+    \end{align*}
+    Since $u$ and $v > 0$, $u \cdot v > 0$ and $\in \bb{R}$. $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} \in V$
+  \end{proof}
+  \bitem{Axiom 2}
+  \begin{proof}
+    $\forall~\vec{u}=u,\vec{v}=v \in V$:
+    \begin{align*}
+      LHS = \vec{u} \oplus \vec{v} & = u \cdot v       \\
+      RHS = \vec{v} \oplus \vec{u} & = v \cdot u = LHS \\
+    \end{align*}
+    $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u}$
+  \end{proof}
+  \bitem{Axiom 3}
+  \begin{proof}
+    $\forall~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V$:
+    \begin{align*}
+      LHS = \vec{u} \oplus (\vec{v} \oplus \vec{w}) & = \vec{u} \oplus (v \cdot w) \\
+                                                    & = u \cdot (v \cdot w)        \\
+                                                    & = u \cdot v \cdot w          \\ \\
+      RHS = (\vec{u} \oplus \vec{v}) \oplus \vec{w} & = (u \cdot v) \oplus \vec{w} \\
+                                                    & = (u \cdot v) \cdot w        \\
+                                                    & = u \cdot v \cdot w = LHS
+    \end{align*}
+    $\therefore \forall~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V: \vec{u} \oplus (\vec{v} \oplus \vec{w}) = (\vec{u} \oplus \vec{v}) \oplus \vec{w}$
+  \end{proof}
+  \bitem{Axiom 4}
+  \begin{proof}
+    Let $\vec{u} = 1$. $\forall~\vec{v} = v \in V$:
+    \begin{align*}
+      \vec{u} \oplus \vec{v} & = 1 \cdot v = v \\
+      \vec{v} \oplus \vec{u} & = v \cdot 1 = v
+    \end{align*}
+    $\therefore \forall~\vec{v} = v \in V: \vec{u} = 1$ is the additive identity, \bld{id}.
+  \end{proof}
+  \bitem{Axiom 5}
+  \begin{proof}
+    $\forall~\vec{v} = v \in V$, Let $\vec{u} = \frac{1}{v}$:
+    \begin{align*}
+      \vec{u} \oplus \vec{v} & = \frac{1}{v} \cdot v = 1 = \text{\bld{id}} \\
+      \vec{v} \oplus \vec{u} & = v \cdot \frac{1}{v} = 1 = \text{\bld{id}}
+    \end{align*}
+    $\therefore \forall~\vec{v} = v \in V: \vec{u} = \frac{1}{v} = -\vec{v}$
+  \end{proof}
+  \bitem{Axiom 6}
+  \begin{proof}
+    $\forall~\vec{v} = v \in V$ and $\forall~k \in \bb{R}$:
+    \begin{align*}
+      k \odot \vec{v} & = u^k < 0 \qquad \text{since $u>0$}
+    \end{align*}
+    $\therefore \forall~\vec{v} = v \in V$ and $\forall~k \in \bb{R}: k \odot \vec{v} \in V$
+  \end{proof}
+  \bitem{Axiom 7}
+  \begin{proof}
+    $\forall~\vec{v} = v,\vec{u} = u \in V$ and $\forall~k \in \bb{R}$:
+    \begin{align*}
+      LHS = k \odot (\vec{v} \oplus \vec{u})       & = k \odot (u \cdot v) \\
+                                                   & = (u \cdot v)^k       \\
+                                                   & = u^k \cdot v^k       \\ \\
+      RHS = k \odot \vec{v} \oplus k \odot \vec{u} & = (v^k) \oplus (u^k)  \\
+                                                   & = v^k \cdot u^k = LHS
+    \end{align*}
+    $\therefore \forall~\vec{v} = v,\vec{u} = u \in V$ and $\forall~k \in \bb{R}: k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
+  \end{proof}
+  \bitem{Axiom 8}
+  \begin{proof}
+    $\forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}$:
+    \begin{align*}
+      LHS = (k + \ell) \odot \vec{v}                  & = v^{k+\ell}        \\
+                                                      & = v^kv^\ell         \\ \\
+      RHS = k \odot \vec{v} \oplus \ell \odot \vec{v} & = v^k \oplus v^\ell \\
+                                                      & = v^kv^\ell = LHS
+    \end{align*}
+    $\therefore \forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}: (k + \ell) \odot \vec{v} = k \odot \vec{v} \oplus \ell \odot \vec{v}$
+  \end{proof}
+  \bitem{Axiom 9}
+  \begin{proof}
+    $\forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}$:
+    \begin{align*}
+      LHS = (k \cdot \ell) \odot \vec{v} & = v^{k \cdot \ell} \\
+                                         & = v^{k\ell}        \\ \\
+      RHS = k \odot (\ell \odot \vec{v}) & = k \odot (v^k)    \\
+                                         & = v^{k^\ell}       \\
+                                         & = v^{k\ell} = LHS
+    \end{align*}
+    $\therefore \forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
+  \end{proof}
+  \bitem{Axiom 10}
+  \begin{proof}
+    $\forall~\vec{v} = v \in V$:
+    \begin{align*}
+      1 \odot \vec{v} = v^1 = v = \vec{v}
+    \end{align*}
+    $\therefore \forall~\vec{v} = v \in V: 1 \odot \vec{v} = \vec{v}$
+  \end{proof}
+  Since $V$ holds under all 10 Axioms, $V$ is a real vector space.
+\end{enumerate}
+
+\subsection*{Problem 17}
+\begin{enumerate}
+  \bitem{a} A vector is a directed line segment (an arrow)
+  \item[] A vector can be anything you can imagine, from a function to fruit.
+    \bitem{b} A vector is an \itl{n}-tuple of real numbers.
+  \item[] A vector can be anything you can imagine, including an \itl{n}-tuple of real numbers, but it doesn't have to be.
+    \bitem{c} A vector is any element of a vector space
+  \item[] A vector \bld{is} any element of a vector space
+    \bitem{e} The set of polynomials with degree exactly 1 is a vector space under the operation defined in Example 7.\
+  \item[] Since all polynomials can be mapped to a pair of real numbers, there is a bijection between a pair of real numbers
+    a polynomial of degree exactly 1. This pair of real numbers has the standard definitions for addition and scalar multiplication,
+    so therefore it is a vector space. This means that the set of polynomials with degree exactly 1 is a vector space under the
+    operations defined in Example 7.
 \end{enumerate}
 
 \end{document}
