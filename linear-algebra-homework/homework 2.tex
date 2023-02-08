@@ -17,7 +17,7 @@ The set of all triples of real numbers with the standard vector addition but wit
 \begin{enumerate}
   \bitem{Axiom 1}
   \begin{proof}
-    Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    $V = \bb{R}^3$. Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
     \begin{align*}
       \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) \oplus (u_1,u_2,u_3) & = (v_1+u_1,v_2+u_2,v_3+u_3) \\
       v_1+u_1,v_2+u_2,v_3+u_3                                     & \in \bb{R}                  \\
@@ -45,13 +45,13 @@ The set of all triples of real numbers with the standard vector addition but wit
                                               & = (v_1+(u_1+w_1),v_2+(u_2+w_2),v_3+(u_3+w_3))               \\ \\
       (\vec{v} \oplus \vec{u}) \oplus \vec{w} & = ((v_1,v_2,v_3) \oplus (u_1,u_2,u_3)) \oplus (w_1,w_2,w_3) \\
                                               & = (v_1+u_1,v_2+u_2,v_3+u_3) \oplus (w_1,w_2,w_3)            \\
-                                              & = ((v_1+u_1)+w_1,(v_2+u_2)+w_2,(v_3+u_3)+w_3)               \\
+                                              & = ((v_1+u_1)+w_1,(v_2+u_2)+w_2,(v_3+u_3)+w_3)
     \end{align*}
     Through the use of the properties of $\bb{R}$,
     \begin{align*}
       v_1+(u_1+w_1) & = (v_1+u_1)+w_1 \\
       v_2+(u_2+w_2) & = (v_2+u_2)+w_2 \\
-      v_3+(u_3+w_3) & = (v_3+u_3)+w_3 \\
+      v_3+(u_3+w_3) & = (v_3+u_3)+w_3
     \end{align*}
     $\therefore \forall~\vec{v},\vec{u},\vec{w} \in V:~\vec{v} \oplus (\vec{u} \oplus \vec{w}) = (\vec{v} \oplus \vec{u}) \oplus \vec{w}$
   \end{proof}
@@ -70,7 +70,7 @@ The set of all triples of real numbers with the standard vector addition but wit
     \begin{align*}
       \vec{v} \oplus \vec{u} & = (v_1,v_2,v_3) \oplus (-v_1,-v_2,-v_3) & \vec{u} \oplus \vec{v} & = (-v_1,-v_2,-v_3) \oplus (v_1,v_2,v_3) \\
                              & = (v_1+-v_1,v_2+-v_2,v_3+-v_3)          &                        & = (-v_1+v_1,-v_2+v_2,-v_3+v_3)          \\
-                             & = (0,0,0) =~\text{\bld{id}}             &                        & = (0,0,0) =~\text{\bld{id}}             \\
+                             & = (0,0,0) =~\text{\bld{id}}             &                        & = (0,0,0) =~\text{\bld{id}}
     \end{align*}
     $\therefore \vec{u}$ is the additive inverse of $\vec{v}$, $\forall~\vec{u} \in V$
   \end{proof}
@@ -106,7 +106,8 @@ The set of all triples of real numbers with the standard vector addition but wit
                                                       & = (k^2v_1+2k\ell v_1+\ell^2v_1,k^2v_2+2k\ell v_2+\ell^2v_2,k^2v_3+2k\ell v_3+\ell^2v_3) \\ \\
       RHS = k \odot \vec{v} \oplus \ell \odot \vec{v} & = k \odot (v_1,v_2,v_3) \oplus \ell \odot (v_1,v_2,v_3)                                 \\
                                                       & = (k^2v_1,k^2v_2,k^2v_3) \oplus (\ell^2v_1,\ell^2v_2,\ell^2v_3)                         \\
-                                                      & = (k^2v_1 + \ell^2v_1, k^2v_2 + \ell^2v_2, k^2v_3 + \ell^2v_3) \neq LHS
+                                                      & = (k^2v_1 + \ell^2v_1, k^2v_2 + \ell^2v_2, k^2v_3 + \ell^2v_3) \neq LHS                 \\
+                                                      & \tif k \neq 0 \tand \ell \neq 0 \tand \vec{v} \neq (0,0,0)
     \end{align*}
     $\therefore$ Axiom 8 does not hold.
   \end{proof}
@@ -142,58 +143,60 @@ and the addition and scalar multiplication operations are the same as those intr
   (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
   (k \odot \vec{f})(x)        & = k\vec{f}(x)
 \end{align*}
-Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such that $\vec{f}(x) = 0$.
+Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
 \begin{enumerate}
   \bitem{Axiom 1}
   \begin{proof}
     $\forall~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
     \begin{align*}
-      \text{by definition}~(\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
-      \text{when}~x=1:~\vec{f}(1) + \vec{g}(1)         & = 0 + 0 = 0~\checkmark    \\
+      (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \in \bb{R},                                                     \\
+                                  & \tsince \vec{f}(x) \in \bb{R} \tand \vec{g}(x) \in \bb{R}.                                \\
+                                  & \twhen x=1:~(\vec{f} \oplus \vec{g})(1) = \vec{f}(1) + \vec{g}(1)  = 0 + 0 = 0~\checkmark
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f}(x) + \vec{g}(x) \in F$
+    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f} \oplus \vec{g} \in F$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
     $\forall~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
     \begin{align*}
-      LHS = (\vec{f} \oplus \vec{g})(x)        & = \vec{f}(x) + \vec{g}(x)       \\
-      \text{when}~x=1,~\vec{f}(1) + \vec{g}(1) & = 0 + 0 = 0~\checkmark          \\
-      RHS = (\vec{g} \oplus \vec{f})(x)        & = \vec{g}(x) + \vec{f}(x) = LHS \\
-      \text{when}~x=1,~\vec{g}(1) + \vec{f}(1) & = 0 + 0 = 0~\checkmark          \\
+      LHS = (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x)                                 \\
+      RHS = (\vec{g} \oplus \vec{f})(x) & = \vec{g}(x) + \vec{f}(x) = \vec{f}(x) + \vec{g}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f}(x) + \vec{g}(x) = \vec{g}(x) + \vec{f}(x)$
+    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f} \oplus \vec{g} = \vec{g} \oplus \vec{f}$
   \end{proof}
   \bitem{Axiom 3}
   \begin{proof}
     $\forall~\vec{f},\vec{g},\vec{h} \in F,~x \in \bb{R}$:
     \begin{align*}
-      LHS = (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x)   & = \vec{f}(x) + (\vec{g} \oplus \vec{h})(x)     \\
-                                                           & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x))       \\
-      \text{when}~x=1,~\vec{f}(1) + (\vec{g}(1) + \vec{h}) & = 0 + (0 + 0) = 0~\checkmark                   \\ \\
-      RHS = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x)   & = (\vec{f} \oplus \vec{g})(x) + \vec{h}(x)     \\
-                                                           & = (\vec{f}(x) + \vec{g}(x)) + \vec{h}(x) = LHS \\
-      \text{when}~x=1,~(\vec{f}(1) + \vec{g}(1)) + \vec{h} & = (0 + 0) + 0 = 0~\checkmark
+      LHS = (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x) & = \vec{f}(x) + (\vec{g} \oplus \vec{h})(x)     \\
+                                                         & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x))       \\ \\
+      RHS = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x) & = (\vec{f} \oplus \vec{g})(x) + \vec{h}(x)     \\
+                                                         & = (\vec{f}(x) + \vec{g}(x)) + \vec{h}(x)       \\
+                                                         & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x)) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g},\vec{h} \in F: (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x) = ((\vec{f} \oplus \vec{g}) \oplus \vec{h})(x)$
+    $\therefore \forall~\vec{f},\vec{g},\vec{h} \in F: \vec{f} \oplus (\vec{g} \oplus \vec{h}) = (\vec{f} \oplus \vec{g}) \oplus \vec{h}$
   \end{proof}
   \bitem{Axiom 4}
   \begin{proof}
-    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in F$:
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in F,~\forall~x \in \bb{R}$:
     \begin{align*}
-      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x)~\text{for}~x \in \bb{R} \\
-      \text{when}~x=1,~\vec{f}(1)                           & + \vec{g}(1) = 0 + 0 = 0~\checkmark                  \\ \\
-      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) + \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x)~\text{for}~x \in \bb{R} \\
-      \text{when}~x=1,~\vec{g}(1)                           & + \vec{f}(1) = 0 + 0 = 0~\checkmark
+      \tsince \vec{f}: \bb{R} \rightarrow \bb{R} & \tand \vec{f}(1) = 0 \\
+      \therefore \vec{f}                         & \in F
     \end{align*}
-    $\therefore \vec{f}(x) = 0$ is the additive identity for $F$, \bld{id}.
+    \begin{align*}
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x) \\
+      \therefore \vec{f} \oplus \vec{g}                     & = \vec{g}                    \\ \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) + \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x) \\
+      \therefore \vec{g} \oplus \vec{f}                     & = \vec{g}
+    \end{align*}
+    $\therefore \vec{f}$ is the additive identity for $F$, \bld{id}.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~\vec{g} \in F$:
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~\vec{g} \in F,~\forall~x \in \bb{R}$:
     \begin{align*}
-      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0~\text{for}~x \in \bb{R} \\
-      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0~\text{for}~x \in \bb{R}
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0 = \bld{id} \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0 = \bld{id}
     \end{align*}
     $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in F$
   \end{proof}
@@ -201,7 +204,7 @@ Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such t
   \begin{proof}
     $\forall~k,x \in \bb{R}$ and $\forall~\vec{f} \in F$:
     \begin{align*}
-      (k \odot \vec{f})            & = k\vec{f}(x)              &  & \text{by definition} \\
+      (k \odot \vec{f})(x)         & = k\vec{f}(x)              &  & (\text{by definition}) \\
       \text{when}~x=1:~k\vec{f}(1) & = k \cdot 0 = 0~\checkmark
     \end{align*}
     $\therefore \forall~k \in \bb{R}$ and $\forall~\vec{f} \in F$, $k\odot\vec{f} \in F$
@@ -210,14 +213,10 @@ Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such t
   \begin{proof}
     $\forall~\vec{f},\vec{g} \in F$ and $\forall~k, x \in \bb{R}$:
     \begin{align*}
-      LHS = (k \odot (\vec{f} \oplus \vec{g}))(x)       & = k(\vec{f} \oplus \vec{g})(x)                \\
-                                                        & = k(\vec{f}(x) + \vec{g}(x))                  \\
-                                                        & = k\vec{f}(x) + k\vec{g}(x)                   \\ \\
-      RHS = (k \odot \vec{f} \oplus k \odot \vec{g})(x) & = (k \odot \vec{f})(x) + (k \odot \vec{g})(x) \\
-                                                        & = k\vec{f}(x) + k\vec{g}(x) = LHS             \\ \\
-      \text{when}~x=1:~k\vec{f}(1) + k\vec{g}(1)        & = k0 + k0 = 0~\checkmark
+      LHS & = (k \odot (\vec{f} \oplus \vec{g}))(x) = k(\vec{f} \oplus \vec{g})(x) = k(\vec{f}(x) + \vec{g}(x)) = k\vec{f}(x) + k\vec{g}(x) \\
+      RHS & = (k \odot \vec{f} \oplus k \odot \vec{g})(x) = (k \odot \vec{f})(x) + (k \odot \vec{g})(x) = k\vec{f}(x) + k\vec{g}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in F$ and $\forall~k, x \in \bb{R}$, $(k \odot (\vec{f} \oplus \vec{g}))(x) = (k \odot \vec{f} \oplus k \odot \vec{g})(x)$
+    $\therefore \forall~\vec{f},\vec{g} \in F$ and $\forall~k \in \bb{R}$, $k \odot (\vec{f} \oplus \vec{g}) = k \odot \vec{f} \oplus k \odot \vec{g}$
   \end{proof}
   \bitem{Axiom 8}
   \begin{proof}
@@ -226,10 +225,9 @@ Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such t
       LHS = ((k + \ell) \odot \vec{f})(x)                  & = (k+\ell)\vec{f}(x)                             \\
                                                            & = k\vec{f}(x) + \ell\vec{f}(x)                   \\ \\
       RHS = (k \odot \vec{f} \oplus \ell \odot \vec{f})(x) & = (k \odot \vec{f})(x) + (\ell \odot \vec{f})(x) \\
-                                                           & = k\vec{f}(x) + \ell\vec{f}(x) = LHS             \\ \\
-      \text{when}~x=1:~k\vec{f}(1) + \ell\vec{f}(1)        & = k0 + \ell0 = 0~\checkmark
+                                                           & = k\vec{f}(x) + \ell\vec{f}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$, $((k + \ell) \odot \vec{f})(x) = (k \odot \vec{f} \oplus \ell \odot \vec{f})(x)$
+    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell \in \bb{R}$, $(k + \ell) \odot \vec{f} = k \odot \vec{f} \oplus \ell \odot \vec{f}$
   \end{proof}
   \bitem{Axiom 9}
   \begin{proof}
@@ -239,19 +237,18 @@ Let $F$ be the set of all functions $\vec{f}: \bb{R}  \rightarrow \bb{R}$ such t
                                               & = k\ell\vec{f}(x)          \\ \\
       RHS = (k \odot (\ell \odot \vec{f}))(x) & = k(\ell \odot \vec{f})(x) \\
                                               & = k(\ell\vec{f}(x))        \\
-                                              & = k\ell\vec{f}(x) = LHS    \\ \\
-      \text{when}~x=1:~k\ell\vec{f}(1)        & = k\ell0 = 0~\checkmark
+                                              & = k\ell\vec{f}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$, $((k \cdot \ell) \odot \vec{f})(x) = (k \odot (\ell \odot \vec{f}))(x)$
+    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell \in \bb{R}$, $(k \cdot \ell) \odot \vec{f} = k \odot (\ell \odot \vec{f})$
   \end{proof}
   \bitem{Axiom 10}
   \begin{proof}
     $\forall~\vec{f} \in F$:
     \begin{align*}
-      (1 \odot \vec{f})(x)        & = 1\cdot\vec{f}(x) = \vec{f}(x) \\
-      \text{when}~x=1:~\vec{f}(1) & = 0~\checkmark
+      (1 \odot \vec{f})(x) & = 1\cdot\vec{f}(x) = \vec{f}(x) \\
     \end{align*}
   \end{proof}
+  $\therefore$ 1 fixes all elements in $F$
   Since all 10 Axioms hold for $F$, $F$ is a real vector space.
 \end{enumerate}
 
@@ -274,7 +271,7 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
     $\forall~\vec{u}=u,\vec{v}=v \in V$:
     \begin{align*}
       LHS = \vec{u} \oplus \vec{v} & = u \cdot v       \\
-      RHS = \vec{v} \oplus \vec{u} & = v \cdot u = LHS \\
+      RHS = \vec{v} \oplus \vec{u} & = v \cdot u = LHS
     \end{align*}
     $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u}$
   \end{proof}
@@ -371,11 +368,10 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \item[] A vector can be anything you can imagine, including an \itl{n}-tuple of real numbers, but it doesn't have to be.
     \bitem{c} A vector is any element of a vector space
   \item[] A vector \bld{is} any element of a vector space
-    \bitem{e} The set of polynomials with degree exactly 1 is a vector space under the operation defined in Example 7.\
-  \item[] Since all polynomials can be mapped to a pair of real numbers, there is a bijection between a pair of real numbers
-    a polynomial of degree exactly 1. This pair of real numbers has the standard definitions for addition and scalar multiplication,
-    so therefore it is a vector space. This means that the set of polynomials with degree exactly 1 is a vector space under the
-    operations defined in Example 7.
+    \bitem{e} The set of polynomials with degree \itl{exactly} 1 is a vector space under the operation defined in Example 7.\
+  \item[] Consider $\vec{v} = 2x + 1,~\vec{u} = -2x +3$. Both $\vec{v} \tand \vec{u} \in V \tsince$ they are both exactly degree 1.
+    Now consider $\vec{v} \oplus \vec{u} = 2x +1 -2x +3 = 4$. $4$ is not exactly degree 1; it is degree 0, and therefore not in $V$.
+    Thus $V$ is not closed under addition.
 \end{enumerate}
 
 \end{document}
