@@ -30,9 +30,9 @@ The set of all triples of real numbers with the standard vector addition but wit
     \begin{align*}
       \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) & \oplus (u_1,u_2,u_3) = (v_1+u_1,v_2+u_2,v_3+u_3) \\
       \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) & \oplus (v_1,v_2,v_3) = (u_1+v_1,u_2+v_2,u_3+v_3) \\
-      v_1+u_1                                & = u_1+v_1~\text{by prop. of}~\bb{R}              \\
-      v_2+u_2                                & = u_2+v_2~\text{by prop. of}~\bb{R}              \\
-      v_3+u_3                                & = u_3+v_3~\text{by prop. of}~\bb{R}
+      v_1+u_1                                & = u_1+v_1                                        \\
+      v_2+u_2                                & = u_2+v_2                                        \\
+      v_3+u_3                                & = u_3+v_3
     \end{align*}
     $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} = \vec{u} \oplus \vec{v}$
   \end{proof}
@@ -62,7 +62,7 @@ The set of all triples of real numbers with the standard vector addition but wit
       \vec{v} \oplus \vec{u} = (0,0,0) \oplus (u_1,u_2,u_3) & = (0+u_1,0+u_2,0+u_3) = (u_1,u_2,u_3) = \vec{u} \\
       \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) \oplus (0,0,0) & = (u_1+0,u_2+0,u_3+0) = (u_1,u_2,u_3) = \vec{u}
     \end{align*}
-    Using properties of $\bb{R}$. $\therefore \vec{v} = (0,0,0)$ is the additive identity for $V$, \bld{id}.
+    $\therefore \vec{v} = (0,0,0)$ is the additive identity for $V$, \bld{id}.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
@@ -78,8 +78,8 @@ The set of all triples of real numbers with the standard vector addition but wit
   \begin{proof}
     Let $\vec{v}=(x,y,z)$. $\forall~\vec{v} \in V,~k \in \bb{R}$:
     \begin{align*}
-      k \odot \vec{v} = k \odot (x,y,z) & = (k^2x,k^2y,k^2z)                   \\
-      k^2x,k^2y,k^2z                    & \in \bb{R}~\text{by prop. of}~\bb{R}
+      k \odot \vec{v} = k \odot (x,y,z) & = (k^2x,k^2y,k^2z) \\
+      k^2x,k^2y,k^2z                    & \in \bb{R}
     \end{align*}
     $\therefore \forall~\vec{v} \in V,~k \in \bb{R}:~k \odot \vec{v} \in V$
   \end{proof}
@@ -193,10 +193,13 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~\vec{g} \in F,~\forall~x \in \bb{R}$:
+    $\forall~\vec{g} \in F$. Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~x \in \bb{R}$:
     \begin{align*}
-      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0 = \bld{id} \\
-      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0 = \bld{id}
+      \vec{f}(1) = -\vec{g}(1)                                   & = -0 = 0,~\therefore \vec{f} \in F        \\ \\
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0.            \\
+      \therefore \vec{f} \oplus \vec{g}                          & = ~\text{constant 0 function}~ = \bld{id} \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0.             \\
+      \therefore \vec{g} \oplus \vec{f}                          & = ~\text{constant 0 function}~ = \bld{id}
     \end{align*}
     $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in F$
   \end{proof}
@@ -248,7 +251,7 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
       (1 \odot \vec{f})(x) & = 1\cdot\vec{f}(x) = \vec{f}(x) \\
     \end{align*}
   \end{proof}
-  $\therefore$ 1 fixes all elements in $F$
+  $\therefore$ 1 fixes all elements in $F$. \\
   Since all 10 Axioms hold for $F$, $F$ is a real vector space.
 \end{enumerate}
 
@@ -264,7 +267,7 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
     \begin{align*}
       \vec{u} \oplus \vec{v} & = u \cdot v
     \end{align*}
-    Since $u$ and $v > 0$, $u \cdot v > 0$ and $\in \bb{R}$. $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} \in V$
+    Since $u > 0$ and $v > 0$, $u \cdot v \in \bb{R}^+$. $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} \in V$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
@@ -290,7 +293,7 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \end{proof}
   \bitem{Axiom 4}
   \begin{proof}
-    Let $\vec{u} = 1$. $\forall~\vec{v} = v \in V$:
+    Let $\vec{u} = 1 \in \bb{R}^+$. $\forall~\vec{v} = v \in V$:
     \begin{align*}
       \vec{u} \oplus \vec{v} & = 1 \cdot v = v \\
       \vec{v} \oplus \vec{u} & = v \cdot 1 = v
@@ -299,7 +302,7 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    $\forall~\vec{v} = v \in V$, Let $\vec{u} = \frac{1}{v}$:
+    $\forall~\vec{v} = v \in V$, Let $\vec{u} = \frac{1}{v}$ (Note $\frac{1}{v} \in \bb{R}^+$ since $v > 0$):
     \begin{align*}
       \vec{u} \oplus \vec{v} & = \frac{1}{v} \cdot v = 1 = \text{\bld{id}} \\
       \vec{v} \oplus \vec{u} & = v \cdot \frac{1}{v} = 1 = \text{\bld{id}}
@@ -362,14 +365,14 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
 
 \subsection*{Problem 17}
 \begin{enumerate}
-  \bitem{a} A vector is a directed line segment (an arrow)
-  \item[] A vector can be anything you can imagine, from a function to fruit.
-    \bitem{b} A vector is an \itl{n}-tuple of real numbers.
-  \item[] A vector can be anything you can imagine, including an \itl{n}-tuple of real numbers, but it doesn't have to be.
-    \bitem{c} A vector is any element of a vector space
-  \item[] A vector \bld{is} any element of a vector space
-    \bitem{e} The set of polynomials with degree \itl{exactly} 1 is a vector space under the operation defined in Example 7.\
-  \item[] Consider $\vec{v} = 2x + 1,~\vec{u} = -2x +3$. Both $\vec{v} \tand \vec{u} \in V \tsince$ they are both exactly degree 1.
+  \bitem{a} \bld{A vector is a directed line segment (an arrow)}
+  \item[] False, A vector can be anything you can imagine, from a function to fruit.
+    \bitem{b} \bld{A vector is an \itl{n}-tuple of real numbers.}
+  \item[] False, A vector can be anything you can imagine, including an \itl{n}-tuple of real numbers, but it doesn't have to be.
+    \bitem{c} \bld{A vector is any element of a vector space}
+  \item[] True, A vector \bld{is} any element of a vector space
+    \bitem{e} \bld{The set of polynomials with degree \itl{exactly} 1 is a vector space under the operation defined in Example 7.}
+  \item[] False. Consider $\vec{v} = 2x + 1,~\vec{u} = -2x +3$. Both $\vec{v} \tand \vec{u} \in V \tsince$ they are both exactly degree 1.
     Now consider $\vec{v} \oplus \vec{u} = 2x +1 -2x +3 = 4$. $4$ is not exactly degree 1; it is degree 0, and therefore not in $V$.
     Thus $V$ is not closed under addition.
 \end{enumerate}
