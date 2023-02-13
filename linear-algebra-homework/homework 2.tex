@@ -20,25 +20,23 @@ The set of all triples of real numbers with the standard vector addition but wit
     $V = \bb{R}^3$. Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
     \begin{align*}
       \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) \oplus (u_1,u_2,u_3) & = (v_1+u_1,v_2+u_2,v_3+u_3) \\
-      v_1+u_1,v_2+u_2,v_3+u_3                                     & \in \bb{R}                  \\
+      v_1+u_1,v_2+u_2, \tand v_3+u_3                                     & \in \bb{R}
     \end{align*}
     $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} \in V$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
-    Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    $\forall~\vec{v},\vec{u} \in V$:
     \begin{align*}
-      \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) & \oplus (u_1,u_2,u_3) = (v_1+u_1,v_2+u_2,v_3+u_3) \\
-      \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) & \oplus (v_1,v_2,v_3) = (u_1+v_1,u_2+v_2,u_3+v_3) \\
-      v_1+u_1                                & = u_1+v_1                                        \\
-      v_2+u_2                                & = u_2+v_2                                        \\
-      v_3+u_3                                & = u_3+v_3
+      \vec{v} \oplus \vec{u} & = (v_1,v_2,v_3) \oplus (u_1,u_2,u_3) = (v_1+u_1,v_2+u_2,v_3+u_3) \\
+      \vec{u} \oplus \vec{v} & = (u_1,u_2,u_3) \oplus (v_1,v_2,v_3) = (u_1+v_1,u_2+v_2,u_3+v_3) \\
+      v_1+u_1                & = u_1+v_1,~v_2+u_2 = u_2+v_2,~v_3+u_3 = u_3+v_3
     \end{align*}
     $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} = \vec{u} \oplus \vec{v}$
   \end{proof}
   \bitem{Axiom 3}
   \begin{proof}
-    Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3),\vec{w}=(w_1,w_2,w_3)$. $\forall~\vec{v},\vec{u},\vec{w} \in V$:
+    $\forall~\vec{v},\vec{u},\vec{w} \in V$:
     \begin{align*}
       \vec{v} \oplus (\vec{u} \oplus \vec{w}) & = (v_1,v_2,v_3) \oplus ((u_1,u_2,u_3) \oplus (w_1,w_2,w_3)) \\
                                               & = (v_1,v_2,v_3) \oplus (u_1+w_1,u_2+w_2,u_3+w_3)            \\
@@ -128,9 +126,7 @@ The set of all triples of real numbers with the standard vector addition but wit
   \begin{proof}
     $\forall~\vec{v} \in V$:
     \begin{align*}
-      1 \odot \vec{v} & = 1 \odot (v_1,v_2,v_3)   \\
-                      & = (1^2v_1,1^2v_2,1^2v_3)  \\
-                      & = (v_1,v_2,v_3) = \vec{v}
+      1 \odot \vec{v} & = 1 \odot (v_1,v_2,v_3) = (1^2v_1,1^2v_2,1^2v_3) = (v_1,v_2,v_3) = \vec{v}
     \end{align*}
     $\therefore \forall~\vec{v} \in V: 1 \odot \vec{v} = \vec{v}$
   \end{proof}
@@ -180,14 +176,9 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
   \begin{proof}
     Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in F,~\forall~x \in \bb{R}$:
     \begin{align*}
-      \tsince \vec{f}: \bb{R} \rightarrow \bb{R} & \tand \vec{f}(1) = 0 \\
-      \therefore \vec{f}                         & \in F
-    \end{align*}
-    \begin{align*}
-      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x) \\
-      \therefore \vec{f} \oplus \vec{g}                     & = \vec{g}                    \\ \\
-      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) + \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x) \\
-      \therefore \vec{g} \oplus \vec{f}                     & = \vec{g}
+      \tsince \vec{f}: \bb{R} \rightarrow \bb{R}            & \tand \vec{f}(1) = 0,~\therefore \vec{f} \in F                              \\ \\
+      (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x),~\therefore \vec{f} \oplus \vec{g} & = \vec{g} \\
+      (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) + \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x),~\therefore \vec{g} \oplus \vec{f} & = \vec{g}
     \end{align*}
     $\therefore \vec{f}$ is the additive identity for $F$, \bld{id}.
   \end{proof}
@@ -236,11 +227,8 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
   \begin{proof}
     $\forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$:
     \begin{align*}
-      LHS = ((k \cdot \ell) \odot \vec{f})(x) & = (k \cdot \ell)\vec{f}(x) \\
-                                              & = k\ell\vec{f}(x)          \\ \\
-      RHS = (k \odot (\ell \odot \vec{f}))(x) & = k(\ell \odot \vec{f})(x) \\
-                                              & = k(\ell\vec{f}(x))        \\
-                                              & = k\ell\vec{f}(x) = LHS
+      LHS = ((k \cdot \ell) \odot \vec{f})(x) & = (k \cdot \ell)\vec{f}(x) & RHS & = (k \odot (\ell \odot \vec{f}))(x) = k(\ell \odot \vec{f})(x) \\
+                                              & = k\ell\vec{f}(x)          &     & = k(\ell\vec{f}(x)) = k\ell\vec{f}(x) = LHS
     \end{align*}
     $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell \in \bb{R}$, $(k \cdot \ell) \odot \vec{f} = k \odot (\ell \odot \vec{f})$
   \end{proof}
@@ -248,7 +236,7 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
   \begin{proof}
     $\forall~\vec{f} \in F$:
     \begin{align*}
-      (1 \odot \vec{f})(x) & = 1\cdot\vec{f}(x) = \vec{f}(x) \\
+      (1 \odot \vec{f})(x) & = 1\cdot\vec{f}(x) = \vec{f}(x)
     \end{align*}
   \end{proof}
   $\therefore$ 1 fixes all elements in $F$. \\
@@ -282,12 +270,9 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \begin{proof}
     $\forall~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V$:
     \begin{align*}
-      LHS = \vec{u} \oplus (\vec{v} \oplus \vec{w}) & = \vec{u} \oplus (v \cdot w) \\
-                                                    & = u \cdot (v \cdot w)        \\
-                                                    & = u \cdot v \cdot w          \\ \\
-      RHS = (\vec{u} \oplus \vec{v}) \oplus \vec{w} & = (u \cdot v) \oplus \vec{w} \\
-                                                    & = (u \cdot v) \cdot w        \\
-                                                    & = u \cdot v \cdot w = LHS
+      LHS = \vec{u} \oplus (\vec{v} \oplus \vec{w}) & = \vec{u} \oplus (v \cdot w) & RHS = (\vec{u} \oplus \vec{v}) \oplus \vec{w} & = (u \cdot v) \oplus \vec{w} \\
+                                                    & = u \cdot (v \cdot w)        &                                               & = (u \cdot v) \cdot w        \\
+                                                    & = u \cdot v \cdot w          &                                               & = u \cdot v \cdot w = LHS
     \end{align*}
     $\therefore \forall~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V: \vec{u} \oplus (\vec{v} \oplus \vec{w}) = (\vec{u} \oplus \vec{v}) \oplus \vec{w}$
   \end{proof}
@@ -321,11 +306,9 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \begin{proof}
     $\forall~\vec{v} = v,\vec{u} = u \in V$ and $\forall~k \in \bb{R}$:
     \begin{align*}
-      LHS = k \odot (\vec{v} \oplus \vec{u})       & = k \odot (u \cdot v) \\
-                                                   & = (u \cdot v)^k       \\
-                                                   & = u^k \cdot v^k       \\ \\
-      RHS = k \odot \vec{v} \oplus k \odot \vec{u} & = (v^k) \oplus (u^k)  \\
-                                                   & = v^k \cdot u^k = LHS
+      LHS = k \odot (\vec{v} \oplus \vec{u}) & = k \odot (u \cdot v) & RHS = k \odot \vec{v} \oplus k \odot \vec{u} & = (v^k) \oplus (u^k) \\
+                                             & = (u \cdot v)^k       &                                              & = v^k \cdot u^k      \\
+                                             & = u^k \cdot v^k       &                                              & = LHS
     \end{align*}
     $\therefore \forall~\vec{v} = v,\vec{u} = u \in V$ and $\forall~k \in \bb{R}: k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
   \end{proof}
@@ -333,10 +316,8 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \begin{proof}
     $\forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}$:
     \begin{align*}
-      LHS = (k + \ell) \odot \vec{v}                  & = v^{k+\ell}        \\
-                                                      & = v^kv^\ell         \\ \\
-      RHS = k \odot \vec{v} \oplus \ell \odot \vec{v} & = v^k \oplus v^\ell \\
-                                                      & = v^kv^\ell = LHS
+      LHS = (k + \ell) \odot \vec{v} & = v^{k+\ell} & RHS = k \odot \vec{v} \oplus \ell \odot \vec{v} & = v^k \oplus v^\ell \\
+                                     & = v^kv^\ell  &                                                 & = v^kv^\ell = LHS
     \end{align*}
     $\therefore \forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}: (k + \ell) \odot \vec{v} = k \odot \vec{v} \oplus \ell \odot \vec{v}$
   \end{proof}
@@ -344,11 +325,8 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
   \begin{proof}
     $\forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}$:
     \begin{align*}
-      LHS = (k \cdot \ell) \odot \vec{v} & = v^{k \cdot \ell} \\
-                                         & = v^{k\ell}        \\ \\
-      RHS = k \odot (\ell \odot \vec{v}) & = k \odot (v^k)    \\
-                                         & = v^{k^\ell}       \\
-                                         & = v^{k\ell} = LHS
+      LHS = (k \cdot \ell) \odot \vec{v} & = v^{k \cdot \ell} & RHS = k \odot (\ell \odot \vec{v}) & = k \odot (v^k) = v^{k^\ell} \\
+                                         & = v^{k\ell}        &                                    & = v^{k\ell} = LHS
     \end{align*}
     $\therefore \forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
   \end{proof}
@@ -372,9 +350,6 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
     \bitem{c} \bld{A vector is any element of a vector space}
   \item[] True, A vector \bld{is} any element of a vector space
     \bitem{e} \bld{The set of polynomials with degree \itl{exactly} 1 is a vector space under the operation defined in Example 7.}
-  \item[] False. Consider $\vec{v} = 2x + 1,~\vec{u} = -2x +3$. Both $\vec{v} \tand \vec{u} \in V \tsince$ they are both exactly degree 1.
-    Now consider $\vec{v} \oplus \vec{u} = 2x +1 -2x +3 = 4$. $4$ is not exactly degree 1; it is degree 0, and therefore not in $V$.
-    Thus $V$ is not closed under addition.
+  \item[] False. Consider $\vec{v} = 2x + 1,~\vec{u} = -2x +3$. Both $\vec{v} \tand \vec{u} \in V \tsince$ they are both exactly degree 1. Now consider $\vec{v} \oplus \vec{u} = 2x +1 -2x +3 = 4$. $4$ is not exactly degree 1; it is degree 0, and therefore not in $V$. Thus $V$ is not closed under addition.
 \end{enumerate}
-
 \end{document}
