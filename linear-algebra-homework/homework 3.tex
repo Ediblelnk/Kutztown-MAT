@@ -24,15 +24,64 @@
 \subsection*{Problem 2}
 \bld{Prove Theorem $B$.}
 \begin{proof}
+  Let $\vec{u} \in V$ and $k \in \bb{R}$. Consider $\bld{id} = \vec{u}$:
+  \begin{align*}
+    \bld{id} \oplus \vec{u}                 & = \vec{u}         & \text{Axiom 4} \\
+    k \odot (\bld{id} \oplus \vec{u})       & = k \odot \vec{u}                  \\
+    k \odot \bld{id} \oplus k \odot \vec{u} & = k \odot \vec{u} & \text{Axiom 7} \\
+    \therefore k \odot \bld{id}             & = \bld{id}        & \text{Axiom 4}
+  \end{align*}
 \end{proof}
 
 \subsection*{Problem 3}
-\bld{Prove Theorem $D$.}
+\bld{Prove Theorem $D$.} If $k \odot \vec{u} = \bld{id}$, then $k=0$ and/or $u = \bld{id}$
 \begin{proof}
+  Consider $k \odot \vec{u} = \bld{id}$ and $k \neq 0 $. Since $\frac{1}{k} \neq \frac{1}{0}$, $\frac{1}{k}$ is well-defined.
+  \begin{align*}
+    k \odot \vec{u}                     & = \bld{id}                   & \text{Assertion} \\
+    \frac{1}{k} \odot k \odot \vec{u}   & = \frac{1}{k} \odot \bld{id}                    \\
+    (\frac{1}{k} \cdot k) \odot \vec{u} & = \frac{1}{k} \odot \bld{id} & \text{Axiom 9}   \\
+    1 \odot \vec{u}                     & = \bld{id}                   & \text{Thm B}     \\
+    \vec{u}                             & = \bld{id}                   & \text{Axiom 10}
+  \end{align*}
+  Now consider $k \odot \vec{u} = \bld{id} \tand \vec{u} \neq \bld{id}$. Since $k$ is defined, $-k$ is also defined.
+  \begin{align*}
+    k \odot \vec{u}                           & = \bld{id}                           & \text{Assertion} \\
+    k \odot \vec{u}                           & = \bld{id}                                              \\
+    k \odot \vec{u} \oplus (-k) \odot \vec{u} & = \bld{id} \oplus (-k) \odot \vec{u}                    \\
+    (k+ (-k)) \odot \vec{u}                   & = (-k) \odot \vec{u}                 & \text{Axiom 8}   \\
+    0 \odot \vec{u} = (-k) \odot \vec{u}
+  \end{align*}
+  Since $u \neq \bld{id}$,
+  \[
+    0 = -k,~\therefore k = 0
+  \]
 \end{proof}
 
 \subsection*{Problem 4}
 \bld{Prove that there does not exist a real vector space of size $2$.}
+Show that there cannot be a vector space of size 2.
 \begin{proof}
+  Let $V = \{\vec{u}, \vec{v}\}$ be a vectorspace. That is, it satisfies all 10 Axioms. \\
+  Axiom 4 states that \bld{id} exist, and is unique, therefore either $\vec{u} = \bld{id} \tor \vec{v} = \bld{id}$. Both cannot be $\bld{id}$, so therefore $\vec{u} \neq \vec{v}$ \\
+  Without the loss of generality, let $\vec{u} = \bld{id}$.
+  \begin{align*}
+    \vec{u} \oplus \vec{v}  & = \vec{v} & \text{Axiom 4} \\
+    \bld{id} \oplus \vec{v} & = \vec{v}
+  \end{align*}
+  Now consider Axiom 5: additive inverse exists for all $\vec{u} \in V$. \\
+  Consider $-\vec{v} \oplus \vec{v} = \bld{id}$. Since $\vec{v} \neq \bld{id}$, $-\vec{v} \neq \vec{v}$. Since there is only one other element in $V$, $-\vec{v} = \vec{u}$ must be true. Remember that $\vec{u} = \bld{id}$.
+  \[
+    \vec{u} \oplus \vec{v} = \vec{u}
+  \]
+  Therefore we have from Axiom 4 and 5:
+  \begin{align*}
+    \vec{u} \oplus \vec{v} & = \vec{u} \\
+    \vec{u} \oplus \vec{v} & = \vec{v} \\
+    \therefore \vec{u}     & = \vec{v}
+  \end{align*}
+  However, this contradicts with our assertion that $\vec{u} \neq \vec{v}$. \\
+  $\therefore$ A vectorspace of size 2 cannot exist.
+
 \end{proof}
 \end{document}
