@@ -1,0 +1,38 @@
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
+
+\lhead{Linear Algebra}
+\chead{Homework 3}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\subsection*{Problem 1}
+\bld{Let $V$ be a vector space, and let $\vec{u}, \vec{v}, \vec{w} \in V$. Prove that $\tif \vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w} \tthen \vec{u} = \vec{v}$.}
+\begin{proof}
+  Consider $\vec{v}, \vec{u}, \vec{w} \in V$, and assume $\vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w}$.
+  \begin{align*}
+    \vec{u} \oplus \vec{w}                 & = \vec{v} \oplus \vec{w}                   & \text{Assertion} \\
+    -\vec{u} \oplus \vec{u} \oplus \vec{w} & = -\vec{u} \oplus \vec{v} \oplus \vec{w}   & \text{Axiom 3}   \\
+    \bld{id} \oplus \vec{w}                & = -\vec{u} \oplus \vec{v} \oplus \vec{w}   & \text{Axiom 5}   \\
+    \vec{w}                                & = (-\vec{u} \oplus \vec{v}) \oplus \vec{w} & \text{Axiom 4}   \\
+    \bld{id}                               & = -\vec{u} \oplus \vec{v}                  & \text{Axiom 4}   \\
+    \vec{v}                                & = -(-\vec{u})                              & \text{Axiom 5}   \\
+    \therefore \vec{v}                     & = \vec{u}                                  & \text{Axiom 5}
+  \end{align*}
+\end{proof}
+
+\subsection*{Problem 2}
+\bld{Prove Theorem $B$.}
+\begin{proof}
+\end{proof}
+
+\subsection*{Problem 3}
+\bld{Prove Theorem $D$.}
+\begin{proof}
+\end{proof}
+
+\subsection*{Problem 4}
+\bld{Prove that there does not exist a real vector space of size $2$.}
+\begin{proof}
+\end{proof}
+\end{document}
