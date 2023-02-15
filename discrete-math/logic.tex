@@ -177,16 +177,16 @@ XOR is very useful for encryption and binary arithmetic.
 \begin{tabular}{c|c|c}
   Quantifier  & Symbol     & Meaning        \\
   \hline
-  Universal   & $\forall $ & "for all"      \\
+  Universal   & $\forall$ & "for all"      \\
   Existential & $\exists$  & "there exists" \\
 \end{tabular}
 
 \begin{center}
-  $\exists x (x+1 < x)$ is false.
+  $\exists~ x (x+1 < x)$ is false.
 \end{center}
 
 \noindent \textbf{Counter Example}: universally quantified statement where an element in the domain
-for which the predicate is false. Useful to prove a $\forall$ statement false.
+for which the predicate is false. Useful to prove a $\forall~$ statement false.
 
 \subsection{Quantified Statements}
 
@@ -197,7 +197,7 @@ Consider the two following two predicates:
 \end{align*}
 
 \begin{center}
-  Proposition made of predicates: \qquad $\exists x (\text{P}(x) \land \lnot \text{O}(x))$ \\
+  Proposition made of predicates: \qquad $\exists~ x (\text{P}(x) \land \lnot \text{O}(x))$ \\
   Verbally: there exists a positive integer that is prime but is \underline{not} odd.
 \end{center}
 
@@ -233,15 +233,15 @@ Consider the predicate: F$(x):$ "$x$ can fly", where $x$ is a bird.
 According to the DeMorgan Identity for Quantified Statements,
 
 \begin{align*}
-  \lnot \forall x \text{F}(x)    & \equiv \exists x \lnot \text{F}(x)                 \\
+  \lnot \forall~ x \text{F}(x)    & \equiv \exists~ x \lnot \text{F}(x)                 \\
   \text{"not every bird can fly} & \equiv \text{"there exists a bird that cannot fly}
 \end{align*}
 
 Example using DeMorgan Identities:
 \begin{align*}
-  \lnot \exists x (\text{P}(x) \implies \lnot \text{Q}(x)) & \equiv \forall x \lnot (\text{P}(x) \implies \lnot \text{Q}(x))          \\
-                                                           & \equiv \forall x (\lnot \lnot \text{P}(x) \land \lnot \lnot \text{Q}(x)) \\
-                                                           & \equiv \forall x (\text{P}(x) \land \text{Q}(x))
+  \lnot \exists~ x (\text{P}(x) \implies \lnot \text{Q}(x)) & \equiv \forall~ x \lnot (\text{P}(x) \implies \lnot \text{Q}(x))          \\
+                                                           & \equiv \forall~ x (\lnot \lnot \text{P}(x) \land \lnot \lnot \text{Q}(x)) \\
+                                                           & \equiv \forall~ x (\text{P}(x) \land \text{Q}(x))
 \end{align*}
 
 \subsection{Nested Quantifiers}
@@ -253,18 +253,18 @@ is said to have \textbf{Nested Quantifiers}.
   \begin{tabular}{c|c}
     Logic                                    & Variable Boundedness     \\
     \hline
-    $\forall x \exists y \text{ P}(x, y)$    & $x$, $y$ bound           \\
-    $\forall x \text{ P}(x, y)$              & $x$ bound, $y$ free      \\
-    $\exists x \exists y \text{ T}(x, y, z)$ & $x$, $y$ bound, $z$ free \\
+    $\forall~ x \exists~ y \text{ P}(x, y)$    & $x$, $y$ bound           \\
+    $\forall~ x \text{ P}(x, y)$              & $x$ bound, $y$ free      \\
+    $\exists~ x \exists~ y \text{ T}(x, y, z)$ & $x$, $y$ bound, $z$ free \\
   \end{tabular}
   \quad
   \begin{tabular}{c|c}
     Logic                                 & Meaning                              \\
     \hline
-    $\forall x \forall y \text{ M}(x, y)$ & "everyone sent an email to everyone" \\
-    $\forall x \exists y \text{ M}(x, y)$ & "everyone sent an email to someone"  \\
-    $\exists x \forall y \text{ M}(x, y)$ & "someone sent an email to everyone"  \\
-    $\exists x \exists y \text{ M}(x, y)$ & "someone sent an email to someone"   \\
+    $\forall~ x \forall~ y \text{ M}(x, y)$ & "everyone sent an email to everyone" \\
+    $\forall~ x \exists~ y \text{ M}(x, y)$ & "everyone sent an email to someone"  \\
+    $\exists~ x \forall~ y \text{ M}(x, y)$ & "someone sent an email to everyone"  \\
+    $\exists~ x \exists~ y \text{ M}(x, y)$ & "someone sent an email to someone"   \\
   \end{tabular}
 \end{center}
 
@@ -274,28 +274,28 @@ is said to have \textbf{Nested Quantifiers}.
   \begin{tabular}{c|c|c}
     Player                       & Action                                          & Goal                                       \\
     \hline
-    Existential Player $\exists$ & selects value for existentially-bound variables & tries to make expression \underline{true}  \\
-    Universal Player $\forall$   & selects value for universally-bound variables   & tries to make expression \underline{false}
+    Existential Player $\exists~$ & selects value for existentially-bound variables & tries to make expression \underline{true}  \\
+    Universal Player $\forall~$   & selects value for universally-bound variables   & tries to make expression \underline{false}
   \end{tabular}
 \end{center}
 
 \noindent Consider the predicate L$(x,y):$ "$x$ likes $y$".
 \begin{align*}
-  \exists x \forall y \text{L}(x, y)       & \text{ means "there is a student who likes everyone in the school".}  \\
-  \lnot \exists x \forall y \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".}
+  \exists~ x \forall~ y \text{L}(x, y)       & \text{ means "there is a student who likes everyone in the school".}  \\
+  \lnot \exists~ x \forall~ y \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".}
 \end{align*}
 After applying DeMorgan's Laws,
 \begin{align*}
-  \forall x \exists y \lnot \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".}
+  \forall~ x \exists~ y \lnot \text{L}(x, y) & \text{ means "there is no student who likes everyone in the school".}
 \end{align*}
 
 \subsection{More Nested Quantifiers}
 
-M$(x, y):$ "x sent an email to y". Consider $\forall x \forall y$ M $(x, y)$.
+M$(x, y):$ "x sent an email to y". Consider $\forall~ x \forall~ y$ M $(x, y)$.
 It means that "email sent an email to everyone including themselves".
 Using $( x \not = y \implies \text{ M}(x, y))$ can fix this quirk.
 \begin{align*}
-  \forall x \forall y (x \not = y \implies \text{ M}(x, y))
+  \forall~ x \forall~ y (x \not = y \implies \text{ M}(x, y))
   \text{ means "everyone sent an email to everyone else}
 \end{align*}
 
@@ -306,7 +306,7 @@ how could you express that that someone was the only person late to the meeting?
 You want to express that there is someone where everyone else was not late, which
 can be done with
 \begin{align*}
-  \exists x (\text{L}(x) \land \forall y (x \not = y \implies \lnot \text{L}(y)))
+  \exists~ x (\text{L}(x) \land \forall~ y (x \not = y \implies \lnot \text{L}(y)))
 \end{align*}
 
 \subsubsection*{Moving Quantifiers in Logical Statements}
@@ -315,18 +315,18 @@ Consider M($x, y$): "$x$ is married to $y$" and A($x$): "$x$ is an adult".
 One way of expressing "For every person $x$, if $x$ is an adult, then
 there is a person $y$ to whom $x$ is married to" is by this statement:
 \begin{align*}
-  \forall x (\text{ A}(x) \implies \exists \text{ M}(x, y))
+  \forall~ x (\text{ A}(x) \implies \exists~ \text{ M}(x, y))
 \end{align*}
-Since $y$ does not appear in A($x$), "$\exists y$" can be moved so that it appears
-just after the "$\forall$", resulting with
+Since $y$ does not appear in A($x$), "$\exists~ y$" can be moved so that it appears
+just after the "$\forall~$", resulting with
 \begin{align*}
-  \forall x \exists y (\text{ A}(x) \implies \text{ M}(x, y))
+  \forall~ x \exists~ y (\text{ A}(x) \implies \text{ M}(x, y))
 \end{align*}
-When doing this, keep in mind that $\forall x \exists y \centernot \equiv \exists y \forall x$:
+When doing this, keep in mind that $\forall~ x \exists~ y \centernot \equiv \exists~ y \forall~ x$:
 \begin{align*}
-  \forall x \exists y & (\text{ A}(x) \implies \text{ M}(x, y)) \text{ means}                                 \\
+  \forall~ x \exists~ y & (\text{ A}(x) \implies \text{ M}(x, y)) \text{ means}                                 \\
                       & \text{for every $x$, if $x$ is an adult, there exists $y$ who is married to $x$.}     \\
-  \exists y \forall x & (\text{ A}(x) \implies \text{ M}(x, y)) \text{ means}                                 \\
+  \exists~ y \forall~ x & (\text{ A}(x) \implies \text{ M}(x, y)) \text{ means}                                 \\
                       & \text{There exists a $y$, such that every $x$ who is an adult is also married to $y$} \\
 \end{align*}
 
@@ -456,17 +456,17 @@ Example expressed in English:
 
 \subsection{Rules of Inference with Quantifiers}
 
-In order to apply the rules of quantified expressions, such as $\forall x \lnot (\text{ P}(x) \land \text{ Q}(x))$,
+In order to apply the rules of quantified expressions, such as $\forall~ x \lnot (\text{ P}(x) \land \text{ Q}(x))$,
 we need to remove the quantifier by plugging in a value from the domain to replace the variable x.
 
 For example:
 \begin{center}
   \begin{tabular}{lrl}
-    Every employee who received a large bonus works hard. &  & $\forall x (\text{B}(x) \implies \text{ H}(x))$ \\
+    Every employee who received a large bonus works hard. &  & $\forall~ x (\text{B}(x) \implies \text{ H}(x))$ \\
     Linda is an employee at the company.                  &  & Linda $\in x$                                   \\
     Linda received a large bonus.                         &  & B(Linda)                                        \\
     \hhline{-~-}
-    $\therefore$ Some employee works hard.                &  & $\therefore \exists x \text{ H}(x)$
+    $\therefore$ Some employee works hard.                &  & $\therefore \exists~ x \text{ H}(x)$
   \end{tabular}
 \end{center}
 
@@ -480,14 +480,14 @@ which is not true for all integers.
   \begin{tabular}{lclc}
     \multicolumn{4}{c}{\textbf{Rules of Inference for Quantified Statements}}                                                                                             \\
     $c$ is an element           & \multirow{3}{*}{Universal Instantiation}  &                                               & \multirow{3}{*}{Existential Instantiation*} \\
-    $\forall x$ P $(x)$         &                                           & $\exists x$ P$(x)$                            &                                             \\
+    $\forall~ x$ P $(x)$         &                                           & $\exists~ x$ P$(x)$                            &                                             \\
     \hhline{-~-~}
     $\therefore$ P$(c)$         &                                           & $\therefore c$ is particular  $\land$ P $(c)$ &                                             \\
     \\
     $c$ is arbitrary            & \multirow{3}{*}{Universal Generalization} & $c$ is an element                             & \multirow{3}{*}{Existential Generalization} \\
     P $(c)$                     &                                           & P$(c)$                                        &                                             \\
     \hhline{-~-~}
-    $\therefore \forall$ P$(x)$ &                                           & $\therefore \exists x$ P$(x)$                 &                                             \\
+    $\therefore \forall~$ P$(x)$ &                                           & $\therefore \exists~ x$ P$(x)$                 &                                             \\
   \end{tabular}
 \end{center}
 
@@ -497,7 +497,7 @@ which is not true for all integers.
 
 Consider the following argument:
 \begin{tabular}{l}
-  $\forall x (\text{P}(x) \lor \text{ Q}(x))$ \\
+  $\forall~ x (\text{P}(x) \lor \text{ Q}(x))$ \\
   $3 \text{ is an integer}$                   \\
   $\lnot \text{ P}(3)$                        \\
   \hline
@@ -507,7 +507,7 @@ Consider the following argument:
 \begin{center}
   Steps to Solve:
   \begin{align}
-     & \forall x (\text{P}(x) \lor \text{ Q}(x)) &  & \qquad \text{Hypothesis}                    \\
+     & \forall~ x (\text{P}(x) \lor \text{ Q}(x)) &  & \qquad \text{Hypothesis}                    \\
      & 3 \text{ is an integer}                   &  & \qquad \text{Hypothesis}                    \\
      & (\text{P}(3) \lor \text{Q}(3))            &  & \qquad \text{Universal Instantiation: 1, 2} \\
      & \lnot \text{ P}(3)                        &  & \qquad \text{ Hypothesis}                   \\
@@ -519,10 +519,10 @@ Consider the following argument:
 
 Consider the following argument:
 \begin{tabular}{l}
-  $\exists x \text{P}(x)$ \\
-  $\exists x \text{Q}(x)$ \\
+  $\exists~ x \text{P}(x)$ \\
+  $\exists~ x \text{Q}(x)$ \\
   \hline
-  $\therefore \exists x (\text{P}(x) \land \text{ Q}(x))$
+  $\therefore \exists~ x (\text{P}(x) \land \text{ Q}(x))$
 \end{tabular}
 
 Using a supposed domain \{$c, d$\}, with truth values of

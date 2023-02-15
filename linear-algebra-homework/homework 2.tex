@@ -17,26 +17,26 @@ The set of all triples of real numbers with the standard vector addition but wit
 \begin{enumerate}
   \bitem{Axiom 1}
   \begin{proof}
-    $V = \bb{R}^3$. Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    $V = \bb{R}^3$. Let $\vec{v}=(v_1,v_2,v_3),\vec{u}=(u_1,u_2,u_3)$. $\forall~~\vec{v},\vec{u} \in V$:
     \begin{align*}
       \vec{v} \oplus \vec{u} = (v_1,v_2,v_3) \oplus (u_1,u_2,u_3) & = (v_1+u_1,v_2+u_2,v_3+u_3) \\
       v_1+u_1,v_2+u_2, \tand v_3+u_3                                     & \in \bb{R}
     \end{align*}
-    $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} \in V$
+    $\therefore \forall~~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} \in V$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
-    $\forall~\vec{v},\vec{u} \in V$:
+    $\forall~~\vec{v},\vec{u} \in V$:
     \begin{align*}
       \vec{v} \oplus \vec{u} & = (v_1,v_2,v_3) \oplus (u_1,u_2,u_3) = (v_1+u_1,v_2+u_2,v_3+u_3) \\
       \vec{u} \oplus \vec{v} & = (u_1,u_2,u_3) \oplus (v_1,v_2,v_3) = (u_1+v_1,u_2+v_2,u_3+v_3) \\
       v_1+u_1                & = u_1+v_1,~v_2+u_2 = u_2+v_2,~v_3+u_3 = u_3+v_3
     \end{align*}
-    $\therefore \forall~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} = \vec{u} \oplus \vec{v}$
+    $\therefore \forall~~\vec{v},\vec{u} \in V:~\vec{v} \oplus \vec{u} = \vec{u} \oplus \vec{v}$
   \end{proof}
   \bitem{Axiom 3}
   \begin{proof}
-    $\forall~\vec{v},\vec{u},\vec{w} \in V$:
+    $\forall~~\vec{v},\vec{u},\vec{w} \in V$:
     \begin{align*}
       \vec{v} \oplus (\vec{u} \oplus \vec{w}) & = (v_1,v_2,v_3) \oplus ((u_1,u_2,u_3) \oplus (w_1,w_2,w_3)) \\
                                               & = (v_1,v_2,v_3) \oplus (u_1+w_1,u_2+w_2,u_3+w_3)            \\
@@ -51,11 +51,11 @@ The set of all triples of real numbers with the standard vector addition but wit
       v_2+(u_2+w_2) & = (v_2+u_2)+w_2 \\
       v_3+(u_3+w_3) & = (v_3+u_3)+w_3
     \end{align*}
-    $\therefore \forall~\vec{v},\vec{u},\vec{w} \in V:~\vec{v} \oplus (\vec{u} \oplus \vec{w}) = (\vec{v} \oplus \vec{u}) \oplus \vec{w}$
+    $\therefore \forall~~\vec{v},\vec{u},\vec{w} \in V:~\vec{v} \oplus (\vec{u} \oplus \vec{w}) = (\vec{v} \oplus \vec{u}) \oplus \vec{w}$
   \end{proof}
   \bitem{Axiom 4}
   \begin{proof}
-    Let $\vec{v} = (0,0,0)$. $\forall~\vec{u} \in V$:
+    Let $\vec{v} = (0,0,0)$. $\forall~~\vec{u} \in V$:
     \begin{align*}
       \vec{v} \oplus \vec{u} = (0,0,0) \oplus (u_1,u_2,u_3) & = (0+u_1,0+u_2,0+u_3) = (u_1,u_2,u_3) = \vec{u} \\
       \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) \oplus (0,0,0) & = (u_1+0,u_2+0,u_3+0) = (u_1,u_2,u_3) = \vec{u}
@@ -64,26 +64,26 @@ The set of all triples of real numbers with the standard vector addition but wit
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    Let $\vec{v} = (v_1,v_2,v_3)$ and $\vec{u} = (-v_1,-v_2,-v_3)$. $\forall~\vec{v},\vec{u} \in V$:
+    Let $\vec{v} = (v_1,v_2,v_3)$ and $\vec{u} = (-v_1,-v_2,-v_3)$. $\forall~~\vec{v},\vec{u} \in V$:
     \begin{align*}
       \vec{v} \oplus \vec{u} & = (v_1,v_2,v_3) \oplus (-v_1,-v_2,-v_3) & \vec{u} \oplus \vec{v} & = (-v_1,-v_2,-v_3) \oplus (v_1,v_2,v_3) \\
                              & = (v_1+-v_1,v_2+-v_2,v_3+-v_3)          &                        & = (-v_1+v_1,-v_2+v_2,-v_3+v_3)          \\
                              & = (0,0,0) =~\text{\id}             &                        & = (0,0,0) =~\text{\id}
     \end{align*}
-    $\therefore \vec{u}$ is the additive inverse of $\vec{v}$, $\forall~\vec{u} \in V$
+    $\therefore \vec{u}$ is the additive inverse of $\vec{v}$, $\forall~~\vec{u} \in V$
   \end{proof}
   \bitem{Axiom 6}
   \begin{proof}
-    Let $\vec{v}=(x,y,z)$. $\forall~\vec{v} \in V,~k \in \bb{R}$:
+    Let $\vec{v}=(x,y,z)$. $\forall~~\vec{v} \in V,~k \in \bb{R}$:
     \begin{align*}
       k \odot \vec{v} = k \odot (x,y,z) & = (k^2x,k^2y,k^2z) \\
       k^2x,k^2y,k^2z                    & \in \bb{R}
     \end{align*}
-    $\therefore \forall~\vec{v} \in V,~k \in \bb{R}:~k \odot \vec{v} \in V$
+    $\therefore \forall~~\vec{v} \in V,~k \in \bb{R}:~k \odot \vec{v} \in V$
   \end{proof}
   \bitem{Axiom 7}
   \begin{proof}
-    $\forall~\vec{v},\vec{u} \in V,~k \in \bb{R}$:
+    $\forall~~\vec{v},\vec{u} \in V,~k \in \bb{R}$:
     \begin{align*}
       LHS = k \odot (\vec{v} \oplus \vec{u})       & = k \odot ((v_1,v_2,v_3) \oplus (u_1,u_2,u_3))         \\
                                                    & = k \odot (v_1+u_1,v_2+u_2,v_3+u_3)                    \\
@@ -93,11 +93,11 @@ The set of all triples of real numbers with the standard vector addition but wit
                                                    & = (k^2v_1,k^2v_2,k^2v_3) \oplus (k^2u_1,k^2u_2,k^2u_3) \\
                                                    & = (k^2v_1+k^2u_1,k^2v_2+k^2u_2,k^2v_3+k^2u_3) = LHS
     \end{align*}
-    $\therefore \forall~\vec{v},\vec{u} \in V,~k \in \bb{R}:~k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
+    $\therefore \forall~~\vec{v},\vec{u} \in V,~k \in \bb{R}:~k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
   \end{proof}
   \bitem{Axiom 8}
   \begin{proof}
-    $\forall~\vec{v} \in V,~k,\ell \in \bb{R}$:
+    $\forall~~\vec{v} \in V,~k,\ell \in \bb{R}$:
     \begin{align*}
       LHS = (k+\ell) \odot \vec{v}                    & = (k+\ell) \odot (v_1,v_2,v_3)                                                          \\
                                                       & = ((k+\ell)^2v_1,(k+\ell)^2v_2,(k+\ell)^2v_3)                                           \\
@@ -111,7 +111,7 @@ The set of all triples of real numbers with the standard vector addition but wit
   \end{proof}
   \bitem{Axiom 9}
   \begin{proof}
-    $\forall~\vec{v} \in V,~k,\ell \in \bb{R}$:
+    $\forall~~\vec{v} \in V,~k,\ell \in \bb{R}$:
     \begin{align*}
       LHS = (k \cdot \ell) \odot \vec{v} & = (k \cdot \ell) \odot (v_1,v_2,v_3)                              \\
                                          & = ((k \cdot \ell)^2v_1, (k \cdot \ell)^2v_2, (k \cdot \ell)^2v_3) \\
@@ -120,15 +120,15 @@ The set of all triples of real numbers with the standard vector addition but wit
                                          & = k \odot (\ell^2v_1,\ell^2v_2,\ell^2v_3)                         \\
                                          & = (k^2(\ell^2v_1),k^2(\ell^2v_2),k^2(\ell^2v_3)) = LHS
     \end{align*}
-    $\therefore \forall~\vec{v} \in V,~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
+    $\therefore \forall~~\vec{v} \in V,~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
   \end{proof}
   \bitem{Axiom 10}
   \begin{proof}
-    $\forall~\vec{v} \in V$:
+    $\forall~~\vec{v} \in V$:
     \begin{align*}
       1 \odot \vec{v} & = 1 \odot (v_1,v_2,v_3) = (1^2v_1,1^2v_2,1^2v_3) = (v_1,v_2,v_3) = \vec{v}
     \end{align*}
-    $\therefore \forall~\vec{v} \in V: 1 \odot \vec{v} = \vec{v}$
+    $\therefore \forall~~\vec{v} \in V: 1 \odot \vec{v} = \vec{v}$
   \end{proof}
 \end{enumerate}
 All Axioms \itl{except} Axiom 8 work, therefore this is not a real vector space.
@@ -143,26 +143,26 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
 \begin{enumerate}
   \bitem{Axiom 1}
   \begin{proof}
-    $\forall~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
+    $\forall~~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
     \begin{align*}
       (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \in \bb{R},                                                     \\
                                   & \tsince \vec{f}(x) \in \bb{R} \tand \vec{g}(x) \in \bb{R}.                                \\
                                   & \twhen x=1:~(\vec{f} \oplus \vec{g})(1) = \vec{f}(1) + \vec{g}(1)  = 0 + 0 = 0~\checkmark
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f} \oplus \vec{g} \in F$
+    $\therefore \forall~~\vec{f},\vec{g} \in F: \vec{f} \oplus \vec{g} \in F$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
-    $\forall~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
+    $\forall~~\vec{f},\vec{g} \in F,~x \in \bb{R}$:
     \begin{align*}
       LHS = (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x)                                 \\
       RHS = (\vec{g} \oplus \vec{f})(x) & = \vec{g}(x) + \vec{f}(x) = \vec{f}(x) + \vec{g}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in F: \vec{f} \oplus \vec{g} = \vec{g} \oplus \vec{f}$
+    $\therefore \forall~~\vec{f},\vec{g} \in F: \vec{f} \oplus \vec{g} = \vec{g} \oplus \vec{f}$
   \end{proof}
   \bitem{Axiom 3}
   \begin{proof}
-    $\forall~\vec{f},\vec{g},\vec{h} \in F,~x \in \bb{R}$:
+    $\forall~~\vec{f},\vec{g},\vec{h} \in F,~x \in \bb{R}$:
     \begin{align*}
       LHS = (\vec{f} \oplus (\vec{g} \oplus \vec{h}))(x) & = \vec{f}(x) + (\vec{g} \oplus \vec{h})(x)     \\
                                                          & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x))       \\ \\
@@ -170,11 +170,11 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
                                                          & = (\vec{f}(x) + \vec{g}(x)) + \vec{h}(x)       \\
                                                          & = \vec{f}(x) + (\vec{g}(x) + \vec{h}(x)) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g},\vec{h} \in F: \vec{f} \oplus (\vec{g} \oplus \vec{h}) = (\vec{f} \oplus \vec{g}) \oplus \vec{h}$
+    $\therefore \forall~~\vec{f},\vec{g},\vec{h} \in F: \vec{f} \oplus (\vec{g} \oplus \vec{h}) = (\vec{f} \oplus \vec{g}) \oplus \vec{h}$
   \end{proof}
   \bitem{Axiom 4}
   \begin{proof}
-    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~\vec{g} \in F,~\forall~x \in \bb{R}$:
+    Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~~x \in \bb{R}: \vec{f}(x) = 0$. $\forall~~\vec{g} \in F,~\forall~~x \in \bb{R}$:
     \begin{align*}
       \tsince \vec{f}: \bb{R} \rightarrow \bb{R}            & \tand \vec{f}(1) = 0,~\therefore \vec{f} \in F                              \\ \\
       (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x),~\therefore \vec{f} \oplus \vec{g} & = \vec{g} \\
@@ -184,7 +184,7 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    $\forall~\vec{g} \in F$. Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~x \in \bb{R}$:
+    $\forall~~\vec{g} \in F$. Let $\vec{f}: \bb{R} \rightarrow \bb{R}$ such that $\forall~~x \in \bb{R}: \vec{f}(x) = -g(x)$. $\forall~~x \in \bb{R}$:
     \begin{align*}
       \vec{f}(1) = -\vec{g}(1)                                   & = -0 = 0,~\therefore \vec{f} \in F        \\ \\
       (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0.            \\
@@ -192,49 +192,49 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
       (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0.             \\
       \therefore \vec{g} \oplus \vec{f}                          & = ~\text{constant 0 function}~ = \id
     \end{align*}
-    $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in F$
+    $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~~\vec{g} \in F$
   \end{proof}
   \bitem{Axiom 6}
   \begin{proof}
-    $\forall~k,x \in \bb{R}$ and $\forall~\vec{f} \in F$:
+    $\forall~~k,x \in \bb{R}$ and $\forall~~\vec{f} \in F$:
     \begin{align*}
       (k \odot \vec{f})(x)         & = k\vec{f}(x)              &  & (\text{by definition}) \\
       \text{when}~x=1:~k\vec{f}(1) & = k \cdot 0 = 0~\checkmark
     \end{align*}
-    $\therefore \forall~k \in \bb{R}$ and $\forall~\vec{f} \in F$, $k\odot\vec{f} \in F$
+    $\therefore \forall~~k \in \bb{R}$ and $\forall~~\vec{f} \in F$, $k\odot\vec{f} \in F$
   \end{proof}
   \bitem{Axiom 7}
   \begin{proof}
-    $\forall~\vec{f},\vec{g} \in F$ and $\forall~k, x \in \bb{R}$:
+    $\forall~~\vec{f},\vec{g} \in F$ and $\forall~~k, x \in \bb{R}$:
     \begin{align*}
       LHS & = (k \odot (\vec{f} \oplus \vec{g}))(x) = k(\vec{f} \oplus \vec{g})(x) = k(\vec{f}(x) + \vec{g}(x)) = k\vec{f}(x) + k\vec{g}(x) \\
       RHS & = (k \odot \vec{f} \oplus k \odot \vec{g})(x) = (k \odot \vec{f})(x) + (k \odot \vec{g})(x) = k\vec{f}(x) + k\vec{g}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f},\vec{g} \in F$ and $\forall~k \in \bb{R}$, $k \odot (\vec{f} \oplus \vec{g}) = k \odot \vec{f} \oplus k \odot \vec{g}$
+    $\therefore \forall~~\vec{f},\vec{g} \in F$ and $\forall~~k \in \bb{R}$, $k \odot (\vec{f} \oplus \vec{g}) = k \odot \vec{f} \oplus k \odot \vec{g}$
   \end{proof}
   \bitem{Axiom 8}
   \begin{proof}
-    $\forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$:
+    $\forall~~\vec{f} \in F$ and $\forall~~k, \ell, x \in \bb{R}$:
     \begin{align*}
       LHS = ((k + \ell) \odot \vec{f})(x)                  & = (k+\ell)\vec{f}(x)                             \\
                                                            & = k\vec{f}(x) + \ell\vec{f}(x)                   \\ \\
       RHS = (k \odot \vec{f} \oplus \ell \odot \vec{f})(x) & = (k \odot \vec{f})(x) + (\ell \odot \vec{f})(x) \\
                                                            & = k\vec{f}(x) + \ell\vec{f}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell \in \bb{R}$, $(k + \ell) \odot \vec{f} = k \odot \vec{f} \oplus \ell \odot \vec{f}$
+    $\therefore \forall~~\vec{f} \in F$ and $\forall~~k, \ell \in \bb{R}$, $(k + \ell) \odot \vec{f} = k \odot \vec{f} \oplus \ell \odot \vec{f}$
   \end{proof}
   \bitem{Axiom 9}
   \begin{proof}
-    $\forall~\vec{f} \in F$ and $\forall~k, \ell, x \in \bb{R}$:
+    $\forall~~\vec{f} \in F$ and $\forall~~k, \ell, x \in \bb{R}$:
     \begin{align*}
       LHS = ((k \cdot \ell) \odot \vec{f})(x) & = (k \cdot \ell)\vec{f}(x) & RHS & = (k \odot (\ell \odot \vec{f}))(x) = k(\ell \odot \vec{f})(x) \\
                                               & = k\ell\vec{f}(x)          &     & = k(\ell\vec{f}(x)) = k\ell\vec{f}(x) = LHS
     \end{align*}
-    $\therefore \forall~\vec{f} \in F$ and $\forall~k, \ell \in \bb{R}$, $(k \cdot \ell) \odot \vec{f} = k \odot (\ell \odot \vec{f})$
+    $\therefore \forall~~\vec{f} \in F$ and $\forall~~k, \ell \in \bb{R}$, $(k \cdot \ell) \odot \vec{f} = k \odot (\ell \odot \vec{f})$
   \end{proof}
   \bitem{Axiom 10}
   \begin{proof}
-    $\forall~\vec{f} \in F$:
+    $\forall~~\vec{f} \in F$:
     \begin{align*}
       (1 \odot \vec{f})(x) & = 1\cdot\vec{f}(x) = \vec{f}(x)
     \end{align*}
@@ -251,92 +251,92 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
 \begin{enumerate}
   \bitem{Axiom 1}
   \begin{proof}
-    $\forall~\vec{u}=u,\vec{v}=v \in V$:
+    $\forall~~\vec{u}=u,\vec{v}=v \in V$:
     \begin{align*}
       \vec{u} \oplus \vec{v} & = u \cdot v
     \end{align*}
-    Since $u > 0$ and $v > 0$, $u \cdot v \in \bb{R}^+$. $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} \in V$
+    Since $u > 0$ and $v > 0$, $u \cdot v \in \bb{R}^+$. $\therefore \forall~~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} \in V$
   \end{proof}
   \bitem{Axiom 2}
   \begin{proof}
-    $\forall~\vec{u}=u,\vec{v}=v \in V$:
+    $\forall~~\vec{u}=u,\vec{v}=v \in V$:
     \begin{align*}
       LHS = \vec{u} \oplus \vec{v} & = u \cdot v       \\
       RHS = \vec{v} \oplus \vec{u} & = v \cdot u = LHS
     \end{align*}
-    $\therefore \forall~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u}$
+    $\therefore \forall~~\vec{u}=u,\vec{v}=v \in V: \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u}$
   \end{proof}
   \bitem{Axiom 3}
   \begin{proof}
-    $\forall~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V$:
+    $\forall~~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V$:
     \begin{align*}
       LHS = \vec{u} \oplus (\vec{v} \oplus \vec{w}) & = \vec{u} \oplus (v \cdot w) & RHS = (\vec{u} \oplus \vec{v}) \oplus \vec{w} & = (u \cdot v) \oplus \vec{w} \\
                                                     & = u \cdot (v \cdot w)        &                                               & = (u \cdot v) \cdot w        \\
                                                     & = u \cdot v \cdot w          &                                               & = u \cdot v \cdot w = LHS
     \end{align*}
-    $\therefore \forall~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V: \vec{u} \oplus (\vec{v} \oplus \vec{w}) = (\vec{u} \oplus \vec{v}) \oplus \vec{w}$
+    $\therefore \forall~~\vec{u}=u,\vec{v}=v,\vec{w}=w \in V: \vec{u} \oplus (\vec{v} \oplus \vec{w}) = (\vec{u} \oplus \vec{v}) \oplus \vec{w}$
   \end{proof}
   \bitem{Axiom 4}
   \begin{proof}
-    Let $\vec{u} = 1 \in \bb{R}^+$. $\forall~\vec{v} = v \in V$:
+    Let $\vec{u} = 1 \in \bb{R}^+$. $\forall~~\vec{v} = v \in V$:
     \begin{align*}
       \vec{u} \oplus \vec{v} & = 1 \cdot v = v \\
       \vec{v} \oplus \vec{u} & = v \cdot 1 = v
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V: \vec{u} = 1$ is the additive identity, \id.
+    $\therefore \forall~~\vec{v} = v \in V: \vec{u} = 1$ is the additive identity, \id.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
-    $\forall~\vec{v} = v \in V$, Let $\vec{u} = \frac{1}{v}$ (Note $\frac{1}{v} \in \bb{R}^+$ since $v > 0$):
+    $\forall~~\vec{v} = v \in V$, Let $\vec{u} = \frac{1}{v}$ (Note $\frac{1}{v} \in \bb{R}^+$ since $v > 0$):
     \begin{align*}
       \vec{u} \oplus \vec{v} & = \frac{1}{v} \cdot v = 1 = \text{\id} \\
       \vec{v} \oplus \vec{u} & = v \cdot \frac{1}{v} = 1 = \text{\id}
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V: \vec{u} = \frac{1}{v} = -\vec{v}$
+    $\therefore \forall~~\vec{v} = v \in V: \vec{u} = \frac{1}{v} = -\vec{v}$
   \end{proof}
   \bitem{Axiom 6}
   \begin{proof}
-    $\forall~\vec{v} = v \in V$ and $\forall~k \in \bb{R}$:
+    $\forall~~\vec{v} = v \in V$ and $\forall~~k \in \bb{R}$:
     \begin{align*}
       k \odot \vec{v} & = u^k < 0 \qquad \text{since $u>0$}
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V$ and $\forall~k \in \bb{R}: k \odot \vec{v} \in V$
+    $\therefore \forall~~\vec{v} = v \in V$ and $\forall~~k \in \bb{R}: k \odot \vec{v} \in V$
   \end{proof}
   \bitem{Axiom 7}
   \begin{proof}
-    $\forall~\vec{v} = v,\vec{u} = u \in V$ and $\forall~k \in \bb{R}$:
+    $\forall~~\vec{v} = v,\vec{u} = u \in V$ and $\forall~~k \in \bb{R}$:
     \begin{align*}
       LHS = k \odot (\vec{v} \oplus \vec{u}) & = k \odot (u \cdot v) & RHS = k \odot \vec{v} \oplus k \odot \vec{u} & = (v^k) \oplus (u^k) \\
                                              & = (u \cdot v)^k       &                                              & = v^k \cdot u^k      \\
                                              & = u^k \cdot v^k       &                                              & = LHS
     \end{align*}
-    $\therefore \forall~\vec{v} = v,\vec{u} = u \in V$ and $\forall~k \in \bb{R}: k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
+    $\therefore \forall~~\vec{v} = v,\vec{u} = u \in V$ and $\forall~~k \in \bb{R}: k \odot (\vec{v} \oplus \vec{u}) = k \odot \vec{v} \oplus k \odot \vec{u}$
   \end{proof}
   \bitem{Axiom 8}
   \begin{proof}
-    $\forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}$:
+    $\forall~~\vec{v} = v \in V$ and $\forall~~k,\ell \in \bb{R}$:
     \begin{align*}
       LHS = (k + \ell) \odot \vec{v} & = v^{k+\ell} & RHS = k \odot \vec{v} \oplus \ell \odot \vec{v} & = v^k \oplus v^\ell \\
                                      & = v^kv^\ell  &                                                 & = v^kv^\ell = LHS
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}: (k + \ell) \odot \vec{v} = k \odot \vec{v} \oplus \ell \odot \vec{v}$
+    $\therefore \forall~~\vec{v} = v \in V$ and $\forall~~k,\ell \in \bb{R}: (k + \ell) \odot \vec{v} = k \odot \vec{v} \oplus \ell \odot \vec{v}$
   \end{proof}
   \bitem{Axiom 9}
   \begin{proof}
-    $\forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}$:
+    $\forall~~\vec{v} = v \in V$ and $\forall~~k,\ell \in \bb{R}$:
     \begin{align*}
       LHS = (k \cdot \ell) \odot \vec{v} & = v^{k \cdot \ell} & RHS = k \odot (\ell \odot \vec{v}) & = k \odot (v^k) = v^{k^\ell} \\
                                          & = v^{k\ell}        &                                    & = v^{k\ell} = LHS
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V$ and $\forall~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
+    $\therefore \forall~~\vec{v} = v \in V$ and $\forall~~k,\ell \in \bb{R}: (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})$
   \end{proof}
   \bitem{Axiom 10}
   \begin{proof}
-    $\forall~\vec{v} = v \in V$:
+    $\forall~~\vec{v} = v \in V$:
     \begin{align*}
       1 \odot \vec{v} = v^1 = v = \vec{v}
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V: 1 \odot \vec{v} = \vec{v}$
+    $\therefore \forall~~\vec{v} = v \in V: 1 \odot \vec{v} = \vec{v}$
   \end{proof}
   Since $V$ holds under all 10 Axioms, $V$ is a real vector space.
 \end{enumerate}
