@@ -60,7 +60,7 @@ The set of all triples of real numbers with the standard vector addition but wit
       \vec{v} \oplus \vec{u} = (0,0,0) \oplus (u_1,u_2,u_3) & = (0+u_1,0+u_2,0+u_3) = (u_1,u_2,u_3) = \vec{u} \\
       \vec{u} \oplus \vec{v} = (u_1,u_2,u_3) \oplus (0,0,0) & = (u_1+0,u_2+0,u_3+0) = (u_1,u_2,u_3) = \vec{u}
     \end{align*}
-    $\therefore \vec{v} = (0,0,0)$ is the additive identity for $V$, \bld{id}.
+    $\therefore \vec{v} = (0,0,0)$ is the additive identity for $V$, \id.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
@@ -68,7 +68,7 @@ The set of all triples of real numbers with the standard vector addition but wit
     \begin{align*}
       \vec{v} \oplus \vec{u} & = (v_1,v_2,v_3) \oplus (-v_1,-v_2,-v_3) & \vec{u} \oplus \vec{v} & = (-v_1,-v_2,-v_3) \oplus (v_1,v_2,v_3) \\
                              & = (v_1+-v_1,v_2+-v_2,v_3+-v_3)          &                        & = (-v_1+v_1,-v_2+v_2,-v_3+v_3)          \\
-                             & = (0,0,0) =~\text{\bld{id}}             &                        & = (0,0,0) =~\text{\bld{id}}
+                             & = (0,0,0) =~\text{\id}             &                        & = (0,0,0) =~\text{\id}
     \end{align*}
     $\therefore \vec{u}$ is the additive inverse of $\vec{v}$, $\forall~\vec{u} \in V$
   \end{proof}
@@ -180,7 +180,7 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
       (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) + \vec{g}(x) & = 0 + \vec{g}(x)= \vec{g}(x),~\therefore \vec{f} \oplus \vec{g} & = \vec{g} \\
       (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) + \vec{f}(x) & = \vec{g}(x) + 0= \vec{g}(x),~\therefore \vec{g} \oplus \vec{f} & = \vec{g}
     \end{align*}
-    $\therefore \vec{f}$ is the additive identity for $F$, \bld{id}.
+    $\therefore \vec{f}$ is the additive identity for $F$, \id.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
@@ -188,9 +188,9 @@ Let $F = \{f: \bb{R} \rightarrow \bb{R} \tsuchthat f(1) = 0\}$.
     \begin{align*}
       \vec{f}(1) = -\vec{g}(1)                                   & = -0 = 0,~\therefore \vec{f} \in F        \\ \\
       (\vec{f} \oplus \vec{g})(x) = \vec{f}(x) \oplus \vec{g}(x) & = -\vec{g}(x) + \vec{g}(x)= 0.            \\
-      \therefore \vec{f} \oplus \vec{g}                          & = ~\text{constant 0 function}~ = \bld{id} \\
+      \therefore \vec{f} \oplus \vec{g}                          & = ~\text{constant 0 function}~ = \id \\
       (\vec{g} \oplus \vec{f})(x) = \vec{g}(x) \oplus \vec{f}(x) & = \vec{g}(x) - \vec{g}(x)= 0.             \\
-      \therefore \vec{g} \oplus \vec{f}                          & = ~\text{constant 0 function}~ = \bld{id}
+      \therefore \vec{g} \oplus \vec{f}                          & = ~\text{constant 0 function}~ = \id
     \end{align*}
     $\therefore \vec{f}$ is the additive inverse of $\vec{g}$, $\forall~\vec{g} \in F$
   \end{proof}
@@ -283,14 +283,14 @@ Verify all 10 axioms for Example 8. Let $V = \bb{R}^+ = \{x \in \bb{R}: x>0\}$. 
       \vec{u} \oplus \vec{v} & = 1 \cdot v = v \\
       \vec{v} \oplus \vec{u} & = v \cdot 1 = v
     \end{align*}
-    $\therefore \forall~\vec{v} = v \in V: \vec{u} = 1$ is the additive identity, \bld{id}.
+    $\therefore \forall~\vec{v} = v \in V: \vec{u} = 1$ is the additive identity, \id.
   \end{proof}
   \bitem{Axiom 5}
   \begin{proof}
     $\forall~\vec{v} = v \in V$, Let $\vec{u} = \frac{1}{v}$ (Note $\frac{1}{v} \in \bb{R}^+$ since $v > 0$):
     \begin{align*}
-      \vec{u} \oplus \vec{v} & = \frac{1}{v} \cdot v = 1 = \text{\bld{id}} \\
-      \vec{v} \oplus \vec{u} & = v \cdot \frac{1}{v} = 1 = \text{\bld{id}}
+      \vec{u} \oplus \vec{v} & = \frac{1}{v} \cdot v = 1 = \text{\id} \\
+      \vec{v} \oplus \vec{u} & = v \cdot \frac{1}{v} = 1 = \text{\id}
     \end{align*}
     $\therefore \forall~\vec{v} = v \in V: \vec{u} = \frac{1}{v} = -\vec{v}$
   \end{proof}

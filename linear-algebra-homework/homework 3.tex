@@ -11,48 +11,44 @@
 \begin{proof}
   Consider $\vec{v}, \vec{u}, \vec{w} \in V$, and assume $\vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w}$.
   \begin{align*}
-    \vec{u} \oplus \vec{w}                 & = \vec{v} \oplus \vec{w}                   & \text{Assertion} \\
-    -\vec{u} \oplus \vec{u} \oplus \vec{w} & = -\vec{u} \oplus \vec{v} \oplus \vec{w}   & \text{Axiom 3}   \\
-    \bld{id} \oplus \vec{w}                & = -\vec{u} \oplus \vec{v} \oplus \vec{w}   & \text{Axiom 5}   \\
-    \vec{w}                                & = (-\vec{u} \oplus \vec{v}) \oplus \vec{w} & \text{Axiom 4}   \\
-    \bld{id}                               & = -\vec{u} \oplus \vec{v}                  & \text{Axiom 4}   \\
-    \vec{v}                                & = -(-\vec{u})                              & \text{Axiom 5}   \\
-    \therefore \vec{v}                     & = \vec{u}                                  & \text{Axiom 5}
+    \vec{u} \oplus \vec{w}                   & = \vec{v} \oplus \vec{w}                   &  & \text{Assertion}                     \\
+    (\vec{u} \oplus \vec{w}) \oplus -\vec{w} & = (\vec{v} \oplus \vec{w}) \oplus -\vec{w} &  & \text{Axiom 5 states}~-\vec{w} \in V \\
+    \vec{u} \oplus (\vec{w} \oplus -\vec{w}) & = \vec{v} \oplus (\vec{w} \oplus -\vec{w}) &  & \text{Axiom 3}                       \\
+    \vec{u} \oplus \id                  & = \vec{v} \oplus \id                  &  & \text{Def. of additive inverse}      \\
+    \vec{u}                                  & = \vec{v}                                  &  & \text{Def. of additive identity}
   \end{align*}
+  $\therefore \tif \vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w} \tthen \vec{u} = \vec{v}$
 \end{proof}
 
 \subsection*{Problem 2}
 \bld{Prove Theorem $B$.}
 \begin{proof}
-  Let $\vec{u} \in V$ and $k \in \bb{R}$. Consider $\bld{id} = \vec{u}$:
+  Let $k \in \bb{R}$. Recall that Theorem $A$ implies that $0 \odot \id = \id$:
   \begin{align*}
-    \bld{id} \oplus \vec{u}                 & = \vec{u}         & \text{Axiom 4} \\
-    k \odot (\bld{id} \oplus \vec{u})       & = k \odot \vec{u}                  \\
-    k \odot \bld{id} \oplus k \odot \vec{u} & = k \odot \vec{u} & \text{Axiom 7} \\
-    \therefore k \odot \bld{id}             & = \bld{id}        & \text{Axiom 4}
+    k \odot \id & = k \odot (0 \odot \id)
   \end{align*}
 \end{proof}
 
 \subsection*{Problem 3}
-\bld{Prove Theorem $D$.} If $k \odot \vec{u} = \bld{id}$, then $k=0$ and/or $u = \bld{id}$
+\bld{Prove Theorem $D$.} If $k \odot \vec{u} = \id$, then $k=0$ and/or $u = \id$
 \begin{proof}
-  Consider $k \odot \vec{u} = \bld{id}$ and $k \neq 0 $. Since $\frac{1}{k} \neq \frac{1}{0}$, $\frac{1}{k}$ is well-defined.
+  Consider $k \odot \vec{u} = \id$ and $k \neq 0 $. Since $\frac{1}{k} \neq \frac{1}{0}$, $\frac{1}{k}$ is well-defined.
   \begin{align*}
-    k \odot \vec{u}                     & = \bld{id}                   & \text{Assertion} \\
-    \frac{1}{k} \odot k \odot \vec{u}   & = \frac{1}{k} \odot \bld{id}                    \\
-    (\frac{1}{k} \cdot k) \odot \vec{u} & = \frac{1}{k} \odot \bld{id} & \text{Axiom 9}   \\
-    1 \odot \vec{u}                     & = \bld{id}                   & \text{Thm B}     \\
-    \vec{u}                             & = \bld{id}                   & \text{Axiom 10}
+    k \odot \vec{u}                     & = \id                   & \text{Assertion} \\
+    \frac{1}{k} \odot k \odot \vec{u}   & = \frac{1}{k} \odot \id                    \\
+    (\frac{1}{k} \cdot k) \odot \vec{u} & = \frac{1}{k} \odot \id & \text{Axiom 9}   \\
+    1 \odot \vec{u}                     & = \id                   & \text{Thm B}     \\
+    \vec{u}                             & = \id                   & \text{Axiom 10}
   \end{align*}
-  Now consider $k \odot \vec{u} = \bld{id} \tand \vec{u} \neq \bld{id}$. Since $k$ is defined, $-k$ is also defined.
+  Now consider $k \odot \vec{u} = \id \tand \vec{u} \neq \id$. Since $k$ is defined, $-k$ is also defined.
   \begin{align*}
-    k \odot \vec{u}                           & = \bld{id}                           & \text{Assertion} \\
-    k \odot \vec{u}                           & = \bld{id}                                              \\
-    k \odot \vec{u} \oplus (-k) \odot \vec{u} & = \bld{id} \oplus (-k) \odot \vec{u}                    \\
+    k \odot \vec{u}                           & = \id                           & \text{Assertion} \\
+    k \odot \vec{u}                           & = \id                                              \\
+    k \odot \vec{u} \oplus (-k) \odot \vec{u} & = \id \oplus (-k) \odot \vec{u}                    \\
     (k+ (-k)) \odot \vec{u}                   & = (-k) \odot \vec{u}                 & \text{Axiom 8}   \\
     0 \odot \vec{u} = (-k) \odot \vec{u}
   \end{align*}
-  Since $u \neq \bld{id}$,
+  Since $u \neq \id$,
   \[
     0 = -k,~\therefore k = 0
   \]
@@ -63,14 +59,14 @@
 Show that there cannot be a vector space of size 2.
 \begin{proof}
   Let $V = \{\vec{u}, \vec{v}\}$ be a vectorspace. That is, it satisfies all 10 Axioms. \\
-  Axiom 4 states that \bld{id} exist, and is unique, therefore either $\vec{u} = \bld{id} \tor \vec{v} = \bld{id}$. Both cannot be $\bld{id}$, so therefore $\vec{u} \neq \vec{v}$ \\
-  Without the loss of generality, let $\vec{u} = \bld{id}$.
+  Axiom 4 states that \id exist, and is unique, therefore either $\vec{u} = \id \tor \vec{v} = \id$. Both cannot be $\id$, so therefore $\vec{u} \neq \vec{v}$ \\
+  Without the loss of generality, let $\vec{u} = \id$.
   \begin{align*}
     \vec{u} \oplus \vec{v}  & = \vec{v} & \text{Axiom 4} \\
-    \bld{id} \oplus \vec{v} & = \vec{v}
+    \id \oplus \vec{v} & = \vec{v}
   \end{align*}
   Now consider Axiom 5: additive inverse exists for all $\vec{u} \in V$. \\
-  Consider $-\vec{v} \oplus \vec{v} = \bld{id}$. Since $\vec{v} \neq \bld{id}$, $-\vec{v} \neq \vec{v}$. Since there is only one other element in $V$, $-\vec{v} = \vec{u}$ must be true. Remember that $\vec{u} = \bld{id}$.
+  Consider $-\vec{v} \oplus \vec{v} = \id$. Since $\vec{v} \neq \id$, $-\vec{v} \neq \vec{v}$. Since there is only one other element in $V$, $-\vec{v} = \vec{u}$ must be true. Remember that $\vec{u} = \id$.
   \[
     \vec{u} \oplus \vec{v} = \vec{u}
   \]
