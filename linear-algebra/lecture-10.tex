@@ -1,0 +1,33 @@
+\section{Subspaces}
+Let $V$ be a vector space, with $\oplus \tand \odot$ denoting its addition and scalar multiplication operations respectively. A \itl{nonempty set} $W$ is a \bld{subspace} of $V$ if these three properties are satisfied.
+\begin{enumerate}
+  \item $W \subseteq V$
+  \item Addition and scalar multiplication operations in $W$ are \itl{inherited} from $V$: $\oplus_W = \oplus_V \tand \odot_W = \oplus_V$
+  \item $W$ is a vector space
+\end{enumerate}
+
+\subsection*{Theorem 3: Needed Axioms for a Subspace}
+\itl{Let $V$ be a vector space, and let $W$ be a nonempty subset $V$ such that the addition and scalar multiplication are inherited from $V$. Then $W$ is a subspace of $V$ if and only if Axioms 1 and 6 hold for $W$}.
+
+\subsection*{Linear Combination and Span}
+Let $V$ be a vector space, and let $S = \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\} \subseteq V$. A \bld{linear combination} of $S = \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}$ is
+\[
+  k_2\vec{v}_2 + k_2\vec{v}_2 + \cdots + k_n\vec{v}_n,~\text{where $k_i$ are scalars}
+\]
+
+The \bld{span} of $S = \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\}$ is the set of ALL linear combinations of $\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n$, which is
+\[
+  \vecspan(S) = \{\vec{v} \in V : \vec{v} = k_2\vec{v}_2 + k_2\vec{v}_2 + \cdots + k_n\vec{v}_n, \twhere k_1, k_2, \ldots, k_n \in \bb{R}\}
+\]
+If $S = \emptyset$, then we define $\vecspan(S) = \{\id\}$
+
+\subsection*{Theorem 16: Smallest Subspace of a Vector Space}
+\itl{Let $V$ be a vector space, and let $S = \{\vec{v}_1, \vec{v}_2, \ldots, \vec{v}_n\} \subseteq V$. Then $\vecspan(S)$ is the \bld{smallest} subspace of $V$ containing $S$}.
+
+\subsection*{Theorem 19: Span Equality}
+\itl{Let $V$ be a vector space, and let $S$ and $T$ be two finite subsets of $V$. Then}
+\[
+  \vecspan(S) = \vecspan(T) \iff S \subseteq \vecspan(T) \tand T \subseteq \vecspan(S)
+\]
+
+\subsection*{Gauss-Jordan Elimination}

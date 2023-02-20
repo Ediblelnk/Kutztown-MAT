@@ -62,49 +62,49 @@ Example of a definition of $\odot$ for $V=\{\text{apple}, \text{orange}, \text{b
 
 \subsection*{10 Good Properties of Addition and Scalar Multiplication}
 \begin{enumerate}
-  \item \bld{Closed Under Addition} $\forall~~\vec{v}, \vec{u} \in V$,
+  \item \bld{Closed Under Addition} $\forall~\vec{v}, \vec{u} \in V$,
         \[
           \vec{u} \oplus \vec{v} \in V
         \]
-  \item \bld{Commutativity Under Addition} $\forall~~\vec{v}, \vec{u} \in V$,
+  \item \bld{Commutativity Under Addition} $\forall~\vec{v}, \vec{u} \in V$,
         \[
           \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u}
         \]
-  \item \bld{Associativity Under Addition} $\forall~~\vec{v}, \vec{u}, \vec{w} \in V$,
+  \item \bld{Associativity Under Addition} $\forall~\vec{v}, \vec{u}, \vec{w} \in V$,
         \[
           \vec{u} \oplus (\vec{v} \oplus \vec{w}) = (\vec{u} \oplus \vec{v}) \oplus \vec{w}
         \]
-  \item \bld{Additive Identity Exists} $\exists~\vec{u}~\forall~~\vec{v} \in V$,
+  \item \bld{Additive Identity Exists} $\exists~\vec{u}~\forall~\vec{v} \in V$,
         \[
           \vec{u} \oplus \vec{v} = \vec{v} \oplus \vec{u} = \vec{v} \\
         \]
         \[
-          \vec{u}~\text{is called the additive identity, \id}
+          \vec{u}~\text{is called the additive identity}, \id
         \]
-  \item \bld{Additive Inverse Always Exists} $\forall~~\vec{v}~\exists~\vec{w} \in V$,
+  \item \bld{Additive Inverse Always Exists} $\forall~\vec{v}~\exists~\vec{w} \in V$,
         \[
-          \vec{v} \oplus \vec{w} = \vec{w} \oplus \vec{v} = \text{\id}
+          \vec{v} \oplus \vec{w} = \vec{w} \oplus \vec{v} = \id
         \]
         \[
           \vec{w} = -\vec{v}~\text{and is pronounced as \itl{bar-$\vec{v}$}}
         \]
-  \item \bld{Closed Under Scalar Multiplication} $\forall~~k \in \bb{R}, \vec{v} \in V$,
+  \item \bld{Closed Under Scalar Multiplication} $\forall~k \in \bb{R}, \vec{v} \in V$,
         \[
           k \odot \vec{v} \in V
         \]
-  \item \bld{Distributivity Over $\oplus$} $\forall~~k \in \bb{R}, \vec{u}, \vec{v} \in V$,
+  \item \bld{Distributivity Over $\oplus$} $\forall~k \in \bb{R}, \vec{u}, \vec{v} \in V$,
         \[
           k \odot (\vec{u} \oplus \vec{v}) = k \odot \vec{u} \oplus k \odot \vec{v}
         \]
-  \item \bld{Distributivity Over $+$} $\forall~~k, \ell \in \bb{R}, \vec{v} \in V$,
+  \item \bld{Distributivity Over $+$} $\forall~k, \ell \in \bb{R}, \vec{v} \in V$,
         \[
           (k + \ell) \odot \vec{v} = k \odot \vec{v} \oplus \ell \odot \vec{v}
         \]
-  \item \bld{Associativity Over Scalar Multiplication} $\forall~~k, \ell \in \bb{R}, \vec{v} \in V$,
+  \item \bld{Associativity Over Scalar Multiplication} $\forall~k, \ell \in \bb{R}, \vec{v} \in V$,
         \[
           (k \cdot \ell) \odot \vec{v} = k \odot (\ell \odot \vec{v})
         \]
-  \item \bld{1 Fixes Every Element In V By $\odot$} $\forall~~\vec{v} \in V$,
+  \item \bld{1 Fixes Every Element In V By $\odot$} $\forall~\vec{v} \in V$,
         \[
           1 \odot \vec{v} = \vec{v}
         \]
@@ -123,7 +123,7 @@ Example of a definition of $\odot$ for $V=\{\text{apple}, \text{orange}, \text{b
   \bitem{c.} Axioms (2), (3), (7), (8), (9), (10): proof for all elements
 \end{itemize}
 \subsection*{Standard Addition and Scalar Multiplication for $\bb{R}^n$}
-$\forall~~\vec{u} = (u_1, u_2, \ldots, u_n), \vec{v} = (v_1, v_2, \ldots, v_n) \in V$ and $\forall~~k \in \bb{R}$,
+$\forall~\vec{u} = (u_1, u_2, \ldots, u_n), \vec{v} = (v_1, v_2, \ldots, v_n) \in V$ and $\forall~k \in \bb{R}$,
 \begin{align*}
   \vec{u} \oplus \vec{v} & = (u_1 + v_1, u_2 + v_2, \ldots, u_n + v_n) \\
   k \odot \vec{u}        & = (ku_1, ku_2, \ldots, ku_n)
