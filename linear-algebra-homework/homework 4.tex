@@ -112,16 +112,49 @@ Let $V = F(-\infty, \infty)$ be the vector space of all functions from $\bb{R}$ 
     Therefore $W$ is \bld{not} closed under addition. \\
     Since Axiom 1 does not hold for $W$, $W$ is not a subspace of $V$.
   \end{proof}
-  \biitem{c}{The set of functions $f$ in $F(-\infty, \infty)$ for which $f(-x) = x$}
+  \biitem{c}{The set of functions $\vec{f}$ in $F(-\infty, \infty)$ for which $f(-x) = x$, $W$}
   \begin{proof}
-
+    Axiom 1: Consider $\vec{f}, \vec{g} \in W$.
+    \begin{align*}
+      (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) \\
+      \twhen \text{plugging in $-x$}:                         \\
+      \vec{f}(-x) + \vec{g}(-x)   & = x + x = 2x              \\
+                                  & \neq x \tif x \neq 0
+    \end{align*}
+    Therefore $W$ is \bld{not} closed under addition. \\
+    Since Axiom 1 does not hold for $W$, $W$ is not a subspace of $V$.
   \end{proof}
 \end{enumerate}
 
 \subsection*{Problem 13}
 Let $V$ be a vector space. Let $I$ be a nonempty set (often called the "index set"), and let $W_i$ be a subspace of $V$ for all $i \in I$. Prove that $\displaystyle \bigcap_{i \in I} W_i$, is a subspace of V.
 \begin{proof}
-
+  Since $W_i$ is a subspace $\forall~i \in I$, this implies the following:
+  \begin{enumerate}
+    \item $\forall~i \in I: W_i \subseteq V \Leftrightarrow \displaystyle \bigcap_{i \in I} W_i \subseteq V$
+    \item $\oplus_{\bigcap_{i \in I} W_i} \tand \odot_{\bigcap_{i \in I} W_i}$ are inherited from $V$
+  \end{enumerate}
+  Therefore, by Theorem 3, only Axiom 1 and Axiom 6 must be proven for $\displaystyle \bigcap_{i \in I} W_i$ to be a subspace of $V$. \\
+  Axiom 1: Consider $\vec{u}, \vec{v} \in \displaystyle \bigcap_{i \in I} W_i$. This implies the following:
+  \begin{align*}
+    \vec{u} & \in W_i~~\forall~i \in I \\
+    \vec{v} & \in W_i~~\forall~i \in I
+  \end{align*}
+  Consider if $\vec{u} \oplus \vec{v} \not \in W_j$, for some $j \in I$. Since $\vec{u} \in W_j \tand \vec{v} \in W_j \tbut \vec{u} \oplus \vec{v} \not \in W_j$, by definition $W_j$ is not closed under addition, and thus not a subspace of $V$. This contradicts our assertion that $\forall~i \in I,~W_i$ is a subspace of $V$. Therefore, through contradiction, $\vec{u} \oplus \vec{v} \in W_j~~\forall j \in I$. This statement is equivalent to
+  \[
+    \vec{u} \oplus \vec{v} \in \bigcap_{i \in I} W_i
+  \]
+  Therefore $\displaystyle \bigcap_{i \in I} W_i$ is closed under addition. \\
+  Axiom 6: Consider $\vec{v} \in \displaystyle \bigcap_{i \in I} W_i \tand k \in \bb{R}$. This implies:
+  \[
+    \vec{v} \in W_i~~\forall~i \in I
+  \]
+  Consider if $k \odot \vec{v} \not \in W_j$, for some $j \in I$. Since $k \in \bb{R} \tand \vec{v} \in W_j \tbut k \odot \vec{v} \not \in W_j$, by definition $W_j$ is not closed under scalar multiplication, and thus not a subspace of $V$. This contradicts our assertion that $\forall~i \in I,~W_i$ is a subspace of $V$. Therefore, through contradiction, $k \odot \vec{v} \in W_j~~\forall j \in I$. This statement is equivalent to
+  \[
+    \vec{u} \oplus \vec{v} \in \bigcap_{i \in I} W_i
+  \]
+  Therefore $\displaystyle \bigcap_{i \in I} W_i$ is closed under scalar multiplication. \\
+  Since Axiom 1 and Axiom 6 hold for $\displaystyle \bigcap_{i \in I} W_i$, through Theorem 3, $\displaystyle \bigcap_{i \in I} W_i$ is a subspace of $V$.
 \end{proof}
 
 \end{document}
