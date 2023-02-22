@@ -12,20 +12,19 @@
 \subsection*{Problem 9}
 Let $V = \bb{R}^3$ be a vector space with standard addition and scalar multiplication. Use Theorem 3 of Lecture Note 8 to determine whether the following sets are subspaces of $V$.
 \begin{enumerate}
-  \biitem{b}{The set of vectors of the form $(a,1,1)$, $W$}
+  \biitem{b}{$W$ is the set of vectors of the form $(a,1,1)$}
   \begin{proof}
-    Axiom 1: Consider $\vec{a} = (a,1,1) \tand \vec{b} = (b,1,1) \tfor a,b \in \bb{R}$. $\vec{a} \in W \tand \vec{b} \in W$.
+    Axiom 1: Consider $\vec{a},\vec{b} \in W$ where $\vec{a} = (a,1,1) \tand \vec{b} = (b,1,1) \tfor a,b \in \bb{R}$.
     \begin{align*}
-      \vec{a} \oplus_W \vec{b} & = (a,1,1) \oplus (b,1,1) = (a+b,1+1,1+1) \\
-                               & = (a+b,2,2) \not \in W
+      \vec{a} \oplus \vec{b} & = (a,1,1) \oplus (b,1,1) = (a+b,1+1,1+1) \\
+                             & = (a+b,2,2) \not \in W
     \end{align*}
     Therefore $W$ is \bld{not} closed under addition. \\
     Since Axiom 1 does not hold for $W$, $W$ is not a subspace of $V$.
   \end{proof}
-  \biitem{c}{The set of vectors of the form $(a,b,c)$, where $b = a + c$, $W$}
+  \biitem{c}{$W$ is the set of vectors of the form $(a,b,c)$, where $b = a + c$}
   \begin{proof}
-    Axiom 1: Consider $\vec{v} = (a_1,b_1,c_1) \tand \vec{u} = (a_2,b_2,c_2) \tfor a_1,a_2,b_1,b_2,c_1,c_2 \in \bb{R}$. \\
-    $\vec{v} \in W \tand \vec{u} \in W$.
+    Axiom 1: Consider $\vec{v},\vec{u} \in W$ where $\vec{v} = (a_1,b_1,c_1) \tand \vec{u} = (a_2,b_2,c_2) \tfor a_1,a_2,b_1,b_2,c_1,c_2 \in \bb{R}, \twhere b_1 = a_1 + c_1 \tand b_2 = a_2 + c_2$.
     \begin{align*}
       \vec{v} \oplus \vec{u} & = (a_1,b_1,c_1) \oplus (a_2,b_2,c_2) = (a_1+a_2,b_1+b_2,c_1+c_2)   \\
                              & \in W                                                              \\ \\
@@ -34,16 +33,16 @@ Let $V = \bb{R}^3$ be a vector space with standard addition and scalar multiplic
     Therefore $W$ is closed under addition. \\
     Axiom 6: Consider $\vec{v} = (a,b,c) \tsuchthat a,b,c \in \bb{R} \tand k \in \bb{R}$. Let $b = a+c$.
     \begin{align*}
-      k \odot \vec{v} & = k \odot (a,b,c) = k \odot (a,a+c,c) = (ka, k(a+c), kc) = (ka, ka+kc, kc) \\
-                      & \in W                                                                      \\ \\
+      k \odot \vec{v} & = k \odot (a,b,c) = k \odot (a,b,c) = (ka, kb, kc) \\
+                      & \in W                                              \\ \\
       kb              & = k(a+c) = ka + kc~\checkmark
     \end{align*}
     Therefore $W$ is closed under scalar multiplication. \\
     Since Axiom 1 and Axiom 6 hold for $W$, $\oplus \tand \odot$ are inherited from $V$, and $W \subseteq V$, through the use of Theorem 3, $W$ is a subspace of $V$.
   \end{proof}
-  \biitem{d}{The set of vectors of the form $(a,b,0)$, $W$}
+  \biitem{d}{$W$ is the set of vectors of the form $(a,b,0)$}
   \begin{proof}
-    Axiom 1: Consider $\vec{v} = (a_1,b_1,0) \tand \vec{u} = (a_2,b_2,0) \tfor a_1,a_2,b_1,b_2 \in \bb{R}$.
+    Axiom 1: Consider $\vec{v},\vec{u} \in W$ where $\vec{v} = (a_1,b_1,0) \tand \vec{u} = (a_2,b_2,0) \tfor a_1,a_2,b_1,b_2 \in \bb{R}$.
     \begin{align*}
       \vec{v} \oplus \vec{u} & = (a_1,b_1,0) \oplus (a_2,b_2,0) = (a_1+a_2,b_1+b_2,0+0) = (a_1+a_2,b_1+b_2,0) \\
                              & \in W~\text{since it takes the form}~(a,b,0)
@@ -62,20 +61,22 @@ Let $V = \bb{R}^3$ be a vector space with standard addition and scalar multiplic
 \subsection*{Problem 10}
 Let $V = P_3$ be the vector space of all polynomials with degree \itl{up to} 3, with standard addition and scalar multiplication. Use Theorem 3 of Lecture Note 8 to determine whether the following sets are subspaces of $V$.
 \begin{enumerate}
-  \biitem{b}{The set of polynomials $a_0+a_1x+a_2x^2+a_3x^3$ for which $a_0+a_1+a_2+a_3=0$, $W$.}
+  \biitem{b}{$W$ is the set of polynomials $a_0+a_1x+a_2x^2+a_3x^3$ for which $a_0+a_1+a_2+a_3=0$}
   \begin{proof}
-    Axiom 1: Consider $\vec{a} = a_0+a_1x+a_2x^2+a_3x^3 \tand \vec{b} = b_0+b_1x+b_2x^2+b_3x^3 \twhere a_{0-3}, b_{0-3} \in \bb{R}$. \\
+    Axiom 1: Consider $\vec{a},\vec{b} \in W$ where $\vec{a} = a_0+a_1x+a_2x^2+a_3x^3 \tand \vec{b} = b_0+b_1x+b_2x^2+b_3x^3 \twhere a_{0-3}, b_{0-3} \in \bb{R}$. \\
     Let $a_0+a_1+a_2+a_3=0 \tand b_0+b_1+b_2+b_3=0$.
     \begin{align*}
-      \vec{a} \oplus \vec{b}                        & = (a_0+a_1x+a_2x^2+a_3x^3) \oplus (b_0+b_1x+b_2x^2+b_3x^3) \\
-                                                    & = a_0+a_1x+a_2x^2+a_3x^3 + b_0+b_1x+b_2x^2+b_3x^3          \\
-                                                    & = (a_0+b_0) + (a_1+b_1)x + (a_2+b_2)x^2 + (a_3+b_3)x^3     \\
-                                                    & \in W                                                      \\ \\
-      (a_0+b_0) + (a_1+b_1) + (a_2+b_2) + (a_3+b_3) & = a_0 + a_1 + a_2 + a_3 + b_0 + b_1 + b_2 + b_3            \\
+      \vec{a} \oplus \vec{b} & = (a_0+a_1x+a_2x^2+a_3x^3) \oplus (b_0+b_1x+b_2x^2+b_3x^3) \\
+                             & = a_0+a_1x+a_2x^2+a_3x^3 + b_0+b_1x+b_2x^2+b_3x^3          \\
+                             & = (a_0+b_0) + (a_1+b_1)x + (a_2+b_2)x^2 + (a_3+b_3)x^3     \\
+                             & \in W
+    \end{align*}
+    \begin{align*}
+      (a_0+b_0) + (a_1+b_1) + (a_2+b_2) + (a_3+b_3) & = (a_0 + a_1 + a_2 + a_3) + (b_0 + b_1 + b_2 + b_3) \\
                                                     & = 0 + 0 = 0~\checkmark
     \end{align*}
     Therefore $W$ is closed under addition. \\
-    Axiom 6: Consider $\vec{a} = a_0+a_1x+a_2x^2+a_3x^3 \tsuchthat a_{0-3} \in \bb{R} \tand k \in \bb{R}$. \\
+    Axiom 6: Consider $\vec{a} \in W$ where $\vec{a} = a_0+a_1x+a_2x^2+a_3x^3 \tsuchthat a_{0-3} \in \bb{R} \tand k \in \bb{R}$. \\
     Let $a_0+a_1+a_2+a_3=0$.
     \begin{align*}
       k \odot \vec{a} & = k \odot (a_0+a_1x+a_2x^2+a_3x^3) = k(a_0+a_1x+a_2x^2+a_3x^3)           \\
@@ -86,13 +87,13 @@ Let $V = P_3$ be the vector space of all polynomials with degree \itl{up to} 3, 
     Therefore $W$ is closed under scalar multiplication. \\
     Since Axiom 1 and Axiom 6 hold for $W$, $\oplus \tand \odot$ are inherited from $V$, and $W \subseteq V$, through the use of Theorem 3, $W$ is a subspace of $V$.
   \end{proof}
-  \biitem{c}{The set of polynomials $a_0+a_1x+a_2x^2+a_3x^3$ in which $a_0,a_1,a_2, \tand a_3$ are integers.}
+  \biitem{c}{$W$ is the set of polynomials $a_0+a_1x+a_2x^2+a_3x^3$ in which $a_0,a_1,a_2, \tand a_3$ are integers.}
   \begin{proof}
-    Axiom 6: Consider $\vec{a} = 1+1x+1x^2+1x^3 \tand k = 0.66$.
+    Axiom 6: Consider $\vec{a} \in W$ where $\vec{a} = 1+1x+1x^2+1x^3 \tand k = 0.66$.
     \begin{align*}
       k \odot \vec{a} & = 0.66 \odot (1+1x+1x^2+1x^3) = 0.66(1+1x+1x^2+1x^3) \\
                       & = 0.66+0.66x+0.66x^2+0.66x^3                         \\
-                      & \not \in W, \tsince 0.66 \not \in \bb{Z}             \\
+                      & \not \in W, \tsince 0.66 \not \in \bb{Z}
     \end{align*}
     Therefore $W$ is \bld{not} closed under scalar multiplication. \\
     Since Axiom 6 does not hold for $W$, $W$ is not a subspace of $V$.
@@ -102,9 +103,9 @@ Let $V = P_3$ be the vector space of all polynomials with degree \itl{up to} 3, 
 \subsection*{Problem 11}
 Let $V = F(-\infty, \infty)$ be the vector space of all functions from $\bb{R}$ to $\bb{R}$, with standard addition and scalar multiplication. Use Theorem 3 of Lecture Note 8 to determine whether the following sets are subspaces of $V$.
 \begin{enumerate}
-  \biitem{b}{The set of functions $f$ in $F(-\infty, \infty)$ for which $f(0) = 1$.}
+  \biitem{b}{$W$ is the set of functions $f$ in $F(-\infty, \infty)$ for which $f(0) = 1$.}
   \begin{proof}
-    Axiom 1: Consider $\vec{f}(x) = e^x \tand \vec{g}(x) = e^x$. $\vec{f}, \vec{g} \in W \tsince e^0 = 0$.
+    Axiom 1: Consider $\vec{f},\vec{g} \in W$ where $\vec{f}(x) = e^x \tand \vec{g}(x) = e^x$.
     \begin{align*}
       (\vec{f} \oplus \vec{g})(x) & = \vec{f}(x) + \vec{g}(x) = e^x + e^x = 2e^x \not \in W \\
       \twhen x                    & = 0: 2e^0 = 2 \cdot 1 = 2 \neq 1
@@ -112,7 +113,7 @@ Let $V = F(-\infty, \infty)$ be the vector space of all functions from $\bb{R}$ 
     Therefore $W$ is \bld{not} closed under addition. \\
     Since Axiom 1 does not hold for $W$, $W$ is not a subspace of $V$.
   \end{proof}
-  \biitem{c}{The set of functions $\vec{f}$ in $F(-\infty, \infty)$ for which $f(-x) = x$, $W$}
+  \biitem{c}{$W$ is the set of functions $\vec{f}$ in $F(-\infty, \infty)$ for which $f(-x) = x$, $W$}
   \begin{proof}
     Axiom 1: Consider $\vec{f}, \vec{g} \in W$.
     \begin{align*}
@@ -129,32 +130,34 @@ Let $V = F(-\infty, \infty)$ be the vector space of all functions from $\bb{R}$ 
 \subsection*{Problem 13}
 Let $V$ be a vector space. Let $I$ be a nonempty set (often called the "index set"), and let $W_i$ be a subspace of $V$ for all $i \in I$. Prove that $\displaystyle \bigcap_{i \in I} W_i$, is a subspace of V.
 \begin{proof}
-  Since $W_i$ is a subspace $\forall~i \in I$, this implies the following:
-  \begin{enumerate}
-    \item $\forall~i \in I: W_i \subseteq V \Leftrightarrow \displaystyle \bigcap_{i \in I} W_i \subseteq V$
-    \item $\oplus_{\bigcap_{i \in I} W_i} \tand \odot_{\bigcap_{i \in I} W_i}$ are inherited from $V$
-  \end{enumerate}
-  Therefore, by Theorem 3, only Axiom 1 and Axiom 6 must be proven for $\displaystyle \bigcap_{i \in I} W_i$ to be a subspace of $V$. \\
   Axiom 1: Consider $\vec{u}, \vec{v} \in \displaystyle \bigcap_{i \in I} W_i$. This implies the following:
   \begin{align*}
     \vec{u} & \in W_i~~\forall~i \in I \\
     \vec{v} & \in W_i~~\forall~i \in I
   \end{align*}
-  Consider if $\vec{u} \oplus \vec{v} \not \in W_j$, for some $j \in I$. Since $\vec{u} \in W_j \tand \vec{v} \in W_j \tbut \vec{u} \oplus \vec{v} \not \in W_j$, by definition $W_j$ is not closed under addition, and thus not a subspace of $V$. This contradicts our assertion that $\forall~i \in I,~W_i$ is a subspace of $V$. Therefore, through contradiction, $\vec{u} \oplus \vec{v} \in W_j~~\forall j \in I$. This statement is equivalent to
+  Since $\forall~i \in I,~W_i$ is a subspace of $V$, by Axiom 1 for $W_i$
+  \[
+    \forall i \in I,~\vec{u} \oplus \vec{v} \in W_i.
+  \]
+  This statement is equivalent to
   \[
     \vec{u} \oplus \vec{v} \in \bigcap_{i \in I} W_i
   \]
   Therefore $\displaystyle \bigcap_{i \in I} W_i$ is closed under addition. \\
-  Axiom 6: Consider $\vec{v} \in \displaystyle \bigcap_{i \in I} W_i \tand k \in \bb{R}$. This implies:
+  Axiom 6: Consider $\vec{v} \in \displaystyle \bigcap_{i \in I} W_i$. This implies the following:
   \[
     \vec{v} \in W_i~~\forall~i \in I
   \]
-  Consider if $k \odot \vec{v} \not \in W_j$, for some $j \in I$. Since $k \in \bb{R} \tand \vec{v} \in W_j \tbut k \odot \vec{v} \not \in W_j$, by definition $W_j$ is not closed under scalar multiplication, and thus not a subspace of $V$. This contradicts our assertion that $\forall~i \in I,~W_i$ is a subspace of $V$. Therefore, through contradiction, $k \odot \vec{v} \in W_j~~\forall j \in I$. This statement is equivalent to
+  Since $\forall~i \in I,~W_i$ is a subspace of $V$, by Axiom 6 for $W_i$
   \[
-    \vec{u} \oplus \vec{v} \in \bigcap_{i \in I} W_i
+    \forall i \in I,~k \odot \vec{v} \in W_i.
   \]
-  Therefore $\displaystyle \bigcap_{i \in I} W_i$ is closed under scalar multiplication. \\
-  Since Axiom 1 and Axiom 6 hold for $\displaystyle \bigcap_{i \in I} W_i$, through Theorem 3, $\displaystyle \bigcap_{i \in I} W_i$ is a subspace of $V$.
+  This statement is equivalent to
+  \[
+    k \odot \vec{v} \in \bigcap_{i \in I} W_i
+  \]
+  Therefore $\displaystyle \bigcap_{i \in I} W_i$ is closed under addition. \\
+  Since Axiom 1 and Axiom 6 hold for $\displaystyle \bigcap_{i \in I} W_i$, through Theorem 3 $\displaystyle \bigcap_{i \in I} W_i$ is a subspace of $V$.
 \end{proof}
 
 \end{document}
