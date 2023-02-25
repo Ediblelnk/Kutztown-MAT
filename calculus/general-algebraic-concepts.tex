@@ -1,1 +1,57 @@
 \section{General Algebraic Concepts}
+
+\subsection*{Order of Operations}
+\begin{enumerate}
+  \item \bld{P}arenthesis
+  \item \bld{E}xponents and \bld{I}nverse
+  \item \bld{F}unctions and \bld{R}oots
+  \item \bld{M}ultiplication and \bld{D}ivision
+  \item \bld{A}ddition and \bld{S}ubtraction
+\end{enumerate}
+
+\subsection*{Properties of Exponents}
+\begin{center}
+  \begin{tabular}{l|c}
+    Property                   & Symbolic Form                                                                  \\
+    \hline                                                                                                      \\
+    \bld{Product of Powers}    & $b^r \cdot b^s = b^{r+s}$                                                      \\ \\
+    \bld{Quotient of Powers}   & $\frac{b^r}{b^q} = b^{r-s}$                                                    \\ \\
+    \bld{Power of a Power}     & $(b^r)^s = b^{rs}$                                                             \\ \\
+    \bld{Power of a Product}   & $(ab)^r = a^rb^r$                                                              \\ \\
+    \bld{Power of a Quotient}  & $(\frac{a}{b})^r = \frac{a^r}{b^r}$                                            \\ \\
+    \bld{Negative Exponents}   & $a^{-r} = \frac{1}{a^r} \tor \frac{1}{a^{-r}} = a^r$                           \\ \\
+                               & $\left(\frac{a}{b}\right)^{-r} = \left(\frac{b}{a}\right)^r = \frac{b^r}{a^r}$ \\ \\
+    \bld{Fractional Exponents} & $\sqrt[d]{a} = a^{\frac{1}{d}}$                                                \\ \\
+                               & $\left(\sqrt[d]{a}\right)^n = \sqrt[d]{a^n} = a^{\frac{n}{d}}$                 \\ \\
+  \end{tabular}
+\end{center}
+
+\subsection*{Ration Root Theorem}
+A rational root of a polynomial function
+\[
+  f(x) = a_nx^n + a_{n-1}x^{n-1} + \cdots + a_2x^2 + a_1x + a_0
+\]
+is of the form:
+\[
+  \pm \frac{p}{q} = \pm \frac{\text{a factor of last term,}~a_0}{\text{a factor of first term,}~a_n}
+\]
+Where $a_{n-0}$ are integers.
+
+\subsection*{Trigonometry}
+\begin{center}
+  \begin{tabular}{l|c}
+    Property                   & Formula                                                                                                                                                                                                                \\
+    \hline                                                                                                                                                                                                                                              \\
+    \bld{Reciprocal}           & $\sin\theta = \frac{1}{\csc\theta} \quad \cos\theta = \frac{1}{\sec\theta} \quad \tan\theta = \frac{1}{\cot\theta}$                                                                                                    \\ \\
+    \bld{Pythagorean}          & $\sin^2a + \cos^2a = 1 \quad 1 + \tan^2a = \sec^2a \quad 1 + \cot^2a = \csc^2a$                                                                                                                                        \\ \\
+    \bld{Ratio}                & $\tan\theta = \frac{\sin\theta}{\cos\theta} \quad \cot\theta = \frac{\cos\theta}{\sin\theta}$                                                                                                                          \\ \\
+    \bld{Opposite Angle}       & $\sin(-\theta) = -\sin\theta \quad \cos(-\theta) = \cos\theta \quad \tan(-\theta) = -\tan\theta$                                                                                                                       \\ \\
+                               & $\csc(-\theta) = -\csc\theta \quad \sec(-\theta) = \sec\theta \quad \cot(-\theta) = -\cot\theta$                                                                                                                       \\ \\
+    \bld{Sum/Difference}        & $\sin(\alpha+\beta) = \sin\alpha\cdot\cos\beta+\cos\alpha\cdot\sin\beta \quad \sin(\alpha-\beta) = \sin\alpha\cdot\cos\beta-\cos\alpha\cdot\sin\beta$                                                                  \\ \\
+    \bld{of Angles} & $\cos(\alpha+\beta) = \cos\alpha\cdot\cos\beta-\sin\alpha\cdot\sin\beta \quad \cos(\alpha-\beta) = \cos\alpha\cdot\cos\beta+\sin\alpha\cdot\sin\beta$                                                                  \\ \\
+                               & $\tan(\alpha+\beta) = \frac{\tan\alpha+\tan\beta}{1-\tan\alpha\cdot\tan\beta} \quad \tan(\alpha-\beta) = \frac{\tan\alpha-\tan\beta}{1+\tan\alpha\cdot\tan\beta}$                                                      \\ \\
+    \bld{Double Angle}         & $\sin(2\theta) = 2\sin\theta\cos\theta \quad \tan(2\theta) = \frac{2\tan\theta}{1-\tan^2\theta}$                                                                                                                       \\ \\
+                               & $\cos(2\theta) = \cos^2\theta-\sin^2\theta = 2\cos^2\theta-1 = 1-2\sin^2\theta$                                                                                                                                        \\ \\
+    \bld{Half Angle}           & $\sin\frac{\theta}{2} = \pm\sqrt{\frac{1-\cos\theta}{2}} \quad \cos\frac{\theta}{2} = \pm\sqrt{\frac{1+\cos\theta}{2}} \quad \tan\frac{\theta}{2} = \frac{\sin\theta}{1+\cos\theta} = \frac{1-\cos\theta}{\sin\theta}$
+  \end{tabular}
+\end{center}
