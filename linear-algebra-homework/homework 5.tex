@@ -1,0 +1,92 @@
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
+
+\lhead{Linear Algebra}
+\chead{Homework 5}
+\rhead{Peter Schaefer}
+
+\begin{document}
+
+\section{Homework 5}
+
+\subsection*{Section 4.2}
+
+\subsection*{7}
+\itl{Which of the following are linear combinations of $\vec{u} = (0,-2,2) \tand \vec{v} = (1,3,-1)$?}
+\begin{enumerate}
+  \biitem{a}{$(2,2,2)$}
+  \begin{proof}
+    Let $k_1,k_2 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} = (2,2,2)$. That is, $k_1(0,-2,2) + k_2(1,3,-1) = (2,2,2)$. From this equation, we get a linear system of equations.
+    \begin{align*}
+      0k_1 + 1k_2  & = 2 \\
+      -2k_1 + 3k_2 & = 2 \\
+      2k_1 - 1k_2  & = 2
+    \end{align*}
+    \[
+      \begin{amatrix}{2}
+        0  & 1  & 2 \\
+        -2 & 3  & 2 \\
+        2  & -1 & 2
+      \end{amatrix} \overset{-\frac{1}{2}R_2}{\longrightarrow}
+      \begin{amatrix}{2}
+        0 & 1 & 2 \\
+        1 & -\frac{3}{2} & -1 \\
+        2 & -1 & 2
+      \end{amatrix} \overset{R_1 \leftrightarrow R_2}{\longrightarrow}
+      \begin{amatrix}{2}
+        1 & -\frac{3}{2} & -1 \\
+        0 & 1 & 2 \\
+        2 & -1 & 2
+      \end{amatrix} \overunderset{R_3 - 2R_1}{(-2, 3, 2)}{\longrightarrow}
+      \begin{amatrix}{2}
+        1 & -\frac{3}{2} & -1 \\
+        0 & 1 & 2 \\
+        0 & 2 & 4
+      \end{amatrix}
+    \]
+    \[
+      \overunderset{R_3 - 2R_2}{(0,-2,-4)}{\longrightarrow}
+      \begin{amatrix}{2}
+        1 & -\frac{3}{2} & -1 \\
+        0 & 1 & 2 \\
+        0 & 0 & 0
+      \end{amatrix} \overunderset{R_1 + \frac{3}{2}R_2}{(0,\frac{3}{2},3)}{\longrightarrow}
+      \begin{amatrix}{2}
+        1 & 0 & 2 \\
+        0 & 1 & 2 \\
+        0 & 0 & 0
+      \end{amatrix}
+    \]
+    This augmented matrix represents the following equations:
+    \begin{align*}
+      k_1 + 0k_2 & = 2 & k_1 & = 2 \\
+      0k_1 + k_2 & = 2 & k_2 & = 2 \\
+      0 + 0      & = 0
+    \end{align*}
+    This means that $(2,2,2)$ is a linear combination of $\{\vec{u},\vec{v}\}$, when $k_1 = 2 \tand k_2 = 2$.
+  \end{proof}
+  \biitem{c}{$(0,4,5)$}
+\end{enumerate}
+
+\subsection*{8}
+\begin{enumerate}
+  \biitem{a}{description}
+  \biitem{c}{description}
+\end{enumerate}
+
+\subsection*{9}
+\begin{enumerate}
+  \biitem{a}{description}
+  \biitem{c}{description}
+\end{enumerate}
+
+\subsection*{10}
+\begin{enumerate}
+  \biitem{a}{description}
+  \biitem{d}{description}
+\end{enumerate}
+
+\subsection*{Section 1.2}
+\subsubsection*{4}
+
+\end{document}
