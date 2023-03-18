@@ -58,7 +58,17 @@ Verify the axioms 4, 5, and 7.
 \subsection*{Problem 2.}
 Let $V$ be a set with a binary operator $\oplus$ defined, so that Axioms (1), (3), and (4) hold for $V$ (note that other axioms may not hold). Let $\vec{v} \in V$. Prove that \bld{if} $\vec{v}$ has an additive inverse, then this additive inverse is unique. (\itl{Hint}: Let $\vec{w} \tand \vec{x}$ be two different additive inverses of $\vec{v}$. Show that this will lead to a contradiction.)
 
-\newpage
+\begin{proof}
+  Let $\vec{w}, \vec{x}, \vec{v} \in V \tsuchthat \vec{w} \tand \vec{x}$ are two different additive inverses of $\vec{v}$, This implies that $\vec{w} \neq \vec{x}$.
+  \begin{align*}
+    \vec{v} \oplus \vec{w}                  & = \id                &  & \text{def. of additive inverse}  \\
+    \vec{x} \oplus (\vec{v} \oplus \vec{w}) & = \vec{x} \oplus \id                                       \\
+    (\vec{x} \oplus \vec{v}) \oplus \vec{w} & = \vec{x} \oplus \id &  & \text{axiom 3}                   \\
+    \id \oplus \vec{w}                      & = \vec{x} \oplus \id &  & \text{def. of additive inverse}  \\
+    \vec{w}                                 & = \vec{x}            &  & \text{def. of additive identity}
+  \end{align*}
+  However, $\vec{w} = \vec{x}$ contradicts our assertion that $\vec{w} \neq \vec{x}$. Therefore, through contradiction, if $\vec{v}$ has an additive inverse, then this additive inverse is unique.
+\end{proof}
 
 \subsection*{Problem 3.}
 Let $V = P_3$, i.e., the set of all polynomials of degree up to 3, with standard addition and scalar multiplication. Let
@@ -67,28 +77,123 @@ Let $V = P_3$, i.e., the set of all polynomials of degree up to 3, with standard
 \]
 Verify whether $W$ is a subspace of $V$.
 
+\begin{proof}
+  According to Theorem 3 from Lecture 10, assuming that addition and scalar multiplication in $W$ are inherited from $V$, $W$ is a subspace of $V$ if and only if Axioms 1 and 6 hold for $W$.
+  \begin{enumerate}
+    \bitem{Ax1}
+    \begin{proof}
+      Let $\vec{a}, \vec{b} \in W \tsuchthat \vec{a} = 0 + 1x + 0x^2 + 0x^3 \tand \vec{b} = 1 + 0x + 0x^2 + 0x^3$. Now consider $\vec{a} \oplus \vec{b}$:
+      \begin{align*}
+        \vec{a} \oplus \vec{b} & = (0 + 1x + 0x^2 + 0x^3) \oplus (1 + 0x + 0x^2 + 0x^3) \\
+                               & = 0 + 1x + 0x^2 + 0x^3 + 1 + 0x + 0x^2 + 0x^3          \\
+                               & = (0+1) + (1+0)x + (0+0)x^2 + (0+0)x^3                 \\
+                               & = 1 + 1x + 0x^2 + 0x^3                                 \\ \\
+        1 \cdot 1              & = 1 \neq 0
+      \end{align*}
+      Therefore $\vec{a} \oplus \vec{b} \not \in W$, even though $\vec{a} \in W \tand \vec{b} \in W$.
+
+      This means that $W$ is not closed under addition.
+    \end{proof}
+  \end{enumerate}
+  Since Axiom 1 does not hold for $W$, $W$ cannot be a subspace of $V$.
+\end{proof}
+
 \newpage
 
 \subsection*{Problem 5.}
 Let
 \[
-  A = \begin{pmatrix}
-    2 & 1 \\
-    4 & 0
-  \end{pmatrix},
-  B = \begin{pmatrix}
-    1 & -1 \\
-    3 & 4
-  \end{pmatrix},
-  \tand C = \begin{pmatrix}
-    3 & 2  \\
-    5 & -4
-  \end{pmatrix}.
+  A = \begin{pmatrix}2 & 1 \\ 4 & 0\end{pmatrix}, B = \begin{pmatrix}1 & -1 \\ 3 & 4\end{pmatrix}, \tand C = \begin{pmatrix}3 & 2  \\ 5 & -4\end{pmatrix}.
 \]
-Express $\dstyle M = \begin{pmatrix}
-    1 & 2 \\
-    3 & 4
-  \end{pmatrix}$ as a linear combination of $A,~B,\tand C$. Use Gauss-Jordan elimination.
+Express $\dstyle M = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ as a linear combination of $A,~B,\tand C$. Use Gauss-Jordan elimination.
+
+\begin{proof}
+  Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1A \oplus k_2B \oplus k_3C = M$.
+
+  That is, $k_1\begin{pmatrix}2 & 1 \\ 4 & 0\end{pmatrix} \oplus k_2\begin{pmatrix}1 & -1 \\ 3 & 4\end{pmatrix} \oplus k_3\begin{pmatrix}3 & 2  \\ 5 & -4\end{pmatrix} = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$. From this equation, we get a linear system of equations:
+  \begin{align*}
+    2k_1 + 1k_2 + 3k_3 = 1 \\
+    1k_1 - 1k_2 + 2k_3 = 2 \\
+    4k_1 + 3k_2 + 5k_3 = 3 \\
+    0k_1 + 4k_2 - 4k_3 = 4 \\
+  \end{align*}
+  \[
+    \begin{amatrix}{3}
+      2 & 1  & 3  & 1 \\
+      1 & -1 & 2  & 2 \\
+      4 & 3  & 5  & 3 \\
+      0 & 4  & -4 & 4
+    \end{amatrix} \xrightarrow[(-4,-2,-6,-2)]{R_3 - 2R_1}
+    \begin{pmatrix}
+      2 & 1  & 3  & 1 \\
+      1 & -1 & 2  & 2 \\
+      0 & 1  & -1 & 1 \\
+      0 & 4  & -4 & 4
+    \end{pmatrix} \xrightarrow[(-2,2,-4,-4)]{R_1 - 2R_2}
+    \begin{pmatrix}
+      0 & 3  & -1 & -3 \\
+      1 & -1 & 2  & 2  \\
+      0 & 1  & -1 & 1  \\
+      0 & 4  & -4 & 4
+    \end{pmatrix} \xrightarrow[(0,1,-1,1)]{R_2 + R_3}
+  \]
+  \[
+    \begin{pmatrix}
+      0 & 3 & -1 & -3 \\
+      1 & 0 & 1  & 3  \\
+      0 & 1 & -1 & 1  \\
+      0 & 4 & -4 & 4
+    \end{pmatrix} \xrightarrow[(0,-3,3,-3)]{R_1 - 3R_3}
+    \begin{pmatrix}
+      0 & 0 & 2  & -6 \\
+      1 & 0 & 1  & 3  \\
+      0 & 1 & -1 & 1  \\
+      0 & 4 & -4 & 4
+    \end{pmatrix} \xrightarrow[(0,-4,4,-4)]{R_4 - 4R_1}
+    \begin{pmatrix}
+      0 & 0 & 2  & -6 \\
+      1 & 0 & 1  & 3  \\
+      0 & 1 & -1 & 1  \\
+      0 & 0 & 0  & 0
+    \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
+  \]
+  \[
+    \begin{pmatrix}
+      0 & 0 & 1  & -3 \\
+      1 & 0 & 1  & 3  \\
+      0 & 1 & -1 & 1  \\
+      0 & 0 & 0  & 0
+    \end{pmatrix} \xrightarrow[(0,0,-1,3)]{R_2 - R_1}
+    \begin{pmatrix}
+      0 & 0 & 1  & -3 \\
+      1 & 0 & 0  & 6  \\
+      0 & 1 & -1 & 1  \\
+      0 & 0 & 0  & 0
+    \end{pmatrix} \xrightarrow{R_3 + R_1}
+    \begin{pmatrix}
+      0 & 0 & 1 & -3 \\
+      1 & 0 & 0 & 6  \\
+      0 & 1 & 0 & -2 \\
+      0 & 0 & 0 & 0
+    \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
+  \]
+  \[
+    \begin{amatrix}{3}
+      1 & 0 & 0 & 6  \\
+      0 & 1 & 0 & -2 \\
+      0 & 0 & 1 & -3 \\
+      0 & 0 & 0 & 0
+    \end{amatrix}
+  \]
+  This augmented matrix represents the following equations:
+  \begin{align*}
+    k_1 = 6  \\
+    k_2 = -2 \\
+    k_3 = -3
+  \end{align*}
+  This means that $\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ is a linear combination of $A,~B,\tand C$, when $k_1 = 6,~k_2 = -3, \tand k_3 = -3$
+\end{proof}
+
 
 \newpage
 
