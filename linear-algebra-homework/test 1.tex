@@ -253,5 +253,50 @@ spans $P_2$. Justify your answer using Gauss-Jordan elimination.
 \subsection*{Problem 9.}
 Let $V$ be a real vector space. Prove that $V$ cannot have exactly 3 elements.
 
+\begin{proof}
+  Let $V$ be a real vector space containing exactly 3 elements. Let the first element of $V$ be $\id$, which is required to be in $V$ through Axiom 4. Next, let the second element of $V$ be $\vec{v}$ (Note that $\vec{v}$ cannot be $\id$, since the additive identity is unique). Finally, let the second element of $V$ be $-\vec{v}$, the additive inverse of $\vec{v}$, which is required to be in $V$ through Axiom 5. Therefore, we have $V = \{\id, \vec{v}, -\vec{v}\}$, where $\id \neq \vec{v} \tand \id \neq -\vec{v} \tand \vec{v} \neq -\vec{v}$.
+
+  Now consider $\vec{v} \oplus \vec{v}$:
+  \begin{enumerate}
+    \bitem{Case 1} $\vec{v} \oplus \vec{v} = \id$
+    \begin{proof}
+      Consider $\vec{v} \oplus \vec{v} \oplus -\vec{v}$.
+      \begin{align*}
+        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = \vec{v} \oplus (\vec{v} \oplus -\vec{v}) &  & \text{axiom 3}                   \\
+                                               & = \vec{v} \oplus \id                       &  & \text{def. of additive inverse}  \\
+                                               & = \vec{v}                                  &  & \text{def. of additive identity} \\ \\
+        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = (\vec{v} \oplus \vec{v}) \oplus -\vec{v} &  & \text{axiom 3}                   \\
+                                               & = \id \oplus -\vec{v}                      &  & \text{assertion}                 \\
+                                               & = -\vec{v}                                 &  & \text{def. of additive identity}
+      \end{align*}
+      This implies that $\vec{v} = -\vec{v}$, which contradicts our assertion that $\vec{v} \neq -\vec{v}$. Therefore, $\vec{v} \oplus \vec{v} \neq \id$.
+    \end{proof}
+    \bitem{Case 2} $\vec{v} \oplus \vec{v} = \vec{v}$
+    \begin{proof}
+      Consider $\vec{v} \oplus \vec{v} \oplus -\vec{v}$.
+      \begin{align*}
+        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = \vec{v} \oplus (\vec{v} \oplus -\vec{v}) &  & \text{axiom 3}                   \\
+                                               & = \vec{v} \oplus \id                       &  & \text{def. of additive inverse}  \\
+                                               & = \vec{v}                                  &  & \text{def. of additive identity} \\ \\
+        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = (\vec{v} \oplus \vec{v}) \oplus -\vec{v} &  & \text{axiom 3}                   \\
+                                               & = \vec{v} \oplus -\vec{v}                  &  & \text{assertion}                 \\
+                                               & = \id                                      &  & \text{def. of additive identity}
+      \end{align*}
+      This implies that $\id = \vec{v}$, which contradicts our assertion that $\id \neq \vec{v}$. Therefore, $\vec{v} \oplus \vec{v} \neq \vec{v}$
+    \end{proof}
+    \bitem{Case 3} $\vec{v} \oplus \vec{v} = -\vec{v}$
+    \begin{proof}
+      Consider the assertion that $\vec{v} \oplus \vec{v} = -\vec{v}$
+      \begin{align*}
+        \vec{v} \oplus \vec{v}                 & = -\vec{v}           &  & \text{assertion} \\
+        1 \odot \vec{v} \oplus 1 \odot \vec{v} & = -\vec{v}           &  & \text{axiom 10}  \\
+        1 \odot \vec{v} \oplus 1 \odot \vec{v} & = (-1) \odot \vec{v} &  & \text{theorem C} \\
+        (1+1) \odot \vec{v}                    & = (-1) \odot \vec{v} &  & \text{axiom 8}
+      \end{align*}
+      This last equation implies that $1+1 = -1$, which is a contradiction. Therefore, $\vec{v} \oplus \vec{v} \neq \vec{v}$
+    \end{proof}
+  \end{enumerate}
+  Every possible result in $V$ for $\vec{v} \oplus \vec{v}$ leads to a contradiction. Therefore, $\vec{v} \oplus \vec{v} \not \in V$, meaning that $V$ is not closed under addition. This means that $V$, containing exactly three elements, cannot be a real vector space.
+\end{proof}
 \newpage
 \end{document}
