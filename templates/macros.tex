@@ -27,7 +27,7 @@
 %augmented matrix environment
 \newenvironment{amatrix}[1]{%
   \left(\begin{array}{@{}*{#1}{c}|c@{}}
-}{%
+    }{
   \end{array}\right)
 }
 
@@ -39,4 +39,10 @@
 \newcommand{\iiitem}[2]{\item[\itl{#1.}] \bld{#2}}
 
 %homework
-\newcommand{\question}[2]{\subsection*{#1} \bld{#2}}
+\newenvironment*{question}[2]{
+  \subsection*{#1} \itl{#2}
+  \begin{enumerate}
+    }{
+  \end{enumerate}
+}
+\newcommand{\qitem}[2]{\item[\bld{#1}] \itl{#2}}
