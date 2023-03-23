@@ -10,16 +10,224 @@
 \begin{document}
 \section*{\assignment}
 
-\begin{question}{1.2}{}
-  \qitem{part}{description}
+\begin{question}{1.2}{Determine the values for which the system has no solutions, exactly one solution, or infinitely many solutions}
+  \qitem{25}{\begin{tabular}{rcrcrcr}
+      $x$  & $+$ & $2y$ & $-$ & $3z$        & $=$ & $4$   \\
+      $3x$ & $-$ & $y$  & $+$ & $5z$        & $=$ & $2$   \\
+      $4x$ & $+$ & $y$  & $+$ & $(a^2-14)z$ & $=$ & $a+2$
+    \end{tabular}}
+  \begin{proof}[work]
+    \begin{align*}
+      \begin{amatrix}{3}
+        1 & 2 & -3 & 4 \\
+        3 & -1 & 5 & 2 \\
+        4 & 1 & a^2-14 & a+2
+      \end{amatrix}     & \xrightarrow[(-4,-8,12,-16)]{R_3 - 4R_1}
+      \begin{pmatrix}
+        1 & 2  & -3    & 4    \\
+        3 & -1 & 5     & 2    \\
+        0 & -7 & a^2-2 & a-14
+      \end{pmatrix} \xrightarrow[(-3,-6,9,-12)]{R_2 - 3R_1}                   \\
+      \begin{pmatrix}
+        1 & 2  & -3    & 4    \\
+        0 & -7 & 14    & -10  \\
+        0 & -7 & a^2-2 & a-14
+      \end{pmatrix} & \xrightarrow[(0, 7,-14,10)]{R_3 - R_2, -\frac{1}{7}R_2}
+      \begin{amatrix}{3}
+        1 & 2 & -3     & 4            \\
+        0 & 1 & -2     & \frac{10}{7} \\
+        0 & 0 & a^2-16 & a-4
+      \end{amatrix}
+    \end{align*}
+    $R_3$ represents the equation $(a^2-16)z = a-4$. If $a = 4$, there are infinitely many solutions, since $R_3$ leads to a full row of $0$'s. If $a = -4$, then there is no solution, since $R_3$ leads to $0 = -8$. If $a \neq \pm 4$, then there is exactly one solution to the system of equations.
+  \end{proof}
+  \qitem{27}{\begin{tabular}{rcrcr}
+      $x$  & $+$ & $2y$       & $=$ & $1$   \\
+      $2x$ & $+$ & $(a^2-5)y$ & $=$ & $a-1$
+    \end{tabular}}
+  \begin{proof}[work]
+    \begin{align*}
+      \begin{amatrix}{2}
+        1 & 2     & 1 \\
+        2 & a^2-5 & a-1
+      \end{amatrix} \xrightarrow[(-2,-4,-2)]{R_2 - 2R_1}
+      \begin{amatrix}{2}
+        1 & 2     & 1 \\
+        0 & a^2-9 & a-3
+      \end{amatrix}
+    \end{align*}
+    $R_2$ represents the equation $(a^2-9)y = a-3$. If $a = 3$, there are infinitely many solutions, since $R_2$ leads to a full row of $0$'s. If $a = -3$, then there is no solution, since $R_2$ leads to $0 = -6$. If $a \neq \pm 3$, then there is exactly one solution to the system of equations.
+  \end{proof}
+  \qitem{32}{Reduce $\begin{bmatrix}
+        2 & 1  & 3   \\
+        0 & -2 & -29 \\
+        3 & 4  & 5
+      \end{bmatrix}$ to rref without introducing fractions at any intermediate stage.}
+  \begin{proof}[work]
+    \begin{align*}
+      \begin{bmatrix}
+        2 & 1  & 3   \\
+        0 & -2 & -29 \\
+        3 & 4  & 5
+      \end{bmatrix} & \xrightarrow[(-2,-1,-3)]{R_3 - R_2}
+      \begin{bmatrix}
+        2 & 1  & 3   \\
+        0 & -2 & -29 \\
+        1 & 3  & 2
+      \end{bmatrix} \xrightarrow[(-2,-6,-4)]{R_1 - 2R_3}
+      \begin{bmatrix}
+        0 & -5 & -1  \\
+        0 & -2 & -29 \\
+        1 & 3  & 2
+      \end{bmatrix} \xrightarrow[(0,2,29)]{R_1 - R_2}     \\
+      \begin{bmatrix}
+        0 & -3 & 28  \\
+        0 & -2 & -29 \\
+        1 & 3  & 2
+      \end{bmatrix} & \xrightarrow[R_3 + R_1]{R_2 - R_1}
+      \begin{bmatrix}
+        0 & -3 & 28  \\
+        0 & 1  & -57 \\
+        1 & 0  & 30
+      \end{bmatrix} \xrightarrow[(0,3,-171)]{R_1 + 3R_2}
+      \begin{bmatrix}
+        0 & 0 & -143 \\
+        0 & 1 & -57  \\
+        1 & 0 & 30
+      \end{bmatrix} \xrightarrow[R_2+57R_1,R_3-30R_1]{-\frac{1}{143}R_1, R_1 \leftrightarrow R_3}
+      \begin{bmatrix}
+        1 & 0 & 0 \\
+        0 & 1 & 0 \\
+        0 & 0 & 1
+      \end{bmatrix}
+    \end{align*}
+  \end{proof}
 \end{question}
 
 \begin{question}{1.3}{}
-  \qitem{part}{description}
+  \qitem{5h}{Calculate $(C^TB)A^T$, where $A = \begin{pmatrix}
+        3  & 0 \\
+        -1 & 2 \\
+        1  & 1
+      \end{pmatrix},~B = \begin{pmatrix}
+        4 & -1 \\
+        0 & 2
+      \end{pmatrix},~C = \begin{pmatrix}
+        1 & 4 & 2 \\
+        3 & 1 & 5
+      \end{pmatrix}$.}
+  \begin{proof}[work]
+    \begin{align*}
+       & \begin{pmatrix}
+           1 & 4 & 2 \\
+           3 & 1 & 5
+         \end{pmatrix} \xrightarrow{C^T}
+      \begin{pmatrix}
+        1 & 3 \\
+        4 & 1 \\
+        2 & 5
+      \end{pmatrix}  \xrightarrow{C^TB}
+      \begin{pmatrix}
+        1 \cdot 4 + 3 \cdot 0 & 1 \cdot -1 + 3 \cdot 2 \\
+        4 \cdot 4 + 1 \cdot 0 & 4 \cdot -1 + 1 \cdot 2 \\
+        2 \cdot 4 + 5 \cdot 0 & 2 \cdot -1 + 5 \cdot 2 \\
+      \end{pmatrix} =
+      \begin{pmatrix}
+        4  & 5  \\
+        16 & -2 \\
+        8  & 8
+      \end{pmatrix} \xrightarrow{C^TBA^T} \\
+       & \begin{pmatrix}
+           4  & 5  \\
+           16 & -2 \\
+           8  & 8
+         \end{pmatrix}
+      \begin{pmatrix}
+        3 & -1 & 1 \\
+        0 & 2  & 1
+      \end{pmatrix}  \xrightarrow{C^TBA^T}
+      \begin{pmatrix}
+        4 \cdot 3 + 5 \cdot 0  & 4 \cdot -1 + 5 \cdot 2  & 4 \cdot 1 + 5 \cdot 1  \\
+        16 \cdot 3 - 2 \cdot 0 & 16 \cdot -1 - 2 \cdot 2 & 16 \cdot 1 - 2 \cdot 1 \\
+        8 \cdot 3 + 8 \cdot 0  & 8 \cdot -1 + 8 \cdot 2  & 8 \cdot 1 + 8 \cdot 1
+      \end{pmatrix} =
+      \begin{pmatrix}
+        12 & 6   & 9  \\
+        48 & -20 & 14 \\
+        24 & 8   & 16
+      \end{pmatrix}
+    \end{align*}
+  \end{proof}
+  \qitem{10}{$A = \begin{bmatrix}
+        3 & -2 & 7 \\
+        6 & 5  & 4 \\
+        0 & 4  & 9
+      \end{bmatrix},~B = \begin{bmatrix}
+        6 & -2 & 4 \\
+        0 & 1  & 3 \\
+        7 & 7  & 5
+      \end{bmatrix},~AB = \begin{bmatrix}
+        67 & 41 & 41 \\
+        64 & 21 & 59 \\
+        63 & 67 & 57 \\
+      \end{bmatrix}, \tand BA = \begin{bmatrix}
+        6  & -6 & 70  \\
+        6  & 17 & 31  \\
+        63 & 41 & 122
+      \end{bmatrix}$.
+    \begin{enumerate}
+      \qitem{a}{express each column vector of $AB$ as a linear combination of the column vectors of $A$.}
+      \begin{proof}[work] Since each column vector of $AB$ is computed using a row of $A$ and a column of $B$, the linear combination will simply be the corresponding column of $B$.
+        \begin{enumerate}
+          \item[1.] $6\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 0\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 7\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}67 \\ 64 \\ 63\end{pmatrix}$.
+          \item[2.] $-2\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 1\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 7\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}41 \\ 21 \\ 67\end{pmatrix}$.
+          \item[3.] $4\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 3\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 5\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}41 \\ 59 \\ 57\end{pmatrix}$.
+        \end{enumerate}
+      \end{proof}
+      \qitem{b}{express each column vector of $BA$ as a linear combination of the column vectors of $B$.}
+      \begin{proof}[work] Since each column vector of $BA$ is computed using a row of $B$ and a column of $A$, the linear combination will simply be the corresponding column of $A$.
+        \begin{enumerate}
+          \item[1.] $3\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 6\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 0\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}6 \\ 6 \\ 63\end{pmatrix}$.
+          \item[2.] $-2\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 5\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 4\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}-6 \\ 17 \\ 41\end{pmatrix}$.
+          \item[3.] $7\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 4\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 9\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}70 \\ 31 \\ 122\end{pmatrix}$.
+        \end{enumerate}
+      \end{proof}
+    \end{enumerate}
+  }
+  \qitem{15}{Find all values of $k$, if any, that satisfy $\begin{bmatrix}k & 1 & 1\end{bmatrix}\begin{bmatrix}1 & 1 & 0 \\ 1 & 0 & 2 \\ 0 & 2 & -3\end{bmatrix}\begin{bmatrix}k \\ 1 \\ 1\end{bmatrix}$.}
+  \begin{proof}[work]
+    \begin{align*}
+      \begin{bmatrix}
+        k & 1 & 1
+      \end{bmatrix}
+      \begin{bmatrix}
+        1 & 1 & 0  \\
+        1 & 0 & 2  \\
+        0 & 2 & -3
+      \end{bmatrix}
+      \begin{bmatrix}
+        k \\ 1 \\ 1
+      \end{bmatrix} =
+      \begin{bmatrix}
+        k+1 & k+2 & -1
+      \end{bmatrix}
+      \begin{bmatrix}
+        k \\ 1 \\ 1
+      \end{bmatrix} =
+      \left[k(k + 1) + k + 2 - 1\right] = \left[(k+1)^2\right] & = \left[0\right] \\
+      k + 1                                                    & = 0              \\
+      k                                                        & = -1
+    \end{align*}
+  \end{proof}
+  \qitem{22}{description}
+  \qitem{24}{description}
+  \qitem{27}{description}
 \end{question}
 
 \begin{question}{1.4}{}
-  \qitem{part}{description}
+  \qitem{17}{description}
+  \qitem{19e}{description}
+  \qitem{27}{description}
 \end{question}
 
 \end{document}
