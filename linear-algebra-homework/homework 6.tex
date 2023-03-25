@@ -1,3 +1,4 @@
+\documentclass{article}
 \input{../templates/packages-article.tex}
 \input{../templates/macros.tex}
 
@@ -227,12 +228,42 @@
   \qitem{24}{Find the $4 \times 4$ matrix $A = [a_{ij}]$ whose entries satisfy the stated condition.
   \begin{enumerate}
     \qitem{a}{$a_{ij}=i+j$}
+    \begin{proof}[work]
+      \[
+        \begin{bmatrix}
+          2 & 3 & 4 & 5 \\
+          3 & 4 & 5 & 6 \\
+          4 & 5 & 6 & 7 \\
+          5 & 6 & 7 & 8
+        \end{bmatrix}
+      \]
+    \end{proof}
     \qitem{b}{$a_{ij}=i^{j-1}$}
+    \begin{proof}[work]
+      \[
+        \begin{bmatrix}
+          1 & 1 & 1  & 1  \\
+          1 & 2 & 4  & 8  \\
+          1 & 3 & 9  & 27 \\
+          1 & 4 & 16 & 64 \\
+        \end{bmatrix}
+      \]
+    \end{proof}
     \qitem{c}{$a_{ij}=\left\{
         \begin{array}{rl}
           1  & \tif \left\lvert i-j\right\rvert > 1    \\
           -1 & \tif \left\lvert i-j\right\rvert \leq 1
         \end{array}\right.$}
+    \begin{proof}[work]
+      \[
+        \begin{bmatrix}
+          -1 & -1 & 1  & 1  \\
+          -1 & -1 & -1 & 1  \\
+          1  & -1 & -1 & -1 \\
+          1  & 1  & -1 & -1 \\
+        \end{bmatrix}
+      \]
+    \end{proof}
   \end{enumerate}}
   \qitem{27}{How many $3 \times 3$ matrices $A$ can you find such that
     \[
@@ -250,7 +281,69 @@
 
 \begin{question}{1.4}{}
   \qitem{17}{Use the given information to find $A$: $(I + 2A)^{-1}=\begin{bmatrix}-1 & 2 \\ 4 & 5\end{bmatrix}$.}
+  \begin{proof}[work]
+    \begin{align*}
+      \begin{bmatrix}
+        -1 & 2 \\
+        4  & 5
+      \end{bmatrix} \xrightarrow[I + 2A]{{(I + 2A)^{-1}}^{-1}}
+      \frac{1}{-13}
+      \begin{bmatrix}
+        5  & -2 \\
+        -4 & -1
+      \end{bmatrix} =
+      \begin{bmatrix}
+        -\frac{5}{13} & \frac{2}{13} \\
+        \frac{4}{13}  & \frac{1}{13}
+      \end{bmatrix} \xrightarrow[2A]{I + 2A - I}
+      \begin{bmatrix}
+        -\frac{18}{13} & \frac{2}{13}   \\
+        \frac{4}{13}   & -\frac{12}{13}
+      \end{bmatrix} \xrightarrow[A]{\frac{1}{2} \cdot 2A}
+      \begin{bmatrix}
+        -\frac{9}{13} & \frac{1}{13}  \\
+        \frac{2}{13}  & -\frac{6}{13}
+      \end{bmatrix}
+    \end{align*}
+  \end{proof}
   \qitem{19e}{Given $A = \begin{bmatrix} 3 & 1 \\ 2 & 1\end{bmatrix}$, compute $p(A), \twhere p(x) = 2x^2-x+1$.}
+  \begin{proof}[work]
+    \begin{align*}
+      p(A) = 2A^2 - A + I & = 2\begin{bmatrix}
+                                 3 & 1 \\
+                                 2 & 1
+                               \end{bmatrix}^2 +
+      \begin{bmatrix}
+        -3 & -1 \\
+        -2 & -1
+      \end{bmatrix} +
+      \begin{bmatrix}
+        1 & 0 \\
+        0 & 1
+      \end{bmatrix}=
+      2\begin{bmatrix}
+         11 & 4 \\
+         8  & 3
+       \end{bmatrix} +
+      \begin{bmatrix}
+        -2 & -1 \\
+        -2 & 0
+      \end{bmatrix}                             \\
+                          & =
+      \begin{bmatrix}
+        22 & 8 \\
+        16 & 6
+      \end{bmatrix} +
+      \begin{bmatrix}
+        -2 & -1 \\
+        -2 & 0
+      \end{bmatrix} =
+      \begin{bmatrix}
+        20 & 7 \\
+        14 & 6
+      \end{bmatrix}
+    \end{align*}
+  \end{proof}
   \qitem{27}{Consider the matrix
     \[
       A = \begin{bmatrix}
@@ -261,6 +354,49 @@
       \end{bmatrix}
     \]
     where $a_{11} \cdot a_{22} \cdots a_{nn} \neq 0$. Show that $A$ is invertible and find its inverse.}
+  \begin{proof}
+    Consider $B = \begin{bmatrix}
+        \frac{1}{a_{11}} & 0                & \cdots & 0                \\
+        0                & \frac{1}{a_{22}} & \cdots & 0                \\
+        \vdots           & \vdots           & \ddots & \vdots           \\
+        0                & 0                & \cdots & \frac{1}{a_{nn}}
+      \end{bmatrix}$.
+    \begin{align*}
+      AB & = \begin{bmatrix}
+               a_{11} & 0      & \cdots & 0      \\
+               0      & a_{22} & \cdots & 0      \\
+               \vdots & \vdots & \ddots & \vdots \\
+               0      & 0      & \cdots & a_{nn}
+             \end{bmatrix}\begin{bmatrix}
+                            \frac{1}{a_{11}} & 0                & \cdots & 0                \\
+                            0                & \frac{1}{a_{22}} & \cdots & 0                \\
+                            \vdots           & \vdots           & \ddots & \vdots           \\
+                            0                & 0                & \cdots & \frac{1}{a_{nn}}
+                          \end{bmatrix} = \begin{bmatrix}
+                                            1      & 0      & \cdots & 0      \\
+                                            0      & 1      & \cdots & 0      \\
+                                            \vdots & \vdots & \ddots & \vdots \\
+                                            0      & 0      & \cdots & 1
+                                          \end{bmatrix} = I \\
+      BA & = \begin{bmatrix}
+               \frac{1}{a_{11}} & 0                & \cdots & 0                \\
+               0                & \frac{1}{a_{22}} & \cdots & 0                \\
+               \vdots           & \vdots           & \ddots & \vdots           \\
+               0                & 0                & \cdots & \frac{1}{a_{nn}}
+             \end{bmatrix}\begin{bmatrix}
+                            a_{11} & 0      & \cdots & 0      \\
+                            0      & a_{22} & \cdots & 0      \\
+                            \vdots & \vdots & \ddots & \vdots \\
+                            0      & 0      & \cdots & a_{nn}
+                          \end{bmatrix} = \begin{bmatrix}
+                                            1      & 0      & \cdots & 0      \\
+                                            0      & 1      & \cdots & 0      \\
+                                            \vdots & \vdots & \ddots & \vdots \\
+                                            0      & 0      & \cdots & 1
+                                          \end{bmatrix} = I
+    \end{align*}
+    Since $AB = I = BA$, therefore $B = A^{-1}$, the inverse of $A$. This also proves that $A$ is invertible.
+  \end{proof}
 \end{question}
 
 \end{document}
