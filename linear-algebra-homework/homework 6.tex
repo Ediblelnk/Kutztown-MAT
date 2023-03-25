@@ -219,15 +219,48 @@
       k                                                        & = -1
     \end{align*}
   \end{proof}
-  \qitem{22}{description}
-  \qitem{24}{description}
-  \qitem{27}{description}
+  \qitem{22}{
+    \begin{enumerate}
+      \qitem{a}{Show that if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.}
+      \qitem{b}{Find a similar result involving a column of zeros.}
+    \end{enumerate}}
+  \qitem{24}{Find the $4 \times 4$ matrix $A = [a_{ij}]$ whose entries satisfy the stated condition.
+  \begin{enumerate}
+    \qitem{a}{$a_{ij}=i+j$}
+    \qitem{b}{$a_{ij}=i^{j-1}$}
+    \qitem{c}{$a_{ij}=\left\{
+        \begin{array}{rl}
+          1  & \tif \left\lvert i-j\right\rvert > 1    \\
+          -1 & \tif \left\lvert i-j\right\rvert \leq 1
+        \end{array}\right.$}
+  \end{enumerate}}
+  \qitem{27}{How many $3 \times 3$ matrices $A$ can you find such that
+    \[
+      A\begin{bmatrix}
+        x \\ y \\ z
+      \end{bmatrix} =
+      \begin{bmatrix}
+        x+y \\
+        x-y \\
+        0
+      \end{bmatrix}
+    \]
+    for all choices of $x, y, \tand z$?}
 \end{question}
 
 \begin{question}{1.4}{}
-  \qitem{17}{description}
-  \qitem{19e}{description}
-  \qitem{27}{description}
+  \qitem{17}{Use the given information to find $A$: $(I + 2A)^{-1}=\begin{bmatrix}-1 & 2 \\ 4 & 5\end{bmatrix}$.}
+  \qitem{19e}{Given $A = \begin{bmatrix} 3 & 1 \\ 2 & 1\end{bmatrix}$, compute $p(A), \twhere p(x) = 2x^2-x+1$.}
+  \qitem{27}{Consider the matrix
+    \[
+      A = \begin{bmatrix}
+        a_{11} & 0      & \cdots & 0      \\
+        0      & a_{22} & \cdots & 0      \\
+        \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & \cdots & a_{nn}
+      \end{bmatrix}
+    \]
+    where $a_{11} \cdot a_{22} \cdots a_{nn} \neq 0$. Show that $A$ is invertible and find its inverse.}
 \end{question}
 
 \end{document}
