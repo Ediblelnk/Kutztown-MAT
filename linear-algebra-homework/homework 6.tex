@@ -223,7 +223,73 @@
   \qitem{22}{
     \begin{enumerate}
       \qitem{a}{Show that if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.}
+      \begin{proof}
+        Consider
+        \[
+          A_{n \times m} = \begin{bmatrix}
+            a_{11} & a_{12} & \cdots & a_{1m} \\
+            a_{21} & a_{22} & \cdots & a_{2m} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0      & 0      & \cdots & 0      \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nm}
+          \end{bmatrix}
+          B_{m \times k} = \begin{bmatrix}
+            b_{11} & b_{12} & \cdots & b_{1k} \\
+            b_{21} & b_{22} & \cdots & b_{2k} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            b_{m1} & b_{m2} & \cdots & b_{mk}
+          \end{bmatrix}.
+        \]
+        $AB$ can be expressed as a series of row vectors. These row vectors can be expressed as linear combinations from numbers of the row vectors from $A$, and the corresponding row of $B$. Here is an example:
+        \begin{align}
+          a_{11}\begin{bmatrix} b_{11} & b_{12} & \cdots & b_{1k}\end{bmatrix} +
+          a_{12}\begin{bmatrix} b_{21} & b_{22} & \cdots & b_{2k}\end{bmatrix} + \cdots +
+          a_{1m}\begin{bmatrix} b_{m1} & b_{m2} & \cdots & b_{mk}\end{bmatrix} & = \\
+          = \begin{bmatrix}ab_{11} & ab_{11} & \cdots & ab_{1k} \end{bmatrix}  &
+        \end{align}
+        Since there is a row of zeros, one of these equations will be:
+        \[
+          0\begin{bmatrix} b_{11} & b_{12} & \cdots & b_{1k}\end{bmatrix} +
+          0\begin{bmatrix} b_{21} & b_{22} & \cdots & b_{2k}\end{bmatrix} + \cdots +
+          0\begin{bmatrix} b_{m1} & b_{m2} & \cdots & b_{mk}\end{bmatrix} =
+          \begin{bmatrix} 0 & 0 & \cdots & 0 \end{bmatrix}.
+        \]
+        This represents a row of all zeros, which is contained within $AB$, at the same row at which it occurs in $A$. Therefore, if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.
+      \end{proof}
       \qitem{b}{Find a similar result involving a column of zeros.}
+      \begin{proof}
+        Consider
+        \[
+          A_{n \times m} = \begin{bmatrix}
+            a_{11} & a_{12} & \cdots & a_{1m} \\
+            a_{21} & a_{12} & \cdots & a_{2m} \\
+            \vdots & \vdots & \ddots & \vdots \\
+            a_{n1} & a_{n2} & \cdots & a_{nm}
+          \end{bmatrix}
+          B_{m \times k} = \begin{bmatrix}
+            b_{11} & b_{12} & \cdots & 0      & \cdots & b_{1k} \\
+            b_{21} & b_{22} & \cdots & 0      & \cdots & b_{2k} \\
+            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+            b_{m1} & b_{m2} & \cdots & 0      & \cdots & b_{mk}
+          \end{bmatrix}.
+        \]
+        $AB$ can be expressed as a series of column vectors. These column vectors can be expressed as linear combinations from numbers of the column vectors from $B$, and the corresponding column of $A$. Here is an example:
+        \[
+          b_{11}\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{1m}\end{bmatrix} +
+          b_{21}\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{2m}\end{bmatrix} + \cdots +
+          b_{m1}\begin{bmatrix} a_{1m} \\ a_{2m} \\ \vdots \\ a_{nm}\end{bmatrix} =
+          \begin{bmatrix}ab_{11} \\ ab_{21} \\ \vdots \\ ab_{n1} \end{bmatrix}.
+        \]
+        Since there is a row of zeros, one of these equations will be:
+        \[
+          0\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{1m}\end{bmatrix} +
+          0\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{2m}\end{bmatrix} + \cdots +
+          0\begin{bmatrix} a_{1m} \\ a_{2m} \\ \vdots \\ a_{nm}\end{bmatrix} =
+          \begin{bmatrix}0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}.
+        \]
+        This represents a column of all zeros, which is contained within $AB$, at the same column at which it occurs in $A$. Therefore, if $B$ has a column of zeros and $A$ is any matrix for which $AB$ is defined, then $AB$ also has a column of zeros.
+      \end{proof}
     \end{enumerate}}
   \qitem{24}{Find the $4 \times 4$ matrix $A = [a_{ij}]$ whose entries satisfy the stated condition.
   \begin{enumerate}
