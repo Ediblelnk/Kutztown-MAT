@@ -37,12 +37,11 @@
 \newcommand{\biitem}[2]{\item[\bld{#1.}] \itl{#2}}
 \newcommand{\iitem}[1]{\item[\itl{#1.}]}
 \newcommand{\iiitem}[2]{\item[\itl{#1.}] \bld{#2}}
+\newcommand{\btitem}[2]{\item[\bld{#1.}] \texttt{#2}}
 
 %homework
-\newenvironment*{question}[2]{
-  \subsection*{#1} \itl{#2}
-  \begin{enumerate}
-    }{
-  \end{enumerate}
-}
-\newcommand{\qitem}[2]{\item[\bld{#1.}] \itl{#2}}
+\newcommand{\question}[2]{\noindent {\large\bld{#1}} \itl{#2} \qline}
+\newcommand{\qitem}[2]{\item[\bld{#1.}] \itl{#2} \qdash}
+
+\newcommand{\qline}{\newline\noindent\textcolor[RGB]{200,200,200}{\rule[0.5ex]{\linewidth}{0.2pt}}}
+\newcommand{\qdash}{\newline\noindent\textcolor[RGB]{200,200,200}{\hdashrule[0.5ex]{\linewidth}{0.2pt}{2pt}}}
