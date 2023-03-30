@@ -11,28 +11,75 @@
 \begin{document}
 \section*{\assignment}
 
-\question{1.4}{description}
+\question{1.4}{Inverses; Algebraic Properties of Matrices}{}
 \begin{enumerate}
-  \qitem{28}{description}
-  \qitem{31}{description}
-  \qitem{39}{description}
-  \qitem{53a}{description}
-  \qitem{55}{description}
+  \qitem{28}{Show that if a square matrix $A$ satisfies $A^2-3A+1=0, \tthen A^{-1}=3I-A$.}{}
+  \qitem{31}{Assuming that all matrices are $n \times n$ and invertible, solve for $D$:
+  \[
+    C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2}=C^T.
+  \]}{}
+  \qitem{39}{Using Matrix Inversion, find the unique solution of the given linear system.
+    \begin{align*}
+      3x_1 - 2x_2 & = -1 \\
+      4x_1 + 5x_2 & = 3
+    \end{align*}}{}
+  \qitem{53a}{Show that if $A,B$ and $A+B$ are invertible matrices with the same size, then
+  \[
+    A(A^{-1}+B^{-1})B(A+B)^{-1} = I.
+  \]}{}
+  \qitem{55}{Show that if $A$ is a square matrix such that $A^k=0$ for some positive integer $k$, then the matrix $(I-A)$ is invertible and
+    \[
+      (I-A)^{-1} = I + A + A^2 + \cdots + A^{k-1}.
+    \]}{}
 \end{enumerate}
 
-\question{1.5}{description}
+\question{1.5}{Elementary Matrices and a Method for Finding A-1}
 \begin{enumerate}
-  \qitem{15}{description}
-  \qitem{25}{description}
-  \qitem{27}{description}
-  \qitem{29}{description}
-  \qitem{41}{description}
+  \qitem{15}{Use the inverse algorithm to find the inverse of the given matrix, if the inverse exists.
+    \[
+      \begin{bmatrix}
+        -1 & 2 & 0 \\
+        2  & 1 & 2 \\
+        0  & 2 & 1
+      \end{bmatrix}.
+    \]}{}
+  \qitem{25}{Find the inverse of the following $4 \times 4$ matrices, where $k_1,k_2,k_3,k_4, \tand k$ are all non-zero.
+    \begin{enumerate}
+      \biitem{a}{$
+          \begin{bmatrix}
+            k_1 & 0   & 0   & 0   \\
+            0   & k_2 & 0   & 0   \\
+            0   & 0   & k_3 & 0   \\
+            0   & 0   & 0   & k_4 \\
+          \end{bmatrix}$.}
+      \biitem{b}{$
+          \begin{bmatrix}
+            k & 1 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & k & 1 \\
+            0 & 0 & 0 & 1 \\
+          \end{bmatrix}$.}
+    \end{enumerate}}{}
+  \qitem{27}{Find all values of $c$, if any, for which the given matrix is invertible.}{}
+  \qitem{29}{Write the given matrix as a product of elementary matrices.
+    \[
+      \begin{bmatrix}
+        -3 & 1 \\
+        2  & 2
+      \end{bmatrix}
+    \]}{}
+  \qitem{41}{Prove that if $A \tand B$ are $m \times n$ matrices, then $A \tand B$ are row equivalent if and only if $A \tand B$ have the same reduced row eschelon form.}{}
 \end{enumerate}
 
-\question{1.6}{description}
+\question{1.6}{More on Linear Systems and Invertible Matrices}
 \begin{enumerate}
-  \qitem{15}{description}
-  \qitem{21}{description}
+  \qitem{15}{Determine conditions on the $b_i$'s, if any, in order to guarantee that the linear system is consistent.
+    \begin{align*}
+      x_1 - 2x_2 + 5x_3   & = b_1 \\
+      4x_1 - 5x_2 + 8x_3  & = b_2 \\
+      -3x_1 + 3x_2 - 3x_3 & = b_3
+    \end{align*}}{}
+  \qitem{21}{Let $A\vec{x} = \vec{0}$ be a homogenous system of $n$ linear equations in $n$ unknown that has only the trivial solution. Show that if $k$ is any positive integer, then the system $A^k\vec{x} = \vec{0}$ also has only the trivial solution.}{}
 \end{enumerate}
 
 \end{document}
