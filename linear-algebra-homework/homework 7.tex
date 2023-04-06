@@ -13,7 +13,25 @@
 
 \question{1.4}{Inverses; Algebraic Properties of Matrices}{}
 \begin{enumerate}
-  \qitem{28}{Show that if a square matrix $A$ satisfies $A^2-3A+1=0, \tthen A^{-1}=3I-A$.}{}
+  \qitem{28}{Show that if a square matrix $A$ satisfies $A^2-3A+1=0, \tthen A^{-1}=3I-A$.}{
+    \begin{proof}[work]
+      Consider $3I - A$.
+      \[
+        A(3I - A) = 3AI - A^2 = 3A - A^2
+      \]
+      If $A^2-3A+I=0$, then we can simplify further to determine exactly what $3A - A^2$ equals.
+      \begin{align*}
+        A^2-3A+I                 & =0               \\
+        (3A - A^2) + A^2-3A+I    & = (3A - A^2) + 0 \\
+        (3A + (-A^2 + A^2)-3A)+I & = (3A - A^2)     \\
+        (3A - 3A) + I            & = 3A - A^2       \\
+        I                        & = 3A - A^2       \\
+        \therefore~I             & = A(3I-A)        \\
+        \therefore~I             & = (3I-A)A
+      \end{align*}
+      Since $I = A(3I-A) \tand I = (3I-A)A$, therefore $A^{-1}=3I-A \tif A^2-3A+1=0$.
+    \end{proof}
+  }
   \qitem{31}{Assuming that all matrices are $n \times n$ and invertible, solve for $D$:
   \[
     C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2}=C^T.
