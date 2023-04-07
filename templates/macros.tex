@@ -25,10 +25,15 @@
 \DeclareMathOperator{\vecspan}{\text{span}}
 
 %augmented matrix environment
-\newenvironment{amatrix}[1]{%
-  \left(\begin{array}{@{}*{#1}{c}|c@{}}
-    }{
-  \end{array}\right)
+\newenvironment{apmatrix}[2]{%
+  \left(\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
+      }{
+    \end{array}\right)
+}
+\newenvironment{abmatrix}[2]{%
+  \left[\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
+      }{
+    \end{array}\right]
 }
 
 %lists

@@ -14,7 +14,7 @@
 \question{1.4}{Inverses; Algebraic Properties of Matrices}{}
 \begin{enumerate}
   \qitem{28}{Show that if a square matrix $A$ satisfies $A^2-3A+1=0, \tthen A^{-1}=3I-A$.}{
-    \begin{proof}[work]
+    \begin{proof}
       Consider $3I - A$.
       \[
         A(3I - A) = 3AI - A^2 = 3A - A^2
@@ -36,11 +36,14 @@
   \[
     C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2}=C^T.
   \]}{
-  \begin{proof}[work]
+  \begin{proof}[Work]
     \begin{align*}
-      C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2}                            & = C^T                               \\
-      (C^TB^{-1}A^2BAC^{-1})^{-1}C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2} & = (C^TB^{-1}A^2BAC^{-1})^{-1}C^T    \\
-      DA^{-2}B^TC^{-2}                                                & = CA^{-1}B^{-1}A^{-2}BC^{T^{-1}}C^T \\
+      C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2}                            & = C^T                                                     \\
+      (C^TB^{-1}A^2BAC^{-1})^{-1}C^TB^{-1}A^2BAC^{-1}DA^{-2}B^TC^{-2} & = (C^TB^{-1}A^2BAC^{-1})^{-1}C^T                          \\
+      DA^{-2}B^TC^{-2}                                                & = CA^{-1}B^{-1}A^{-2}BC^{T^{-1}}C^T                       \\
+      DA^{-2}B^TC^{-2}(A^{-2}B^TC^{-2})^{-1}                          & = CA^{-1}B^{-1}A^{-2}BC^{T^{-1}}C^T(A^{-2}B^TC^{-2})^{-1} \\
+      D                                                               & = CA^{-1}B^{-1}A^{-2}BC^{T^{-1}}C^TC^2B^{T^{-1}}A^2       \\
+      D                                                               & = CA^{-1}B^{-1}A^{-2}BC^2B^{T^{-1}}A^2
     \end{align*}
   \end{proof}
   }
@@ -48,15 +51,114 @@
     \begin{align*}
       3x_1 - 2x_2 & = -1 \\
       4x_1 + 5x_2 & = 3
-    \end{align*}}{}
+    \end{align*}}{
+    \begin{proof}[Work]
+      \begin{align*}
+        \begin{bmatrix}
+          3 & -2 \\
+          4 & 5
+        \end{bmatrix}
+        \begin{bmatrix}
+          x_1 \\
+          x_2
+        \end{bmatrix} & =
+        \begin{bmatrix}
+          -1 \\
+          3
+        \end{bmatrix}                                     \\
+        \begin{bmatrix}
+          x_1 \\
+          x_2
+        \end{bmatrix} & =
+        \begin{bmatrix}
+          3 & -2 \\
+          4 & 5
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          -1 \\
+          3
+        \end{bmatrix}                                     \\
+        \begin{bmatrix}
+          x_1 \\
+          x_2
+        \end{bmatrix} & = \frac{1}{3 \cdot 5 - -2 \cdot 4}
+        \begin{bmatrix}
+          5  & 2 \\
+          -4 & 3
+        \end{bmatrix}
+        \begin{bmatrix}
+          -1 \\
+          3
+        \end{bmatrix}                                     \\
+        \begin{bmatrix}
+          x_1 \\
+          x_2
+        \end{bmatrix} & = \frac{1}{23}
+        \begin{bmatrix}
+          5  & 2 \\
+          -4 & 3
+        \end{bmatrix}
+        \begin{bmatrix}
+          -1 \\
+          3
+        \end{bmatrix}                                     \\
+        \begin{bmatrix}
+          x_1 \\
+          x_2
+        \end{bmatrix} & =
+        \begin{bmatrix}
+          \frac{5}{23}  & \frac{2}{23} \\
+          -\frac{4}{23} & \frac{3}{23}
+        \end{bmatrix}
+        \begin{bmatrix}
+          -1 \\
+          3
+        \end{bmatrix}                                     \\
+        \begin{bmatrix}
+          x_1 \\
+          x_2
+        \end{bmatrix} & =
+        \begin{bmatrix}
+          \frac{1}{23} \\
+          \frac{13}{23}
+        \end{bmatrix}                                     \\
+      \end{align*}
+    \end{proof}
+  }
   \qitem{53a}{Show that if $A,B$ and $A+B$ are invertible matrices with the same size, then
   \[
     A(A^{-1}+B^{-1})B(A+B)^{-1} = I.
-  \]}{}
+  \]}{
+  \begin{proof}[Work]
+    \begin{align*}
+      A(A^{-1}+B^{-1})B(A+B)^{-1}            & = (I+AB^{-1})B(A+B)^{-1} \\
+      = (B+A)(A+B)^{-1}                      & = (A+B)(A+B)^{-1}  = I   \\ \\
+      \therefore~A(A^{-1}+B^{-1})B(A+B)^{-1} & = I
+    \end{align*}
+  \end{proof}
+  }
   \qitem{55}{Show that if $A$ is a square matrix such that $A^k=0$ for some positive integer $k$, then the matrix $(I-A)$ is invertible and
     \[
       (I-A)^{-1} = I + A + A^2 + \cdots + A^{k-1}.
-    \]}{}
+    \]}{
+    \begin{proof}
+      Consider square matrix $A \tsuchthat A^k=0$ for some positive integer $k$. Now consider the matrices $(I-A) \tand (I + A + A^2 + \cdots + A^{k-1})$.
+      \begin{align*}
+        (I-A)(I + A + A^2 + \cdots + A^{k-1}) & = (I + A + A^2 + \cdots + A^{k-1}) - (A + A^2 + \cdots + A^k) \\
+                                              & = I + A - A + A^2 - A^2 + \cdots + A^{k-1} - A^{k-1} + A^k    \\
+                                              & = I + A^k                                                     \\
+                                              & = I + \vec{0} = I
+      \end{align*}
+      Therefore $(I-A)(I + A + A^2 + \cdots + A^{k-1}) = I$.
+      \begin{align*}
+        (I + A + A^2 + \cdots + A^{k-1})(I-A) & = (I + A + A^2 + \cdots + A^{k-1}) - (A + A^2 + \cdots + A^k) \\
+                                              & = I + A - A + A^2 - A^2 + \cdots + A^{k-1} - A^{k-1} + A^k    \\
+                                              & = I + A^k                                                     \\
+                                              & = I + \vec{0} = I
+      \end{align*}
+      Therefore $(I + A + A^2 + \cdots + A^{k-1})(I-A) = I$. Since $(I + A + A^2 + \cdots + A^{k-1})(I-A) = I \tand (I-A)(I + A + A^2 + \cdots + A^{k-1}) = I$, therefore $(I-A)^{-1} = I + A + A^2 + \cdots + A^{k-1}$
+    \end{proof}
+  }
 \end{enumerate}
 
 \question{1.5}{Elementary Matrices and a Method for Finding A-1}
@@ -64,11 +166,37 @@
   \qitem{15}{Use the inverse algorithm to find the inverse of the given matrix, if the inverse exists.
     \[
       \begin{bmatrix}
-        -1 & 2 & 0 \\
-        2  & 1 & 2 \\
-        0  & 2 & 1
+        -1 & 3 & -4 \\
+        2  & 4 & 1  \\
+        -4 & 2 & -9
       \end{bmatrix}.
-    \]}{}
+    \]}{
+    \begin{proof}
+      \begin{align*}
+        \begin{bmatrix}
+          -1 & 3 & -4 \\
+          2  & 4 & 1  \\
+          -4 & 2 & -9
+        \end{bmatrix} \xrightarrow[-R_1]{R_2 + 2R_1}
+        \begin{bmatrix}
+          1  & -3 & 4  \\
+          0  & 10 & -7 \\
+          -4 & 2  & -9
+        \end{bmatrix} \xrightarrow{R_4 + 4R_1}
+        \begin{bmatrix}
+          1 & -3  & 4  \\
+          0 & 10  & -7 \\
+          0 & -10 & 7
+        \end{bmatrix} \xrightarrow{R_3 + R_2}
+        \begin{bmatrix}
+          1 & -3 & 4  \\
+          0 & 10 & -7 \\
+          0 & 0  & 0
+        \end{bmatrix}
+      \end{align*}
+      The last matrix has a row of all zeros, which makes it impossible for rref$(A) = I$, thus rref$(A) \neq I$. Therefore, by the Big Theorem from Lecture Note 23, A is not invertible.
+    \end{proof}
+  }
   \qitem{25}{Find the inverse of the following $4 \times 4$ matrices, where $k_1,k_2,k_3,k_4, \tand k$ are all non-zero.
     \begin{enumerate}
       \biitem{a}{$
@@ -76,8 +204,37 @@
             k_1 & 0   & 0   & 0   \\
             0   & k_2 & 0   & 0   \\
             0   & 0   & k_3 & 0   \\
-            0   & 0   & 0   & k_4 \\
+            0   & 0   & 0   & k_4
           \end{bmatrix}$.}
+      \begin{proof}[Work]
+        \begin{align*}
+          \begin{abmatrix}{4}{4}
+            k_1 & 0   & 0   & 0   & 1 & 0 & 0 & 0 \\
+            0   & k_2 & 0   & 0   & 0 & 1 & 0 & 0 \\
+            0   & 0   & k_3 & 0   & 0 & 0 & 1 & 0 \\
+            0   & 0   & 0   & k_4 & 0 & 0 & 0 & 1
+          \end{abmatrix} & \xrightarrow[\frac{1}{k_3}R_3,~\frac{1}{k_4}R_4]{\frac{1}{k_1}R_1,~\frac{1}{k_2}R_2}
+          \begin{abmatrix}{4}{4}
+            1 & 0 & 0 & 0 & \frac{1}{k_1} & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 & 0 & \frac{1}{k_2} & 0 & 0 \\
+            0 & 0 & 1 & 0 & 0 & 0 & \frac{1}{k_3} & 0 \\
+            0 & 0 & 0 & 1 & 0 & 0 & 0 & \frac{1}{k_4}
+          \end{abmatrix}                                                             \\
+          \therefore~
+          \begin{bmatrix}
+            k_1 & 0   & 0   & 0   \\
+            0   & k_2 & 0   & 0   \\
+            0   & 0   & k_3 & 0   \\
+            0   & 0   & 0   & k_4
+          \end{bmatrix}^{-1}                 & =
+          \begin{bmatrix}
+            \frac{1}{k_1} & 0             & 0             & 0             \\
+            0             & \frac{1}{k_2} & 0             & 0             \\
+            0             & 0             & \frac{1}{k_3} & 0             \\
+            0             & 0             & 0             & \frac{1}{k_4}
+          \end{bmatrix}
+        \end{align*}
+      \end{proof}
       \biitem{b}{$
           \begin{bmatrix}
             k & 1 & 0 & 0 \\
@@ -85,16 +242,219 @@
             0 & 0 & k & 1 \\
             0 & 0 & 0 & 1 \\
           \end{bmatrix}$.}
+      \begin{proof}[Work]
+        \begin{align*}
+          \begin{abmatrix}{4}{4}
+            k_1 & 1 & 0   & 0 & 1 & 0 & 0 & 0 \\
+            0   & 1 & 0   & 0 & 0 & 1 & 0 & 0 \\
+            0   & 0 & k_3 & 1 & 0 & 0 & 1 & 0 \\
+            0   & 0 & 0   & 1 & 0 & 0 & 0 & 1
+          \end{abmatrix} & \xrightarrow[R_3 - R_4]{R_1 - R_2}
+          \begin{abmatrix}{4}{4}
+            k & 0 & 0 & 0 & 1 & -1 & 0 &  0 \\
+            0 & 1 & 0 & 0 & 0 &  1 & 0 &  0 \\
+            0 & 0 & k & 0 & 0 &  0 & 1 & -1 \\
+            0 & 0 & 0 & 1 & 0 &  0 & 0 &  1
+          \end{abmatrix}                     \\ &\xrightarrow[\frac{1}{k}R_3]{\frac{1}{k}R_1}
+          \begin{abmatrix}{4}{4}
+            1 & 0 & 0 & 0 & \frac{1}{k} & -\frac{1}{k} & 0 &  0 \\
+            0 & 1 & 0 & 0 & 0 &  1 & 0 &  0 \\
+            0 & 0 & 1 & 0 & 0 &  0 & \frac{1}{k} & -\frac{1}{k} \\
+            0 & 0 & 0 & 1 & 0 &  0 & 0 &  1
+          \end{abmatrix} \\
+          \therefore~
+          \begin{bmatrix}
+            k & 1 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & k & 1 \\
+            0 & 0 & 0 & 1 \\
+          \end{bmatrix}^{-1}                   & =
+          \begin{bmatrix}
+            \frac{1}{k} & -\frac{1}{k} & 0           & 0            \\
+            0           & 1            & 0           & 0            \\
+            0           & 0            & \frac{1}{k} & -\frac{1}{k} \\
+            0           & 0            & 0           & 1
+          \end{bmatrix}
+        \end{align*}
+      \end{proof}
     \end{enumerate}}{}
-  \qitem{27}{Find all values of $c$, if any, for which the given matrix is invertible.}{}
+  \qitem{27}{Find all values of $c$, if any, for which the given matrix is invertible.
+    \[
+      \begin{bmatrix}
+        c & c & c \\
+        1 & c & c \\
+        1 & 1 & c
+      \end{bmatrix}
+    \]}{
+    \begin{proof}[Work]
+      \begin{align*}
+        \begin{abmatrix}{3}{3}
+          c & c & c & 1 & 0 & 0 \\
+          1 & c & c & 0 & 1 & 0 \\
+          1 & 1 & c & 0 & 0 & 1
+        \end{abmatrix}  \xrightarrow[R_2 - R_3]{R_1 - R_2}
+        \begin{abmatrix}{3}{3}
+          c-1 & 0 & 0 & 1 & -1 & 0 \\
+          0 & c-1 & 0 & 0 & 1 & -1 \\
+          1 & 1 & c & 0 & 0 & 1
+        \end{abmatrix}                       \\
+        \xrightarrow[\frac{1}{c-1}R_2]{\frac{1}{c-1}R_1}
+        \begin{abmatrix}{3}{3}
+          1 & 0 & 0 & \frac{1}{c-1} & -\frac{1}{c-1} & 0 \\
+          0 & 1 & 0 & 0 & \frac{1}{c-1} & -\frac{1}{c-1} \\
+          1 & 1 & c & 0 & 0 & 1
+        \end{abmatrix} \xrightarrow[R_3 - R_1]{R_3 - R_2}
+        \begin{abmatrix}{3}{3}
+          1 & 0 & 0 & \frac{1}{c-1} & -\frac{1}{c-1} & 0 \\
+          0 & 1 & 0 & 0 & \frac{1}{c-1} & -\frac{1}{c-1} \\
+          0 & 0 & c & -\frac{1}{c-1} & 0 & \frac{c}{c-1}
+        \end{abmatrix} \\
+        \xrightarrow{\frac{1}{c}}
+        \begin{abmatrix}{3}{3}
+          1 & 0 & 0 & \frac{1}{c-1} & -\frac{1}{c-1} & 0 \\
+          0 & 1 & 0 & 0 & \frac{1}{c-1} & -\frac{1}{c-1} \\
+          0 & 0 & 1 & -\frac{1}{c(c-1)} & 0 & \frac{1}{c-1}
+        \end{abmatrix}
+      \end{align*}
+      The resulting inverse matrix is undefined when $c = 0$ or when $c = 1$, therefore $c \neq 0,~1$.
+    \end{proof}
+  }
   \qitem{29}{Write the given matrix as a product of elementary matrices.
     \[
       \begin{bmatrix}
         -3 & 1 \\
         2  & 2
       \end{bmatrix}
-    \]}{}
-  \qitem{41}{Prove that if $A \tand B$ are $m \times n$ matrices, then $A \tand B$ are row equivalent if and only if $A \tand B$ have the same reduced row eschelon form.}{}
+    \]}{
+    \begin{proof}[Work]
+      \begin{align*}
+        \begin{bmatrix}
+          -3 & 1 \\
+          2  & 2
+        \end{bmatrix} \xrightarrow{R_1 + 2R_2}
+        \begin{bmatrix}
+          1 & 5 \\
+          2 & 2
+        \end{bmatrix} \xrightarrow{R_2 - 2R_1}
+        \begin{bmatrix}
+          1 & 5  \\
+          0 & -8
+        \end{bmatrix} \xrightarrow{-\frac{1}{8}R_2}
+        \begin{bmatrix}
+          1 & 5 \\
+          0 & 1
+        \end{bmatrix} \xrightarrow{R_1 - 5R_2}
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix}
+      \end{align*}
+      Each of these row operations can be expressed as a left multiplication of a elementary matrix.
+      \begin{align*}
+        \begin{bmatrix}
+          1 & -5 \\
+          0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 0            \\
+          0 & -\frac{1}{8}
+        \end{bmatrix}
+        \begin{bmatrix}
+          1  & 0 \\
+          -2 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 2 \\
+          0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+          -3 & 1 \\
+          2  & 2
+        \end{bmatrix} =
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix} \\
+        \begin{bmatrix}
+          -3 & 1 \\
+          2  & 2
+        \end{bmatrix} =
+        \left(\begin{bmatrix}
+                1 & -5 \\
+                0 & 1
+              \end{bmatrix}
+        \begin{bmatrix}
+          1 & 0            \\
+          0 & -\frac{1}{8}
+        \end{bmatrix}
+        \begin{bmatrix}
+          1  & 0 \\
+          -2 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 2 \\
+          0 & 1
+        \end{bmatrix}\right)^{-1}
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix} \\
+        \begin{bmatrix}
+          -3 & 1 \\
+          2  & 2
+        \end{bmatrix} =
+        \begin{bmatrix}
+          1 & 2 \\
+          0 & 1
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          1  & 0 \\
+          -2 & 1
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          1 & 0            \\
+          0 & -\frac{1}{8}
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          1 & -5 \\
+          0 & 1
+        \end{bmatrix}^{-1}
+        \begin{bmatrix}
+          1 & 0 \\
+          0 & 1
+        \end{bmatrix} \\
+        \begin{bmatrix}
+          -3 & 1 \\
+          2  & 2
+        \end{bmatrix} =
+        \begin{bmatrix}
+          1 & -2 \\
+          0 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 0 \\
+          2 & 1
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 0  \\
+          0 & -8
+        \end{bmatrix}
+        \begin{bmatrix}
+          1 & 5 \\
+          0 & 1
+        \end{bmatrix}
+      \end{align*}
+    \end{proof}
+  }
+  \qitem{41}{Prove that if $A \tand B$ are $m \times n$ matrices, then $A \tand B$ are row equivalent if and only if $A \tand B$ have the same reduced row echelon form.}{
+    \begin{proof}
+      First, if $A \tand B$ are row equivalent, there exists a sequence of elementary row operations that can transform $B$ into $A$. Now consider the $rref(A)$; it is by definition obtainable by row operations starting at $A$. Therefore there exists a sequence of row operations which transform $B$ into $A$, and then $A$ into $rref(A)$. The same can be said for $A$. Since reduced row echelon form is unique, thus $rref(A)$ is also the $rref(B)$. Therefore, $A \tand B$ have the same reduced row echelon form.
+
+      Second, if $A \tand B$ have the same reduced row echelon form, then there exists a sequence of elementary row operations that can transform $A \tand B$ into the same reduced row echelon form. By definition there is a sequence of elementary row matrices to transform $A$ into $rref(A)$, which is also $rref(B)$. And also by definition there are elementary row matrices to transform $rref(B)$ into $B$. Therefore, there is a sequence of elementary row operations to transform $A$ into $B$. Therefore, by definition, $A \tand B$ are row equivalent.
+
+      Combining both statements, we can conclude that $A \tand B$ are row equivalent if and only if they have the same reduced row echelon form.
+    \end{proof}
+  }
 \end{enumerate}
 
 \question{1.6}{More on Linear Systems and Invertible Matrices}
@@ -104,8 +464,51 @@
       x_1 - 2x_2 + 5x_3   & = b_1 \\
       4x_1 - 5x_2 + 8x_3  & = b_2 \\
       -3x_1 + 3x_2 - 3x_3 & = b_3
-    \end{align*}}{}
-  \qitem{21}{Let $A\vec{x} = \vec{0}$ be a homogenous system of $n$ linear equations in $n$ unknown that has only the trivial solution. Show that if $k$ is any positive integer, then the system $A^k\vec{x} = \vec{0}$ also has only the trivial solution.}{}
+    \end{align*}}{
+    \begin{proof}[Work]
+      \begin{align*}
+        \begin{abmatrix}{3}{1}
+          1 & -2 & 5 & b_1 \\
+          4 & -5 & 8 & b_2 \\
+          -3 & 3 & -3 & b_3
+        \end{abmatrix} \xrightarrow{R_3 - R_1}
+        \begin{bmatrix}
+          1  & -2 & 5  & b_1     \\
+          4  & -5 & 8  & b_2     \\
+          -4 & 5  & -8 & b_3-b_1
+        \end{bmatrix} \xrightarrow[R_2 - 4R_1]{R_3 + R_2}
+        \begin{bmatrix}
+          1 & -2 & 5   & b_1         \\
+          0 & 3  & -12 & b_2-4b_1    \\
+          0 & 0  & 0   & b_3-b_1+b_2
+        \end{bmatrix} \\
+        \xrightarrow{\frac{1}{3}R_2}
+        \begin{bmatrix}
+          1 & -2 & 5  & b_1                   \\
+          0 & 1  & -4 & \frac{1}{3}(b_2-4b_1) \\
+          0 & 0  & 0  & b_3-b_1+b_2
+        \end{bmatrix} \xrightarrow{R_1 + 2R_2}
+        \begin{bmatrix}
+          1 & 0 & -3 & b_1 + \frac{2}{3}(b_2-4b_1) \\
+          0 & 1 & -4 & \frac{1}{3}(b_2-4b_1)       \\
+          0 & 0 & 0  & b_3-b_1+b_2
+        \end{bmatrix}
+      \end{align*}
+      The last row represents $0 = b_3-b_1+b_2$, which is $b_1=b_3+b_2$. If $b_1=b_3+b_2$, then reduced row echelon form is complete, and there are infinitely many solutions to the linear system. If $b_1 \neq b_3+b_2$, then the last row represents $0 = k \twhere k \neq 0$, and there is no solution to the linear system.
+    \end{proof}
+  }
+  \qitem{21}{Let $A\vec{x} = \vec{0}$ be a homogenous system of $n$ linear equations in $n$ unknown that has only the trivial solution. Show that if $k$ is any positive integer, then the system $A^k\vec{x} = \vec{0}$ also has only the trivial solution.}{
+    \begin{proof}
+      Since $A\vec{x} = \vec{0}$ has only the trivial solution, through the Big Theorem of Lecture 23, this means that $A$ is invertible. This also means that $(A^k)^{-1}$ exists, as it is known that $(A^k)^{-1} = A^{-k} = (A^{-1})^k$. Now Consider the system $A^k\vec{x} = \vec{0}$.
+      \begin{align*}
+        A^k\vec{x}             & = \vec{0}             \\
+        (A^{k})^{-1}A^k\vec{x} & = (A^{k})^{-1}\vec{0} \\
+        I\vec{x}               & = \vec{0}             \\
+        \vec{x}                & = \vec{0}
+      \end{align*}
+      Therefore $\vec{x} = \vec{0}$, and the only solution for the system is the trivial solution.
+    \end{proof}
+  }
 \end{enumerate}
 
 \end{document}
