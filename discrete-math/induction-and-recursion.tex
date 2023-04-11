@@ -376,10 +376,77 @@ A \textbf{queue} maintains items in an ordered list
 \end{center}
 
 \subsection{Divide-and-conquer algorithms: Binary Search}
+\begin{itemize}
+  \item A \bld{search algorithm} finds a target in a list.
+  \item \bld{Binary Search} is an efficient algorithm to search for a target item in a \itl{sorted list}.
+\end{itemize}
+{\large Pseudo-code for recursive binary search:}
+\begin{lstlisting}
+RecBinSearch(low, high, A, x)
 
+If(low = high AND a[low] = x), Return(low)
+If(low = high AND a[low] != x), Return(-1)
+
+mid := floor((low + high)/2)
+
+If(x <= a[mid]), then high := mid
+If(x > a[mid]), then low := mid+1
+
+Return(RecBinSearch(low, high, A, x))
+\end{lstlisting}
 
 \subsection{Solving linear homogeneous recurrence relations}
+Finding an explicit formula for a recursively defined sequence is called \itl{solving a recurrence relation}.
+\subsubsection*{Linear Homogeneous Recurrence Relation}
+A linear homogeneous recurrence relation of degree $k$ has the following form:
+\[
+  f_n = c_1f_{n-1} + c_2f_{n-2} + \cdots + c_kf_{n-k},
+\]
+where the $c_j$'s are constants that do not depend on $n$, and $c_k \neq 0$.
+\begin{center}
+  \begin{tabular}{ll}
+    \multicolumn{2}{c}{Examples illustrating linear and non-linear recurrence relations} \\
+    \hline
+    $b_n = b_{n-1} + (b_{n-2} \cdot b_{n-3})$   & Non-linear                             \\
+    $c_n = 3n \cdot c_{n-1}$                    & Non-linear                             \\
+    $d_n = d_{n-1} + (d_{n-2})^2$               & Non-linear                             \\
+    $f_n = 3f_{n-1} - 2f_{n-2} + f_{n-4} + n^2$ & Linear, degree 4. Non-homogeneous      \\
+    $g_n = g_{n-1} + g_{n-3} + 1$               & Linear, degree 3. Non-homogeneous      \\
+    $h_n = 2h_{n-1} - h_{n-2}$                  & Linear, degree 2. Homogeneous          \\
+    $s_n = 2s_{n-1} = \sqrt{3}s_{n-5}$          & Linear, degree 5. Homogeneous
+  \end{tabular}
+\end{center}
+The expression denoting the infinite set of solutions to a recurrence relation without initial values is called the \itl{general solution} to the recurrence relation.
 
+\subsubsection*{Solutions to linear homogeneous recurrence relations}
+If $g_n \tand h_n$ satisfy a linear homogeneous relation then so does $f_n = s\cdot g_n + t\cdot h_n$ for any real numbers $s \tand t$.
+
+\subsubsection*{Using Initial Values to determine to unique solution to a recurrence relation}
+Any ${\displaystyle f_n = c_1\left(\frac{1 + \sqrt{5}}{2}\right)^n + c_2\left(\frac{1 - \sqrt{5}}{2}\right)^n}$
+
+\noindent Initial Values:
+\begin{align*}
+  n & = 0 & f_0 & = 0 = c_1\left(\frac{1 + \sqrt{5}}{2}\right)^0 + c_2\left(\frac{1 - \sqrt{5}}{2}\right)^0 = c_1 + c_2 = 0 \\
+  n & = 1 & f_1 & = 1 = c_1\left(\frac{1 + \sqrt{5}}{2}\right) + c_2\left(\frac{1 - \sqrt{5}}{2}\right) = 1
+\end{align*}
+Then solving a two variable linear system of equations:
+\[
+  c_1 = \frac{1}{\sqrt{5}}, \qquad c_2 = -\frac{1}{\sqrt{5}}
+\]
+which then yields the specific solution of
+\[
+  f_n = \frac{1}{\sqrt{5}}\left(\frac{1 + \sqrt{5}}{2}\right)^n - \frac{1}{\sqrt{5}}\left(\frac{1 - \sqrt{5}}{2}\right)^n.
+\]
+
+\subsubsection*{General Steps}
+\begin{enumerate}
+  \item Use the recurrence relation to find the characteristic equation which will be $p(x) = 0$, where $p(x)$ is a degree $d$ polynomial.
+  \item Find all solutions to the characteristic equation. Assume $p(x)$ has distinct roots $x_1, x_2, \ldots, x_d$.
+  \item Every solution $f_n = (x_1)^n$ satisfies the recurrence relation. Therefore, any solution of the form $f_n = a_1(x_1)^n + \cdots + a_d(x_d)^n$ satisfies the recurrence relation.
+  \item Each initial value gives a value of $f_n$ for a specific value for $n$. Plug the value for $n$ and $f_n$ into the above expression to get a linear equation with variables $a_1,a_2,\ldots,a_d$. There are $d$ linear equations (from the $d$ initial values) and $d$ variables.
+  \item Solve for $a_1,a_2,\ldots,a_d$.
+  \item Plug values for $a_1,a_2,\ldots,a_d$ back in to the expression for $f_n$ to get the closed form expression for $f_n$.
+\end{enumerate}
 
 \subsection{Solving linear non-homogeneous recurrence relations}
 
