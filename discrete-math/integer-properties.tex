@@ -1,5 +1,40 @@
 \section{Integer Properties}
 \subsection{The Division Algorithm}
+In \bld{integer division}, the input and output values must always be integers. For example, when 9 is divided by 4, the answer is 2 with a remainder of 1, instead of 2.25.
+
+\subsubsection*{Divides}
+Let $x \tand y$ be two integers. Then $x$ \itl{divides} $y$, $x \mid y$, if and only if $x \neq 0$ and there is an integer $k$ such that $y = kx$. If there is no such integer or if $x = 0$, then $x$ does not divide $y$, $x \nmid y$. If $x \mid y$, then $y$ is said to be a \itl{multiple} of $x$, and $x$ is a \itl{factor} or \itl{divisor} of $y$.
+
+\subsubsection*{Theorem: Divisibility and linear combinations}
+Let $x,y,\tand z$ be integers. If $x \mid y \tand x \mid z,~\tthen x \mid (sy+tz)$ for any integers $s \tand t$.
+\begin{proof}
+  Since $x \mid y$, then $y = kx$ for some integer $k$. Similarly, since $x \mid z$, then $z = jx$ for some integer $j$. A linear combination of $y \tand z$ can be expressed as:
+  \[
+    sy + tz = s(kx) + t(jx) = (sk + tj)x.
+  \]
+  For some integers $s \tand t$. Since $sy + tz$ is an integer multiple of $x$, then $x \mid (sy + tz)$.
+\end{proof}
+
+\subsubsection*{Quotients and remainders}
+If $x \nmid y$, then there is s non-zero remainder when $x$ is divided into $y$. The \bld{Division Algorithm}, states that the result of the division and the remainder are unique.
+
+\subsubsection*{Theorem: The Division Algorithm}
+Let $n$ be an integer and let $d$ be a positive integer. Then, there are unique integers $q \tand r$, with $0 \leq r \leq d-1$, such that $n = qd + r$.
+
+\subsubsection*{Integer division definitions}
+In the Division Algorithm, $q$ is called the \bld{quotient} and $r$ is called the \bld{remainder}. The operations \bld{$\tdiv$} and \bld{$\tmod$} produce the quotient and the remainder as a function of $n \tand d$.
+\begin{align*}
+  q & = n \tdiv d \\
+  r & = n \tmod d
+\end{align*}
+Here is some examples of computing $\tdiv \tand \tmod$:
+\begin{align*}
+  15 \tmod 6       & = 3 & -11 \tmod 4        & = 1  \\
+  15 - 2 \cdot 6   & = 3 & -11 - (-3) \cdot 4 & = 1  \\ \\
+  15 \tdiv 6       & = 2 & -11 \tdiv 4        & = -3 \\
+  \frac{15 - 3}{2} & = 2 & \frac{-11 - 1}{4}  & = -3
+\end{align*}
+
 \subsection{Modular arithmetic}
 \subsection{Prime factorizations}
 \subsection{Factoring and primality testing}

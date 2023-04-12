@@ -449,6 +449,54 @@ which then yields the specific solution of
 \end{enumerate}
 
 \subsection{Solving linear non-homogeneous recurrence relations}
+A \bld{non-homogeneous linear recurrence relation} is a linear recurrence relation with additional terms that are either a constant or a function of $n$. The recurrence relations below are all examples of homogeneous linear recurrence relations.
+\begin{align*}
+  f_n & = 3f_{n-1} + 10f_{n-2} + 2   \\
+  f_n & = 3f_{n-1} + 10f_{n-2} + 24n \\
+  f_n & = 3f_{n-1} + 10f_{n-2} + 3n
+\end{align*}
+The \bld{associated homogeneous recurrence relation} is the recurrence relation with the additional non-homogeneous terms dropped. For example the associated homogeneous recurrence relation for all of the recurrence relations give above is $f_n = 3f_{n-1} + 10f_{n-2}$.
 
+\subsubsection*{Particular and homogeneous solutions}
+The solution to a non-homogeneous linear recurrence relation is the sum of two parts: a \itl{homogeneous solution} plus a \itl{particular solution}. If the sequence is $\{f_n\}$, then the homogeneous solution is denoted by $f_n^{(h)}$ and the particular solution is denoted by $f_n^{(p)}$.
+\begin{itemize}
+  \item The homogeneous solution $f_n^{(h)}$ is the general solution to the associated homogeneous recurrence relation.
+  \item The method for finding the particular solution $f_n^{(p)}$ is to guess the form of the particular solution and then check the guess.
+\end{itemize}
+
+\subsubsection*{Summary of all the steps}
+\begin{enumerate}
+  \item Find the homogeneous part of the solution which is the general solution to the associated homogeneous recurrence relation.
+  \item Guess the correct form for the particular solution.
+  \item Verify the guess by solving for constants so that the guess satisfies the recurrence relation for all $n$.
+  \item Add the homogeneous and particular solutions to get the general solution.
+  \item For a degree $d$ linear recurrence relation, there must be $d$ initial values to specify the sequence. Each initial value gives a value for $f_n$ for a specific value for $n$. Plug the values for $n$ and $f_n$ into the general solution to get a linear equation with variables $a_1,a_2,\ldots,a_d$. There are $d$ linear equations (from the $d$ initial values) and $d$ variables.
+  \item Solve for $a_1,a_2,\ldots,a_d$.
+  \item Plug values for $a_1,a_2,\ldots,a_d$ back in to the general solution for $f_n$ to get the final closed form expression for $f_n$.
+\end{enumerate}
 
 \subsection{Divide-and-conquer recurrence relations}
+\subsubsection*{Deriving solutions to divide-and-conquer recurrence relations}
+Many recurrence relations that describe the time complexity of divide-and-conquer algorithms have the form
+\[
+  T(n) = aT(n/b) + \Theta(n^d).
+\]
+
+\subsubsection*{Expressing the formula as a geometric sum}
+The explicit formula for $T(n)$ can be generalized for a recurrence relation of the form $T(n) = aT(n/b) + n^d$ which has an explicit formula
+\[
+  T(n) = n^d \cdot \sum_{j=0}^{L}\left(\frac{a}{b^d}\right)^j~~\twhere L = \log_b n
+\]
+The expression for $n^d$ times the sum of terms in a geometric sequence of the form $1 + r + r^2 + \cdots + r^L$, where the ratio $r = a/b^d$. The formula for the sum of a geometric sequence is
+\[
+  1 + r + r^2 + \cdots + r^L = \sum_{j=0}^{L} r^j = \frac{r^{L+1}-1}{r-1}
+\]
+The asymptotic growth rate of $T(n)$ depends on whether the ratio $r$ is less than, greater than, or equal to 1.
+
+\subsubsection*{The Master Theorem}
+if $T(n) = aT(n/b) + \Theta(n^d)$ for constants $a>0,~b>1,\tand d \geq 0$, then
+\begin{itemize}
+  \item If $(a/b^d) < 1$, then $T(n) = \Theta(n^d)$
+  \item If $(a/b^d) = 1$, then $T(n) = \Theta(n^d \log n)$
+  \item If $(a/b^d) > 1$, then $T(n) = \Theta(n^{\log_b a})$
+\end{itemize}
