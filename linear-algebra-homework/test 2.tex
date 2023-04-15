@@ -1,0 +1,78 @@
+\documentclass{article}
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
+
+\newcommand{\assignment}{Test 2}
+
+\lhead{Linear Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+\question{Problem 1}{Let $A$ be an $n \times n$ matrix such that $A^4 + A^2 = O$. Show that
+  \[
+    (A^2-A+I)^{-1} = A^2 + A + I
+  \]}
+
+\qdash
+
+\question{Problem 2}{In $\bb{R}^3$, let $\vec{v}_1 = (-3,1,4), \vec{v}_2 = (-4,2,5), \tand \vec{v}_3 = (-1,0,2)$. Express $\vec{u} = (5,-4,2)$ as a linear combination of $\vec{v}_1, \vec{v}_3, \tand \vec{v}_3$ by finding the MATRIX INVERSE.}
+
+\qdash
+
+\question{Problem 3}{Solve for the matrix $A$ if
+  \[
+    (I - 2A)^{-1} = \begin{pmatrix}
+      1  & -3 & 3  \\
+      -2 & 2  & -5 \\
+      3  & -8 & 9
+    \end{pmatrix}.
+  \]}
+
+\qdash
+
+\question{Problem 4}{Let
+  \[
+    A = \begin{pmatrix}
+      1  & 0 & 3  \\
+      -2 & 0 & -5 \\
+      0  & 2 & 0
+    \end{pmatrix}.
+  \]
+  Write $A$ as a product of elementary matrices.}
+
+\qdash
+
+\question{Problem 5}{Find the conditions on $b_1, b_2, \tand b_3$ such that the system
+  \begin{align*}
+    1x_1 - 1x_2 + 1x_3  & = b_1 \\
+    -4x_1 + 7x_2 + 2x_3 & = b_2 \\
+    -2x_1 + 3x_2 + 0x_3 & = b_3
+  \end{align*}
+  is consistent.}
+
+\qdash
+
+\question{Problem 6}{Let $A$ be any $n \times n$ matrix. Prove or disprove: If there exists a positive integer $k$ such that $A^k\vec{x} = \vec{0}$ has only the trivial solution, then $A$ can be written as a product of elementary matrices.}
+
+\qdash
+
+\question{Problem 7}{Prove that for all $n \times n$ matrices $A$, the matrix $A^TA + 2AA^T$ is symmetric.}
+
+\qdash
+
+\question{Problem 8}{If $A$ is an $n \times n$ upper-triangular matrix such that $A^5 = O$, find tr$(A)$.}
+
+\qdash
+
+\question{Problem 9}{Does there exist an $n \times n$ matrix $A$ such that for \underline{all} $n \times 1$ column vector $\vec{b}$, the matrix equation
+  \[
+    A\vec{x} = \vec{b}
+  \]
+  has infinitely many solutions? If you think there exists such a matrix $A$, please write out $A$; if you think there does not exist such a matrix $A$, please give a proof.}
+
+\qdash
+
+\end{document}
