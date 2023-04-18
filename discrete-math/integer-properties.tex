@@ -36,9 +36,214 @@ Here is some examples of computing $\tdiv \tand \tmod$:
 \end{align*}
 
 \subsection{Modular arithmetic}
+Given a finite set of integers, we can define addition and multiplication on the elements in the set such that after every operation, we apply a modular function equal to the cardinality of the set.
+\begin{itemize}
+  \item \bld{addition mod $m$}
+        \subitem the operation defined by adding two numbers and applying $\tmod m$ to the result
+  \item \bld{multiplication mod $m$}
+        \subitem the operation defined by multiplying two numbers and applying $\tmod m$ to the result
+\end{itemize}
+The set $\{0,1,2,\ldots,m-1\}$ along with addition and multiplication mod $m$ defines a closed mathematical system with $m$ elements called a \bld{ring}. The ring $\{0,1,2,\ldots,m-1\}$ with addition and multiplication mod $m$ is denoted by $\bb{Z}_m$.
+
+\subsubsection*{Applications}
+A common way to organize data is to maintain an array called a \bld{hash table} which is slightly larger than the number of data items to be stored. A bld{hash function} is used to map each data item to a location in the array. Modulus is used to keep the results from a hash function in the range of the hash table.
+
+Computers use functions called bld{pseudo-random number generators} that produce numbers having many of the statistical properties of random numbers but are in fact deterministically generated. Modulus is used to keep these pseudo-random number generators in a certain range when used.
+
+\subsubsection*{Congruence mod $m$}
+Let $m \in \bb{Z} > 1$. Let $x \tand y$ be any two integers. Then bld{$x$ is congruent to $y \tmod m$} if $x \tmod m = y \tmod m$. The fact that $x$ is congruent to $y \tmod m$ is denoted
+\[
+  x \equiv y~(\tmod m).
+\]
+
+\subsubsection*{Theorem: Alternate characterization of congruence mod $m$}
+Let $m \in \bb{Z} > 1$. Let $x \tand y$ be any two integers. Then $x \equiv y~(\tmod m)$ if and only if $m \mid (x-y)$.
+\begin{proof}
+  First suppose that $x \equiv y~(\tmod m)$. By definition $x tmod m = y \tmod m$. We define the variable $r$ to be the value of $x \tmod m = y \tmod m$. Therefore, $x = r + km$ for some integer $k$ and $y = r + jm$ for some integer $j$. Then
+  \[
+    x-y = (r+km)-(r+jm) = (k-j)m.
+  \]
+  Since $(k-j)$ is an integer, $m\mid (x-y)$. \\
+  Now suppose that $m\mid (x-y)$. Then $(x-y) = tm$ for some integer $t$. Let $r$ be the value of $x \tmod m$. Then $x = r + km$ for some integer $k$. The integer $y$ can be expressed as
+  \[
+    y = x - (x-y) = (r+km)-tm = r + (k-t)m.
+  \]
+  Since $r$ is an integer in the range from $0$ to $m-1$, $r$ is the unique remainder when $y$ is divided by $m$. Therefore $r = y \tmod m = x \tmod m$, and by definition $x \equiv y~(\tmod m)$.
+\end{proof}
+
+\subsubsection*{Precedence of the mod operation}
+\begin{align*}
+  6 + 2 \tmod y = 6 + (2 \tmod 7)         & = 8 \\
+  6 \cdot 2 \tmod 7 = (6 \cdot 2) \tmod 7 & = 5 \\
+\end{align*}
+However, in general it is best to just use parentheses in order to clarify which operations should be performed first.
+
+\subsubsection*{Theorem: Computing arithmetic operations mod $m$}
+Let $m$ be an integer larger than 1. Let $x \tand y$ be any integers. Then
+\begin{align*}
+  [(x \tmod m) + (y \tmod m)] \tmod m & = [x + y] \tmod m \\
+  [(x \tmod m)(y \tmod m)] \tmod m    & = [x + y] \tmod m
+\end{align*}
+
 \subsection{Prime factorizations}
+A number $p$ is \bld{prime} if it is an integer greater than $1$ and its only factors are $1 \tand p$. A positive integer is \bld{composite} if it has a factor other than 1 or itself. Every integer greater than 1 is either prime of composite. Every positive integer greater than one can be expressed as a product of primes called its \bld{prime factorization}. Moreover, the prime factorization is unique up to ordering of the factors.
+
+\subsubsection*{Theorem: The Fundamental Theorem of Arithmetic}
+Every positive integer other than 1 can be expressed uniquely as a product of prime numbers where the primes factors are written in non-decreasing order.
+
+\begin{align*}
+  \text{Examples of prime factorizations} & ~\text{in non-decreasing order} \\
+  112                                     & = 2^4\cdot 7                    \\
+  612                                     & = 2^2 \cdot 3^3 \cdot 17        \\
+  243                                     & = 3^5                           \\
+  17                                      & = 17
+\end{align*}
+
+\subsubsection*{Greater common divisors and least common multiples}
+\begin{itemize}
+  \item The \bld{greatest common divisor (gcd)} of integers $x \tand y$ that are not both zero is the largest integer that is a factor of both $x \tand y$.
+  \item The \bld{least common multiples (lcm)} of non-zero integers $x \tand y$ is the smallest positive integer that is an integer multiple of both $x \tand y$.
+\end{itemize}
+Two numbers are \bld{relatively prime} if their greatest common divisor is 1.
+
+\subsubsection*{Theorem: GCD and LCM from prime factorizations}
+Let $x \tand y$ be two positive integers with prime factorizations expressed using a common set of primes as:
+\begin{align*}
+  x & = p_1^{\alpha_1} \cdot p_2^{\alpha_2} \cdots p_r^{\alpha_r} \\
+  y & = p_1^{\beta_1} \cdot p_2^{\beta_2} \cdots p_r^{\beta_r}
+\end{align*}
+The $p_i$'s are all distinct prime numbers. The exponents $\alpha_i$'s and $\beta_i$'s are non-negative integers. Then:
+\begin{itemize}
+  \item $x \mid y$ if and only if $\alpha_i \leq \beta_i$ for all $1 \leq i \leq r$
+  \item $\gcd(x,y) = p_1^{\min(\alpha_1,\beta_1)} \cdot p_2^{\min(\alpha_2,\beta_2)} \cdots p_r^{\min(\alpha_r,\beta_r)}$
+  \item $\lcm(x,y) = p_1^{\max(\alpha_1,\beta_1)} \cdot p_2^{\max(\alpha_2,\beta_2)} \cdots p_r^{\max(\alpha_r,\beta_r)}$
+\end{itemize}
+
 \subsection{Factoring and primality testing}
+A \bld{brute force algorithm} solves a problem by exhaustively searching all positive solutions without using an understanding of the mathematical structure in the problem to eliminate steps.
+
+\subsubsection*{Theorem: Small Factors}
+If $N$ is a composite number, then $N$ has a factor greater than 1 and at most $\sqrt{N}$
+
+\subsubsection*{Theorem: Infinite number of primes}
+There are an infinite number of primes.
+\begin{proof}
+  Suppose that there are a finite number of primes. Since there are only a finite number, they can be listed:
+  \[
+    p_1,p_2,\ldots,p_k
+  \]
+  Take the product of all the primes and add 1. Call the resulting number $N$:
+  \[
+    N = (p_1 \cdot p_2 \cdots p_k) + 1
+  \]
+  The number $N$ is larger than all of the primes numbers that were listed, so it must not be prime. Since $N$ is a composite number, it is the product of at least two primes by the Fundamental Theorem of Arithmetic. There $N$ is divisible by some prime $p_j$. Let
+  \[
+    \frac{N}{p_j} = \frac{(p_1 \cdot p_2 \cdots p_k)}{p_j} + \frac{1}{p_j}
+  \]
+  Note that $p_j$ is one of the prime factors in $(p_1 \cdot p_2 \cdots p_k)$, so $(p_1 \cdot p_2 \cdots p_k)/p_j$ is an integer. However, $1/p_j$ is not an integer. Since $N/p_j$ is the sum of two terms, one of which is an integer and the other of which is not an integer, then $N/p_j$ is not an integer. This contradicts the fact that $p_j$ evenly divides $N$.
+\end{proof}
+
+\subsubsection*{The Prime Number Theorem}
+Let $\pi(x)$ be the number of prime numbers in the range from 2 through $x$. Then
+\[
+  \lim_{x \rightarrow \infty} \frac{\pi(x)}{x/\ln x} = 1.
+\]
+Another way to interpret the Prime Number Theorem is that if a random number is selected from the range 2 to $x$, then the likelihood that the selected number is prime is roughly $1/\ln x$.
+
 \subsection{Greatest common factor divisor and Euclid's algorithm}
+There is an efficient way to compute the gcd of two numbers without finding their prime factorizations. The algorithm presented in this subsection is in wide use today and is attributed to the Greek mathematician Euclid who lived around 300 B.C. The basis of the algorithm is the following theorem:
+
+\subsubsection*{GCD Theorem}
+Let $x \tand y$ be two positive integers. Then $\gcd(x,y) = \gcd(y \tmod x, x)$.
+
+\subsubsection*{Euclid's Algorithm for finding the greatest common divisor}
+\begin{lstlisting}
+Input: Two positive integers, x and y.
+Output: gcd(x, y)
+
+If(y < x)
+  Swap x and y.
+r := y mod x
+
+While(r != 0)
+  y := x
+  x := r
+  r := y mod x
+End-While
+
+Return(x)
+\end{lstlisting}
+Sample execution of Euclid's algorithm for $\gcd(675,210)$:
+\begin{center}
+  \begin{tabular}{cccccc}
+    $675$ & $210$ & $675 \tmod 210$                                                  \\
+          & $210$ & $45$            & $210 \tmod 45$                                 \\
+          &       & $45$            & $30$           & $45 \tmod 30$                 \\
+          &       &                 & $30$           & $15$          & $30 \tmod 15$ \\
+          &       &                 &                & $\bld{15}$    & $0$           \\
+  \end{tabular}
+\end{center}
+The last non-zero number was $15$, so $\gcd(675,210) = 15$.
+
+\subsubsection*{Expressing $\gcd(x,y)$ as a linear combination of $x$ and $y$}
+Let $x \tand y$ be integers, then there are integers $s \tand t$ such that
+\[
+  \gcd(x,y) = sx + ty.
+\]
+The values for $s \tand t$ in the theorem above can be found by a series of substitutions using the equation from each iteration. The algorithm used to find the coefficient, $s \tand t$, such that $\gcd(x,y) = sx + ty$, is called the \bld{Extended Euclidean Algorithm}.
+
+\subsubsection*{The Extended Euclidean Algorithm}
+\[
+  \begin{array}{lllll}
+        &     & y           & x           & r                                \\
+    675 & 210 & 45          & 30          & 15                               \\
+        &     &             &             & r = y \tmod x                    \\
+        &     &             &             & r = y - (y \tdiv x) \cdot x      \\
+        &     &             &             & 15 = 45 - (45 \tdiv 30) \cdot 30 \\
+        &     &             &             & \mathbf{15 = 45 - 1 \cdot 30}    \\
+        &     &             & 30          & = 210 - (210 \tdiv 45) \cdot 45  \\
+        &     &             & \mathbf{30} & \mathbf{= 210 - 4 \cdot 45}      \\
+        &     & 45          & =           & 675 - (675 \tdiv 210) \cdot 210  \\
+        &     & \mathbf{45} & \mathbf{=}  & \mathbf{675 - 3 \cdot 210}
+  \end{array}
+\]
+We can use the bolded equations to solve for $15 = c \cdot 210 + d \cdot 675$.
+\begin{align*}
+  15 & = 45 - 30                           \\
+     & = 45 - (210 - 4 \cdot 45)           \\
+     & = 5 \cdot 45 - 210                  \\
+     & = 5 \cdot (675 - 3 \cdot 210) - 210 \\
+     & = 5 \cdot 675 - 16 \cdot 210
+\end{align*}
+Now we have the full answer and expansion for $\gcd(675,210)$.
+\[
+  \gcd(675,210) = 15 = 5 \cdot 675 - 16 \cdot 210.
+\]
+
+\subsubsection*{The Multiplicative Inverse mod $n$}
+A \bld{multiplicative inverse mod $n$}, or just \bld{inverse mod $n$}, of an integer $x$, is an integer $s \in \{1,2,\ldots,n-1\}$ such that $sx \tmod n = 1$.
+
+\[
+  \qquad
+\]
+
+For example, 3 is an inverse of 7 $\tmod 10$ because $3 \cdot 7 \tmod 10 = 1$. The number 7 is an inverse of 5 $\tmod 17$ because $7 \cdot 5 \tmod 17 = 1$. It is possible for a number to be its own multiplicative inverse mod $n$. For example, $7$ is the inverse of $7 \tmod 8$ because $7 \cdot 7 \tmod 8 = 1$.
+
+Not every number has an inverse mod $n$. For example, 4 does not have an inverse mod $6$. The condition is that $x$ has an inverse $\tmod n$ if and only if $x \tand n$ are relatively prime.
+
+The Extended Euclidean Algorithm can be used to find the multiplicative inverse of $x \tmod n$ when is exists.
+\begin{itemize}
+  \item If $\gcd(x, n) \neq 1$, then $x$ does not have a multiplicative inverse $\tmod n$.
+  \item If $x \tand n$ are relatively prime, then the Extended Euclidean Algorithm finds integers $s \tand t$ such that $1 = sx + tn$.
+  \item $sx - 1 = -tn$. Therefore, $(sx \tmod n) = (1 \tmod n)$. If $A - B$ is a multiple of $n$ then $(A \tmod n) = (B \tmod n)$.
+  \item $(s \tmod n)$ is the unique multiplicative inverse of $x$ in $\{0, 1, \ldots, n-1\}$.
+\end{itemize}
+For example, suppose that Euclid's Algorithm returns
+\[
+  \gcd(31, 43) = 1 = 13 \cdot 34 - 18 \cdot 31
+\]
+The coefficient of 31 is -18. Therefore, the multiplicative inverse of $31 \tmod 43$ is $(-18 \tmod 43) = 25$.
+
 \subsection{Number representation}
 \subsection{Fast exponentiation}
 \subsection{Introduction to cryptography}
