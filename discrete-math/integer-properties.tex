@@ -223,10 +223,6 @@ Now we have the full answer and expansion for $\gcd(675,210)$.
 \subsubsection*{The Multiplicative Inverse mod $n$}
 A \bld{multiplicative inverse mod $n$}, or just \bld{inverse mod $n$}, of an integer $x$, is an integer $s \in \{1,2,\ldots,n-1\}$ such that $sx \tmod n = 1$.
 
-\[
-  \qquad
-\]
-
 For example, 3 is an inverse of 7 $\tmod 10$ because $3 \cdot 7 \tmod 10 = 1$. The number 7 is an inverse of 5 $\tmod 17$ because $7 \cdot 5 \tmod 17 = 1$. It is possible for a number to be its own multiplicative inverse mod $n$. For example, $7$ is the inverse of $7 \tmod 8$ because $7 \cdot 7 \tmod 8 = 1$.
 
 Not every number has an inverse mod $n$. For example, 4 does not have an inverse mod $6$. The condition is that $x$ has an inverse $\tmod n$ if and only if $x \tand n$ are relatively prime.
@@ -245,6 +241,96 @@ For example, suppose that Euclid's Algorithm returns
 The coefficient of 31 is -18. Therefore, the multiplicative inverse of $31 \tmod 43$ is $(-18 \tmod 43) = 25$.
 
 \subsection{Number representation}
+A digit in binary is called a \bld{bit}. In binary notation, each place value is a power of 2. Numbers represented in \bld{base} $b$ require $b$ distinct symbols and each place value is a power of $b$.
+
+\subsubsection*{Theorem: Number representation}
+For an integer $b>1$. Every positive integer $n$ can be expressed uniquely as
+\[
+  n = a_k \cdot b^k + a_{k-1} \cdot b^{k-1} + \cdots + a_1 \cdot b^1 + a_0 \cdot b^0,
+\]
+where $k$ is a non-negative integer, and each $a_i$ is an integer in the range from $0 \tto b-1$, and $a_k \neq 0$.
+The representation of $n~\text{base}~b$ is called the \bld{base $b$ expansion of $n$} and is denoted by $(a_ka_{k-1}\ldots a_1a_0)_b$.
+
+\subsubsection*{Hexadecimal Numbers}
+In \bld{hexadecimal} notation (or \bld{hex} for short), numbers are represented in base 16. Typically, the set of symbol, in order of value, is
+\[
+  \{0,1,2,3,4,5,6,7,8,9,A,B,C,D,E,F\}.
+\]
+Additionally, here are the first 15 hexadecimal digits and correspond encodings in decimal and binary.
+\[
+  \begin{array}{lccccccccc}
+    \text{Hex}     & 0    & 1    & 2    & 3    & 4    & 5    & 6    & 7    \\
+    \text{Decimal} & 0    & 1    & 2    & 3    & 4    & 5    & 6    & 7    \\
+    \text{Binary}  & 0    & 1    & 10   & 11   & 100  & 101  & 110  & 111  \\ \\
+    \text{Hex}     & 8    & 9    & A    & B    & C    & D    & E    & F    \\
+    \text{Decimal} & 8    & 9    & 10   & 11   & 12   & 13   & 14   & 15   \\
+    \text{Binary}  & 1000 & 1001 & 1010 & 1011 & 1100 & 1101 & 1110 & 1111
+  \end{array}
+\]
+Since both hexadecimal and binary are powers of 2, there is an easy way to translate between the binary expansion and the hexadecimal expansion of a number. Groups of 4 binary digits can be directly translated into hexadecimal digits. Here is an example
+\[
+  \begin{array}{ccccc}
+    1 & 1101 & 0101 & 1110 & 1000 \\
+    1 & D    & 5    & E    & 8
+  \end{array} \qquad 1,1101,0101,1110,1000_2 = 1D5E8_{16}
+\]
+Hexadecimal notation is particularly useful in computer science because each hexadecimal digit can be used to represent a 4-bit binary number. A byte, which consists of 8 bits, can be represented by a 2-digit hexadecimal number. Two hexadecimal digits is easier for a human to recognize and remember than 8 bits.
+
+\subsubsection*{Converting decimal numbers to base $b$}
+\[
+  \left[\text{Base $b$ expansion of $(n \tdiv b)$}\right]\left[n \tmod b\right]
+\]
+Here is an example of $1161_{10}$ converted to base 7:
+\[
+  \begin{array}{ccccc}
+     &            &             & \ulcorner    & 1161         \\
+     &            &             & 1161 \tdiv 7 & 1161 \tmod 7 \\
+     &            & \ulcorner   & 165          & 6            \\
+     &            & 165 \tdiv 7 & 165 \tmod 7  & |            \\
+     & \ulcorner  & 23          & 4            & |            \\
+     & 23 \tdiv 7 & 23 \tmod 7  & |            & |            \\
+     & 3          & 2           & |            & |            \\
+     & 3          & 2           & 4            & 6            \\
+  \end{array}
+\]
+
+\subsubsection*{The number of digits required to represent a number}
+\[
+  n = (\underbrace{[b-1][b-1]\ldots[b-1]}_{k \text{digits}})_b = (1\underbrace{00\ldots 0}_{k 0's})_b -1 = b^k - 1
+\]
+The number of digits required to expressed the base $b$ expansion of a positive integer $n$ is $\left\lceil \log_b (n+1) \right\rceil$. For example, the number of digits required to express the base 2 expansion of 13 is:
+\[
+  \left\lceil\log_2 (13 + 1)\right\rceil = \left\lceil \log_2(14)\right\rceil = \left\lceil 3.8 \right\rceil = 4.
+\]
+
 \subsection{Fast exponentiation}
+Computing a power of $x$ by repeated multiplication by $x$
+\[
+  p:=x \xrightarrow{p:=p*x} p = x^2 \xrightarrow{p:=p*x} p = x^3 \xrightarrow{p:=p*x} p=x^4 \cdots
+\]
+Computing a power of $x$ by repeated squaring
+\[
+  p:=x \xrightarrow{p:=p*p} p=x^2 \xrightarrow{p:=p*p} p=x^4 \xrightarrow{p:=p*p} p=x^8 \cdots
+\]
+In order to compute $x^y$, examine the binary expansion of y:
+\[
+  y = a_k \cdot 2^k + a_{k-1} \cdot 2^{k-1} + \cdots + a_1 \cdot 2^1 + a_0 \cdot 2^0
+\]
+We can use this expanded form of $y$ to represent $x$ as a sum of perfect squares
+\[
+  x^y = x^{a_k \cdot 2^k + a_{k-1} \cdot 2^{k-1} + \cdots + a_1 \cdot 2^1 + a_0 \cdot 2^0} = x^{a_{k} \cdot 2^{k}} \cdot x^{a_{k-1} \cdot 2^{k-1}} \cdots x^{a_{1} \cdot 2^{1}} \cdot x^{a_{0} \cdot 2^{0}}
+\]
+Each coefficient $a_j$ is either $0 \tor 1$. If $a_j = 0$ for some $j$, then
+\[
+  x^{a_j \cdot 2^j} = x^0 = 1
+\]
+and the corresponding factor can be omitted from the product. Here is an example, computing $7^{11}$.
+\begin{align*}
+  7^{11} & = 7^{[(1 \cdot 2^3) + (0 \cdot 2^2) + (1 \cdot 2^1) + (1 \cdot 2^0)]}               \\
+         & = 7^{(1 \cdot 8)} \cdot 7^{(0 \cdot 4)} \cdot 7^{(1 \cdot 2)} \cdot 7^{(1 \cdot 7)} \\
+         & = 7^8 \cdot 1 \cdot 7^2 \cdot 7^1                                                   \\
+  7^11   & = 5,764,801 \cdot 49 \cdot 7                                                        \\
+         & = 1,977,326,743
+\end{align*}
 \subsection{Introduction to cryptography}
 \subsection{The RSA cryptosystem}
