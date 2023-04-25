@@ -332,5 +332,101 @@ and the corresponding factor can be omitted from the product. Here is an example
   7^11   & = 5,764,801 \cdot 49 \cdot 7                                                        \\
          & = 1,977,326,743
 \end{align*}
+
+\subsubsection*{An iterative algorithm for fast exponentiation}
+\begin{lstlisting}
+Input: Positive integers x and y.
+Output: x^y
+
+p := 1  // p holds the partial result
+s := x  // s holds the current x^{2^j}
+r := y  // r is used to compute the binary expansion of y
+
+while(r > 0)
+  if(r mod 2 = 1)
+    p := p * s
+  s := s * s
+  r := r div 2
+End-While
+
+Return(p)
+\end{lstlisting}
+
+\subsubsection*{An iterative algorithm for fast modular exponentiation}
+\begin{lstlisting}
+Input: Positive integers x, y and n.
+Output: x^y mod n
+
+p := 1  // p holds the partial result
+s := x  // s holds the current x^{2^j}
+r := y  // r is used to compute the binary expansion of y
+
+while(r > 0)
+  if(r mod 2 = 1)
+    p := p * s mod n
+  s := s * s mod n
+  r := r div 2
+End-While
+
+Return(p)
+\end{lstlisting}
+
 \subsection{Introduction to cryptography}
+\bld{Cryptography} is the science of protecting and authenticating data and communication. Cryptography is ubiquitous in the electronic age in which sensitive information such as credit card numbers and passwords are sent over the internet on a daily basis.
+
+A cryptosystem is a system by which a \bld{sender} sends a message to a \bld{receiver}. The sender \bld{encrypts} the message so that if an eavesdropper learns the transmitted message, they will be unable to recover the original message. The unencrypted message is called \bld{plaintext} and the encrypted message is called the \bld{ciphertext}. The receiver must have a \bld{secret key} that allows him to \bld{decrypt} the ciphertext to obtain the original plaintext.
+
+\subsubsection*{Sending an Encrypted Text Message via a Secret Key}
+\begin{enumerate}
+  \item Alice wants to send the message "MEET AT DAWN" to Bob. Alice converts the text message to the number 130505202701292704012314.
+  \item Alice encrypts the numerical message with her copy of the secret key.
+  \item Alice sends encrypted message to Bob. Eve cannot read the encrypted message without the secret key.
+  \item Bob decrypts the encrypted message using the secret key to get 130505202701292704012314 which he then converts to "MEET AT DAWN".
+\end{enumerate}
+
+\subsubsection*{Encryption and Decryption Functions}
+Consider a simple cryptosystem in which the set of all possible plaintexts come from $\bb{Z}_N$ for some integer $N$. Alice and Bob share a secret number $k \in \bb{Z}_N$. The security of their encryption scheme rests on the assumption that no one besides them knows the number $k$. To encrypt a plaintext $m \in \bb{Z}_n$, Alice computes:
+\[
+  c = (m + k) \tmod N \qquad \qquad \text{(encryption)}
+\]
+Alice sends the ciphertext $c$ to Bob. When Bob receives the ciphertext $c$, he decrypts $c$ as follows:
+\[
+  m = (c - k) \tmod N \qquad \qquad \text{(decryption)}
+\]
+The simple encryption scheme presented here is an example of symmetric key cryptography. In a \bld{symmetric key cryptosystem}, Alice and Bob must meet in advance to decide on the value of a shared secret key.
+
+\subsubsection*{Simple encryption scheme requirements}
+\begin{itemize}
+  \item If $m \neq m' \tand m,~m' \in \bb{Z}_N \tthen (m+k) \tmod N \neq (m'+k) \tmod N$ (no two distinct plaintexts map to same ciphertext).
+  \item If $m \in \bb{Z}_N \tthen (((m+k) \tmod N)-k) \tmod N = m$ (decryption scheme is inverse of encryption scheme).
+\end{itemize}
+However, this encryption method is not terribly secure, and is not used in real world conditions because better methods exist.
+
 \subsection{The RSA cryptosystem}
+In \bld{public key cryptography}, Bob has an \bld{encryption key} that he provides \itl{publicly} so that anyone can use it to send him an encrypted message. Bob holds a matching \bld{decryption key} that he keeps \itl{privately} to decrypt messages. While anyone can use the public key to encrypt a message, the security of the scheme depends on the fact that it is difficult to decrypt the message without having the matching private decryption key.
+\begin{enumerate}
+  \item Alice encrypts her message to Bob using the public key.
+  \item Alice sends the encrypted message to Bob. Eve cannot read the encrypted message.
+  \item Bob decrypts the message using his private key.
+\end{enumerate}
+
+\subsubsection*{Preparation of public and private keys in RSA}
+\begin{enumerate}
+  \item Bob selects two large prime numbers, $p \tand q$.
+  \item Bob computes $N = pq \tand \phi = (p-1)(q-1)$.
+  \item Bob finds an integer $e$ such that $\gcd(e, \phi) = 1$.
+  \item Bob computes the multiplication inverse of $e \tmod \phi$: an integer $d$ such that $(ed \tmod \phi) = 1$.
+  \item Public (encryption) key: $N \tand e$.
+  \item Private (decryption) key: $d$.
+\end{enumerate}
+The RSA scheme requires that $m$, the message, is an integer in $\bb{Z}_N$ and is not a multiple of $p \tor q$. Since $p \tand q$ are primes with hundreds of digits, it is extremely unlikely that $m$ is a multiple of primes $p \tor q$. Alice encrypts her plaintext using $e \tand N$ to produce ciphertext $c$ as follows:
+\[
+  c = m^e \tmod N \qquad \qquad \text{(encryption)}
+\]
+Alice transmits $c$ to Bob. Bob decrypts the ciphertext using $d$ to recover $m$ from $c$:
+\[
+  m = c^d \tmod N \qquad \qquad \text{(decryption)}
+\]
+
+\subsubsection*{Number theoretic fact to establish correctness of RSA}
+Let $p \tand q$ be prime numbers and $pq = N$. Suppose that $m \in \bb{Z}_n \tand \gcd(m,N) = 1$. Then $m^{(p-1)(q-1)} \tmod N = 1$.
