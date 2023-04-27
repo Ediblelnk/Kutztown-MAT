@@ -66,28 +66,14 @@ A subset of size $r$ is called an \bld{r-subset}. An $r$-subset is sometimes ref
 \subsubsection*{Counting Subsets: 'n choose r' notation}
 The number of ways to select an $r$-subset from a set of size $n$ is:
 \[
-  \begin{pmatrix}
-    n \\ r
-  \end{pmatrix} = \frac{n!}{r!(n-r)!}.
+  \binom{n}{r} = \frac{n!}{r!(n-r)!}.
 \]
-$\begin{pmatrix}
-    n \\ r
-  \end{pmatrix}$ is read as "$n$ choose $r$". The notation $C(n,r)$ is sometimes used for $\begin{pmatrix}
-    n \\ r
-  \end{pmatrix}$.
+$\binom{n}{r}$ is read as "$n$ choose $r$". The notation $C(n,r)$ is sometimes used for $\binom{n}{r}$.
 
-We can calculated an expression for $\begin{pmatrix}
-    n \\ n-r
-  \end{pmatrix}$ by replacing $r$ with $n-r$ in the expression for $\begin{pmatrix}
-    n \\ r
-  \end{pmatrix}$.
+We can calculated an expression for $\binom{n}{n-r}$ by replacing $r$ with $n-r$ in the expression for $\binom{n}{r}$.
 \[
-  \begin{pmatrix}
-    n \\ n-r
-  \end{pmatrix} = \frac{n!}{(n-r)!(n-(n-r))!} = \frac{n!}{(n-r!)r!} =
-  \begin{pmatrix}
-    n \\ r
-  \end{pmatrix}
+  \binom{n}{n-r} = \frac{n!}{(n-r)!(n-(n-r))!} = \frac{n!}{(n-r!)r!} =
+  \binom{n}{r}
 \]
 This is an \bld{identity} for $r$-subsets.
 
@@ -99,16 +85,14 @@ Consider two closely related counting problems:
   \item A family goes to the animal shelter to adopt 3 cats. The shelter has 20 different cats from which to select. How many ways are there for the family to their selection?
   \item Three different families go to the animal shelter to adopt a cat. Each family will select one cat. How many ways are there for the families to make their selection? (Note that which family gets which cat matters).
 \end{enumerate}
-In the first problem, the number is ways to make the selection is $\begin{pmatrix}
-    20 \\ 3
-  \end{pmatrix}$ because the order in which the cats are selected is not important. The outcome is a 3-subset.
+In the first problem, the number is ways to make the selection is $\binom{20}{3}$ because the order in which the cats are selected is not important. The outcome is a 3-subset.
 
 In the second problem, the specific cat selected by each family is important. Additionally, no cat can belong to two families. Thus, the answer is $P(20,3) = 20 \cdot 19 \cdot 18$. The outcome is a 3-permutation.
 
 \subsection{Counting by complement}
 \bld{Counting by complement} is a technique for counting the number of elements in a set $S$ that have a property by counting the total number of elements in $S$ and subtracting the number of elements in $S$ that do not have the property.
 \[
-  |P| = |S| - |\bar{P}|
+  |P| = |S| - |\overline{P}|
 \]
 Suppose we want to count the number of people in a room with red hair. We know that there are 20 people in the room and exactly 12 of them do not have red hair. Then we can deduce that the number of people in the room with red hair is 20 - 12 = 8.
 
@@ -122,15 +106,7 @@ The number of distinct sequences with $n_1 1's, n_2's, \ldots, n_k k's$, where $
 \]
 The formula for permutations with repetition is derived from repeated use of the formula for counting r-subsets:
 \begin{align*}
-    & \begin{pmatrix}
-        n \\ n_1
-      \end{pmatrix} \begin{pmatrix}
-                      n-n_1 \\ n_2
-                    \end{pmatrix} \begin{pmatrix}
-                                    n-n_1-n_2 \\ n_3
-                                  \end{pmatrix} \cdots \begin{pmatrix}
-                                                         n-n_1-n_2- \cdots - n_{k-1} \\ n_k
-                                                       \end{pmatrix}                                                                                                                                                   \\
+    & \binom{n}{n_1} \binom{n-n_1}{n_2} \binom{n-n_1-n_2}{n_3} \cdots \binom{n-n_1-n_2-\cdots-n_{k-1}}{n_k}                                                                                                                                \\
   = & \frac{n!}{n_1!{\color{red}(n-n_1)!}} \cdot \frac{{\color{red}(n-n_1)!}}{n_2!{\color{blue}(n-n_1-n_2)!}} \cdot \frac{\color{blue}(n-n_1-n_2)!}{n_3!{\color{green}(n-n_1-n_2-n_3)!}} \cdots \frac{(n-n_1-n_2-\cdots-n_{k-1})!}{n_k!0!} \\
   = & \frac{n!}{n_1!n_2!\cdots n_k!}
 \end{align*}
@@ -154,17 +130,13 @@ A set is a collection of distinct items. A \bld{multiset} is a collection that c
 \end{center}
 If the mapping of selections to code words is a bijection, then by the bijection rule, the number of distinct code words is equal to the number of distinct selections. If the number of objects to select is $n$, and the number of varieties of object is $m$, each code word has $n$ 0's and $m-1$ 1's, for a total of $n+m-1$ bits. The binary string of length $n+m-1$ with exactly $m-1$ 1's is
 \[
-  \begin{pmatrix}
-    n+m-1 \\ m-1
-  \end{pmatrix}
+  \binom{n+m-1}{m-1}
 \]
 
 \subsubsection*{Theorem: Counting Multisets}
 The number of ways to select $n$ objects from a set of $m$ varieties is
 \[
-  \begin{pmatrix}
-    n+m-1 \\ m-1
-  \end{pmatrix},
+  \binom{n+m-1}{m-1},
 \]
 if there is no limitation on the number of each variety available and objects of the same variety are indistinguishable.
 
@@ -173,11 +145,11 @@ A set of identical items are called \bld{indistinguishable} because it is imposs
 \subsection{Assignment problems: Balls in bins}
 \begin{center}
   \begin{tabular}{c|c|c|c}
-                            & \bld{No restrictions}                        & \bld{Max 1 ball per bin}               & \bld{Same \# of balls per bin}          \\
-                            & (any positive $m$ and $n$)                   & ($m$ must be at least $n$)             & ($m$ must evenly divide $n$)            \\
+                            & \bld{No restrictions}      & \bld{Max 1 ball per bin}   & \bld{Same \# of balls per bin}          \\
+                            & (any positive $m$ and $n$) & ($m$ must be at least $n$) & ($m$ must evenly divide $n$)            \\
     \hline
-    \bld{Indistinguishable} & $\begin{pmatrix} n+m-1 \\ m-1 \end{pmatrix}$ & $\begin{pmatrix} m \\ n \end{pmatrix}$ & 1                                       \\
-    \bld{Distinguishable}   & $m^n$                                        & $P(m,n)$                               & ${\displaystyle \frac{n!}{((n/m)!)^m}}$
+    \bld{Indistinguishable} & $\binom{n+m-1}{m-1}$       & $\binom{m}{n}$             & 1                                       \\
+    \bld{Distinguishable}   & $m^n$                      & $P(m,n)$                   & ${\displaystyle \frac{n!}{((n/m)!)^m}}$
   \end{tabular}
 \end{center}
 

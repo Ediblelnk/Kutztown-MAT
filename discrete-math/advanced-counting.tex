@@ -1,5 +1,43 @@
 \section{Advanced Counting}
 \subsection{Generating permutations}
+There are situations in which it is necessary to generate, not just count, all permutations of a set or subsets of a given size.
+
+\subsubsection*{Lexicographic Order}
+A well-defined order imposed on the n-tuples is useful to systematically generate all the elements in a set of n-tuples. Generating the n-tuples in the set from smallest to largest ensures that each n-tuple is generated exactly once.
+
+\bld{Lexicographic order} is a way or ordering n-tuples in which two n-tuples are compared according to the first entry where they differ. An example of such ordering is the word in a dictionary.
+
+\subsubsection*{Generating Permutations}
+A \bld{permutation} of the set $\{1,2,\ldots,n\}$ is an ordered n-tuple in which each number in $\{1,2,\ldots,n\}$ appears exactly once. For example, $(2,5,1,4,3)$ is a permutation of the set $\{1,2,3,4,5\}$.
+
+\subsubsection*{Generating r-subsets of a set}
+Unlike sequences or n-tuples, the order in which the elements of a set or subset are written does not matter. Sets can be ordered lexicographically by first sorting the elements in increasing order and then comparing the two sets as if they were ordered sequences. For example, $\{2,3,11\} < \{2,5,6\}$, because the first element is the same in both sets but in the second element $3 < 5$.
+
 \subsection{Binomial coefficients and combinatorial identities}
+An \bld{identity} is a theorem stating that two mathematical expressions are equal.
+
+\subsubsection*{Theorem: A Simple Combinatorial Identity}
+For any non-negative integers $n \tand k \tsuchthat k \leq n$:
+\[
+  \binom{n}{k} = \binom{n}{n-k}
+\]
+
+A proof that makes use of counting principles is called a \bld{combinatorial proof}. Combinatorial proofs usually involve defining a set $S$ and counting the number of elements in $S$ to get a mathematical expression for the number of items in the set. Every combinatorial proof of an identity uses a bijection implicitly as part of the argument.
+
+\subsubsection*{Theorem: The Binomial Theorem}
+For any non-negative integer $n$ and any real numbers $a \tand b$:
+\[
+  (a + b)^n = \sum_{k=0}^{n} \binom{n}{k} a^{n-k}b^k = \sum_{k=0}^{n} \binom{n}{k} a^kb^{n-k}
+\]
+The coefficients $\binom{n}{k}$ are called binomial coefficients.
+
+For the case $n = 5$, the Binomial Theorem says that
+\begin{align*}
+  (a+b)^5 & = \binom{5}{0}a^5 + \binom{5}{1}a^4b + \binom{5}{2}a^3b^2 + \binom{5}{3}a^2b^3 + \binom{5}{4}ab^4 + \binom{5}{5}b^5 \\
+          & = a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5
+\end{align*}
+
 \subsection{The pigeonhole principle}
+
+
 \subsection{Generating functions}
