@@ -37,7 +37,56 @@ For the case $n = 5$, the Binomial Theorem says that
           & = a^5 + 5a^4b + 10a^3b^2 + 10a^2b^3 + 5ab^4 + b^5
 \end{align*}
 
-\subsection{The pigeonhole principle}
+The Binomial Theorem can also be used to obtain combinatorial identities. For example, by plugging in $a=b=1$, the Binomial Theorem yields the identity below.
+\[
+  2^n = \sum_{k=0}^{n} \binom{n}{k}
+\]
 
+Similarly, by letting $a=-1 \tand b=1$, and requiring that $n$ be positive, the left hand side of the Binomial Theorem becomes 0. The right hand side of the Binomial Theorem becomes:
+\[
+  0 = \sum_{k=0}^{n}(-1)^k \binom{n}{k}
+\]
+In the expanded form,
+\[
+  \binom{n}{0} - \binom{n}{1} + \binom{n}{2} - \binom{n}{3} + \cdots + (-1)^n \binom{n}{n} = 0
+\]
+
+\subsubsection*{Pascal's Triangle}
+The $17^{th}$ century French mathematician, Blaise Pascal, developed a triangular chart that contains all the number of the form $\binom{n}{k}$. The chart, now known as Pascal's Triangle, can be used to derive the value of a particular $\binom{n}{k}$. The $n^{th}$ row of Pascal's Triangle contains the $n+1$ binomial coefficients of the form $\binom{n}{k}$ as shown in the figure below.
+\[
+  \begin{array}{cccccccccc}
+    n=0 &              &              &              &              & \binom{0}{0} &              &              &                             \\
+    n=1 &              &              &              & \binom{1}{0} &              & \binom{1}{1} &              &                             \\
+    n=2 &              &              & \binom{2}{0} &              & \binom{2}{1} &              & \binom{2}{2} &                             \\
+    n=3 &              & \binom{3}{0} &              & \binom{3}{1} &              & \binom{3}{2} &              & \binom{3}{3}                \\
+    n=4 & \binom{4}{0} &              & \binom{4}{1} &              & \binom{4}{2} &              & \binom{4}{3} &              & \binom{4}{4} \\
+  \end{array}
+\]
+
+\subsubsection*{Theorem: Pascal's Identity}
+For any positive $n \tand k \tsuchthat k < n$:
+\[
+  \binom{n}{k} = \binom{n-1}{k-1} + \binom{n-1}{k}
+\]
+
+\subsection{The pigeonhole principle}
+The pigeonhole principle is a mathematical tool used to establish that repetitions are guaranteed to occur in certain sets and sequences. The \bld{pigeonhole principle} says that if $n+1$ pigeons are placed in $n$ boxes, then there must be at least one box with more than one pigeon. The diagram below shows 10 pigeons, represented as $P$, in 9 boxes.
+\begin{center}
+  \begin{tabular}{ccc}
+    $P$ & $P$ & $P$   \\
+    $P$ & $P$ & $P,P$ \\
+    $P$ & $P$ & $P$
+  \end{tabular}
+\end{center}
+
+\subsubsection*{Theorem: The Pigeonhole Principle}
+If a function $f$ has a domain of size at least $n+1$ and a target of size at most $n$, where $n$ is a positive integer, then there are two elements in the domain that map to the same element in the target (i.e., the function is not one-to-one)
+
+\subsubsection*{Theorem: The Generalized Pigeonhole Principle}
+Consider a function whose domain has at least $n$ elements and whose target has $k$ elements, for $n \tand k$ positive integers. Then there is an element $y$ in the target such that $f$ maps at least $\lceil n/k \rceil$ elements in the domain to $y$.
+
+\subsubsection*{Theorem: Converse of the Generalized Pigeonhole Principle}
+Suppose that a function $f$ maps a set of $n$ elements to a target with $k$ elements, where $n \tand k$ are positive integers. In order to guarantee that there is an element $y$ in the target to which $f$ maps to at least $b$ elements from the domain, then $n$ must be at least $k(b-1)+1$.
 
 \subsection{Generating functions}
+Generating functions are a powerful tool that can be used to solve a variety of problems related to counting and recurrence relations. A \bld{generating function} is a way of representing a sequence of number as a n algebraic function in which each term in the sequence is a coefficient of an $x^j$ term in the function. The advantage of representing sequences algebraically is that there are many techniques from algebra that can be used to manipulate functions which then leads to insight about the sequences they represent.
