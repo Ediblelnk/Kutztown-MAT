@@ -90,3 +90,23 @@ Suppose that a function $f$ maps a set of $n$ elements to a target with $k$ elem
 
 \subsection{Generating functions}
 Generating functions are a powerful tool that can be used to solve a variety of problems related to counting and recurrence relations. A \bld{generating function} is a way of representing a sequence of number as a n algebraic function in which each term in the sequence is a coefficient of an $x^j$ term in the function. The advantage of representing sequences algebraically is that there are many techniques from algebra that can be used to manipulate functions which then leads to insight about the sequences they represent.
+
+The sequence $f_0,f_1,f_2,f_3,\ldots$ is represented by the generating function
+\[
+  F(x) = f_0 + f_1x + f_2x^2 + f_3x^3 + \cdots
+\]
+
+The numbers in the sequence are the coefficients of the terms in $F(x)$. For the sequence $1,1,1,1,\ldots$ is represented by the generating function
+\[
+  H(x) = 1 + x + x^2 + x^3 + \cdots
+\]
+When $|x|<1$ for $H(x)$ the sum is finite and has a closed form of
+\[
+  H(x) = \sum_{j=0}^{\infty} x^j = \frac{1}{1-x}
+\]
+Additionally, for the partial sum up to $x^k$,
+\[
+  \sum_{j=0}^{k} x^j = \frac{1-x^k}{1-x}
+\]
+
+\subsubsection*{Using Generating Functions for Counting}

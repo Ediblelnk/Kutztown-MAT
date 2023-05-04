@@ -1,0 +1,105 @@
+\documentclass{article}
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
+
+\newcommand{\assignment}{Homework 8}
+
+\lhead{Linear Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+\subsection*{4.3}
+
+\question{4}{Which of the following sets of vector in $P_2$ are linearly dependent?}
+\begin{enumerate}
+  \qitem{a}{$2-x+4x^2,~~3+6x+2x^2,~~2+10x-4x^2$}{answer}
+  \qitem{c}{$3+x+x^2,~~2-x+5x^2,~~4-3x^2$}{answer}
+\end{enumerate}
+
+\question{9}{For which real values of $\lambda$ do the following vectors form a linearly dependent set in $\bb{R}^3$?
+  \[
+    v_1 = \left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right), \quad v_2 = \left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right), \quad v_3 = \left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right)
+  \]}
+
+\qdash
+
+\question{13}{Show that if $S = \{v_1,v_2,\ldots,v_r\}$ is a linearly dependent set of vectors in a vector space $V$, and if $v_{r+1},\ldots,v_n$ are any vectors in $V$ that are not in $S$, then $\{v_1,v_2,\ldots,v_r,v_{r+1},\ldots,v_n\}$ is also linearly dependent.}
+
+\qdash
+
+\question{21}{The functions $f_1(x) = x \tand f_2(x) = \cos x$ are linearly independent in $F(-\infty, \infty)$ because neither function is a scalar multiple of the other. Confirm the linear independence using Wroński's test.}
+
+\qdash
+
+\subsection*{4.4}
+
+\question{4}{Which of the following form bases for $P_2$?}
+\begin{enumerate}
+  \qitem{a}{$1-3x+2x^2,~~1+x+4x^2,~~1-7x$}{answer}
+\end{enumerate}
+
+\question{7}{Find the coordinate vector of $\vec{w}$ relative to the basis $S = \{\vec{u}_1, \vec{u}_2\}$ for $\bb{R}^2$.}
+\begin{enumerate}
+  \qitem{b}{$\vec{u}_1 = (2,-4),~~\vec{u}_2 = (3,8);~~\vec{w} = (1,1)$}{answer}
+  \qitem{c}{$\vec{u}_1 = (1,1),~~\vec{u}_2 = (0,2);~~\vec{w} = (a,b)$}{answer}
+\end{enumerate}
+
+\question{12}{Show that $\{A_1,A_2,A_3,A_4\}$ is a basis for $\mathcal{M}_{22}$, and express $A$ as a linear combination of the basis vectors.
+  \[
+    A_1 = \begin{bmatrix}
+      1 & 0 \\
+      1 & 0
+    \end{bmatrix},~~
+    A_2 = \begin{bmatrix}
+      1 & 1 \\
+      0 & 0
+    \end{bmatrix},~~
+    A_3 = \begin{bmatrix}
+      1 & 0 \\
+      0 & 1
+    \end{bmatrix},~~
+    A_4 = \begin{bmatrix}
+      0 & 0 \\
+      1 & 0
+    \end{bmatrix};~~
+    A = \begin{bmatrix}
+      6 & 2 \\
+      5 & 3
+    \end{bmatrix}
+  \]}
+
+\qdash
+
+\subsubsection*{4.5}
+
+\question{3}{Find a basis for the solution space of the homogeneous linear system, and find the dimension of that space.
+  \begin{align*}
+    1x_1 - 4x_2 + 3x_3 - 1x_4 & = 0 \\
+    2x_1 - 8x_2 + 6x_3 - 2x_4 & = 0
+  \end{align*}}
+
+\qdash
+
+\question{7}{Find bases for the following subspaces of $\bb{R}^3$.}
+\begin{enumerate}
+  \qitem{a}{The plane $3x-2y+5z = 0$.}{answer}
+  \qitem{b}{The plane $x-y = 0$.}{answer}
+  \qitem{c}{The lines $x = 2t,~~y = -t,~~z = 4t$.}{answer}
+  \qitem{c}{All the vectors of the form $(a,b,c), \twhere b = a + c$.}{answer}
+\end{enumerate}
+
+\question{11}{}
+\begin{enumerate}
+  \qitem{a}{Show that the set $W$ of all polynomials in $P_2$ such that $p(1) = 0$ is a subspace of $P_2$.}{answer}
+  \qitem{b}{Make a conjecture about the dimesion of $W$.}{answer}
+  \qitem{c}{Confirm you conjecture by finding a basis for $W$.}{answer}
+\end{enumerate}
+
+\question{18}{Let $S$ be a basis for an $n$-dimesional vector space $V$. show that if $\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_r$ form a linearly independent set of vectors in $V$, then the coordinate vectors $(\vec{v}_1)_S,(\vec{v}_2)_S,\ldots,(\vec{v}_r)_S$ form a linearly independent set in $\bb{R}^n$, and conversely.}
+
+\qdash
+
+\end{document}
