@@ -110,3 +110,45 @@ Additionally, for the partial sum up to $x^k$,
 \]
 
 \subsubsection*{Using Generating Functions for Counting}
+One of the primary uses for generating functions is to help solve counting problems. In general, $f_j$ is the number of way to select a subset of $j$ objects.
+
+Consider the situation in which there is a set of two apples and one banana. The apples are indistinguishable, so selecting one apple is the same as selecting the other.
+\begin{center}
+  \includegraphics[width=.6\linewidth]{resources/11_two_apple_one_banana.png}
+\end{center}
+
+If the set from which the subsets are selected is an infinite set, then the resulting sequence is also infinite.
+
+\subsubsection*{Summary of Generating Functions}
+\begin{center}
+  \begin{tabular}{|c|c|c|}
+    \hline
+    Description                                                  & Long Form                            & Short Form                               \\
+    \hline
+    Infinite supply of one kind of item                          & $1 + x + x^2 + x^3 + \cdots$         & ${\displaystyle \frac{1}{1-x}}$          \\
+    \hline
+    Selecting from a set of $n$ identical items                  & $1 + x + x^2 + x^3 + \cdots + x^n$   & ${\displaystyle \frac{1-x^{n-1}}{1-x}}$. \\
+    \hline
+    Infinite supple of identical items grouped in batches of $k$ & $1 + x^k + x^{2k} + x^{3k} + \cdots$ & ${\displaystyle \frac{1}{1-x^k}}$        \\
+    \hline
+    Infinite supple of 2 different kinds of items                & $1 + 2x + 3x^2 + 4x^3 + \cdots$      & ${\displaystyle \frac{1}{(1-x)^2}}$      \\
+    \hline
+  \end{tabular}
+\end{center}
+
+\subsubsection*{Products of Generating Functions}
+Generating functions become very useful when different sets of objects are combined together into larger sets.
+
+For example, if we are selecting subsets of apples from a set of 3 apples, the generating function is $A(x) = 1 + x + x^2 + x^3$, and if we are selecting bananas from a set of 2 bananas, the generating function is $B(x) = 1 + x + x^2$. Now suppose we pool the three apples and two bananas into a set of five pieces of fruit and ask 'how many ways can one select a set of fruit from the collection of five pieces of fruit?'
+
+The power of generating functions is illustrated in the fact that if we take the product of $A(x)$, the generating function for apples, and $B(x)$, the generating function for bananas, to get $A(x)B(x)$, then the resulting product is the generating function for the pooled set of five pieces.
+\[
+  A(x)B(x) = (1 + x + x^2 + x^3)(1 + x + x^2) = 1 + 2x + 3x^2 + 3x^3 + 2x^4 + x^5
+\]
+Note that the rule of multiplying generating function only works when the two sets of objects being combined are \itl{distinct}. The rule would not work for combining two sets of indistinguishable apples.
+
+Now suppose that we add oranges to the set of selections. There are three oranges, but they come wrapped in a single pack, so one can select zero or three oranges, but not one or two. The generating function for oranges is $O(x) = 1 + x^3$. Again, we can take the product of the generating functions to solve, 'how many ways are there to select subsets of fruit of a particular size?'
+\[
+  A(x)B(x)O(x) = 1 + 2x + 3x^2 + 4x^3 + 4x^4 + 4x^5 + 3x^6 + 2x^7 + x^8
+\]
+The coefficient of $x^5$ in the generating function for the whole set of fruit is 4, so there are 4 ways to select 5 pieces of fruit.

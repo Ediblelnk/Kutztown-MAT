@@ -1,5 +1,22 @@
 \section{Discrete Probability}
 \subsection{Probability of an event}
+One of the primary applications of counting is to calculate probabilities of random events.
+
+An \bld{experiment} is a procedure that results in one out of a number of possible \bld{outcomes}. The set of all possible outcomes is called the \bld{sample space} of the experiment. A subset of the sample space is called an \bld{event}.
+
+\subsubsection*{Discrete vs. Continuous Probability}
+\bld{Discrete probability} is concerned with experiments in which the sample space is finite or a countably infinite set. A set is \bld{countably infinite} if there is a one-to-one correspondence between the elements of the set and the integers. An infinite set that is not countably infinite is said to be \bld{uncountably infinite}.
+
+\subsubsection*{Probability Distributions}
+A \bld{probability distribution} over the outcomes of an experiment with a countable sample space $S$ if a function $p: S \rightarrow [0,1]$ with the property that
+\[
+  \sum_{s \in S} p(s) = 1.
+\]
+The probability of outcome $s$ is $p(s)$. If $E \subseteq S$ is an event, then the \bld{probability of event $E$} is
+\[
+  p(E) = \sum_{s \in E} p(s).
+\]
+
 \subsection{Unions and complements of events}
 \subsection{Conditional probability and independence}
 \subsection{Bayes' Theorem}
