@@ -1,0 +1,541 @@
+\documentclass{article}
+\input{../templates/packages-article.tex}
+\input{../templates/macros.tex}
+
+\newcommand{\assignment}{Test 3}
+
+\lhead{Linear Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+\question{Problem 1}{Find the determinant of the $6 \times 6$ matrix
+  \[
+    \begin{pmatrix}
+      1 & 1 & 1 & 1 & 1 & 1 \\
+      1 & 2 & 2 & 2 & 2 & 2 \\
+      1 & 2 & 3 & 3 & 3 & 3 \\
+      1 & 2 & 3 & 4 & 4 & 4 \\
+      1 & 2 & 3 & 4 & 5 & 5 \\
+      1 & 2 & 3 & 4 & 5 & 6
+    \end{pmatrix}.
+  \]
+  Justify your answer.}
+\begin{proof}[Work]
+  We can use row operations and their effects on the determinant to help us solve the $6 \times 6$ matrix.
+  \begin{align*}
+     & \begin{determinant}{6}
+         1 & 1 & 1 & 1 & 1 & 1 \\
+         1 & 2 & 2 & 2 & 2 & 2 \\
+         1 & 2 & 3 & 3 & 3 & 3 \\
+         1 & 2 & 3 & 4 & 4 & 4 \\
+         1 & 2 & 3 & 4 & 5 & 5 \\
+         1 & 2 & 3 & 4 & 5 & 6
+       \end{determinant} \overset{R_1 - R_2}{===}
+    \begin{determinant}{6}
+      0 & -1 & -1 & -1 & -1 & -1 \\
+      1 & 2 & 2 & 2 & 2 & 2 \\
+      1 & 2 & 3 & 3 & 3 & 3 \\
+      1 & 2 & 3 & 4 & 4 & 4 \\
+      1 & 2 & 3 & 4 & 5 & 5 \\
+      1 & 2 & 3 & 4 & 5 & 6
+    \end{determinant} \overset{R_2 - R_3}{===}
+    \begin{determinant}{6}
+      0 & -1 & -1 & -1 & -1 & -1 \\
+      0 & 0 & -1 & -1 & -1 & -1 \\
+      1 & 2 & 3 & 3 & 3 & 3 \\
+      1 & 2 & 3 & 4 & 4 & 4 \\
+      1 & 2 & 3 & 4 & 5 & 5 \\
+      1 & 2 & 3 & 4 & 5 & 6
+    \end{determinant} \overset{R_3 - R_4}{===}                                           \\
+     & \begin{determinant}{6}
+         0 & -1 & -1 & -1 & -1 & -1 \\
+         0 & 0 & -1 & -1 & -1 & -1 \\
+         0 & 0 & 0 & -1 & -1 & -1 \\
+         1 & 2 & 3 & 4 & 4 & 4 \\
+         1 & 2 & 3 & 4 & 5 & 5 \\
+         1 & 2 & 3 & 4 & 5 & 6
+       \end{determinant} \overset{R_4 - R_5}{===}
+    \begin{determinant}{6}
+      0 & -1 & -1 & -1 & -1 & -1 \\
+      0 & 0 & -1 & -1 & -1 & -1 \\
+      0 & 0 & 0 & -1 & -1 & -1 \\
+      0 & 0 & 0 & 0 & -1 & -1 \\
+      1 & 2 & 3 & 4 & 5 & 5 \\
+      1 & 2 & 3 & 4 & 5 & 6
+    \end{determinant} \overset{R_5 - R_6}{===}                                           \\
+     & \begin{determinant}{6}
+         0 & -1 & -1 & -1 & -1 & -1 \\
+         0 & 0 & -1 & -1 & -1 & -1 \\
+         0 & 0 & 0 & -1 & -1 & -1 \\
+         0 & 0 & 0 & 0 & -1 & -1 \\
+         0 & 0 & 0 & 0 & 0 & -1 \\
+         1 & 2 & 3 & 4 & 5 & 6
+       \end{determinant} \overunderset{R_6 + R_2 + R_1}{R_6 + R_5 + R_4 + R_3}{========}
+    \begin{determinant}{6}
+      0 & -1 & -1 & -1 & -1 & -1 \\
+      0 & 0 & -1 & -1 & -1 & -1 \\
+      0 & 0 & 0 & -1 & -1 & -1 \\
+      0 & 0 & 0 & 0 & -1 & -1 \\
+      0 & 0 & 0 & 0 & 0 & -1 \\
+      1 & 0 & 0 & 0 & 0 & 1
+    \end{determinant} \overset{R_1 - R_2}{===}                                           \\
+     & \begin{determinant}{6}
+         0 & -1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & -1 & -1 & -1 & -1 \\
+         0 & 0 & 0 & -1 & -1 & -1 \\
+         0 & 0 & 0 & 0 & -1 & -1 \\
+         0 & 0 & 0 & 0 & 0 & -1 \\
+         1 & 0 & 0 & 0 & 0 & 1
+       \end{determinant} \overset{R_2 - R_3}{===}
+    \begin{determinant}{6}
+      0 & -1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & -1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & -1 & -1 & -1 \\
+      0 & 0 & 0 & 0 & -1 & -1 \\
+      0 & 0 & 0 & 0 & 0 & -1 \\
+      1 & 0 & 0 & 0 & 0 & 1
+    \end{determinant} \overset{R_3 - R_4}{===}                                           \\
+     & \begin{determinant}{6}
+         0 & -1 & 0 & 0 & 0 & 0 \\
+         0 & 0 & -1 & 0 & 0 & 0 \\
+         0 & 0 & 0 & -1 & 0 & 0 \\
+         0 & 0 & 0 & 0 & -1 & -1 \\
+         0 & 0 & 0 & 0 & 0 & -1 \\
+         1 & 0 & 0 & 0 & 0 & 1
+       \end{determinant} \overunderset{R_4 - R_5}{R_6 + R_5}{===}
+    \begin{determinant}{6}
+      0 & -1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & -1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & -1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & -1 \\
+      1 & 0 & 0 & 0 & 0 & 0
+    \end{determinant} \overset{R_6 \leftrightarrow R_5}{===}                             \\
+     & -\begin{determinant}{6}
+          0 & -1 & 0 & 0 & 0 & 0 \\
+          0 & 0 & -1 & 0 & 0 & 0 \\
+          0 & 0 & 0 & -1 & 0 & 0 \\
+          0 & 0 & 0 & 0 & -1 & 0 \\
+          1 & 0 & 0 & 0 & 0 & 0 \\
+          0 & 0 & 0 & 0 & 0 & -1
+        \end{determinant} \overset{R_5 \leftrightarrow R_4}{===}
+    \begin{determinant}{6}
+      0 & -1 & 0 & 0 & 0 & 0 \\
+      0 & 0 & -1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & -1 & 0 & 0 \\
+      1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & 0 & 0 & -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & -1
+    \end{determinant} \overset{R_4 \leftrightarrow R_3}{===}
+  \end{align*}
+  \begin{align*}
+     & -\begin{determinant}{6}
+          0 & -1 & 0 & 0 & 0 & 0 \\
+          0 & 0 & -1 & 0 & 0 & 0 \\
+          1 & 0 & 0 & 0 & 0 & 0 \\
+          0 & 0 & 0 & -1 & 0 & 0 \\
+          0 & 0 & 0 & 0 & -1 & 0 \\
+          0 & 0 & 0 & 0 & 0 & -1
+        \end{determinant} \overset{R_3 \leftrightarrow R_2}{===}
+    \begin{determinant}{6}
+      0 & -1 & 0 & 0 & 0 & 0 \\
+      1 & 0 & 0 & 0 & 0 & 0 \\
+      0 & 0 & -1 & 0 & 0 & 0 \\
+      0 & 0 & 0 & -1 & 0 & 0 \\
+      0 & 0 & 0 & 0 & -1 & 0 \\
+      0 & 0 & 0 & 0 & 0 & -1
+    \end{determinant} \overset{R_2 \leftrightarrow R_1}{===}      \\
+     & -\begin{determinant}{6}
+          1 & 0 & 0 & 0 & 0 & 0 \\
+          0 & -1 & 0 & 0 & 0 & 0 \\
+          0 & 0 & -1 & 0 & 0 & 0 \\
+          0 & 0 & 0 & -1 & 0 & 0 \\
+          0 & 0 & 0 & 0 & -1 & 0 \\
+          0 & 0 & 0 & 0 & 0 & -1
+        \end{determinant} = -(1)(-1)(-1)(-1)(-1)(-1) = (-1)^6 = 1
+  \end{align*}
+  Therefore, the determinant of the $6 \times 6$ matrix is 1:
+  \[
+    \begin{determinant}{6}
+      1 & 1 & 1 & 1 & 1 & 1 \\
+      1 & 2 & 2 & 2 & 2 & 2 \\
+      1 & 2 & 3 & 3 & 3 & 3 \\
+      1 & 2 & 3 & 4 & 4 & 4 \\
+      1 & 2 & 3 & 4 & 5 & 5 \\
+      1 & 2 & 3 & 4 & 5 & 6
+    \end{determinant} = 1.
+  \]
+\end{proof}
+\qdash
+
+\question{Problem 2}{Prove that
+  \[
+    \det \begin{pmatrix}
+      a     & b     & c     \\
+      b + c & c + a & a + b \\
+      a^2   & b^2   & c^2
+    \end{pmatrix} = -(a-b)(b-c)(c-a)(a+b+c).
+  \]}
+\begin{proof}
+  We can use row operations and their effects on the determinant to help us solve the $6 \times 6$ matrix.
+  \begin{align*}
+     & \begin{determinant}{3}
+         a     & b     & c     \\
+         b + c & c + a & a + b \\
+         a^2   & b^2   & c^2
+       \end{determinant} \overset{R_2 + R_1}{===}
+    \begin{determinant}{3}
+      a     & b     & c     \\
+      a + b + c & a + b + c & a + b + c \\
+      a^2   & b^2   & c^2
+    \end{determinant} =                                                   \\
+     & (a+b+c) \begin{determinant}{3}
+                 a   & b   & c \\
+                 1   & 1   & 1 \\
+                 a^2 & b^2 & c^2
+               \end{determinant} \overset{R_3 - R_1}{===}
+    (a+b+c) \begin{determinant}{3}
+              a   & b   & c \\
+              1   & 1   & 1 \\
+              a^2-1 & b^2-1 & c^2-1
+            \end{determinant} =                                                       \\
+     & (a+b+c) \begin{determinant}{3}
+                 a & 1 & a^2-1 \\
+                 b & 1 & b^2-1 \\
+                 c & 1 & c^2-1
+               \end{determinant} \overunderset{R_2 - R_1}{R_3 - R_1}{===}
+    (a+b+c) \begin{determinant}{3}
+              a   & 1 & a^2-1 \\
+              b-a & 0 & b^2-1 - a^2-1 \\
+              c-a & 0 & c^2-1 - a^2-1
+            \end{determinant} =                                                     \\
+     & (a+b+c) \begin{determinant}{3}
+                 a   & 1 & a^2-1 \\
+                 b-a & 0 & b^2-a^2 \\
+                 c-a & 0 & c^2-a^2
+               \end{determinant} =
+    (a+b+c) \begin{determinant}{3}
+              a   & 1 & a^2-1 \\
+              b-a & 0 & (b+a)(b-a) \\
+              c-a & 0 & (c+a)(c-a)
+            \end{determinant} =                                                       \\
+     & (b-a)(c-a)(a+b+c) \begin{determinant}{3}
+                           a   & 1 & a^2-1 \\
+                           1 & 0 & (b+a) \\
+                           1 & 0 & (c+a)
+                         \end{determinant} =
+    (b-a)(c-a)(a+b+c)(1)(-1)[(c+a)-(b+a)] =                                             \\
+     & (b-a)(c-a)(a+b+c)(1)(-1)(c-b) = (b-a)(c-a)(a+b+c)(b-c) = -(a-b)(b-c)(c-a)(a+b+c)
+  \end{align*}
+  Therefore, the determinant of the $3 \times 3$ matrix is $-(a-b)(b-c)(c-a)(a+b+c)$:
+  \[
+    \det \begin{pmatrix}
+      a     & b     & c     \\
+      b + c & c + a & a + b \\
+      a^2   & b^2   & c^2
+    \end{pmatrix} = -(a-b)(b-c)(c-a)(a+b+c).
+  \]
+\end{proof}
+\qdash
+
+\question{Problem 3}{Find the adjoint of the matrix
+  \[
+    A = \begin{pmatrix}
+      2  & 1 & 1 \\
+      -1 & 0 & 2 \\
+      3  & 1 & 3
+    \end{pmatrix}.
+  \]
+  Then use the adjoint to find $A^{-1}$.}
+\begin{proof}[Work]
+  To find the adjoint of matrix $A$, we have to find the cofactors for each element of the matrix, and then transpose the matrix.
+  \begin{align*}
+     & A = \begin{pmatrix}
+             2  & 1 & 1 \\
+             -1 & 0 & 2 \\
+             3  & 1 & 3
+           \end{pmatrix} \xrightarrow{\text{(cofactor)}}
+    \begin{pmatrix}
+      (0 \cdot 3 - 1 \cdot 2)  & -(-1 \cdot 3 - 3 \cdot 2)   & (-1 \cdot 1 - 3 \cdot 0)   \\
+      -(1 \cdot 3 - 1 \cdot 1) & (2 \cdot 3 - 3 \cdot 1)     & -(2 \cdot 1 - 3 \cdot 1)   \\
+      (1 \cdot 2 - 0 \cdot 1)  & -(2 \cdot 2 - (-1) \cdot 1) & (2 \cdot 0 - (-1) \cdot 1)
+    \end{pmatrix} = \\
+     & \begin{pmatrix}
+         (-2) & -(-9) & (-1)  \\
+         -(2) & (3)   & -(-1) \\
+         (2)  & -(5)  & (1)
+       \end{pmatrix} =
+    \begin{pmatrix}
+      -2 & 9  & -1 \\
+      -2 & 3  & 1  \\
+      2  & -5 & 1
+    \end{pmatrix} \xrightarrow{\text{(transpose)}}
+    \begin{pmatrix}
+      -2 & -2 & 2  \\
+      9  & 3  & -5 \\
+      -1 & 1  & 1
+    \end{pmatrix}
+  \end{align*}
+  We can then use the equation $A^{-1} = \frac{1}{\det(A)}\text{adj}(A)$ to find $A^{-1}$ using $\adj(A) \tand \det(A)$.
+  \begin{align*}
+     & \det(A) = \begin{determinant}{3}
+                   2  & 1 & 1 \\
+                   -1 & 0 & 2 \\
+                   3  & 1 & 3
+                 \end{determinant} \overset{R_1 + R_2}{===}
+    \begin{determinant}{3}
+      1  & 1 & 3 \\
+      -1 & 0 & 2 \\
+      3  & 1 & 3
+    \end{determinant} \overunderset{R_3 - 3R_1}{R_2 + R_1}{===}
+    \begin{determinant}{3}
+      1  & 1 & 3 \\
+      0 & 1 & 5 \\
+      0  & -2 & -6
+    \end{determinant} =                                   \\
+     & (1)(1)(1 \cdot -6 - (-2) \cdot 5) = (-6 + 10) = 4
+  \end{align*}
+  Therefore, $A^{-1} = \frac{1}{4}\adj(A)$:
+  \[
+    A^{-1} = \frac{1}{4}\adj(A) = \frac{1}{4}\begin{pmatrix}
+      -2 & -2 & 2  \\
+      9  & 3  & -5 \\
+      -1 & 1  & 1
+    \end{pmatrix} = \begin{pmatrix}
+      -\frac{1}{2} & -\frac{1}{2} & \frac{1}{2}  \\
+      \frac{9}{4}  & \frac{3}{4}  & -\frac{5}{4} \\
+      -\frac{1}{4} & \frac{1}{4}  & \frac{1}{4}
+    \end{pmatrix}
+  \]
+\end{proof}
+\qdash
+
+\question{Problem 6}{Determine ALL values $a \tand b$ such that
+  \[
+    \left\{ \begin{pmatrix}
+      a & b \\
+      b & b
+    \end{pmatrix}, \quad \begin{pmatrix}
+      b & a \\
+      b & b
+    \end{pmatrix}, \quad \begin{pmatrix}
+      b & b \\
+      a & b
+    \end{pmatrix}, \quad \begin{pmatrix}
+      b & b \\
+      b & a
+    \end{pmatrix}\right\}
+  \]
+  is linearly independent.}
+\begin{proof}[Work]
+  Let $k_1,k_2,k_3,k_4 \in \bb{R}$ such that
+  \[
+    k_1\begin{pmatrix}
+      a & b \\
+      b & b
+    \end{pmatrix} + k_2 \begin{pmatrix}
+      b & a \\
+      b & b
+    \end{pmatrix} + k_3 \begin{pmatrix}
+      b & b \\
+      a & b
+    \end{pmatrix} + k_4\begin{pmatrix}
+      b & b \\
+      b & a
+    \end{pmatrix} = \begin{pmatrix}
+      0 & 0 \\
+      0 & 0
+    \end{pmatrix}.
+  \]
+  From this, we can get a linear system of equations, and a matrix equation.
+  \begin{align*}
+    ak_1 + bk_2 + bk_3 + bk_4 & = 0 \\
+    bk_1 + ak_2 + bk_3 + bk_4 & = 0 \\
+    bk_1 + bk_2 + ak_3 + bk_4 & = 0 \\
+    bk_1 + bk_2 + bk_3 + ak_4 & = 0
+  \end{align*}
+  \begin{align*}
+    \begin{pmatrix}
+      a & b & b & b \\
+      b & a & b & b \\
+      b & b & a & b \\
+      b & b & b & a
+    \end{pmatrix}
+    \begin{pmatrix}
+      k_1 \\ k_2 \\ k_3 \\ k_4
+    \end{pmatrix} =
+    \begin{pmatrix}
+      0 \\ 0 \\ 0 \\ 0
+    \end{pmatrix}
+  \end{align*}
+  Consider the determinant of the square matrix.
+  \begin{align*}
+     & \begin{determinant}{4}
+         a & b & b & b \\
+         b & a & b & b \\
+         b & b & a & b \\
+         b & b & b & a
+       \end{determinant} \overunderset{R_1 + R_2 + R_3}{R_1 + R_4}{=====}
+    \begin{determinant}{4}
+      a+3b & a+3b & a+3b & a+3b \\
+      b & a & b & b \\
+      b & b & a & b \\
+      b & b & b & a
+    \end{determinant} =
+    (a+3b) \begin{determinant}{4}
+             1 & 1 & 1 & 1 \\
+             b & a & b & b \\
+             b & b & a & b \\
+             b & b & b & a
+           \end{determinant} \overunderset{R_2 - aR_1, R_4 - R_1}{R_3 - aR_1}{=====}      \\
+     & (a+3b) \begin{determinant}{4}
+                1 & 1 & 1 & 1 \\
+                b-a & 0 & b-a & b-a \\
+                b-a & b-a & 0 & b-a \\
+                b-a & b-a & b-a & 0
+              \end{determinant} =
+    (a+3b)(b-a)^3 \begin{determinant}{4}
+                    1 & 1 & 1 & 1 \\
+                    1 & 0 & 1 & 1 \\
+                    1 & 1 & 0 & 1 \\
+                    1 & 1 & 1 & 0
+                  \end{determinant} \overunderset{R_2 - R_1, R_4 - R_1}{R_3 - R_1}{=====} \\
+     & (a+3b)(b-a)^3 \begin{determinant}{4}
+                       1 & 1 & 1 & 1 \\
+                       0 & -1 & 0 & 0 \\
+                       0 & 0 & -1 & 0 \\
+                       0 & 0 & 0 & -1
+                     \end{determinant} =
+    (a+3b)(b-a)^3(1)(-1)(-1)(-1) = -(a+3b)(b-a)^3
+  \end{align*}
+  In order to ensure that $-(a+3b)(b-a)^3 \neq 0$, $a+3b \neq 0$ and $b-a \neq 0$. These conditions will ensure that the determinant of this matrix will not be zero. By Theorem 4 of Lecture Notes 32, as long as the determinant of a square matrix is not zero, the inverse of the matrix exists. Then, by the Big Theorem, if the coefficient matrix is invertible, then $A\vec{x} = \vec{0}$ has only the trivial solution. This means that there does not exist $k_1, k_2, k_3, k_3 \in \bb{R}$ such that
+  \[
+    k_1\begin{pmatrix}
+      a & b \\
+      b & b
+    \end{pmatrix} + k_2 \begin{pmatrix}
+      b & a \\
+      b & b
+    \end{pmatrix} + k_3 \begin{pmatrix}
+      b & b \\
+      a & b
+    \end{pmatrix} + k_4\begin{pmatrix}
+      b & b \\
+      b & a
+    \end{pmatrix} = \begin{pmatrix}
+      0 & 0 \\
+      0 & 0
+    \end{pmatrix}.
+  \]
+  This means that
+  \[
+    \left\{ \begin{pmatrix}
+      a & b \\
+      b & b
+    \end{pmatrix}, \quad \begin{pmatrix}
+      b & a \\
+      b & b
+    \end{pmatrix}, \quad \begin{pmatrix}
+      b & b \\
+      a & b
+    \end{pmatrix}, \quad \begin{pmatrix}
+      b & b \\
+      b & a
+    \end{pmatrix}\right\}
+  \]
+  are linearly independent when $a+3b \neq 0$ and $b-a \neq 0$.
+\end{proof}
+\qdash
+
+\question{Problem 7}{Prove or disprove the following statement:
+  \[
+    \det(A^TA) \geq 0~\text{for all}~n \times n~\text{matrices}~A.
+  \]}
+\begin{proof}
+  We can use Theorem 1 and Theorem 6 from Lecture notes 32 to help proof the statement.
+  \begin{align*}
+     & \text{Thm 1.}~~ \det A = \det A^T       \\
+     & \text{Thm 6.}~~ \det AB = \det A \det B
+  \end{align*}
+  Case 1: $\det A \geq 0$. Through Theorem 1, this implies that $\det A^T \geq 0$, since $\det A = \det A^T$.
+  \begin{align*}
+    \det A                & \geq 0                            \\
+    \det A^T \cdot \det A & \geq 0 \cdot 0 &  & \text{Thm 1.} \\
+    \det (A^TA)           & \geq 0         &  & \text{Thm 6.}
+  \end{align*}
+  Case 2: $\det A < 0$. Through Theorem 1, this implies that $\det A^T < 0$, since $\det A = \det A^T$.
+  \begin{align*}
+    \det A                & < 0                                                                                             \\
+    \det A^T \cdot \det A & > 0 \cdot 0 &  & \text{Thm 1.} &  & \text{(inequality switches because of mult. by a negative)} \\
+    \det (A^TA)           & > 0         &  & \text{Thm 6.}                                                                  \\
+    \det (A^TA)           & \geq 0      &  &               &  & \text{($>$ also implies $\geq$)}
+  \end{align*}
+  Since $\det A$ must either be greater than or equal to zero, or less than zero, and the statement is true for both possibilities, this means that
+  \[
+    \det(A^TA) \geq 0~\text{for all}~n \times n~\text{matrices}~A.
+  \]
+\end{proof}
+\qdash
+
+\question{Problem 8}{Let $V = \mathcal{M}_{nn}$, the vector space containing all $n \times n$ matrices. Prove or disprove:
+  \[
+    W = \{A \in V : \det(A) = 0\}~\text{forms a subspace of}~V.
+  \]}
+\begin{proof}
+  To prove whether or not $W = \{A \in V : \det(A) = 0\}$ is a subspace of $V = \mathcal{M}_{nn}$, both Axioms 1 and Axioms 6 must hold.
+
+  \begin{proof}
+    Axiom 1: Closed under vector addition \\
+    Consider $A_{n \times n} = \begin{pmatrix}
+        1      & 0      & 0      & \cdots & 0      \\
+        0      & 0      & 0      & \cdots & 0      \\
+        0      & 0      & 0      & \cdots & 0      \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & 0      & \cdots & 0
+      \end{pmatrix} \tand B_{n \times n} = \begin{pmatrix}
+        0      & 0      & 0      & \cdots & 0      \\
+        0      & 1      & 0      & \cdots & 0      \\
+        0      & 0      & 1      & \cdots & 0      \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & 0      & \cdots & 1
+      \end{pmatrix}$. Since $A \tand B$ are diagonal matrices, through Theorem 1 of Lecture Notes 31,
+    \begin{align*}
+      \det A & = 1 \cdot 0 \cdot 0 \cdots 0 = 0, \tand \\
+      \det B & = 0 \cdot 1 \cdot 1 \cdots 1 = 0.
+    \end{align*}
+    This means that both $A \tand B \in W$. Now consider $C = A + B$:
+    \[
+      C_{n \times n} = \begin{pmatrix}
+        1      & 0      & 0      & \cdots & 0      \\
+        0      & 0      & 0      & \cdots & 0      \\
+        0      & 0      & 0      & \cdots & 0      \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & 0      & \cdots & 0
+      \end{pmatrix} + \begin{pmatrix}
+        0      & 0      & 0      & \cdots & 0      \\
+        0      & 1      & 0      & \cdots & 0      \\
+        0      & 0      & 1      & \cdots & 0      \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & 0      & \cdots & 1
+      \end{pmatrix} = \begin{pmatrix}
+        1      & 0      & 0      & \cdots & 0      \\
+        0      & 1      & 0      & \cdots & 0      \\
+        0      & 0      & 1      & \cdots & 0      \\
+        \vdots & \vdots & \vdots & \ddots & \vdots \\
+        0      & 0      & 0      & \cdots & 1
+      \end{pmatrix}.
+    \]
+    $C$ is also a diagonal matrix. Therefore, through Theorem 1 of Lecture Notes 31,
+    \[
+      \det(A + B) = \det(C) = 1 \cdot 1 \cdot 1 \cdots 1 = 1 \neq 0
+    \]
+    $W$ is not closed under addition, meaning that Axiom 1 does not hold.
+  \end{proof}
+  Since Axiom 1 does not hold for $W$, it cannot possibly be a subspace of $V = \mathcal{M}_{nn}$.
+\end{proof}
+\qdash
+
+\end{document}
