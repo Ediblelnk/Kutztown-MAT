@@ -24,6 +24,7 @@
 %linear algebra
 \DeclareMathOperator{\id}{\bld{id}}
 \DeclareMathOperator{\vecspan}{\text{span}}
+\DeclareMathOperator{\adj}{\text{adj}}
 
 %discrete math - integer properties
 \DeclareMathOperator{\tdiv}{\text{div}}
@@ -40,6 +41,14 @@
   \left[\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
       }{
     \end{array}\right]
+}
+
+\newenvironment{determinant}[1]{
+  \left\lvert
+  \begin{array}{@{~}*{#1}{c}}
+    }{
+  \end{array}
+  \right\rvert
 }
 
 %lists
