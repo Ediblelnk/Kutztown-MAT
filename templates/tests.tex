@@ -1,3 +1,4 @@
+\documentclass{article}
 \input{../templates/packages-article.tex}
 \input{../templates/macros.tex}
 
@@ -61,6 +62,50 @@
       to[bend left=65] (\j);
     }
   \node[anchor=east] (name) at (145:\gsize+.5) {R}; %relation name
+\end{tikzpicture}
+
+%use for undirected graphs for center
+\begin{tikzpicture}
+  %VARIABLES
+  \pgfmathsetmacro{\gsize}{1};
+  \pgfmathsetmacro{\gnum}{4};
+
+  \foreach[count=\i] \element in {a,b,c,d} { %domain
+      \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+      \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+    }
+  \foreach \j/\l in {b/c, c/d} { %a to b
+      \draw (\j) -- (\l);
+    }
+  \foreach \j in {a,b,d} { %a to a
+      \draw (\j) to[bend left=65] (\j-)
+      to[bend left=65] (\j);
+    }
+  \node[anchor=east] (name) at (145:\gsize+.5) {Graph}; %relation name
+\end{tikzpicture}
+
+%use for digraphs for center WITH PARALLEL EDGES
+\begin{tikzpicture}
+  %VARIABLES
+  \pgfmathsetmacro{\gsize}{1};
+  \pgfmathsetmacro{\gnum}{4};
+
+  \foreach[count=\i] \element in {a,b,c,d} { %domain
+      \node (\element) at (\i * 360 / \gnum:\gsize) {$\element$};
+      \node (\element-) at (\i * 360 / \gnum:\gsize + 0.5) {};
+    }
+  \foreach \j/\l in {a/c,b/d,c/d} { %a to b
+      \draw (\j) -- (\l);
+    }
+  \foreach \j/\l in {a/b} { %a to b TWICE (parallel edges)
+      \draw (\j) to[bend left=20 / \gsize + 10] (\l);
+      \draw (\l) to[bend left=20 / \gsize + 10] (\j);
+    }
+  \foreach \j in {c} { %a to a
+      \draw (\j) to[bend left=65] (\j-)
+      to[bend left=65] (\j);
+    }
+  \node[anchor=east] (name) at (145:\gsize+.5) {A graph with parallel edges and a self-loop}; %relation name
 \end{tikzpicture}
 
 
