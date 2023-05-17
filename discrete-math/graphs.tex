@@ -262,12 +262,99 @@ Let $G$ be an undirected graph. Denote the minimum degree of any vertex in $G$ b
 \end{align*}
 
 \subsection{Euler circuits and trails}
+An \bld{Euler circuit} is a circuit that contains every edge and every vertex. Note that a circuit, by definition, has no repeated edges, so an Euler circuit contains each edge exactly once.
+\begin{center}
+  \includegraphics[width=0.25\linewidth]{resources/euler circuit example.png}
+  Euler circuit: $\langle a,b,c,d,e,b,d,a \rangle$
+\end{center}
 
+\subsubsection*{Theorem: Characterization of Graphs that have an Euler Circuit}
+An undirected graph $G$ has an Euler circuit if and only if $G$ is connected and every vertex in $G$ has even degree.
+\[
+  G~\text{has an Euler circuit}~\leftrightarrow G~\text{is connected and every vertex in $G$ has even degree}.
+\]
+
+\subsubsection*{Procedure to find a circuit in a Graph}
+\begin{lstlisting}
+Find a vertex w, that is not an isolated vertex.
+Select any edge {w,x} incident to w.
+(Since w is not isolated, there is always at least one such edge.)
+Current trail T := <w,x>
+last := x
+While there is an edge {last, y} that has not been used in T:
+  Add y to the end of T
+  last := y
+\end{lstlisting}
+
+\subsubsection*{Procedure to find an Euler circuit in a Graph}
+Use the procedure above to find any circuit in $G$. Call the circuit $C$. The algorithm continues to iterate the following steps until all the edges in $G$ are included in $C$:
+\begin{enumerate}
+  \item Remove all edges in $C$ from $G$. Remove any isolated vertices from $G$. Call the resulting graph $G'$.
+  \item Find a vertex $w$ that is in $G' \tand C$.
+  \item Find a circuit in $G'$ that begins and ends with $w$. Call the circuit $C'$.
+  \item Combine circuit $C \tand C'$. Suppose $C$ starts and ends at vertex $v$. Create a new circuit that starts at $v$ and follows the edges in $C$ until $w$ is reached. The new circuit then follows the edges in $C'$ back to $w$ and then follows the rest of the edges in $C$ back to $v$. The new circuit is renamed $C$ for the next iteration.
+\end{enumerate}
+
+
+\subsubsection*{Euler trail}
+An \bld{Euler trail} is an open trail that includes each edge. Note that a trail, by definition, has no repeated edges, so an Euler trail contains each edge exactly once. In an open trail, the first and last vertices are not equal.
+
+\subsubsection*{Theorem: Characterizations of graphs that have an Euler trail}
+An undirected graph $G$ has an Euler trail if and only if $G$ is connected and has exactly two vertices with odd degree. The Euler trail begins and ends with the vertices of odd degree.
+\[
+  G~\text{has an Euler trail}~\leftrightarrow G~\text{is connected and has exactly two vertices with odd degree}.
+\]
 
 \subsection{Hamiltonian cycles and paths}
+A \bld{Hamiltonian cycle} in an undirected graph is a cycle that includes every vertex in the graph. Note that a cycle, by definition, has no repeated vertices or edges, except for the vertex which is at the beginning and end of the cycle. Therefore, every vertex in the graph appears exactly once in a Hamiltonian cycle, except for the vertex which is at the beginning and end of the cycle. A \bld{Hamiltonian path} in an undirected graph is a path that includes every vertex in the graph. Note that a path, by definition, has no repeated vertices or edges, so every vertex appears exactly once in a Hamiltonian path.
 
+Note that a Hamiltonian cycle can be transformed into a Hamiltonian path by deleting the last vertex. Therefore if a graph has a Hamiltonian cycle, then the graph also has a Hamiltonian path.
 
-\subsection{Planar coloring}
+Unlike Euler circuits and trails, there are no known conditions describing exactly which graphs have a Hamiltonian cycle or path. However, there are some cases in which a graph that does have a Hamiltonian cycle or path has a certain property.
+\begin{itemize}
+  \item Any graph that has a vertex with degree 1 does not have a Hamiltonian cycle.
+  \item For $n \geq 3$, $K_n$ has a Hamiltonian cycle.
+\end{itemize}
 
+\subsection{Planar graphs}
+Placing graphs on two-dimensional surfaces to avoid crossings is a classic problem in graph theory. The problem also arises in the field of graph drawing in which the goal is to draw complex graphs in a way that helps people visualize structure and patterns.
+
+An \bld{embedding} for $G = (V,E)$ is an assignment of the vertices to points in the plane and an assignment of each edge to a continuous curve. The curve for each edge must start and edge at the two points corresponding to the endpoints of the edge. Essentially, an \itl{embedding is a way of drawing a graph} on a plane, because mathematically, a graph is just a set of vertices and a set of edges.
+
+An embedding is said to be a \bld{planar embedding} if none of the edges cross. There is a crossing between two edges in an embedding if their curves intersect at a point that is not a common endpoint. An embedding of a graph can be planar or not planar, depending on whether it has a crossing. Planarity can also be defined as a property of the graph itself.
+
+\subsubsection*{Definition of Planar Graphs}
+A graph $G$ is a \bld{planar graph} if the graph has a planar embedding.
+
+\begin{center}
+  \includegraphics[width=0.4\linewidth]{resources/two embeddings.png}
+\end{center}
+\begin{itemize}
+  \item The embedding on the left \itl{is planar}.
+  \item The embedding on the right \itl{is \bld{not} planar}.
+\end{itemize}
+
+The \bld{complement of an embedding} is the set of all points in the plane that are not part of a curve corresponding to an edge. A planar embedding carves up the plane into continuous regions. A \bld{region} is a set of points in the complement of an embedding that forms a maximal continuous set, meaning that it is (continuous): possible to travel anywhere from any point in the region and (maximal): if any point were added to the region, it would no longer be continuous. In a planar embedding, there is always an infinite region called the \bld{exterior region}, which is region $V$ in the following graph.
+\begin{center}
+  \includegraphics[width=0.4\linewidth]{resources/regions of a planar embedding.png}
+\end{center}
+
+\subsubsection*{Theorem: Euler's Identity for Regions in an Embedding}
+Consider a planar embedding of a connected graph $G$. Let $v$ be the number of vertices in $G$, $e$ the number of edges, and $r$ the number of regions in the embedding. Then,
+\[
+  v - e + r = 2
+\]
+
+\subsubsection*{Degree of a Region}
+\begin{center}
+  \includegraphics[width=0.7\linewidth]{resources/degree of a region.png}
+\end{center}
+Consider a planar embedding of a graph G. Think of a tiny bug walking all the way around the region along the edges of the graph. The degree of a region is the number of times the bug traverses an edge until it gets back to its starting location. Note that if an edge sticks out into a region, the edge can be traversed twice by the bug and therefore contributes 2 towards the degree of the region.
+
+\subsubsection*{Theorem: Number of Edges in a Planar Graph}
+Let G be a connected planar graph. Let $v$ be the number of vertices in G and $e$ the number of edges. If $v \geq 3$, then
+\[
+  e \leq 3v-6
+\]
 
 \subsection{Graph coloring}
