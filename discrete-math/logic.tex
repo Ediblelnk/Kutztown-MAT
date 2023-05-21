@@ -57,28 +57,28 @@ XOR is very useful for encryption and binary arithmetic.
 \subsection{Conditional Statements}
 
 \begin{center}
-  $p \implies q$ \ where $p$ is the \underline{hypothesis} and $q$ is the \underline{conclusion}
+  $p \rightarrow q$ \ where $p$ is the \underline{hypothesis} and $q$ is the \underline{conclusion}
 \end{center}
 
 \begin{center}
   \begin{tabular}{c|c}
     Format                     & Terminology    \\
     \hline
-    $p \implies q$             & given          \\
-    $\lnot q \implies \lnot p$ & contrapositive \\
-    $q \implies p$             & converse       \\
-    $\lnot p \implies \lnot q$ & inverse        \\
+    $p \rightarrow q$             & given          \\
+    $\lnot q \rightarrow \lnot p$ & contrapositive \\
+    $q \rightarrow p$             & converse       \\
+    $\lnot p \rightarrow \lnot q$ & inverse        \\
   \end{tabular}
   \qquad
   \begin{tabular}{ccccc}
-    given   & $p \implies q$             & $\equiv$ & $\lnot q \implies \lnot p$ & contrapositive \\
-    inverse & $\lnot p \implies \lnot q$ & $\equiv$ & $q \implies p$             & converse
+    given   & $p \rightarrow q$             & $\equiv$ & $\lnot q \rightarrow \lnot p$ & contrapositive \\
+    inverse & $\lnot p \rightarrow \lnot q$ & $\equiv$ & $q \rightarrow p$             & converse
   \end{tabular}
 \end{center}
 
 \begin{center}
   \begin{tabular}{c|c|c}
-    $p$ & $q$ & $p \implies q$ \\
+    $p$ & $q$ & $p \rightarrow q$ \\
     \hline
     T   & T   & T              \\
     T   & F   & F              \\
@@ -94,14 +94,14 @@ XOR is very useful for encryption and binary arithmetic.
   \begin{tabular}{c|c}
     Phrase                 & Logic          \\
     \hline
-    $q$ if $p$             & $p \implies q$ \\
-    $q$ only if $p$        & $q \implies p$ \\
+    $q$ if $p$             & $p \rightarrow q$ \\
+    $q$ only if $p$        & $q \rightarrow p$ \\
     $q$ if and only if $p$ & $p \iff q$
   \end{tabular}
 \end{center}
 
 \begin{center}
-  \textbf{Order of Operations}: $p \land q \implies r \equiv (p \land q) \implies r$
+  \textbf{Order of Operations}: $p \land q \rightarrow r \equiv (p \land q) \rightarrow r$
 \end{center}
 
 \subsection{Logical Equivalence}
@@ -152,7 +152,7 @@ XOR is very useful for encryption and binary arithmetic.
     Complement        & $p \lor \lnot p \equiv$ T                               & $p \land \lnot p \equiv$ F                               \\
     DeMorgan          & $\lnot (p \lor q) \equiv \lnot p \land \lnot q$         & $\lnot (p \land q) \equiv \lnot p \lor \lnot q$          \\
     Absorption        & $p \lor (p \land q) \equiv p$                           & $p \land (p \lor q) \equiv p$                            \\
-    Conditional       & $p \implies q \equiv \lnot p \lor q$                    & $p \iff q \equiv (p \implies q) \land (q \implies p)$
+    Conditional       & $p \rightarrow q \equiv \lnot p \lor q$                    & $p \iff q \equiv (p \rightarrow q) \land (q \rightarrow p)$
   \end{tabular}
 \end{center}
 
@@ -239,7 +239,7 @@ According to the DeMorgan Identity for Quantified Statements,
 
 Example using DeMorgan Identities:
 \begin{align*}
-  \lnot \exists~ x (\text{P}(x) \implies \lnot \text{Q}(x)) & \equiv \forall~ x \lnot (\text{P}(x) \implies \lnot \text{Q}(x))          \\
+  \lnot \exists~ x (\text{P}(x) \rightarrow \lnot \text{Q}(x)) & \equiv \forall~ x \lnot (\text{P}(x) \rightarrow \lnot \text{Q}(x))          \\
                                                            & \equiv \forall~ x (\lnot \lnot \text{P}(x) \land \lnot \lnot \text{Q}(x)) \\
                                                            & \equiv \forall~ x (\text{P}(x) \land \text{Q}(x))
 \end{align*}
@@ -293,9 +293,9 @@ After applying DeMorgan's Laws,
 
 M$(x, y):$ "x sent an email to y". Consider $\forall~ x \forall~ y$ M $(x, y)$.
 It means that "email sent an email to everyone including themselves".
-Using $( x \not = y \implies \text{ M}(x, y))$ can fix this quirk.
+Using $( x \not = y \rightarrow \text{ M}(x, y))$ can fix this quirk.
 \begin{align*}
-  \forall~ x \forall~ y (x \not = y \implies \text{ M}(x, y))
+  \forall~ x \forall~ y (x \not = y \rightarrow \text{ M}(x, y))
   \text{ means "everyone sent an email to everyone else}
 \end{align*}
 
@@ -306,7 +306,7 @@ how could you express that that someone was the only person late to the meeting?
 You want to express that there is someone where everyone else was not late, which
 can be done with
 \begin{align*}
-  \exists~ x (\text{L}(x) \land \forall~ y (x \not = y \implies \lnot \text{L}(y)))
+  \exists~ x (\text{L}(x) \land \forall~ y (x \not = y \rightarrow \lnot \text{L}(y)))
 \end{align*}
 
 \subsubsection*{Moving Quantifiers in Logical Statements}
@@ -315,18 +315,18 @@ Consider M($x, y$): "$x$ is married to $y$" and A($x$): "$x$ is an adult".
 One way of expressing "For every person $x$, if $x$ is an adult, then
 there is a person $y$ to whom $x$ is married to" is by this statement:
 \begin{align*}
-  \forall~ x (\text{ A}(x) \implies \exists~ \text{ M}(x, y))
+  \forall~ x (\text{ A}(x) \rightarrow \exists~ \text{ M}(x, y))
 \end{align*}
 Since $y$ does not appear in A($x$), "$\exists~ y$" can be moved so that it appears
 just after the "$\forall~$", resulting with
 \begin{align*}
-  \forall~ x \exists~ y (\text{ A}(x) \implies \text{ M}(x, y))
+  \forall~ x \exists~ y (\text{ A}(x) \rightarrow \text{ M}(x, y))
 \end{align*}
 When doing this, keep in mind that $\forall~ x \exists~ y \centernot \equiv \exists~ y \forall~ x$:
 \begin{align*}
-  \forall~ x \exists~ y & (\text{ A}(x) \implies \text{ M}(x, y)) \text{ means}                                 \\
+  \forall~ x \exists~ y & (\text{ A}(x) \rightarrow \text{ M}(x, y)) \text{ means}                                 \\
                       & \text{for every $x$, if $x$ is an adult, there exists $y$ who is married to $x$.}     \\
-  \exists~ y \forall~ x & (\text{ A}(x) \implies \text{ M}(x, y)) \text{ means}                                 \\
+  \exists~ y \forall~ x & (\text{ A}(x) \rightarrow \text{ M}(x, y)) \text{ means}                                 \\
                       & \text{There exists a $y$, such that every $x$ who is an adult is also married to $y$} \\
 \end{align*}
 
@@ -355,12 +355,12 @@ are \underline{all} true, otherwise the argument is \textbf{invalid}.
   \end{tabular}
 \end{center}
 
-The argument is valid whenever the proposition $(p_1 \land p_1 \land \dots \land p_n) \implies c$ is a tautology.
+The argument is valid whenever the proposition $(p_1 \land p_1 \land \dots \land p_n) \rightarrow c$ is a tautology.
 Additionally, because of the commutative law, hypothesis can be reordered without changing the argument.
 \begin{center}
   \begin{tabular}{lcl}
-    $p$            & \multirow{3}{*}{$\equiv$} & $p \implies q$ \\
-    $p \implies q$ &                           & $p$            \\
+    $p$            & \multirow{3}{*}{$\equiv$} & $p \rightarrow q$ \\
+    $p \rightarrow q$ &                           & $p$            \\
     \hhline{-~-}
     $\therefore q$ &                           & $\therefore q$
   \end{tabular}
@@ -371,7 +371,7 @@ Additionally, because of the commutative law, hypothesis can be reordered withou
 \begin{center}
   \begin{tabular}{lcl}
     It is raining today.                                            &  & $p$            \\
-    If it is raining today, then I will not ride my bike to school. &  & $p \implies q$ \\
+    If it is raining today, then I will not ride my bike to school. &  & $p \rightarrow q$ \\
     \hhline{-~-}
     $\therefore$ I will not ride my bike to school.                 &  & $\therefore q$
   \end{tabular}
@@ -379,7 +379,7 @@ Additionally, because of the commutative law, hypothesis can be reordered withou
   The argument is \underline{valid} because its form,
   \begin{tabular}{l}
     $p$            \\
-    $p \implies q$ \\
+    $p \rightarrow q$ \\
     \hline
     $\therefore q$
   \end{tabular}
@@ -390,7 +390,7 @@ Additionally, because of the commutative law, hypothesis can be reordered withou
 \begin{center}
   \begin{tabular}{lcl}
     5 is not an even number.                          &  & $p$            \\
-    If 5 is an even number, then 7 is an even number. &  & $p \implies q$ \\
+    If 5 is an even number, then 7 is an even number. &  & $p \rightarrow q$ \\
     \hhline{-~-}
     $\therefore$ 7 is not an even number.             &  & $\therefore q$
   \end{tabular}
@@ -398,7 +398,7 @@ Additionally, because of the commutative law, hypothesis can be reordered withou
   The argument is \underline{invalid} because its form,
   \begin{tabular}{l}
     $\lnot p$      \\
-    $p \implies q$ \\
+    $p \rightarrow q$ \\
     \hline
     $\therefore \lnot q$
   \end{tabular}
@@ -412,22 +412,22 @@ Using truth tables to establish the validity of an argument can become tedious, 
 \begin{center}
   \begin{tabular}{llrll}
     $p$                   & \multirow{3}{*}{Modus Ponens}   & \quad & $p$                       & \multirow{3}{*}{Conjunction}            \\
-    $p \implies q$        &                                 &       & $q$                       &                                         \\
+    $p \rightarrow q$        &                                 &       & $q$                       &                                         \\
     \hhline{-~~-~}
     $\therefore q$        &                                 &       & $\therefore p \land q$    &                                         \\
     \\
-    $\lnot q$             & \multirow{3}{*}{Modus Tollens}  &       & $p \implies q$            & \multirow{3}{*}{Hypothetical Syllogism} \\
-    $p \implies q$        &                                 &       & $q \implies r$            &                                         \\
+    $\lnot q$             & \multirow{3}{*}{Modus Tollens}  &       & $p \rightarrow q$            & \multirow{3}{*}{Hypothetical Syllogism} \\
+    $p \rightarrow q$        &                                 &       & $q \rightarrow r$            &                                         \\
     \hhline{-~~-~}
-    $\therefore \lnot p$  &                                 &       & $\therefore p \implies r$ &                                         \\
+    $\therefore \lnot p$  &                                 &       & $\therefore p \rightarrow r$ &                                         \\
     \\
                           & \multirow{3}{*}{Addition}       &       & $p \lor q$                & \multirow{3}{*}{Disjunctive Syllogism}  \\
     $p$                   &                                 &       & $\lnot p$                 &                                         \\
     \hhline{-~~-~}
     $\therefore p \lor q$ &                                 &       & $\therefore q$            &                                         \\
     \\
-                          & \multirow{3}{*}{Simplification} &       & $p \implies q$            & \multirow{3}{*}{Resolution}             \\
-    $p \land q$           &                                 &       & $q \implies r$            &                                         \\
+                          & \multirow{3}{*}{Simplification} &       & $p \rightarrow q$            & \multirow{3}{*}{Resolution}             \\
+    $p \land q$           &                                 &       & $q \rightarrow r$            &                                         \\
     \hhline{-~~-~}
     $\therefore p$        &                                 &       & $\therefore q \lor r$     &                                         \\
     \\
@@ -437,7 +437,7 @@ Using truth tables to establish the validity of an argument can become tedious, 
 Example expressed in English:
 \begin{center}
   \begin{tabular}{lrl}
-    If it is raining or windy or both, the game will be cancelled. &  & $(r \lor w) \implies c$ \\
+    If it is raining or windy or both, the game will be cancelled. &  & $(r \lor w) \rightarrow c$ \\
     The game will not be cancelled                                 &  & $\lnot c$               \\
     \hhline{-~-}
     $\therefore$ It is not windy.                                  &  & $\therefore \lnot w$
@@ -445,7 +445,7 @@ Example expressed in English:
 
   Steps to Solve:
   \begin{align}
-     & (r \lor w) \implies c &  & \qquad \text{Hypothesis}          \\
+     & (r \lor w) \rightarrow c &  & \qquad \text{Hypothesis}          \\
      & \lnot c               &  & \qquad \text{Hypothesis}          \\
      & \lnot (r \lor w)      &  & \qquad \text{Modus Tollens: 1, 2} \\
      & \lnot r \land \lnot w &  & \qquad \text{DeMorgan's Law: 3}   \\
@@ -462,7 +462,7 @@ we need to remove the quantifier by plugging in a value from the domain to repla
 For example:
 \begin{center}
   \begin{tabular}{lrl}
-    Every employee who received a large bonus works hard. &  & $\forall~ x (\text{B}(x) \implies \text{ H}(x))$ \\
+    Every employee who received a large bonus works hard. &  & $\forall~ x (\text{B}(x) \rightarrow \text{ H}(x))$ \\
     Linda is an employee at the company.                  &  & Linda $\in x$                                   \\
     Linda received a large bonus.                         &  & B(Linda)                                        \\
     \hhline{-~-}

@@ -123,7 +123,7 @@ Let $G = (V,E)$ be an undirected graph, simple or not. Then, twice the number of
 \subsubsection*{Common Graphs}
 Some graphs with special structure are given their own name and notation because they come up so frequently in graph theory.
 \begin{center}
-  \includegraphics[width=0.7\linewidth]{resources/common graphs.png}
+  \includegraphics[width=0.6\linewidth]{resources/common graphs.png}
 \end{center}
 For the definition of all of these graphs, $n \in \bb{Z}^+$.
 \begin{itemize}
@@ -184,7 +184,7 @@ Two graphs are said to be \bld{isomorphic} if there is a correspondence between 
 Let $G = (V,E) \tand G'=(V',E')$. $G \tand G'$ are isomorphic if there is a bijection $f: V \rightarrow V'$ such that for every pair of vertices $x,y \in V$, $\{x,y\} \in E$ if and only if $\{f(x), f(y)\} \in E'$. The function $f$ is called an \bld{isomorphism} from $G \tto G'$.
 
 \begin{center}
-  \includegraphics[width=0.5\linewidth]{resources/isomorphic graphs 1.png}
+  \includegraphics[width=0.4\linewidth]{resources/isomorphic graphs 1.png}
 \end{center}
 The following function is an isomorphism from the vertices of $G_1 \tto G_2$:
 \[
@@ -264,7 +264,7 @@ Let $G$ be an undirected graph. Denote the minimum degree of any vertex in $G$ b
 \subsection{Euler circuits and trails}
 An \bld{Euler circuit} is a circuit that contains every edge and every vertex. Note that a circuit, by definition, has no repeated edges, so an Euler circuit contains each edge exactly once.
 \begin{center}
-  \includegraphics[width=0.25\linewidth]{resources/euler circuit example.png}
+  \includegraphics[width=0.2\linewidth]{resources/euler circuit example.png}
   Euler circuit: $\langle a,b,c,d,e,b,d,a \rangle$
 \end{center}
 
@@ -347,7 +347,7 @@ Consider a planar embedding of a connected graph $G$. Let $v$ be the number of v
 
 \subsubsection*{Degree of a Region}
 \begin{center}
-  \includegraphics[width=0.7\linewidth]{resources/degree of a region.png}
+  \includegraphics[width=0.6\linewidth]{resources/degree of a region.png}
 \end{center}
 Consider a planar embedding of a graph G. Think of a tiny bug walking all the way around the region along the edges of the graph. The degree of a region is the number of times the bug traverses an edge until it gets back to its starting location. Note that if an edge sticks out into a region, the edge can be traversed twice by the bug and therefore contributes 2 towards the degree of the region.
 
@@ -358,3 +358,44 @@ Let G be a connected planar graph. Let $v$ be the number of vertices in G and $e
 \]
 
 \subsection{Graph coloring}
+Graph coloring is a classic problem in graph theory because it is useful in modeling resource constraints like scheduling.
+
+\subsubsection*{Definition of Graph Coloring}
+Let $G=(V,E)$ be an undirected graph and $C$ a finite set of colors. A \bld{valid coloring} of $G$ is a function $f: V \rightarrow C$ such that for every edge $\{x,y\} \in E, f(x) \neq f(y)$. If the size of the range of function $f$ is $k$, then $f$ is called a \bld{$k$-coloring} of $G$.
+
+\subsubsection*{}
+The coloring on the left is a valid coloring because no two adjacent vertices are assigned the same color. The coloring on the left is a 3-coloring because 3 colors are used. The coloring on the right is not a valid coloring because there is an edge whose endpoints are both colored pink.
+\begin{center}
+  \includegraphics[width=0.5\linewidth]{resources/graph colorings.png}
+\end{center}
+
+\subsubsection*{Definition of the Chromatic Number of a Graph}
+The \bld{chromatic number} of a graph $G$, denoted as $X(G)$ is the smallest $k$ such that there is a valid $k$-coloring of $G$. It is minimum number of colors that a graph requires to have a valid graph coloring.
+
+\subsubsection*{}
+In general, if $K_r$ is a subgraph of $G$, then there is a subset of $r$ vertices in $G$ such that every pair of vertices in the subset is connected by an edge. In any valid coloring of $G$, each of the $r$ vertices in the subset must be assigned a distinct color which implies that $X(G) \geq r$. The clique number of a graph G, denoted $\omega(G)$, is the largest $r$ such that $K_r$ is a subgraph of $G$.
+
+\subsubsection*{Theorem: Relationship between the Clique Number of Chromatic Number}
+If $G$ is an undirected graph, then
+\[
+  \omega(G) \leq X(g)
+\]
+
+\subsubsection*{Greedy coloring}
+In general, it is difficult to determine the chromatic number of a graph $G$. However, there is an easy and natural method to color the vertices of a graph called the \itl{greedy coloring algorithm}. The \bld{greedy coloring algorithm} often leads to a color that uses a small number of colors, but there is no guarantee that it uses the \itl{smallest} number of colors possible for a given graph.
+
+\subsubsection*{The Greedy Coloring Algorithm}
+\begin{enumerate}
+  \item Number the set of possible colors. Assume that there is a very large supply of different colors, even though they might not all be used.
+  \item Order to vertices in any arbitrary order.
+  \item Consider each vertex $v$ in order. Assign $v$ a color that is different from the color of $v$'s neighbors that have already been assigned that color. When selecting a color for $v$, use the lowest number color possible.
+\end{enumerate}
+The term "greedy" is used to describe a general paradigm for solving many different kinds of problems. Greedy algorithms typically solve a problem one piece at a time.
+
+The greedy algorithm provides a way to upper bound the chromatic number of a graph.
+
+\subsubsection*{Theorem: Upper bound for $X(G)$}
+Let $G$ be an undirected graph. Let $\Delta(G)$ be the maximum degree of any vertex in $G$. Then,
+\[
+  X(G) \leq \Delta(G)+1
+\]
