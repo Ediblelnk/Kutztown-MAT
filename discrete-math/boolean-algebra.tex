@@ -4,7 +4,7 @@
 \textbf{Boolean Algebra} is a set of rules/operations for working with variables whose values are either 0 or 1.
 It corresponds highly to propositional logic.
 
-\textbf{Boolean Multiplication}, denoted by $\cdot$.
+\textbf{Boolean Multiplication}, denoted by $\cdot$
 \begin{align*}
   \text{Boolean } & \cdot & \text{Logic }           & \land      \\
   0 \cdot 0       & = 0   & \text{F} \land \text{F} & = \text{F} \\
@@ -13,7 +13,7 @@ It corresponds highly to propositional logic.
   1 \cdot 1       & = 1   & \text{T} \land \text{T} & = \text{T}
 \end{align*}
 
-\textbf{Boolean Addition}, denoted by $+$.
+\textbf{Boolean Addition}, denoted by $+$
 \begin{align*}
   \text{Boolean } & \cdot & \text{Logic }          & \lor       \\
   0 + 0           & = 0   & \text{F} \lor \text{F} & = \text{F} \\
@@ -22,7 +22,7 @@ It corresponds highly to propositional logic.
   1 + 1           & = 1   & \text{T} \lor \text{T} & = \text{T} \\
 \end{align*}
 
-\textbf{Boolean Complement}, denoted by $\bar{ }$.
+\textbf{Boolean Complement}, denoted by $\bar{ }$
 \begin{align*}
   \text{Boolean } & \bar{ } & \text{Logic }  & \lnot      \\
   \bar{0}         & = 1     & \lnot \text{F} & = \text{T} \\
@@ -131,7 +131,7 @@ For example, $\bar{x}y\bar{z} + xy + w + y\bar{z}w$. The complement only applies
 A boolean expression that is the product of sums of literals is said to be in \textit{conjunctive normal form},
 \textbf{CNF}. It has the following form:
 \[
-  d_1 + d_2 + \cdots + d_m, \text{ where $d_j$ for $j \in \{1,\ldots,m\}$ is a sum of literals.} \\
+  d_1 \cdot d_2 \cdots d_m, \text{ where $d_j$ for $j \in \{1,\ldots,m\}$ is a sum of literals.} \\
 \]
 Each $d_j$ is called a clause, and complements are only applied to a single variable.
 Additionally, there is no multiplication within variables.
