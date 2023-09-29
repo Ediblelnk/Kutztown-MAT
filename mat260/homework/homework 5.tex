@@ -1,5 +1,6 @@
-\input{../templates/packages-article.tex}
-\input{../templates/macros.tex}
+\documentclass{article}
+\input{../../.latex/packages-article.tex}
+\input{../../.latex/macros.tex}
 
 \lhead{Linear Algebra}
 \chead{Homework 5}
@@ -14,592 +15,592 @@
 \subsection*{7}
 \itl{Which of the following are linear combinations of $\vec{u} = (0,-2,2) \tand \vec{v} = (1,3,-1)$?}
 \begin{enumerate}
-  \biitem{a}{$(2,2,2)$}
-  \begin{proof}
-    Let $k_1,k_2 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} = (2,2,2)$. That is, $k_1(0,-2,2) + k_2(1,3,-1) = (2,2,2)$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      0k_1 + 1k_2  & = 2 \\
-      -2k_1 + 3k_2 & = 2 \\
-      2k_1 - 1k_2  & = 2
-    \end{align*}
-    \[
-      \begin{amatrix}{2}
-        0  & 1  & 2 \\
-        -2 & 3  & 2 \\
-        2  & -1 & 2
-      \end{amatrix} \xrightarrow{-\frac{1}{2}R_2}
-      \begin{pmatrix}
-        0 & 1            & 2  \\
-        1 & -\frac{3}{2} & -1 \\
-        2 & -1           & 2
-      \end{pmatrix} \xrightarrow{R_1 \leftrightarrow R_2}
-      \begin{pmatrix}
-        1 & -\frac{3}{2} & -1 \\
-        0 & 1            & 2  \\
-        2 & -1           & 2
-      \end{pmatrix} \xrightarrow[(-2, 3, 2)]{R_3 - 2R_1}
-      \begin{pmatrix}
-        1 & -\frac{3}{2} & -1 \\
-        0 & 1            & 2  \\
-        0 & 2            & 4
-      \end{pmatrix} \xrightarrow[(0,-2,-4)]{R_3 - 2R_2}
-    \]
-    \[
-      \begin{pmatrix}
-        1 & -\frac{3}{2} & -1 \\
-        0 & 1            & 2  \\
-        0 & 0            & 0
-      \end{pmatrix} \xrightarrow[(0,\frac{3}{2},3)]{R_1 + \frac{3}{2}R_2}
-      \begin{amatrix}{2}
-        1 & 0 & 2 \\
-        0 & 1 & 2 \\
-        0 & 0 & 0
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 + 0k_2 & = 2 & k_1 & = 2 \\
-      0k_1 + k_2 & = 2 & k_2 & = 2 \\
-      0 + 0      & = 0
-    \end{align*}
-    This means that $(2,2,2)$ is a linear combination of $\{\vec{u},\vec{v}\}$, when $k_1 = 2 \tand k_2 = 2$.
-  \end{proof}
-  \biitem{c}{$(0,4,5)$}
-  \begin{proof}
-    Let $k_1,k_2 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} = (0,4,5)$. That is, $k_1(0,-2,2) + k_2(1,3,-1) = (0,4,5)$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      0k_1 + 1k_2  & = 0 \\
-      -2k_1 + 3k_2 & = 4 \\
-      2k_1 - 1k_2  & = 5
-    \end{align*}
-    \[
-      \begin{amatrix}{2}
-        0 & 1 & 0 \\
-        -2 & 3 & 4 \\
-        2 & -1 & 5
-      \end{amatrix} \xrightarrow{-\frac{1}{2}R_2}
-      \begin{pmatrix}
-        0 & 1            & 0  \\
-        1 & -\frac{3}{2} & -2 \\
-        2 & -1           & 5
-      \end{pmatrix} \xrightarrow[(-2,3,4)]{R_3 - 2R_2}
-      \begin{pmatrix}
-        0 & 1            & 0  \\
-        1 & -\frac{3}{2} & -2 \\
-        0 & 2            & 9  \\
-      \end{pmatrix} \xrightarrow[(0,-2,0)]{R_3 - 2R_2}
-      \begin{amatrix}{2}
-        0 & 1 & 0 \\
-        1 & -\frac{3}{2} & -2 \\
-        0 & 0 & 9
-      \end{amatrix}
-    \]
-    The last row from this matrix provides the equation $0k_1 + 0k_2 = 9$, meaning $0 + 0 = 9$, which is impossible. Therefore, $(0,4,5)$ is not spanned by $\{\vec{u}, \vec{v}\}$.
-  \end{proof}
+    \biitem{a}{$(2,2,2)$}
+    \begin{proof}
+        Let $k_1,k_2 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} = (2,2,2)$. That is, $k_1(0,-2,2) + k_2(1,3,-1) = (2,2,2)$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            0k_1 + 1k_2  & = 2 \\
+            -2k_1 + 3k_2 & = 2 \\
+            2k_1 - 1k_2  & = 2
+        \end{align*}
+        \[
+            \begin{apmatrix}{2}{1}
+                0  & 1  & 2 \\
+                -2 & 3  & 2 \\
+                2  & -1 & 2
+            \end{apmatrix} \xrightarrow{-\frac{1}{2}R_2}
+            \begin{pmatrix}
+                0 & 1            & 2  \\
+                1 & -\frac{3}{2} & -1 \\
+                2 & -1           & 2
+            \end{pmatrix} \xrightarrow{R_1 \leftrightarrow R_2}
+            \begin{pmatrix}
+                1 & -\frac{3}{2} & -1 \\
+                0 & 1            & 2  \\
+                2 & -1           & 2
+            \end{pmatrix} \xrightarrow[(-2, 3, 2)]{R_3 - 2R_1}
+            \begin{pmatrix}
+                1 & -\frac{3}{2} & -1 \\
+                0 & 1            & 2  \\
+                0 & 2            & 4
+            \end{pmatrix} \xrightarrow[(0,-2,-4)]{R_3 - 2R_2}
+        \]
+        \[
+            \begin{pmatrix}
+                1 & -\frac{3}{2} & -1 \\
+                0 & 1            & 2  \\
+                0 & 0            & 0
+            \end{pmatrix} \xrightarrow[(0,\frac{3}{2},3)]{R_1 + \frac{3}{2}R_2}
+            \begin{apmatrix}{2}
+                1 & 0 & 2 \\
+                0 & 1 & 2 \\
+                0 & 0 & 0
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 + 0k_2 & = 2 & k_1 & = 2 \\
+            0k_1 + k_2 & = 2 & k_2 & = 2 \\
+            0 + 0      & = 0
+        \end{align*}
+        This means that $(2,2,2)$ is a linear combination of $\{\vec{u},\vec{v}\}$, when $k_1 = 2 \tand k_2 = 2$.
+    \end{proof}
+    \biitem{c}{$(0,4,5)$}
+    \begin{proof}
+        Let $k_1,k_2 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} = (0,4,5)$. That is, $k_1(0,-2,2) + k_2(1,3,-1) = (0,4,5)$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            0k_1 + 1k_2  & = 0 \\
+            -2k_1 + 3k_2 & = 4 \\
+            2k_1 - 1k_2  & = 5
+        \end{align*}
+        \[
+            \begin{apmatrix}{2}{1}
+                0 & 1 & 0 \\
+                -2 & 3 & 4 \\
+                2 & -1 & 5
+            \end{apmatrix} \xrightarrow{-\frac{1}{2}R_2}
+            \begin{pmatrix}
+                0 & 1            & 0  \\
+                1 & -\frac{3}{2} & -2 \\
+                2 & -1           & 5
+            \end{pmatrix} \xrightarrow[(-2,3,4)]{R_3 - 2R_2}
+            \begin{pmatrix}
+                0 & 1            & 0  \\
+                1 & -\frac{3}{2} & -2 \\
+                0 & 2            & 9  \\
+            \end{pmatrix} \xrightarrow[(0,-2,0)]{R_3 - 2R_2}
+            \begin{apmatrix}{2}{1}
+                0 & 1 & 0 \\
+                1 & -\frac{3}{2} & -2 \\
+                0 & 0 & 9
+            \end{apmatrix}
+        \]
+        The last row from this matrix provides the equation $0k_1 + 0k_2 = 9$, meaning $0 + 0 = 9$, which is impossible. Therefore, $(0,4,5)$ is not spanned by $\{\vec{u}, \vec{v}\}$.
+    \end{proof}
 \end{enumerate}
 
 \subsection*{8}
 \itl{Express the following combinations of $\vec{u} = (2,1,4), \vec{v} = (1,-1,3), \tand \vec{w} = (3,2,5)$}
 \begin{enumerate}
-  \biitem{a}{$(-9,-7,-15)$}
-  \begin{proof}
-    Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} + k_3\vec{w} = (-9,-7,-15)$. That is $k_1(2,1,4) + k_2(1,-1,3) + k_3(3,2,5) = (-9,-7,-15)$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      2k_1 + 1k_2 + 3k_3 & = -9  \\
-      1k_1 - 1k_2 + 2k_3 & = -7  \\
-      4k_1 + 3k_2 + 5k_3 & = -15
-    \end{align*}
-    \[
-      \begin{amatrix}{3}
-        2 & 1 & 3 & -9 \\
-        1 & -1 & 2 & -7 \\
-        4 & 3 & 5 & -15
-      \end{amatrix} \xrightarrow[(-4,-2,-6,18)]{R_3 - 2R_1}
-      \begin{pmatrix}
-        2 & 1  & 3  & -9 \\
-        1 & -1 & 2  & -7 \\
-        0 & 1  & -1 & 3
-      \end{pmatrix} \xrightarrow[(-2,2,-4,14)]{R_1 - 2R_2}
-      \begin{pmatrix}
-        0 & 3  & -1 & 5  \\
-        1 & -1 & 2  & -7 \\
-        0 & 1  & -1 & 3
-      \end{pmatrix} \xrightarrow{R_2 + R_3}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 3 & -1 & 5  \\
-        1 & 0 & 1  & -4 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow[(0,-3,3,-9)]{R_1 - 3R_3}
-      \begin{pmatrix}
-        0 & 0 & 2  & -4 \\
-        1 & 0 & 1  & -4 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
-      \begin{pmatrix}
-        0 & 0 & 1  & -2 \\
-        1 & 0 & 1  & -4 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow[(0,0,-1,2)]{R_2 - R_1}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 0 & 1  & -2 \\
-        1 & 0 & 0  & -2 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow[(0,0,1,-2)]{R_3 + R_1}
-      \begin{pmatrix}
-        0 & 0 & 1 & -2 \\
-        1 & 0 & 0 & -2 \\
-        0 & 1 & 0 & 1
-      \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
-      \begin{amatrix}{3}
-        1 & 0 & 0 & -2 \\
-        0 & 1 & 0 & 1 \\
-        0 & 0 & 1 & -2
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 & = -2 \\
-      k_2 & = 1  \\
-      k_3 & = -2
-    \end{align*}
-    This means that $(-9,-7,-15)$ is a linear combination of $\{\vec{u},\vec{v},\vec{w}\}$, when $k_1 = -2, k_2 = 1, \tand k_3 = -2$.
-  \end{proof}
-  \biitem{c}{$(0,0,0)$}
-  \begin{proof}
-    Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} + k_3\vec{w} = (0,0,0)$. That is $k_1(2,1,4) + k_2(1,-1,3) + k_3(3,2,5) = (0,0,0)$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      2k_1 + 1k_2 + 3k_3 & = 0 \\
-      1k_1 - 1k_2 + 2k_3 & = 0 \\
-      4k_1 + 3k_2 + 5k_3 & = 0
-    \end{align*}
-    \[
-      \begin{amatrix}{3}
-        2 & 1 & 3 & 0 \\
-        1 & -1 & 2 & 0 \\
-        4 & 3 & 5 & 0
-      \end{amatrix} \xrightarrow[(-4,-2,-6,0)]{R_3 - 2R_1}
-      \begin{pmatrix}
-        2 & 1  & 3  & 0 \\
-        1 & -1 & 2  & 0 \\
-        0 & 1  & -1 & 0
-      \end{pmatrix} \xrightarrow[(-2,2,-4,0)]{R_1 - 2R_2}
-      \begin{pmatrix}
-        0 & 3  & -1 & 0 \\
-        1 & -1 & 2  & 0 \\
-        0 & 1  & -1 & 0
-      \end{pmatrix} \xrightarrow{R_2 + R_3}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 3 & -1 & 0 \\
-        1 & 0 & 1  & 0 \\
-        0 & 1 & -1 & 0
-      \end{pmatrix} \xrightarrow[(0,-3,3,0)]{R_1 - 3R_3}
-      \begin{pmatrix}
-        0 & 0 & 2  & 0 \\
-        1 & 0 & 1  & 0 \\
-        0 & 1 & -1 & 0
-      \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
-      \begin{pmatrix}
-        0 & 0 & 1  & 0 \\
-        1 & 0 & 1  & 0 \\
-        0 & 1 & -1 & 0
-      \end{pmatrix} \xrightarrow[(0,0,-1,0)]{R_2 - R_1}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 0 & 1  & 0 \\
-        1 & 0 & 0  & 0 \\
-        0 & 1 & -1 & 0
-      \end{pmatrix} \xrightarrow[(0,0,1,0)]{R_3 + R_1}
-      \begin{pmatrix}
-        0 & 0 & 1 & 0 \\
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0
-      \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
-      \begin{amatrix}{3}
-        1 & 0 & 0 & 0 \\
-        0 & 1 & 0 & 0 \\
-        0 & 0 & 1 & 0
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 & = 0 \\
-      k_2 & = 0 \\
-      k_3 & = 0
-    \end{align*}
-    This means that $(0,0,0)$ is a linear combination of $\{\vec{u},\vec{v},\vec{w}\}$, when $k_1 = 0, k_2 = 0, \tand k_3 = 0$.
-  \end{proof}
+    \biitem{a}{$(-9,-7,-15)$}
+    \begin{proof}
+        Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} + k_3\vec{w} = (-9,-7,-15)$. That is $k_1(2,1,4) + k_2(1,-1,3) + k_3(3,2,5) = (-9,-7,-15)$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            2k_1 + 1k_2 + 3k_3 & = -9  \\
+            1k_1 - 1k_2 + 2k_3 & = -7  \\
+            4k_1 + 3k_2 + 5k_3 & = -15
+        \end{align*}
+        \[
+            \begin{apmatrix}{3}
+                2 & 1 & 3 & -9 \\
+                1 & -1 & 2 & -7 \\
+                4 & 3 & 5 & -15
+            \end{apmatrix} \xrightarrow[(-4,-2,-6,18)]{R_3 - 2R_1}
+            \begin{pmatrix}
+                2 & 1  & 3  & -9 \\
+                1 & -1 & 2  & -7 \\
+                0 & 1  & -1 & 3
+            \end{pmatrix} \xrightarrow[(-2,2,-4,14)]{R_1 - 2R_2}
+            \begin{pmatrix}
+                0 & 3  & -1 & 5  \\
+                1 & -1 & 2  & -7 \\
+                0 & 1  & -1 & 3
+            \end{pmatrix} \xrightarrow{R_2 + R_3}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 3 & -1 & 5  \\
+                1 & 0 & 1  & -4 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow[(0,-3,3,-9)]{R_1 - 3R_3}
+            \begin{pmatrix}
+                0 & 0 & 2  & -4 \\
+                1 & 0 & 1  & -4 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
+            \begin{pmatrix}
+                0 & 0 & 1  & -2 \\
+                1 & 0 & 1  & -4 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow[(0,0,-1,2)]{R_2 - R_1}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 0 & 1  & -2 \\
+                1 & 0 & 0  & -2 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow[(0,0,1,-2)]{R_3 + R_1}
+            \begin{pmatrix}
+                0 & 0 & 1 & -2 \\
+                1 & 0 & 0 & -2 \\
+                0 & 1 & 0 & 1
+            \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
+            \begin{apmatrix}{3}
+                1 & 0 & 0 & -2 \\
+                0 & 1 & 0 & 1 \\
+                0 & 0 & 1 & -2
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 & = -2 \\
+            k_2 & = 1  \\
+            k_3 & = -2
+        \end{align*}
+        This means that $(-9,-7,-15)$ is a linear combination of $\{\vec{u},\vec{v},\vec{w}\}$, when $k_1 = -2, k_2 = 1, \tand k_3 = -2$.
+    \end{proof}
+    \biitem{c}{$(0,0,0)$}
+    \begin{proof}
+        Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} + k_3\vec{w} = (0,0,0)$. That is $k_1(2,1,4) + k_2(1,-1,3) + k_3(3,2,5) = (0,0,0)$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            2k_1 + 1k_2 + 3k_3 & = 0 \\
+            1k_1 - 1k_2 + 2k_3 & = 0 \\
+            4k_1 + 3k_2 + 5k_3 & = 0
+        \end{align*}
+        \[
+            \begin{apmatrix}{3}
+                2 & 1 & 3 & 0 \\
+                1 & -1 & 2 & 0 \\
+                4 & 3 & 5 & 0
+            \end{apmatrix} \xrightarrow[(-4,-2,-6,0)]{R_3 - 2R_1}
+            \begin{pmatrix}
+                2 & 1  & 3  & 0 \\
+                1 & -1 & 2  & 0 \\
+                0 & 1  & -1 & 0
+            \end{pmatrix} \xrightarrow[(-2,2,-4,0)]{R_1 - 2R_2}
+            \begin{pmatrix}
+                0 & 3  & -1 & 0 \\
+                1 & -1 & 2  & 0 \\
+                0 & 1  & -1 & 0
+            \end{pmatrix} \xrightarrow{R_2 + R_3}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 3 & -1 & 0 \\
+                1 & 0 & 1  & 0 \\
+                0 & 1 & -1 & 0
+            \end{pmatrix} \xrightarrow[(0,-3,3,0)]{R_1 - 3R_3}
+            \begin{pmatrix}
+                0 & 0 & 2  & 0 \\
+                1 & 0 & 1  & 0 \\
+                0 & 1 & -1 & 0
+            \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
+            \begin{pmatrix}
+                0 & 0 & 1  & 0 \\
+                1 & 0 & 1  & 0 \\
+                0 & 1 & -1 & 0
+            \end{pmatrix} \xrightarrow[(0,0,-1,0)]{R_2 - R_1}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 0 & 1  & 0 \\
+                1 & 0 & 0  & 0 \\
+                0 & 1 & -1 & 0
+            \end{pmatrix} \xrightarrow[(0,0,1,0)]{R_3 + R_1}
+            \begin{pmatrix}
+                0 & 0 & 1 & 0 \\
+                1 & 0 & 0 & 0 \\
+                0 & 1 & 0 & 0
+            \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
+            \begin{apmatrix}{3}
+                1 & 0 & 0 & 0 \\
+                0 & 1 & 0 & 0 \\
+                0 & 0 & 1 & 0
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 & = 0 \\
+            k_2 & = 0 \\
+            k_3 & = 0
+        \end{align*}
+        This means that $(0,0,0)$ is a linear combination of $\{\vec{u},\vec{v},\vec{w}\}$, when $k_1 = 0, k_2 = 0, \tand k_3 = 0$.
+    \end{proof}
 \end{enumerate}
 
 \subsection*{9}
 \itl{Which of the following are linear combinations of
-  \[
-    A = \begin{bmatrix}
-      4  & 0  \\
-      -2 & -2
-    \end{bmatrix}, \quad
-    B = \begin{bmatrix}
-      1 & -1 \\
-      2 & 3
-    \end{bmatrix}, \quad
-    C = \begin{bmatrix}
-      0 & 2 \\
-      1 & 4
-    \end{bmatrix}?
-  \]
+    \[
+        A = \begin{bmatrix}
+            4  & 0  \\
+            -2 & -2
+        \end{bmatrix}, \quad
+        B = \begin{bmatrix}
+            1 & -1 \\
+            2 & 3
+        \end{bmatrix}, \quad
+        C = \begin{bmatrix}
+            0 & 2 \\
+            1 & 4
+        \end{bmatrix}?
+    \]
 }
 \begin{enumerate}
-  \biitem{a}{$\dstyle \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$}
-  \begin{proof}
-    Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1A + k_2B + k_3C = \dstyle \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$. \\ That is, $\dstyle k_1\begin{bmatrix}4  & 0  \\-2 & -2\end{bmatrix} + k_2\begin{bmatrix}1 & -1 \\2 & 3\end{bmatrix} + k_3\begin{bmatrix}0 & 2 \\1 & 4\end{bmatrix} = \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      4k_1 + 1k_2 + 0k_3  & = 6  \\
-      0k_1 - 1k_2 + 2k_3  & = -8 \\
-      -2k_1 + 2k_2 + 1k_3 & = -1 \\
-      -2k_1 + 3k_2 + 4k_3 & = -8
-    \end{align*}
-    \[
-      \begin{amatrix}{3}
-        4 & 1 & 0 & 6 \\
-        0 & - 1 & 2 & -8 \\
-        -2 & 2 & 1 & -1 \\
-        -2 & 3 & 4 & -8
-      \end{amatrix} \xrightarrow[(-4,4,2,-2)]{R_1 + 2R_3}
-      \begin{pmatrix}
-        0  & 5   & 2 & 4  \\
-        0  & - 1 & 2 & -8 \\
-        -2 & 2   & 1 & -1 \\
-        -2 & 3   & 4 & -8
-      \end{pmatrix} \xrightarrow[(2,-2,-1,1)]{R_4 - R_3}
-      \begin{pmatrix}
-        0  & 5   & 2 & 4  \\
-        0  & - 1 & 2 & -8 \\
-        -2 & 2   & 1 & -1 \\
-        0  & 1   & 3 & -7
-      \end{pmatrix} \xrightarrow{-\frac{1}{2}R_3}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 5   & 2            & 4           \\
-        0 & - 1 & 2            & -8          \\
-        1 & -1  & -\frac{1}{2} & \frac{1}{2} \\
-        0 & 1   & 3            & -7
-      \end{pmatrix} \xrightarrow[R_2 + R_4]{R_3 + R_4}
-      \begin{pmatrix}
-        0 & 5 & 2            & 4             \\
-        0 & 0 & 5            & -15           \\
-        1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
-        0 & 1 & 3            & -7
-      \end{pmatrix} \xrightarrow[(0,-5,-15,35)]{R_1 - 5R_4}
-      \begin{pmatrix}
-        0 & 0 & -13          & 39            \\
-        0 & 0 & 5            & -15           \\
-        1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
-        0 & 1 & 3            & -7
-      \end{pmatrix} \xrightarrow[\frac{1}{5}R_2]{R_1 + 2R_2}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 0 & -3           & 9             \\
-        0 & 0 & 1            & -3            \\
-        1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
-        0 & 1 & 3            & -7
-      \end{pmatrix} \xrightarrow[R_1 \leftrightarrow R_4]{R_1 + 3R_2}
-      \begin{pmatrix}
-        0 & 1 & 3            & -7            \\
-        0 & 0 & 1            & -3            \\
-        1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
-        0 & 0 & 0            & 0
-      \end{pmatrix} \xrightarrow[(0,0,-3,9)]{R_1 - 3R_2}
-      \begin{pmatrix}
-        0 & 1 & 0            & 2             \\
-        0 & 0 & 1            & -3            \\
-        1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
-        0 & 0 & 0            & 0
-      \end{pmatrix} \xrightarrow[(0,0,-2\frac{1}{2}, 7\frac{1}{2})]{R_3 - 2\frac{1}{2}R_2}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 1 & 0 & 2  \\
-        0 & 0 & 1 & -3 \\
-        1 & 0 & 0 & 1  \\
-        0 & 0 & 0 & 0
-      \end{pmatrix} \rightarrow
-      \begin{amatrix}{3}
-        1 & 0 & 0 & 1  \\
-        0 & 1 & 0 & 2  \\
-        0 & 0 & 1 & -3 \\
-        0 & 0 & 0 & 0
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 & = 1  \\
-      k_2 & = 2  \\
-      k_3 & = -3
-    \end{align*}
-    This means that $\dstyle \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$ is a linear combination of $\{A,B,C\}$, when $k_1 = 1, k_2 = 2, \tand k_3 = -3$.
-  \end{proof}
-  \biitem{c}{$\dstyle \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$}
-  \begin{proof}
-    Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1A + k_2B + k_3C = \dstyle \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$. \\ That is, $\dstyle k_1\begin{bmatrix}4  & 0  \\-2 & -2\end{bmatrix} + k_2\begin{bmatrix}1 & -1 \\2 & 3\end{bmatrix} + k_3\begin{bmatrix}0 & 2 \\1 & 4\end{bmatrix} = \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      4k_1 + 1k_2 + 0k_3  & = 6 \\
-      0k_1 - 1k_2 + 2k_3  & = 0 \\
-      -2k_1 + 2k_2 + 1k_3 & = 3 \\
-      -2k_1 + 3k_2 + 4k_3 & = 8
-    \end{align*}
-    \[
-      \begin{amatrix}{3}
-        4 & 1 & 0 & 6 \\
-        0 & - 1 & 2 & 0 \\
-        -2 & 2 & 1 & 3 \\
-        -2 & 3 & 4 & 8
-      \end{amatrix} \xrightarrow[(-4,4,2,6)]{R_1 + 2R_3}
-      \begin{pmatrix}
-        0  & 5   & 2 & 12 \\
-        0  & - 1 & 2 & 0  \\
-        -2 & 2   & 1 & 3  \\
-        -2 & 3   & 4 & 8
-      \end{pmatrix} \xrightarrow[(2,-2,-1,-3)]{R_4 - R_3}
-      \begin{pmatrix}
-        0  & 5   & 2 & 12 \\
-        0  & - 1 & 2 & 0  \\
-        -2 & 2   & 1 & 3  \\
-        0  & 1   & 3 & 5
-      \end{pmatrix} \xrightarrow{-\frac{1}{2}R_3}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 5   & 2            & 12            \\
-        0 & - 1 & 2            & 0             \\
-        1 & -1  & -\frac{1}{2} & -1\frac{1}{2} \\
-        0 & 1   & 3            & 5
-      \end{pmatrix} \xrightarrow[R_2 + R_4]{R_3 + R_4}
-      \begin{pmatrix}
-        0 & 5 & 2            & 12           \\
-        0 & 0 & 5            & 5            \\
-        1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
-        0 & 1 & 3            & 5
-      \end{pmatrix} \xrightarrow[(0,-5,-15,-25)]{R_1 - 5R_4}
-      \begin{pmatrix}
-        0 & 0 & -13          & -13          \\
-        0 & 0 & 5            & 5            \\
-        1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
-        0 & 1 & 3            & 5
-      \end{pmatrix} \xrightarrow[(0,0,10,10)]{R_1 + 2R_2}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 0 & -3           & -3           \\
-        0 & 0 & 5            & 5            \\
-        1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
-        0 & 1 & 3            & 5
-      \end{pmatrix} \xrightarrow[-\frac{1}{3}R_1]{R_4 + R_1}
-      \begin{pmatrix}
-        0 & 0 & 1            & 1            \\
-        0 & 0 & 5            & 5            \\
-        1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
-        0 & 1 & 0            & 2
-      \end{pmatrix} \xrightarrow[R_2 - 5R_1]{R_3 - 2\frac{1}{2}R_1}
-      \begin{pmatrix}
-        0 & 0 & 1 & 1 \\
-        0 & 0 & 0 & 0 \\
-        1 & 0 & 0 & 1 \\
-        0 & 1 & 0 & 2
-      \end{pmatrix} \rightarrow
-    \]
-    \[
-      \begin{amatrix}{3}
-        1 & 0 & 0 & 1 \\
-        0 & 1 & 0 & 2 \\
-        0 & 0 & 1 & 1 \\
-        0 & 0 & 0 & 0
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 & = 1 \\
-      k_2 & = 2 \\
-      k_3 & = 1
-    \end{align*}
-    This means that $\dstyle \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$ is a linear combination of $\{A,B,C\}$, when $k_1 = 1, k_2 = 2, \tand k_3 = 1$.
-  \end{proof}
+    \biitem{a}{$\dstyle \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$}
+    \begin{proof}
+        Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1A + k_2B + k_3C = \dstyle \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$. \\ That is, $\dstyle k_1\begin{bmatrix}4  & 0  \\-2 & -2\end{bmatrix} + k_2\begin{bmatrix}1 & -1 \\2 & 3\end{bmatrix} + k_3\begin{bmatrix}0 & 2 \\1 & 4\end{bmatrix} = \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            4k_1 + 1k_2 + 0k_3  & = 6  \\
+            0k_1 - 1k_2 + 2k_3  & = -8 \\
+            -2k_1 + 2k_2 + 1k_3 & = -1 \\
+            -2k_1 + 3k_2 + 4k_3 & = -8
+        \end{align*}
+        \[
+            \begin{apmatrix}{3}
+                4 & 1 & 0 & 6 \\
+                0 & - 1 & 2 & -8 \\
+                -2 & 2 & 1 & -1 \\
+                -2 & 3 & 4 & -8
+            \end{apmatrix} \xrightarrow[(-4,4,2,-2)]{R_1 + 2R_3}
+            \begin{pmatrix}
+                0  & 5   & 2 & 4  \\
+                0  & - 1 & 2 & -8 \\
+                -2 & 2   & 1 & -1 \\
+                -2 & 3   & 4 & -8
+            \end{pmatrix} \xrightarrow[(2,-2,-1,1)]{R_4 - R_3}
+            \begin{pmatrix}
+                0  & 5   & 2 & 4  \\
+                0  & - 1 & 2 & -8 \\
+                -2 & 2   & 1 & -1 \\
+                0  & 1   & 3 & -7
+            \end{pmatrix} \xrightarrow{-\frac{1}{2}R_3}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 5   & 2            & 4           \\
+                0 & - 1 & 2            & -8          \\
+                1 & -1  & -\frac{1}{2} & \frac{1}{2} \\
+                0 & 1   & 3            & -7
+            \end{pmatrix} \xrightarrow[R_2 + R_4]{R_3 + R_4}
+            \begin{pmatrix}
+                0 & 5 & 2            & 4             \\
+                0 & 0 & 5            & -15           \\
+                1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
+                0 & 1 & 3            & -7
+            \end{pmatrix} \xrightarrow[(0,-5,-15,35)]{R_1 - 5R_4}
+            \begin{pmatrix}
+                0 & 0 & -13          & 39            \\
+                0 & 0 & 5            & -15           \\
+                1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
+                0 & 1 & 3            & -7
+            \end{pmatrix} \xrightarrow[\frac{1}{5}R_2]{R_1 + 2R_2}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 0 & -3           & 9             \\
+                0 & 0 & 1            & -3            \\
+                1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
+                0 & 1 & 3            & -7
+            \end{pmatrix} \xrightarrow[R_1 \leftrightarrow R_4]{R_1 + 3R_2}
+            \begin{pmatrix}
+                0 & 1 & 3            & -7            \\
+                0 & 0 & 1            & -3            \\
+                1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
+                0 & 0 & 0            & 0
+            \end{pmatrix} \xrightarrow[(0,0,-3,9)]{R_1 - 3R_2}
+            \begin{pmatrix}
+                0 & 1 & 0            & 2             \\
+                0 & 0 & 1            & -3            \\
+                1 & 0 & 2\frac{1}{2} & -6\frac{1}{2} \\
+                0 & 0 & 0            & 0
+            \end{pmatrix} \xrightarrow[(0,0,-2\frac{1}{2}, 7\frac{1}{2})]{R_3 - 2\frac{1}{2}R_2}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 1 & 0 & 2  \\
+                0 & 0 & 1 & -3 \\
+                1 & 0 & 0 & 1  \\
+                0 & 0 & 0 & 0
+            \end{pmatrix} \rightarrow
+            \begin{apmatrix}{3}
+                1 & 0 & 0 & 1  \\
+                0 & 1 & 0 & 2  \\
+                0 & 0 & 1 & -3 \\
+                0 & 0 & 0 & 0
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 & = 1  \\
+            k_2 & = 2  \\
+            k_3 & = -3
+        \end{align*}
+        This means that $\dstyle \begin{bmatrix} 6 & -8 \\ -1 & -8 \end{bmatrix}$ is a linear combination of $\{A,B,C\}$, when $k_1 = 1, k_2 = 2, \tand k_3 = -3$.
+    \end{proof}
+    \biitem{c}{$\dstyle \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$}
+    \begin{proof}
+        Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1A + k_2B + k_3C = \dstyle \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$. \\ That is, $\dstyle k_1\begin{bmatrix}4  & 0  \\-2 & -2\end{bmatrix} + k_2\begin{bmatrix}1 & -1 \\2 & 3\end{bmatrix} + k_3\begin{bmatrix}0 & 2 \\1 & 4\end{bmatrix} = \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            4k_1 + 1k_2 + 0k_3  & = 6 \\
+            0k_1 - 1k_2 + 2k_3  & = 0 \\
+            -2k_1 + 2k_2 + 1k_3 & = 3 \\
+            -2k_1 + 3k_2 + 4k_3 & = 8
+        \end{align*}
+        \[
+            \begin{apmatrix}{3}
+                4 & 1 & 0 & 6 \\
+                0 & - 1 & 2 & 0 \\
+                -2 & 2 & 1 & 3 \\
+                -2 & 3 & 4 & 8
+            \end{apmatrix} \xrightarrow[(-4,4,2,6)]{R_1 + 2R_3}
+            \begin{pmatrix}
+                0  & 5   & 2 & 12 \\
+                0  & - 1 & 2 & 0  \\
+                -2 & 2   & 1 & 3  \\
+                -2 & 3   & 4 & 8
+            \end{pmatrix} \xrightarrow[(2,-2,-1,-3)]{R_4 - R_3}
+            \begin{pmatrix}
+                0  & 5   & 2 & 12 \\
+                0  & - 1 & 2 & 0  \\
+                -2 & 2   & 1 & 3  \\
+                0  & 1   & 3 & 5
+            \end{pmatrix} \xrightarrow{-\frac{1}{2}R_3}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 5   & 2            & 12            \\
+                0 & - 1 & 2            & 0             \\
+                1 & -1  & -\frac{1}{2} & -1\frac{1}{2} \\
+                0 & 1   & 3            & 5
+            \end{pmatrix} \xrightarrow[R_2 + R_4]{R_3 + R_4}
+            \begin{pmatrix}
+                0 & 5 & 2            & 12           \\
+                0 & 0 & 5            & 5            \\
+                1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
+                0 & 1 & 3            & 5
+            \end{pmatrix} \xrightarrow[(0,-5,-15,-25)]{R_1 - 5R_4}
+            \begin{pmatrix}
+                0 & 0 & -13          & -13          \\
+                0 & 0 & 5            & 5            \\
+                1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
+                0 & 1 & 3            & 5
+            \end{pmatrix} \xrightarrow[(0,0,10,10)]{R_1 + 2R_2}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 0 & -3           & -3           \\
+                0 & 0 & 5            & 5            \\
+                1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
+                0 & 1 & 3            & 5
+            \end{pmatrix} \xrightarrow[-\frac{1}{3}R_1]{R_4 + R_1}
+            \begin{pmatrix}
+                0 & 0 & 1            & 1            \\
+                0 & 0 & 5            & 5            \\
+                1 & 0 & 2\frac{1}{2} & 3\frac{1}{2} \\
+                0 & 1 & 0            & 2
+            \end{pmatrix} \xrightarrow[R_2 - 5R_1]{R_3 - 2\frac{1}{2}R_1}
+            \begin{pmatrix}
+                0 & 0 & 1 & 1 \\
+                0 & 0 & 0 & 0 \\
+                1 & 0 & 0 & 1 \\
+                0 & 1 & 0 & 2
+            \end{pmatrix} \rightarrow
+        \]
+        \[
+            \begin{apmatrix}{3}
+                1 & 0 & 0 & 1 \\
+                0 & 1 & 0 & 2 \\
+                0 & 0 & 1 & 1 \\
+                0 & 0 & 0 & 0
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 & = 1 \\
+            k_2 & = 2 \\
+            k_3 & = 1
+        \end{align*}
+        This means that $\dstyle \begin{bmatrix} 6 & 0 \\ 3 & 8 \end{bmatrix}$ is a linear combination of $\{A,B,C\}$, when $k_1 = 1, k_2 = 2, \tand k_3 = 1$.
+    \end{proof}
 
 \end{enumerate}
 
 \subsection*{10}
 \itl{In each part express the vector as a linear combination of $\vec{p}_1 = 2 + x + 4x^2, \vec{p}_2 = 1 - x + 3x^2, \tand \vec{p}_3 = 3 + 2x + 5x^2$.}
 \begin{enumerate}
-  \biitem{a}{$-9-7x-15x^2$}
-  \begin{proof}
-    Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1p_1 + k_2p_2 + k_3p_3 = -9-7x-15x^2$. That is, $k_1(2 + x + 4x^2) + k_2(1 - x + 3x^2) + k_3(3 + 2x + 5x^2) = -9-7x-15x^2$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      2k_1 + 1k_2 + 3k_3 & = -9  \\
-      1k_1 - 1k_2 + 2k_3 & = -7  \\
-      4k_1 + 3k_2 + 5k_3 & = -15
-    \end{align*}
-    \[
-      \begin{amatrix}{3}
-        2 & 1 & 3 & -9 \\
-        1 & -1 & 2 & -7 \\
-        4 & 3 & 5 & -15
-      \end{amatrix} \xrightarrow[(-4,-2,-6,18)]{R_3 - 2R_1}
-      \begin{pmatrix}
-        2 & 1  & 3  & -9 \\
-        1 & -1 & 2  & -7 \\
-        0 & 1  & -1 & 3
-      \end{pmatrix} \xrightarrow[(-2,2,-4,14)]{R_1 - 2R_2}
-      \begin{pmatrix}
-        0 & 3  & -1 & 5  \\
-        1 & -1 & 2  & -7 \\
-        0 & 1  & -1 & 3
-      \end{pmatrix} \xrightarrow{R_2 + R_3}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 3 & -1 & 5  \\
-        1 & 0 & 1  & -4 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow[(0,-3,3,-9)]{R_1 - 3R_3}
-      \begin{pmatrix}
-        0 & 0 & 2  & -4 \\
-        1 & 0 & 1  & -4 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
-      \begin{pmatrix}
-        0 & 0 & 1  & -2 \\
-        1 & 0 & 1  & -4 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow[(0,0,-1,2)]{R_2 - R_1}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 0 & 1  & -2 \\
-        1 & 0 & 0  & -2 \\
-        0 & 1 & -1 & 3
-      \end{pmatrix} \xrightarrow[(0,0,1,-2)]{R_3 + R_1}
-      \begin{pmatrix}
-        0 & 0 & 1 & -2 \\
-        1 & 0 & 0 & -2 \\
-        0 & 1 & 0 & 1
-      \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
-      \begin{amatrix}{3}
-        1 & 0 & 0 & -2 \\
-        0 & 1 & 0 & 1 \\
-        0 & 0 & 1 & -2
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 & = -2 \\
-      k_2 & = 1  \\
-      k_3 & = -2
-    \end{align*}
-    This means that $-9-7x-15x^2$ is a linear combination of $\{\vec{p}_1,\vec{p}_2,\vec{p}_3\}$, when $k_1 = -2, k_2 = 1, \tand k_3 = -2$.
-  \end{proof}
-  \biitem{d}{$7+8x+9x^2$}
-  \begin{proof}
-    Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1p_1 + k_2p_2 + k_3p_3 = 7+8x+9x^2$. That is, $k_1(2 + x + 4x^2) + k_2(1 - x + 3x^2) + k_3(3 + 2x + 5x^2) = 7+8x+9x^2$. From this equation, we get a linear system of equations.
-    \begin{align*}
-      2k_1 + 1k_2 + 3k_3 & = 7 \\
-      1k_1 - 1k_2 + 2k_3 & = 8 \\
-      4k_1 + 3k_2 + 5k_3 & = 9
-    \end{align*}
-    \[
-      \begin{amatrix}{3}
-        2 & 1 & 3 & 7 \\
-        1 & -1 & 2 & 8 \\
-        4 & 3 & 5 & 9
-      \end{amatrix} \xrightarrow[(-4,-2,-6,-14)]{R_3 - 2R_1}
-      \begin{pmatrix}
-        2 & 1  & 3  & 7  \\
-        1 & -1 & 2  & 8  \\
-        0 & 1  & -1 & -5
-      \end{pmatrix} \xrightarrow[(-2,2,-4,-16)]{R_1 - 2R_2}
-      \begin{pmatrix}
-        0 & 3  & -1 & -9 \\
-        1 & -1 & 2  & 8  \\
-        0 & 1  & -1 & -5
-      \end{pmatrix} \xrightarrow{R_2 + R_3}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 3 & -1 & -9 \\
-        1 & 0 & 1  & 3  \\
-        0 & 1 & -1 & -5
-      \end{pmatrix} \xrightarrow[(0,-3,3,15)]{R_1 - 3R_3}
-      \begin{pmatrix}
-        0 & 0 & 2  & 6  \\
-        1 & 0 & 1  & 3  \\
-        0 & 1 & -1 & -5
-      \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
-      \begin{pmatrix}
-        0 & 0 & 1  & 3  \\
-        1 & 0 & 1  & 3  \\
-        0 & 1 & -1 & -5
-      \end{pmatrix} \xrightarrow[(0,0,-1,-3)]{R_2 - R_1}
-    \]
-    \[
-      \begin{pmatrix}
-        0 & 0 & 1  & 3  \\
-        1 & 0 & 0  & 0  \\
-        0 & 1 & -1 & -5
-      \end{pmatrix} \xrightarrow[(0,0,1,3)]{R_3 + R_1}
-      \begin{pmatrix}
-        0 & 0 & 1 & 3  \\
-        1 & 0 & 0 & 0  \\
-        0 & 1 & 0 & -2
-      \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
-      \begin{amatrix}{3}
-        1 & 0 & 0 & 0  \\
-        0 & 1 & 0 & -2 \\
-        0 & 0 & 1 & 3
-      \end{amatrix}
-    \]
-    This augmented matrix represents the following equations:
-    \begin{align*}
-      k_1 & = 0  \\
-      k_2 & = -2 \\
-      k_3 & = 3
-    \end{align*}
-    This means that $-9-7x-15x^2$ is a linear combination of $\{\vec{p}_1,\vec{p}_2,\vec{p}_3\}$, when $k_1 = 0, k_2 = -2, \tand k_3 = 3$.
-  \end{proof}
+    \biitem{a}{$-9-7x-15x^2$}
+    \begin{proof}
+        Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1p_1 + k_2p_2 + k_3p_3 = -9-7x-15x^2$. That is, $k_1(2 + x + 4x^2) + k_2(1 - x + 3x^2) + k_3(3 + 2x + 5x^2) = -9-7x-15x^2$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            2k_1 + 1k_2 + 3k_3 & = -9  \\
+            1k_1 - 1k_2 + 2k_3 & = -7  \\
+            4k_1 + 3k_2 + 5k_3 & = -15
+        \end{align*}
+        \[
+            \begin{apmatrix}{3}
+                2 & 1 & 3 & -9 \\
+                1 & -1 & 2 & -7 \\
+                4 & 3 & 5 & -15
+            \end{apmatrix} \xrightarrow[(-4,-2,-6,18)]{R_3 - 2R_1}
+            \begin{pmatrix}
+                2 & 1  & 3  & -9 \\
+                1 & -1 & 2  & -7 \\
+                0 & 1  & -1 & 3
+            \end{pmatrix} \xrightarrow[(-2,2,-4,14)]{R_1 - 2R_2}
+            \begin{pmatrix}
+                0 & 3  & -1 & 5  \\
+                1 & -1 & 2  & -7 \\
+                0 & 1  & -1 & 3
+            \end{pmatrix} \xrightarrow{R_2 + R_3}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 3 & -1 & 5  \\
+                1 & 0 & 1  & -4 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow[(0,-3,3,-9)]{R_1 - 3R_3}
+            \begin{pmatrix}
+                0 & 0 & 2  & -4 \\
+                1 & 0 & 1  & -4 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
+            \begin{pmatrix}
+                0 & 0 & 1  & -2 \\
+                1 & 0 & 1  & -4 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow[(0,0,-1,2)]{R_2 - R_1}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 0 & 1  & -2 \\
+                1 & 0 & 0  & -2 \\
+                0 & 1 & -1 & 3
+            \end{pmatrix} \xrightarrow[(0,0,1,-2)]{R_3 + R_1}
+            \begin{pmatrix}
+                0 & 0 & 1 & -2 \\
+                1 & 0 & 0 & -2 \\
+                0 & 1 & 0 & 1
+            \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
+            \begin{apmatrix}{3}
+                1 & 0 & 0 & -2 \\
+                0 & 1 & 0 & 1 \\
+                0 & 0 & 1 & -2
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 & = -2 \\
+            k_2 & = 1  \\
+            k_3 & = -2
+        \end{align*}
+        This means that $-9-7x-15x^2$ is a linear combination of $\{\vec{p}_1,\vec{p}_2,\vec{p}_3\}$, when $k_1 = -2, k_2 = 1, \tand k_3 = -2$.
+    \end{proof}
+    \biitem{d}{$7+8x+9x^2$}
+    \begin{proof}
+        Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1p_1 + k_2p_2 + k_3p_3 = 7+8x+9x^2$. That is, $k_1(2 + x + 4x^2) + k_2(1 - x + 3x^2) + k_3(3 + 2x + 5x^2) = 7+8x+9x^2$. From this equation, we get a linear system of equations.
+        \begin{align*}
+            2k_1 + 1k_2 + 3k_3 & = 7 \\
+            1k_1 - 1k_2 + 2k_3 & = 8 \\
+            4k_1 + 3k_2 + 5k_3 & = 9
+        \end{align*}
+        \[
+            \begin{apmatrix}{3}
+                2 & 1 & 3 & 7 \\
+                1 & -1 & 2 & 8 \\
+                4 & 3 & 5 & 9
+            \end{apmatrix} \xrightarrow[(-4,-2,-6,-14)]{R_3 - 2R_1}
+            \begin{pmatrix}
+                2 & 1  & 3  & 7  \\
+                1 & -1 & 2  & 8  \\
+                0 & 1  & -1 & -5
+            \end{pmatrix} \xrightarrow[(-2,2,-4,-16)]{R_1 - 2R_2}
+            \begin{pmatrix}
+                0 & 3  & -1 & -9 \\
+                1 & -1 & 2  & 8  \\
+                0 & 1  & -1 & -5
+            \end{pmatrix} \xrightarrow{R_2 + R_3}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 3 & -1 & -9 \\
+                1 & 0 & 1  & 3  \\
+                0 & 1 & -1 & -5
+            \end{pmatrix} \xrightarrow[(0,-3,3,15)]{R_1 - 3R_3}
+            \begin{pmatrix}
+                0 & 0 & 2  & 6  \\
+                1 & 0 & 1  & 3  \\
+                0 & 1 & -1 & -5
+            \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
+            \begin{pmatrix}
+                0 & 0 & 1  & 3  \\
+                1 & 0 & 1  & 3  \\
+                0 & 1 & -1 & -5
+            \end{pmatrix} \xrightarrow[(0,0,-1,-3)]{R_2 - R_1}
+        \]
+        \[
+            \begin{pmatrix}
+                0 & 0 & 1  & 3  \\
+                1 & 0 & 0  & 0  \\
+                0 & 1 & -1 & -5
+            \end{pmatrix} \xrightarrow[(0,0,1,3)]{R_3 + R_1}
+            \begin{pmatrix}
+                0 & 0 & 1 & 3  \\
+                1 & 0 & 0 & 0  \\
+                0 & 1 & 0 & -2
+            \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
+            \begin{apmatrix}{3}
+                1 & 0 & 0 & 0  \\
+                0 & 1 & 0 & -2 \\
+                0 & 0 & 1 & 3
+            \end{apmatrix}
+        \]
+        This augmented matrix represents the following equations:
+        \begin{align*}
+            k_1 & = 0  \\
+            k_2 & = -2 \\
+            k_3 & = 3
+        \end{align*}
+        This means that $-9-7x-15x^2$ is a linear combination of $\{\vec{p}_1,\vec{p}_2,\vec{p}_3\}$, when $k_1 = 0, k_2 = -2, \tand k_3 = 3$.
+    \end{proof}
 \end{enumerate}
 
 \subsection*{Section 1.2}
 \subsubsection*{4}
 \itl{In each part, suppose that the augmented matrix for a system of linear equations has been reduced by row operations to the given reduced row echelon form. Solve the system.}
 \begin{enumerate}
-  \biitem{a}{$\dstyle \begin{bmatrix} 1 & 0 & 0 & -3 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 7 \end{bmatrix}$}
-  \begin{tabular}{l}
-    $k_1 = -3$ \\
-    $k_2 = 0$  \\
-    $k_3 = 7$
-  \end{tabular}
-  \biitem{b}{$\dstyle \begin{bmatrix} 1 & 0 & 0 & -7 & 8 \\ 0 & 1 & 0 & 3 & 2 \\ 0 & 0 & 1 & 1 & -5 \end{bmatrix}$}
-  \begin{tabular}{ll}
-    $k_1 - 7t = 8$ & $k_1 = 7t + 8$   \\
-    $k_2 + 3t = 2$ & $k_2 = -3t + 2$  \\
-    $k_3 + t = -5$ & $k_3 = -t -5$    \\
-    $k_4 = t~(\text{free parameter})$ \\
-  \end{tabular}
-  \biitem{c}{$\dstyle \begin{bmatrix} 1 & -6 & 0 & 0 & 3 & -2 \\ 0 & 0 & 1 & 0 & 4 & 7 \\ 0 & 0 & 0 & 1 & 5 & 8 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}$}
-  \begin{tabular}{ll}
-    $k_1 - 6t_1 + 3t_2 = -2$ & $k_1 = 6t_1 - 3t_2 - 2$ \\
-    $k_2 = t_1~(\text{free parameter})$                \\
-    $k_3 + 4t_2 = 7$         & $k_3 = -4t_2 + 7$       \\
-    $k_4 + 5t_2 = 8$         & $k_4 = -5t_2 + 8$       \\
-    $k_5 = t_2~(\text{free parameter})$                \\
-  \end{tabular}
-  \biitem{d}{$\dstyle \begin{bmatrix} 1 & -3 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$}
-  $0k_1 + 0k_2 + 0k_3 = 1 \leftrightarrow 0 = 1$. No Solution.
+    \biitem{a}{$\dstyle \begin{bmatrix} 1 & 0 & 0 & -3 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 7 \end{bmatrix}$}
+    \begin{tabular}{l}
+        $k_1 = -3$ \\
+        $k_2 = 0$  \\
+        $k_3 = 7$
+    \end{tabular}
+    \biitem{b}{$\dstyle \begin{bmatrix} 1 & 0 & 0 & -7 & 8 \\ 0 & 1 & 0 & 3 & 2 \\ 0 & 0 & 1 & 1 & -5 \end{bmatrix}$}
+    \begin{tabular}{ll}
+        $k_1 - 7t = 8$ & $k_1 = 7t + 8$   \\
+        $k_2 + 3t = 2$ & $k_2 = -3t + 2$  \\
+        $k_3 + t = -5$ & $k_3 = -t -5$    \\
+        $k_4 = t~(\text{free parameter})$ \\
+    \end{tabular}
+    \biitem{c}{$\dstyle \begin{bmatrix} 1 & -6 & 0 & 0 & 3 & -2 \\ 0 & 0 & 1 & 0 & 4 & 7 \\ 0 & 0 & 0 & 1 & 5 & 8 \\ 0 & 0 & 0 & 0 & 0 & 0 \end{bmatrix}$}
+    \begin{tabular}{ll}
+        $k_1 - 6t_1 + 3t_2 = -2$ & $k_1 = 6t_1 - 3t_2 - 2$ \\
+        $k_2 = t_1~(\text{free parameter})$                \\
+        $k_3 + 4t_2 = 7$         & $k_3 = -4t_2 + 7$       \\
+        $k_4 + 5t_2 = 8$         & $k_4 = -5t_2 + 8$       \\
+        $k_5 = t_2~(\text{free parameter})$                \\
+    \end{tabular}
+    \biitem{d}{$\dstyle \begin{bmatrix} 1 & -3 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$}
+    $0k_1 + 0k_2 + 0k_3 = 1 \leftrightarrow 0 = 1$. No Solution.
 \end{enumerate}
 
 \end{document}

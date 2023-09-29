@@ -1,5 +1,6 @@
-\input{../templates/packages-article.tex}
-\input{../templates/macros.tex}
+\documentclass{article}
+\input{../../.latex/packages-article.tex}
+\input{../../.latex/macros.tex}
 
 \lhead{Linear Algebra}
 \chead{Test 1}
@@ -10,48 +11,48 @@
 \subsection*{Problem 1.}
 Let $V = \bb{R}^+ \times \bb{R}$ be a set. In other words, every element of $V$ is in the form $(u_1, u_2), \twhere u_1$ is a positive real number and $u_2 \in \bb{R}$. For all $(u_1,u_2) \tand (v_1,v_2) \in V$, and for all $k \in \bb{R}$,
 \[
-  (u_1,u_2) \oplus (v_1,v_2) = (2u_1v_1, u_2 + v_2 - 3) \tand k \odot (u_1,v_1) = (u_1^k, ku_2).
+    (u_1,u_2) \oplus (v_1,v_2) = (2u_1v_1, u_2 + v_2 - 3) \tand k \odot (u_1,v_1) = (u_1^k, ku_2).
 \]
 Verify the axioms 4, 5, and 7.
 
 \begin{enumerate}
-  \bitem{Ax4}
-  \begin{proof}
-    Consider $\vec{u}, \vec{v} \in V \tsuchthat \vec{u} = (u_1, u_2) \tand \vec{v} = (\frac{1}{2}, 3)$. ($u_1$ is positive real number).
-    \begin{align*}
-      \vec{u} \oplus \vec{v} & = (u_1, u_2) \oplus \left(\frac{1}{2}, 3\right) = \left(2u_1\frac{1}{2}, u_2 + 3 - 3\right) \\
-                             & = (u_1, u_2) = \vec{u}                                                                      \\
-      \vec{v} \oplus \vec{u} & = \left(\frac{1}{2}, 3\right) \oplus (u_1, u_2) = \left(2\frac{1}{2}u_1, 3 + u_2 - 3\right) \\
-                             & = (u_1, u_2) = \vec{u}                                                                      \\
-    \end{align*}
-    Since $\vec{u} \oplus \vec{v} = \vec{u} \tand \vec{v} \oplus \vec{u} = \vec{u}$ for all $\vec{u} \in V$, therefore $\vec{v} = (\frac{1}{2}, 3)$ is the additive identity, $\id,\tfor V$.
+    \bitem{Ax4}
+    \begin{proof}
+        Consider $\vec{u}, \vec{v} \in V \tsuchthat \vec{u} = (u_1, u_2) \tand \vec{v} = (\frac{1}{2}, 3)$. ($u_1$ is positive real number).
+        \begin{align*}
+            \vec{u} \oplus \vec{v} & = (u_1, u_2) \oplus \left(\frac{1}{2}, 3\right) = \left(2u_1\frac{1}{2}, u_2 + 3 - 3\right) \\
+                                   & = (u_1, u_2) = \vec{u}                                                                      \\
+            \vec{v} \oplus \vec{u} & = \left(\frac{1}{2}, 3\right) \oplus (u_1, u_2) = \left(2\frac{1}{2}u_1, 3 + u_2 - 3\right) \\
+                                   & = (u_1, u_2) = \vec{u}                                                                      \\
+        \end{align*}
+        Since $\vec{u} \oplus \vec{v} = \vec{u} \tand \vec{v} \oplus \vec{u} = \vec{u}$ for all $\vec{u} \in V$, therefore $\vec{v} = (\frac{1}{2}, 3)$ is the additive identity, $\id,\tfor V$.
 
-    $\therefore$ additive identity exists for $V$.
-  \end{proof}
-  \bitem{Ax5}
-  \begin{proof}
-    Consider $\vec{u}, \vec{v} \in V \tsuchthat \vec{u} = (u_1, u_2) \tand \vec{v} = (\frac{1}{4u_1},6-u_2)$. Since by definition $u_1$ is a positive real number, $\frac{1}{4u_1}$ will always be defined and positive.
-    \begin{align*}
-      \vec{u} \oplus \vec{v} & = (u_1, u_2) \oplus \left(\frac{1}{4u_1}, 6-u_2\right) = \left(2u_1\frac{1}{4u_1}, u_2 + (6 - u_2) - 3\right) \\
-                             & = \left(\frac{2}{4}\cdot\frac{u_1}{u_1}, u_2 - u_2 + 6 - 3\right) = \left(\frac{1}{2}, 3\right) = \id         \\
-      \vec{v} \oplus \vec{u} & = \left(\frac{1}{4u_1}, 6-u_2\right) \oplus (u_1, u_2) = \left(2\frac{1}{4u_1}u_1, (6 - u_2) + u_2 - 3\right) \\
-                             & = \left(\frac{2}{4}\cdot\frac{u_1}{u_1}, u_2 - u_2 + 6 - 3\right) = \left(\frac{1}{2}, 3\right) = \id
-    \end{align*}
-    $\therefore$ additive inverse exists for all $\vec{u} \in V$.
-  \end{proof}
-  \bitem{Ax7}
-  \begin{proof}
-    Consider $k \in \bb{R} \tand (u_1,u_2), (v_1,v_2) \in V$.
-    \begin{align*}
-      k \odot ((u_1,u_2) \oplus (v_1, v_2))       & = k \odot (2u_1v_1, u_2+v_2-3)                 \\
-                                                  & = ((2u_1v_1)^k,k(u_2+v_2-3))                   \\
-                                                  & = (4u_1^kv_1^k,ku_2+kv_2-3k)                   \\ \\
-      k \odot (u_1,u_2) \oplus k \odot (v_1, v_2) & = (u_1^k,ku_2) \oplus (v_1^k,kv_2)             \\
-                                                  & = (2u_1^kv_1^k,ku_2+kv_2-3)                    \\ \\
-      (4u_1^kv_1^k,ku_2+kv_2-3k)                  & \neq (2u_1^kv_1^k,ku_2+kv_2-3) \twhen k \neq 1
-    \end{align*}
-    Since $k \odot ((u_1,u_2) \oplus (v_1, v_2))$ does not always equal $k \odot (u_1,u_2) \oplus k \odot (v_1, v_2)$, Axiom 7 does not hold for $V$.
-  \end{proof}
+        $\therefore$ additive identity exists for $V$.
+    \end{proof}
+    \bitem{Ax5}
+    \begin{proof}
+        Consider $\vec{u}, \vec{v} \in V \tsuchthat \vec{u} = (u_1, u_2) \tand \vec{v} = (\frac{1}{4u_1},6-u_2)$. Since by definition $u_1$ is a positive real number, $\frac{1}{4u_1}$ will always be defined and positive.
+        \begin{align*}
+            \vec{u} \oplus \vec{v} & = (u_1, u_2) \oplus \left(\frac{1}{4u_1}, 6-u_2\right) = \left(2u_1\frac{1}{4u_1}, u_2 + (6 - u_2) - 3\right) \\
+                                   & = \left(\frac{2}{4}\cdot\frac{u_1}{u_1}, u_2 - u_2 + 6 - 3\right) = \left(\frac{1}{2}, 3\right) = \id         \\
+            \vec{v} \oplus \vec{u} & = \left(\frac{1}{4u_1}, 6-u_2\right) \oplus (u_1, u_2) = \left(2\frac{1}{4u_1}u_1, (6 - u_2) + u_2 - 3\right) \\
+                                   & = \left(\frac{2}{4}\cdot\frac{u_1}{u_1}, u_2 - u_2 + 6 - 3\right) = \left(\frac{1}{2}, 3\right) = \id
+        \end{align*}
+        $\therefore$ additive inverse exists for all $\vec{u} \in V$.
+    \end{proof}
+    \bitem{Ax7}
+    \begin{proof}
+        Consider $k \in \bb{R} \tand (u_1,u_2), (v_1,v_2) \in V$.
+        \begin{align*}
+            k \odot ((u_1,u_2) \oplus (v_1, v_2))       & = k \odot (2u_1v_1, u_2+v_2-3)                 \\
+                                                        & = ((2u_1v_1)^k,k(u_2+v_2-3))                   \\
+                                                        & = (4u_1^kv_1^k,ku_2+kv_2-3k)                   \\ \\
+            k \odot (u_1,u_2) \oplus k \odot (v_1, v_2) & = (u_1^k,ku_2) \oplus (v_1^k,kv_2)             \\
+                                                        & = (2u_1^kv_1^k,ku_2+kv_2-3)                    \\ \\
+            (4u_1^kv_1^k,ku_2+kv_2-3k)                  & \neq (2u_1^kv_1^k,ku_2+kv_2-3) \twhen k \neq 1
+        \end{align*}
+        Since $k \odot ((u_1,u_2) \oplus (v_1, v_2))$ does not always equal $k \odot (u_1,u_2) \oplus k \odot (v_1, v_2)$, Axiom 7 does not hold for $V$.
+    \end{proof}
 \end{enumerate}
 \newpage
 
@@ -59,43 +60,43 @@ Verify the axioms 4, 5, and 7.
 Let $V$ be a set with a binary operator $\oplus$ defined, so that Axioms (1), (3), and (4) hold for $V$ (note that other axioms may not hold). Let $\vec{v} \in V$. Prove that \bld{if} $\vec{v}$ has an additive inverse, then this additive inverse is unique. (\itl{Hint}: Let $\vec{w} \tand \vec{x}$ be two different additive inverses of $\vec{v}$. Show that this will lead to a contradiction.)
 
 \begin{proof}
-  Let $\vec{w}, \vec{x}, \vec{v} \in V \tsuchthat \vec{w} \tand \vec{x}$ are two different additive inverses of $\vec{v}$, This implies that $\vec{w} \neq \vec{x}$.
-  \begin{align*}
-    \vec{v} \oplus \vec{w}                  & = \id                &  & \text{def. of additive inverse}  \\
-    \vec{x} \oplus (\vec{v} \oplus \vec{w}) & = \vec{x} \oplus \id                                       \\
-    (\vec{x} \oplus \vec{v}) \oplus \vec{w} & = \vec{x} \oplus \id &  & \text{axiom 3}                   \\
-    \id \oplus \vec{w}                      & = \vec{x} \oplus \id &  & \text{def. of additive inverse}  \\
-    \vec{w}                                 & = \vec{x}            &  & \text{def. of additive identity}
-  \end{align*}
-  However, $\vec{w} = \vec{x}$ contradicts our assertion that $\vec{w} \neq \vec{x}$. Therefore, through contradiction, if $\vec{v}$ has an additive inverse, then this additive inverse is unique.
+    Let $\vec{w}, \vec{x}, \vec{v} \in V \tsuchthat \vec{w} \tand \vec{x}$ are two different additive inverses of $\vec{v}$, This implies that $\vec{w} \neq \vec{x}$.
+    \begin{align*}
+        \vec{v} \oplus \vec{w}                  & = \id                &  & \text{def. of additive inverse}  \\
+        \vec{x} \oplus (\vec{v} \oplus \vec{w}) & = \vec{x} \oplus \id                                       \\
+        (\vec{x} \oplus \vec{v}) \oplus \vec{w} & = \vec{x} \oplus \id &  & \text{axiom 3}                   \\
+        \id \oplus \vec{w}                      & = \vec{x} \oplus \id &  & \text{def. of additive inverse}  \\
+        \vec{w}                                 & = \vec{x}            &  & \text{def. of additive identity}
+    \end{align*}
+    However, $\vec{w} = \vec{x}$ contradicts our assertion that $\vec{w} \neq \vec{x}$. Therefore, through contradiction, if $\vec{v}$ has an additive inverse, then this additive inverse is unique.
 \end{proof}
 
 \subsection*{Problem 3.}
 Let $V = P_3$, i.e., the set of all polynomials of degree up to 3, with standard addition and scalar multiplication. Let
 \[
-  W = \left\{a_0 + a_1x + a_2x^2 + a_3x^3 \in V : a_0 \cdot a_1 = 0\right\}.
+    W = \left\{a_0 + a_1x + a_2x^2 + a_3x^3 \in V : a_0 \cdot a_1 = 0\right\}.
 \]
 Verify whether $W$ is a subspace of $V$.
 
 \begin{proof}
-  According to Theorem 3 from Lecture 10, assuming that addition and scalar multiplication in $W$ are inherited from $V$, $W$ is a subspace of $V$ if and only if Axioms 1 and 6 hold for $W$.
-  \begin{enumerate}
-    \bitem{Ax1}
-    \begin{proof}
-      Let $\vec{a}, \vec{b} \in W \tsuchthat \vec{a} = 0 + 1x + 0x^2 + 0x^3 \tand \vec{b} = 1 + 0x + 0x^2 + 0x^3$. Now consider $\vec{a} \oplus \vec{b}$:
-      \begin{align*}
-        \vec{a} \oplus \vec{b} & = (0 + 1x + 0x^2 + 0x^3) \oplus (1 + 0x + 0x^2 + 0x^3) \\
-                               & = 0 + 1x + 0x^2 + 0x^3 + 1 + 0x + 0x^2 + 0x^3          \\
-                               & = (0+1) + (1+0)x + (0+0)x^2 + (0+0)x^3                 \\
-                               & = 1 + 1x + 0x^2 + 0x^3                                 \\ \\
-        1 \cdot 1              & = 1 \neq 0
-      \end{align*}
-      Therefore $\vec{a} \oplus \vec{b} \not \in W$, even though $\vec{a} \in W \tand \vec{b} \in W$.
+    According to Theorem 3 from Lecture 10, assuming that addition and scalar multiplication in $W$ are inherited from $V$, $W$ is a subspace of $V$ if and only if Axioms 1 and 6 hold for $W$.
+    \begin{enumerate}
+        \bitem{Ax1}
+        \begin{proof}
+            Let $\vec{a}, \vec{b} \in W \tsuchthat \vec{a} = 0 + 1x + 0x^2 + 0x^3 \tand \vec{b} = 1 + 0x + 0x^2 + 0x^3$. Now consider $\vec{a} \oplus \vec{b}$:
+            \begin{align*}
+                \vec{a} \oplus \vec{b} & = (0 + 1x + 0x^2 + 0x^3) \oplus (1 + 0x + 0x^2 + 0x^3) \\
+                                       & = 0 + 1x + 0x^2 + 0x^3 + 1 + 0x + 0x^2 + 0x^3          \\
+                                       & = (0+1) + (1+0)x + (0+0)x^2 + (0+0)x^3                 \\
+                                       & = 1 + 1x + 0x^2 + 0x^3                                 \\ \\
+                1 \cdot 1              & = 1 \neq 0
+            \end{align*}
+            Therefore $\vec{a} \oplus \vec{b} \not \in W$, even though $\vec{a} \in W \tand \vec{b} \in W$.
 
-      This means that $W$ is not closed under addition.
-    \end{proof}
-  \end{enumerate}
-  Since Axiom 1 does not hold for $W$, $W$ cannot be a subspace of $V$.
+            This means that $W$ is not closed under addition.
+        \end{proof}
+    \end{enumerate}
+    Since Axiom 1 does not hold for $W$, $W$ cannot be a subspace of $V$.
 \end{proof}
 
 \newpage
@@ -103,95 +104,95 @@ Verify whether $W$ is a subspace of $V$.
 \subsection*{Problem 5.}
 Let
 \[
-  A = \begin{pmatrix}2 & 1 \\ 4 & 0\end{pmatrix}, B = \begin{pmatrix}1 & -1 \\ 3 & 4\end{pmatrix}, \tand C = \begin{pmatrix}3 & 2  \\ 5 & -4\end{pmatrix}.
+    A = \begin{pmatrix}2 & 1 \\ 4 & 0\end{pmatrix}, B = \begin{pmatrix}1 & -1 \\ 3 & 4\end{pmatrix}, \tand C = \begin{pmatrix}3 & 2  \\ 5 & -4\end{pmatrix}.
 \]
 Express $\dstyle M = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ as a linear combination of $A,~B,\tand C$. Use Gauss-Jordan elimination.
 
 \begin{proof}
-  Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1A \oplus k_2B \oplus k_3C = M$.
+    Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1A \oplus k_2B \oplus k_3C = M$.
 
-  That is, $k_1\begin{pmatrix}2 & 1 \\ 4 & 0\end{pmatrix} \oplus k_2\begin{pmatrix}1 & -1 \\ 3 & 4\end{pmatrix} \oplus k_3\begin{pmatrix}3 & 2  \\ 5 & -4\end{pmatrix} = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$. From this equation, we get a linear system of equations:
-  \begin{align*}
-    2k_1 + 1k_2 + 3k_3 = 1 \\
-    1k_1 - 1k_2 + 2k_3 = 2 \\
-    4k_1 + 3k_2 + 5k_3 = 3 \\
-    0k_1 + 4k_2 - 4k_3 = 4 \\
-  \end{align*}
-  \[
-    \begin{amatrix}{3}
-      2 & 1  & 3  & 1 \\
-      1 & -1 & 2  & 2 \\
-      4 & 3  & 5  & 3 \\
-      0 & 4  & -4 & 4
-    \end{amatrix} \xrightarrow[(-4,-2,-6,-2)]{R_3 - 2R_1}
-    \begin{pmatrix}
-      2 & 1  & 3  & 1 \\
-      1 & -1 & 2  & 2 \\
-      0 & 1  & -1 & 1 \\
-      0 & 4  & -4 & 4
-    \end{pmatrix} \xrightarrow[(-2,2,-4,-4)]{R_1 - 2R_2}
-    \begin{pmatrix}
-      0 & 3  & -1 & -3 \\
-      1 & -1 & 2  & 2  \\
-      0 & 1  & -1 & 1  \\
-      0 & 4  & -4 & 4
-    \end{pmatrix} \xrightarrow[(0,1,-1,1)]{R_2 + R_3}
-  \]
-  \[
-    \begin{pmatrix}
-      0 & 3 & -1 & -3 \\
-      1 & 0 & 1  & 3  \\
-      0 & 1 & -1 & 1  \\
-      0 & 4 & -4 & 4
-    \end{pmatrix} \xrightarrow[(0,-3,3,-3)]{R_1 - 3R_3}
-    \begin{pmatrix}
-      0 & 0 & 2  & -6 \\
-      1 & 0 & 1  & 3  \\
-      0 & 1 & -1 & 1  \\
-      0 & 4 & -4 & 4
-    \end{pmatrix} \xrightarrow[(0,-4,4,-4)]{R_4 - 4R_1}
-    \begin{pmatrix}
-      0 & 0 & 2  & -6 \\
-      1 & 0 & 1  & 3  \\
-      0 & 1 & -1 & 1  \\
-      0 & 0 & 0  & 0
-    \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
-  \]
-  \[
-    \begin{pmatrix}
-      0 & 0 & 1  & -3 \\
-      1 & 0 & 1  & 3  \\
-      0 & 1 & -1 & 1  \\
-      0 & 0 & 0  & 0
-    \end{pmatrix} \xrightarrow[(0,0,-1,3)]{R_2 - R_1}
-    \begin{pmatrix}
-      0 & 0 & 1  & -3 \\
-      1 & 0 & 0  & 6  \\
-      0 & 1 & -1 & 1  \\
-      0 & 0 & 0  & 0
-    \end{pmatrix} \xrightarrow{R_3 + R_1}
-    \begin{pmatrix}
-      0 & 0 & 1 & -3 \\
-      1 & 0 & 0 & 6  \\
-      0 & 1 & 0 & -2 \\
-      0 & 0 & 0 & 0
-    \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
-  \]
-  \[
-    \begin{amatrix}{3}
-      1 & 0 & 0 & 6  \\
-      0 & 1 & 0 & -2 \\
-      0 & 0 & 1 & -3 \\
-      0 & 0 & 0 & 0
-    \end{amatrix}
-  \]
-  This augmented matrix represents the following equations:
-  \begin{align*}
-    k_1 = 6  \\
-    k_2 = -2 \\
-    k_3 = -3
-  \end{align*}
-  This means that $\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ is a linear combination of $A,~B,\tand C$, when $k_1 = 6,~k_2 = -3, \tand k_3 = -3$
+    That is, $k_1\begin{pmatrix}2 & 1 \\ 4 & 0\end{pmatrix} \oplus k_2\begin{pmatrix}1 & -1 \\ 3 & 4\end{pmatrix} \oplus k_3\begin{pmatrix}3 & 2  \\ 5 & -4\end{pmatrix} = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$. From this equation, we get a linear system of equations:
+    \begin{align*}
+        2k_1 + 1k_2 + 3k_3 = 1 \\
+        1k_1 - 1k_2 + 2k_3 = 2 \\
+        4k_1 + 3k_2 + 5k_3 = 3 \\
+        0k_1 + 4k_2 - 4k_3 = 4 \\
+    \end{align*}
+    \[
+        \begin{apmatrix}{3}{1}
+            2 & 1  & 3  & 1 \\
+            1 & -1 & 2  & 2 \\
+            4 & 3  & 5  & 3 \\
+            0 & 4  & -4 & 4
+        \end{apmatrix} \xrightarrow[(-4,-2,-6,-2)]{R_3 - 2R_1}
+        \begin{pmatrix}
+            2 & 1  & 3  & 1 \\
+            1 & -1 & 2  & 2 \\
+            0 & 1  & -1 & 1 \\
+            0 & 4  & -4 & 4
+        \end{pmatrix} \xrightarrow[(-2,2,-4,-4)]{R_1 - 2R_2}
+        \begin{pmatrix}
+            0 & 3  & -1 & -3 \\
+            1 & -1 & 2  & 2  \\
+            0 & 1  & -1 & 1  \\
+            0 & 4  & -4 & 4
+        \end{pmatrix} \xrightarrow[(0,1,-1,1)]{R_2 + R_3}
+    \]
+    \[
+        \begin{pmatrix}
+            0 & 3 & -1 & -3 \\
+            1 & 0 & 1  & 3  \\
+            0 & 1 & -1 & 1  \\
+            0 & 4 & -4 & 4
+        \end{pmatrix} \xrightarrow[(0,-3,3,-3)]{R_1 - 3R_3}
+        \begin{pmatrix}
+            0 & 0 & 2  & -6 \\
+            1 & 0 & 1  & 3  \\
+            0 & 1 & -1 & 1  \\
+            0 & 4 & -4 & 4
+        \end{pmatrix} \xrightarrow[(0,-4,4,-4)]{R_4 - 4R_1}
+        \begin{pmatrix}
+            0 & 0 & 2  & -6 \\
+            1 & 0 & 1  & 3  \\
+            0 & 1 & -1 & 1  \\
+            0 & 0 & 0  & 0
+        \end{pmatrix} \xrightarrow{\frac{1}{2}R_1}
+    \]
+    \[
+        \begin{pmatrix}
+            0 & 0 & 1  & -3 \\
+            1 & 0 & 1  & 3  \\
+            0 & 1 & -1 & 1  \\
+            0 & 0 & 0  & 0
+        \end{pmatrix} \xrightarrow[(0,0,-1,3)]{R_2 - R_1}
+        \begin{pmatrix}
+            0 & 0 & 1  & -3 \\
+            1 & 0 & 0  & 6  \\
+            0 & 1 & -1 & 1  \\
+            0 & 0 & 0  & 0
+        \end{pmatrix} \xrightarrow{R_3 + R_1}
+        \begin{pmatrix}
+            0 & 0 & 1 & -3 \\
+            1 & 0 & 0 & 6  \\
+            0 & 1 & 0 & -2 \\
+            0 & 0 & 0 & 0
+        \end{pmatrix} \xrightarrow[R_2 \leftrightarrow R_3]{R_1 \leftrightarrow R_2}
+    \]
+    \[
+        \begin{apmatrix}{3}{1}
+            1 & 0 & 0 & 6  \\
+            0 & 1 & 0 & -2 \\
+            0 & 0 & 1 & -3 \\
+            0 & 0 & 0 & 0
+        \end{apmatrix}
+    \]
+    This augmented matrix represents the following equations:
+    \begin{align*}
+        k_1 = 6  \\
+        k_2 = -2 \\
+        k_3 = -3
+    \end{align*}
+    This means that $\begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ is a linear combination of $A,~B,\tand C$, when $k_1 = 6,~k_2 = -3, \tand k_3 = -3$
 \end{proof}
 
 
@@ -200,52 +201,52 @@ Express $\dstyle M = \begin{pmatrix}1 & 2 \\ 3 & 4\end{pmatrix}$ as a linear com
 \subsection*{Problem 6.}
 Decide whether
 \[
-  \vec{u} = 2 + x + 4x^2,~\vec{v} = 1 - x - 7x^2, \tand \vec{w} = 3 + 2x + 9x^2.
+    \vec{u} = 2 + x + 4x^2,~\vec{v} = 1 - x - 7x^2, \tand \vec{w} = 3 + 2x + 9x^2.
 \]
 spans $P_2$. Justify your answer using Gauss-Jordan elimination.
 
 \begin{proof}
-  Let $\vec{y} = y_0 + y_1x + y_2x^2$, and let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} + k_3\vec{w} = \vec{y}$. In other words,
-  \[
-    k_1(2 + x + 4x^2) + k_2(1 - x - 7x^2) + k_3(3 + 2x + 9x^2) = y_0 + y_1x + y_2x^2.
-  \]
-  From this equation, we get the following system of linear equations.
-  \begin{align*}
-    2k_1 + 1k_2 + 3k_3 = y_0 \\
-    1k_1 - 1k_2 + 2k_3 = y_1 \\
-    4k_1 - 7k_2 + 9k_3 = y_2
-  \end{align*}
-  \[
-    \begin{amatrix}{3}
-      2 & 1  & 3 & y_0 \\
-      1 & -1 & 2 & y_1 \\
-      4 & -7 & 9 & y_2
-    \end{amatrix} \xrightarrow[(-4,-2,-6,-2y_0)]{R_3 - 2R_1}
-    \begin{pmatrix}
-      2 & 1  & 3 & y_0       \\
-      1 & -1 & 2 & y_1       \\
-      0 & -9 & 3 & y_2 -2y_0
-    \end{pmatrix} \xrightarrow[(-2,2,-4,-2y_1)]{R_1 - 2R_2}
-    \begin{pmatrix}
-      0 & 3  & -1 & y_0 -2y_1 \\
-      1 & -1 & 2  & y_1       \\
-      0 & -9 & 3  & y_2 -2y_0
-    \end{pmatrix}
-  \]
-  \[
-    \xrightarrow[(0,9,-3,2y_0 -4y_1)]{R_3 + 2R_3}
-    \begin{pmatrix}
-      0 & 3  & -1 & y_0 -2y_1               \\
-      1 & -1 & 2  & y_1                     \\
-      0 & 0  & 0  & y_2 - 2y_0 + 2y_0 -4y_1
-    \end{pmatrix} =
-    \begin{pmatrix}
-      0 & 3  & -1 & y_0 -2y_1 \\
-      1 & -1 & 2  & y_1       \\
-      0 & 0  & 0  & y_2 -4y_1
-    \end{pmatrix}
-  \]
-  The last row represents the equation $0 = y_2 -4y_1$. If $0 \neq y_2 -4y_1$, then there is no solution to the system of linear equations. Therefore, there exists $\vec{y} \in P_2$ that cannot be spanned by $\{\vec{u}, \vec{v}, \vec{w}\}$.
+    Let $\vec{y} = y_0 + y_1x + y_2x^2$, and let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\vec{u} + k_2\vec{v} + k_3\vec{w} = \vec{y}$. In other words,
+    \[
+        k_1(2 + x + 4x^2) + k_2(1 - x - 7x^2) + k_3(3 + 2x + 9x^2) = y_0 + y_1x + y_2x^2.
+    \]
+    From this equation, we get the following system of linear equations.
+    \begin{align*}
+        2k_1 + 1k_2 + 3k_3 = y_0 \\
+        1k_1 - 1k_2 + 2k_3 = y_1 \\
+        4k_1 - 7k_2 + 9k_3 = y_2
+    \end{align*}
+    \[
+        \begin{apmatrix}{3}{1}
+            2 & 1  & 3 & y_0 \\
+            1 & -1 & 2 & y_1 \\
+            4 & -7 & 9 & y_2
+        \end{apmatrix} \xrightarrow[(-4,-2,-6,-2y_0)]{R_3 - 2R_1}
+        \begin{pmatrix}
+            2 & 1  & 3 & y_0       \\
+            1 & -1 & 2 & y_1       \\
+            0 & -9 & 3 & y_2 -2y_0
+        \end{pmatrix} \xrightarrow[(-2,2,-4,-2y_1)]{R_1 - 2R_2}
+        \begin{pmatrix}
+            0 & 3  & -1 & y_0 -2y_1 \\
+            1 & -1 & 2  & y_1       \\
+            0 & -9 & 3  & y_2 -2y_0
+        \end{pmatrix}
+    \]
+    \[
+        \xrightarrow[(0,9,-3,2y_0 -4y_1)]{R_3 + 2R_3}
+        \begin{pmatrix}
+            0 & 3  & -1 & y_0 -2y_1               \\
+            1 & -1 & 2  & y_1                     \\
+            0 & 0  & 0  & y_2 - 2y_0 + 2y_0 -4y_1
+        \end{pmatrix} =
+        \begin{pmatrix}
+            0 & 3  & -1 & y_0 -2y_1 \\
+            1 & -1 & 2  & y_1       \\
+            0 & 0  & 0  & y_2 -4y_1
+        \end{pmatrix}
+    \]
+    The last row represents the equation $0 = y_2 -4y_1$. If $0 \neq y_2 -4y_1$, then there is no solution to the system of linear equations. Therefore, there exists $\vec{y} \in P_2$ that cannot be spanned by $\{\vec{u}, \vec{v}, \vec{w}\}$.
 \end{proof}
 
 \newpage
@@ -254,49 +255,49 @@ spans $P_2$. Justify your answer using Gauss-Jordan elimination.
 Let $V$ be a real vector space. Prove that $V$ cannot have exactly 3 elements.
 
 \begin{proof}
-  Let $V$ be a real vector space containing exactly 3 elements. Let the first element of $V$ be $\id$, which is required to be in $V$ through Axiom 4. Next, let the second element of $V$ be $\vec{v}$ (Note that $\vec{v}$ cannot be $\id$, since the additive identity is unique). Finally, let the second element of $V$ be $-\vec{v}$, the additive inverse of $\vec{v}$, which is required to be in $V$ through Axiom 5. Therefore, we have $V = \{\id, \vec{v}, -\vec{v}\}$, where $\id \neq \vec{v} \tand \id \neq -\vec{v} \tand \vec{v} \neq -\vec{v}$.
+    Let $V$ be a real vector space containing exactly 3 elements. Let the first element of $V$ be $\id$, which is required to be in $V$ through Axiom 4. Next, let the second element of $V$ be $\vec{v}$ (Note that $\vec{v}$ cannot be $\id$, since the additive identity is unique). Finally, let the second element of $V$ be $-\vec{v}$, the additive inverse of $\vec{v}$, which is required to be in $V$ through Axiom 5. Therefore, we have $V = \{\id, \vec{v}, -\vec{v}\}$, where $\id \neq \vec{v} \tand \id \neq -\vec{v} \tand \vec{v} \neq -\vec{v}$.
 
-  Now consider $\vec{v} \oplus \vec{v}$:
-  \begin{enumerate}
-    \bitem{Case 1} $\vec{v} \oplus \vec{v} = \id$
-    \begin{proof}
-      Consider $\vec{v} \oplus \vec{v} \oplus -\vec{v}$.
-      \begin{align*}
-        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = \vec{v} \oplus (\vec{v} \oplus -\vec{v}) &  & \text{axiom 3}                   \\
-                                               & = \vec{v} \oplus \id                       &  & \text{def. of additive inverse}  \\
-                                               & = \vec{v}                                  &  & \text{def. of additive identity} \\ \\
-        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = (\vec{v} \oplus \vec{v}) \oplus -\vec{v} &  & \text{axiom 3}                   \\
-                                               & = \id \oplus -\vec{v}                      &  & \text{assertion}                 \\
-                                               & = -\vec{v}                                 &  & \text{def. of additive identity}
-      \end{align*}
-      This implies that $\vec{v} = -\vec{v}$, which contradicts our assertion that $\vec{v} \neq -\vec{v}$. Therefore, $\vec{v} \oplus \vec{v} \neq \id$.
-    \end{proof}
-    \bitem{Case 2} $\vec{v} \oplus \vec{v} = \vec{v}$
-    \begin{proof}
-      Consider $\vec{v} \oplus \vec{v} \oplus -\vec{v}$.
-      \begin{align*}
-        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = \vec{v} \oplus (\vec{v} \oplus -\vec{v}) &  & \text{axiom 3}                   \\
-                                               & = \vec{v} \oplus \id                       &  & \text{def. of additive inverse}  \\
-                                               & = \vec{v}                                  &  & \text{def. of additive identity} \\ \\
-        \vec{v} \oplus \vec{v} \oplus -\vec{v} & = (\vec{v} \oplus \vec{v}) \oplus -\vec{v} &  & \text{axiom 3}                   \\
-                                               & = \vec{v} \oplus -\vec{v}                  &  & \text{assertion}                 \\
-                                               & = \id                                      &  & \text{def. of additive identity}
-      \end{align*}
-      This implies that $\id = \vec{v}$, which contradicts our assertion that $\id \neq \vec{v}$. Therefore, $\vec{v} \oplus \vec{v} \neq \vec{v}$
-    \end{proof}
-    \bitem{Case 3} $\vec{v} \oplus \vec{v} = -\vec{v}$
-    \begin{proof}
-      Consider the assertion that $\vec{v} \oplus \vec{v} = -\vec{v}$
-      \begin{align*}
-        \vec{v} \oplus \vec{v}                 & = -\vec{v}           &  & \text{assertion} \\
-        1 \odot \vec{v} \oplus 1 \odot \vec{v} & = -\vec{v}           &  & \text{axiom 10}  \\
-        1 \odot \vec{v} \oplus 1 \odot \vec{v} & = (-1) \odot \vec{v} &  & \text{theorem C} \\
-        (1+1) \odot \vec{v}                    & = (-1) \odot \vec{v} &  & \text{axiom 8}
-      \end{align*}
-      This last equation implies that $1+1 = -1$, which is a contradiction. Therefore, $\vec{v} \oplus \vec{v} \neq \vec{v}$
-    \end{proof}
-  \end{enumerate}
-  Every possible result in $V$ for $\vec{v} \oplus \vec{v}$ leads to a contradiction. Therefore, $\vec{v} \oplus \vec{v} \not \in V$, meaning that $V$ is not closed under addition. This means that $V$, containing exactly three elements, cannot be a real vector space.
+    Now consider $\vec{v} \oplus \vec{v}$:
+    \begin{enumerate}
+        \bitem{Case 1} $\vec{v} \oplus \vec{v} = \id$
+        \begin{proof}
+            Consider $\vec{v} \oplus \vec{v} \oplus -\vec{v}$.
+            \begin{align*}
+                \vec{v} \oplus \vec{v} \oplus -\vec{v} & = \vec{v} \oplus (\vec{v} \oplus -\vec{v}) &  & \text{axiom 3}                   \\
+                                                       & = \vec{v} \oplus \id                       &  & \text{def. of additive inverse}  \\
+                                                       & = \vec{v}                                  &  & \text{def. of additive identity} \\ \\
+                \vec{v} \oplus \vec{v} \oplus -\vec{v} & = (\vec{v} \oplus \vec{v}) \oplus -\vec{v} &  & \text{axiom 3}                   \\
+                                                       & = \id \oplus -\vec{v}                      &  & \text{assertion}                 \\
+                                                       & = -\vec{v}                                 &  & \text{def. of additive identity}
+            \end{align*}
+            This implies that $\vec{v} = -\vec{v}$, which contradicts our assertion that $\vec{v} \neq -\vec{v}$. Therefore, $\vec{v} \oplus \vec{v} \neq \id$.
+        \end{proof}
+        \bitem{Case 2} $\vec{v} \oplus \vec{v} = \vec{v}$
+        \begin{proof}
+            Consider $\vec{v} \oplus \vec{v} \oplus -\vec{v}$.
+            \begin{align*}
+                \vec{v} \oplus \vec{v} \oplus -\vec{v} & = \vec{v} \oplus (\vec{v} \oplus -\vec{v}) &  & \text{axiom 3}                   \\
+                                                       & = \vec{v} \oplus \id                       &  & \text{def. of additive inverse}  \\
+                                                       & = \vec{v}                                  &  & \text{def. of additive identity} \\ \\
+                \vec{v} \oplus \vec{v} \oplus -\vec{v} & = (\vec{v} \oplus \vec{v}) \oplus -\vec{v} &  & \text{axiom 3}                   \\
+                                                       & = \vec{v} \oplus -\vec{v}                  &  & \text{assertion}                 \\
+                                                       & = \id                                      &  & \text{def. of additive identity}
+            \end{align*}
+            This implies that $\id = \vec{v}$, which contradicts our assertion that $\id \neq \vec{v}$. Therefore, $\vec{v} \oplus \vec{v} \neq \vec{v}$
+        \end{proof}
+        \bitem{Case 3} $\vec{v} \oplus \vec{v} = -\vec{v}$
+        \begin{proof}
+            Consider the assertion that $\vec{v} \oplus \vec{v} = -\vec{v}$
+            \begin{align*}
+                \vec{v} \oplus \vec{v}                 & = -\vec{v}           &  & \text{assertion} \\
+                1 \odot \vec{v} \oplus 1 \odot \vec{v} & = -\vec{v}           &  & \text{axiom 10}  \\
+                1 \odot \vec{v} \oplus 1 \odot \vec{v} & = (-1) \odot \vec{v} &  & \text{theorem C} \\
+                (1+1) \odot \vec{v}                    & = (-1) \odot \vec{v} &  & \text{axiom 8}
+            \end{align*}
+            This last equation implies that $1+1 = -1$, which is a contradiction. Therefore, $\vec{v} \oplus \vec{v} \neq \vec{v}$
+        \end{proof}
+    \end{enumerate}
+    Every possible result in $V$ for $\vec{v} \oplus \vec{v}$ leads to a contradiction. Therefore, $\vec{v} \oplus \vec{v} \not \in V$, meaning that $V$ is not closed under addition. This means that $V$, containing exactly three elements, cannot be a real vector space.
 \end{proof}
 \newpage
 \end{document}

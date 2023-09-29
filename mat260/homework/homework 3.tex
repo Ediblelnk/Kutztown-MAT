@@ -1,5 +1,6 @@
-\input{../templates/packages-article.tex}
-\input{../templates/macros.tex}
+\documentclass{article}
+\input{../../.latex/packages-article.tex}
+\input{../../.latex/macros.tex}
 
 \lhead{Linear Algebra}
 \chead{Homework 3}
@@ -12,63 +13,63 @@
 \subsection*{Problem 1}
 \bld{Let $V$ be a vector space, and let $\vec{u}, \vec{v}, \vec{w} \in V$. Prove that $\tif \vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w} \tthen \vec{u} = \vec{v}$.}
 \begin{proof}
-  Consider $\vec{v}, \vec{u}, \vec{w} \in V$, and assume $\vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w}$.
-  \begin{align*}
-    \vec{u} \oplus \vec{w}                   & = \vec{v} \oplus \vec{w}                   &  & \text{Assertion}                     \\
-    (\vec{u} \oplus \vec{w}) \oplus -\vec{w} & = (\vec{v} \oplus \vec{w}) \oplus -\vec{w} &  & \text{Axiom 5 states}~-\vec{w} \in V \\
-    \vec{u} \oplus (\vec{w} \oplus -\vec{w}) & = \vec{v} \oplus (\vec{w} \oplus -\vec{w}) &  & \text{Axiom 3}                       \\
-    \vec{u} \oplus \id                       & = \vec{v} \oplus \id                       &  & \text{Def. of additive inverse}      \\
-    \vec{u}                                  & = \vec{v}                                  &  & \text{Def. of additive identity}
-  \end{align*}
-  $\therefore \tif \vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w} \tthen \vec{u} = \vec{v}$
+    Consider $\vec{v}, \vec{u}, \vec{w} \in V$, and assume $\vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w}$.
+    \begin{align*}
+        \vec{u} \oplus \vec{w}                   & = \vec{v} \oplus \vec{w}                   &  & \text{Assertion}                     \\
+        (\vec{u} \oplus \vec{w}) \oplus -\vec{w} & = (\vec{v} \oplus \vec{w}) \oplus -\vec{w} &  & \text{Axiom 5 states}~-\vec{w} \in V \\
+        \vec{u} \oplus (\vec{w} \oplus -\vec{w}) & = \vec{v} \oplus (\vec{w} \oplus -\vec{w}) &  & \text{Axiom 3}                       \\
+        \vec{u} \oplus \id                       & = \vec{v} \oplus \id                       &  & \text{Def. of additive inverse}      \\
+        \vec{u}                                  & = \vec{v}                                  &  & \text{Def. of additive identity}
+    \end{align*}
+    $\therefore \tif \vec{u} \oplus \vec{w} = \vec{v} \oplus \vec{w} \tthen \vec{u} = \vec{v}$
 \end{proof}
 
 \subsection*{Problem 2}
 \bld{Prove Theorem $B$.}
 \begin{proof}
-  Let $k \in \bb{R}$. Recall that Theorem $A$ implies that $0 \odot \id = \id$:
-  \begin{align*}
-    k \odot \id & = k \odot (0 \odot \id) &  & \text{Thm $A$} \\
-                & = (k \cdot 0) \odot \id &  & \text{Axiom 9} \\
-                & = 0 \odot \id                               \\
-                & = \id                   &  & \text{Thm $A$}
-  \end{align*}
-  $\therefore \forall~k \in \bb{R},~k \odot \id = \id$
+    Let $k \in \bb{R}$. Recall that Theorem $A$ implies that $0 \odot \id = \id$:
+    \begin{align*}
+        k \odot \id & = k \odot (0 \odot \id) &  & \text{Thm $A$} \\
+                    & = (k \cdot 0) \odot \id &  & \text{Axiom 9} \\
+                    & = 0 \odot \id                               \\
+                    & = \id                   &  & \text{Thm $A$}
+    \end{align*}
+    $\therefore \forall~k \in \bb{R},~k \odot \id = \id$
 \end{proof}
 
 \subsection*{Problem 3}
 \bld{Prove Theorem $D$.} If $k \odot \vec{u} = \id, \tthen k=0 \tor \vec{u} = \id$
 \begin{proof}
-  Let $k \odot \vec{u} = \id$ and $k \neq 0 $. Since $\frac{1}{k} \neq \frac{1}{0}$, $\frac{1}{k}$ is well-defined.
-  \begin{align*}
-    k \odot \vec{u}                     & = \id                     &  & \text{Assertion} \\
-    \frac{1}{k} \odot (k \odot \vec{u}) & = \frac{1}{k} \odot (\id)                       \\
-    (\frac{1}{k} \cdot k) \odot \vec{u} & = \frac{1}{k} \odot \id   &  & \text{Axiom 9}   \\
-    1 \odot \vec{u}                     & = \id                     &  & \text{Thm B}     \\
-    \vec{u}                             & = \id                     &  & \text{Axiom 10}
-  \end{align*}
-  $\therefore \tif k \odot \vec{u} = \id, \tthen k=0 \tor \vec{u} = \id$
+    Let $k \odot \vec{u} = \id$ and $k \neq 0 $. Since $\frac{1}{k} \neq \frac{1}{0}$, $\frac{1}{k}$ is well-defined.
+    \begin{align*}
+        k \odot \vec{u}                     & = \id                     &  & \text{Assertion} \\
+        \frac{1}{k} \odot (k \odot \vec{u}) & = \frac{1}{k} \odot (\id)                       \\
+        (\frac{1}{k} \cdot k) \odot \vec{u} & = \frac{1}{k} \odot \id   &  & \text{Axiom 9}   \\
+        1 \odot \vec{u}                     & = \id                     &  & \text{Thm B}     \\
+        \vec{u}                             & = \id                     &  & \text{Axiom 10}
+    \end{align*}
+    $\therefore \tif k \odot \vec{u} = \id, \tthen k=0 \tor \vec{u} = \id$
 \end{proof}
 
 \subsection*{Problem 4}
 \bld{Prove that there does not exist a real vector space of size $2$.}
 Show that there cannot be a vector space of size 2.
 \begin{proof}
-  Let $V = \{\vec{u}, \vec{v}\}$ be a vectorspace where $\vec{u} \neq \vec{v}$.Axiom 4 states that $\id$ exists, and is unique. Therefore either $\vec{u} = \id \tor \vec{v} = \id$. \\
-  Without the loss of generality, let $\vec{u} = \id$.
-  \begin{align*}
-    \vec{u} \oplus \vec{v} & = \vec{v} & \text{Axiom 4} \\
-    \id \oplus \vec{v}     & = \vec{v}
-  \end{align*}
-  Now consider Axiom 5: $-\vec{v} \in V$. Note that $\vec{v} \oplus \vec{u} = V$, so we know $-\vec{v} \neq \vec{u}$, so therefore $\vec{v} = -\vec{v}$.
-  \begin{align*}
-    \vec{v} \oplus \vec{v}                 & = \vec{u} = \id &  & \text{Def. of Additive Inverse} \\
-    1 \odot \vec{v} \oplus 1 \odot \vec{v} & = \vec{u}       &  & \text{Axiom 10}                 \\
-    (1+1) \odot \vec{v}                    & = \vec{u}       &  & \text{Axiom 8}                  \\
-    2 \odot \vec{v}                        & = \vec{u} = \id
-  \end{align*}
-  By Theorem $A$, either $2 = 0 \tor \vec{v} = \id$. We know that $2 \neq 0 \tand \vec{v} \neq \id \tsince \vec{u} = \id$, a contradiction. \\
-  $\therefore$ A vectorspace of size 2 cannot exist.
+    Let $V = \{\vec{u}, \vec{v}\}$ be a vectorspace where $\vec{u} \neq \vec{v}$.Axiom 4 states that $\id$ exists, and is unique. Therefore either $\vec{u} = \id \tor \vec{v} = \id$. \\
+    Without the loss of generality, let $\vec{u} = \id$.
+    \begin{align*}
+        \vec{u} \oplus \vec{v} & = \vec{v} & \text{Axiom 4} \\
+        \id \oplus \vec{v}     & = \vec{v}
+    \end{align*}
+    Now consider Axiom 5: $-\vec{v} \in V$. Note that $\vec{v} \oplus \vec{u} = V$, so we know $-\vec{v} \neq \vec{u}$, so therefore $\vec{v} = -\vec{v}$.
+    \begin{align*}
+        \vec{v} \oplus \vec{v}                 & = \vec{u} = \id &  & \text{Def. of Additive Inverse} \\
+        1 \odot \vec{v} \oplus 1 \odot \vec{v} & = \vec{u}       &  & \text{Axiom 10}                 \\
+        (1+1) \odot \vec{v}                    & = \vec{u}       &  & \text{Axiom 8}                  \\
+        2 \odot \vec{v}                        & = \vec{u} = \id
+    \end{align*}
+    By Theorem $A$, either $2 = 0 \tor \vec{v} = \id$. We know that $2 \neq 0 \tand \vec{v} \neq \id \tsince \vec{u} = \id$, a contradiction. \\
+    $\therefore$ A vectorspace of size 2 cannot exist.
 
 \end{proof}
 \end{document}

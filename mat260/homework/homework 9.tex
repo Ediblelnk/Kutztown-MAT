@@ -1,6 +1,6 @@
 \documentclass{article}
-\input{../templates/packages-article.tex}
-\input{../templates/macros.tex}
+\input{../../.latex/packages-article.tex}
+\input{../../.latex/macros.tex}
 
 \newcommand{\assignment}{Homework 9}
 
@@ -15,179 +15,179 @@
 
 \question{4}{Which of the following sets of vector in $P_2$ are linearly dependent?}
 \begin{enumerate}
-  \qitem{a}{$2-x+4x^2,~~3+6x+2x^2,~~2+10x-4x^2$}{
-    \begin{proof}[Work]
-      Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1(2-x+4x^2) + k_2(3+6x+2x^2) + k_3(2+10x-4x^2) = \id$. From this, we can get a linear system of equations, and an augmented matrix.
-      \begin{align*}
-        2k_1 + 3k_2 + 2k_3          & = 0 \\
-        -xk_1 + 6xk_2 + 10xk_3      & = 0 \\
-        4x^2k_1 + 2x^2k_2 - 4x^2k_3 & = 0
-      \end{align*}
-      \begin{align*}
-         & \begin{abmatrix}{3}{1}
-             2  & 3 & 2  & 0 \\
-             -1 & 6 & 10 & 0 \\
-             4  & 2 & -4 & 0
-           \end{abmatrix} \xrightarrow[R_3 + 4R_2]{R_1 + 2R_2}
-        \begin{abmatrix}{3}{1}
-          0  & 15 & 22 & 0 \\
-          -1 & 6  & 10 & 0 \\
-          0  & 26 & 36 & 0
-        \end{abmatrix} \xrightarrow{R_3 - 2R_1}
-        \begin{abmatrix}{3}{1}
-          0  & 15 & 22 & 0 \\
-          -1 & 6  & 10 & 0 \\
-          0  & -4 & -8 & 0
-        \end{abmatrix} \xrightarrow[-\frac{1}{4}R_3]{R_1 + 4R_3}                         \\
-         & \begin{abmatrix}{3}{1}
-             0  & -1 & -10 & 0 \\
-             -1 & 6  & 10  & 0 \\
-             0  & 1  & 2   & 0
-           \end{abmatrix} \xrightarrow[R_2 - 6R_3]{R_1 + R_3}
-        \begin{abmatrix}{3}{1}
-          0  & 0 & -8  & 0 \\
-          -1 & 0 & -12 & 0 \\
-          0  & 1 & 2  & 0
-        \end{abmatrix} \xrightarrow[-R_2]{-\frac{1}{8}R_1}
-        \begin{abmatrix}{3}{1}
-          0 & 0 & 1  & 0 \\
-          1 & 0 & 12 & 0 \\
-          0 & 1 & 2  & 0
-        \end{abmatrix} \xrightarrow[R_3 - 2R_1]{R_2 - 12R_1}                             \\
-         & \begin{abmatrix}{3}{1}
-             0 & 0 & 1 & 0 \\
-             1 & 0 & 0 & 0 \\
-             0 & 1 & 0 & 0
-           \end{abmatrix} \xrightarrow[R_1 \leftrightarrow R_2]{R_1 \leftrightarrow R_3}
-        \begin{abmatrix}{3}{1}
-          1 & 0 & 0 & 0 \\
-          0 & 1 & 0 & 0 \\
-          0 & 0 & 1 & 0
-        \end{abmatrix}
-      \end{align*}
-      Since the only solution is the trivial solution, therefore $\{2-x+4x^2,~~3+6x+2x^2,~~2+10x-4x^2\}$ are linearly independent.
-    \end{proof}
-  }
-  \qitem{c}{$3+x+x^2,~~2-x+5x^2,~~4-3x^2$}{
-    \begin{proof}[Work]
-      Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1(3+x+x^2) + k_2(2-x+5x^2) + k_3(4-3x^2) = \id$. From this, we can get a linear system of equations, and an augmented matrix.
-      \begin{align*}
-        3k_1 + 2k_2 + 4k_3        & = 0 \\
-        xk_1 - xk_2 + 0xk_3       & = 0 \\
-        x^2k_1 - 5x^2k_2 -3x^3k_3 & = 0
-      \end{align*}
-      \begin{align*}
-         & \begin{abmatrix}{3}{1}
-             3 & 2  & 4  & 0 \\
-             1 & -1 & 0  & 0 \\
-             1 & -5 & -3 & 0
-           \end{abmatrix} \xrightarrow[R_3 - R_2]{R_1 - 3R_2}
-        \begin{abmatrix}{3}{1}
-          0 & 5  & 4  & 0 \\
-          1 & -1 & 0  & 0 \\
-          0 & -4 & -3 & 0
-        \end{abmatrix} \xrightarrow{R_3 + R_1}
-        \begin{abmatrix}{3}{1}
-          0 & 1  & 1  & 0 \\
-          1 & -1 & 0  & 0 \\
-          0 & -4 & -3 & 0
-        \end{abmatrix} \xrightarrow{R_3 + 4R_1}               \\
-         & \begin{abmatrix}{3}{1}
-             0 & 1  & 1 & 0 \\
-             1 & -1 & 0 & 0 \\
-             0 & 0  & 1 & 0
-           \end{abmatrix} \xrightarrow[R_2 + R_1]{R_1 - R_3}
-        \begin{abmatrix}{3}{1}
-          0 & 1 & 0 & 0 \\
-          1 & 0 & 0 & 0 \\
-          0 & 0 & 1 & 0
-        \end{abmatrix} \xrightarrow{R_1 \leftrightarrow R_2}
-        \begin{abmatrix}{3}{1}
-          1 & 0 & 0 & 0 \\
-          0 & 1 & 0 & 0 \\
-          0 & 0 & 1 & 0
-        \end{abmatrix}
-      \end{align*}
-      Since the only solution is the trivial solution, therefore $\{3+x+x^2,~~2-x+5x^2,~~4-3x^2\}$ are linearly independent.
-    \end{proof}
-  }
+    \qitem{a}{$2-x+4x^2,~~3+6x+2x^2,~~2+10x-4x^2$}{
+        \begin{proof}[Work]
+            Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1(2-x+4x^2) + k_2(3+6x+2x^2) + k_3(2+10x-4x^2) = \id$. From this, we can get a linear system of equations, and an augmented matrix.
+            \begin{align*}
+                2k_1 + 3k_2 + 2k_3          & = 0 \\
+                -xk_1 + 6xk_2 + 10xk_3      & = 0 \\
+                4x^2k_1 + 2x^2k_2 - 4x^2k_3 & = 0
+            \end{align*}
+            \begin{align*}
+                 & \begin{abmatrix}{3}{1}
+                       2  & 3 & 2  & 0 \\
+                       -1 & 6 & 10 & 0 \\
+                       4  & 2 & -4 & 0
+                   \end{abmatrix} \xrightarrow[R_3 + 4R_2]{R_1 + 2R_2}
+                \begin{abmatrix}{3}{1}
+                    0  & 15 & 22 & 0 \\
+                    -1 & 6  & 10 & 0 \\
+                    0  & 26 & 36 & 0
+                \end{abmatrix} \xrightarrow{R_3 - 2R_1}
+                \begin{abmatrix}{3}{1}
+                    0  & 15 & 22 & 0 \\
+                    -1 & 6  & 10 & 0 \\
+                    0  & -4 & -8 & 0
+                \end{abmatrix} \xrightarrow[-\frac{1}{4}R_3]{R_1 + 4R_3}                         \\
+                 & \begin{abmatrix}{3}{1}
+                       0  & -1 & -10 & 0 \\
+                       -1 & 6  & 10  & 0 \\
+                       0  & 1  & 2   & 0
+                   \end{abmatrix} \xrightarrow[R_2 - 6R_3]{R_1 + R_3}
+                \begin{abmatrix}{3}{1}
+                    0  & 0 & -8  & 0 \\
+                    -1 & 0 & -12 & 0 \\
+                    0  & 1 & 2  & 0
+                \end{abmatrix} \xrightarrow[-R_2]{-\frac{1}{8}R_1}
+                \begin{abmatrix}{3}{1}
+                    0 & 0 & 1  & 0 \\
+                    1 & 0 & 12 & 0 \\
+                    0 & 1 & 2  & 0
+                \end{abmatrix} \xrightarrow[R_3 - 2R_1]{R_2 - 12R_1}                             \\
+                 & \begin{abmatrix}{3}{1}
+                       0 & 0 & 1 & 0 \\
+                       1 & 0 & 0 & 0 \\
+                       0 & 1 & 0 & 0
+                   \end{abmatrix} \xrightarrow[R_1 \leftrightarrow R_2]{R_1 \leftrightarrow R_3}
+                \begin{abmatrix}{3}{1}
+                    1 & 0 & 0 & 0 \\
+                    0 & 1 & 0 & 0 \\
+                    0 & 0 & 1 & 0
+                \end{abmatrix}
+            \end{align*}
+            Since the only solution is the trivial solution, therefore $\{2-x+4x^2,~~3+6x+2x^2,~~2+10x-4x^2\}$ are linearly independent.
+        \end{proof}
+    }
+    \qitem{c}{$3+x+x^2,~~2-x+5x^2,~~4-3x^2$}{
+        \begin{proof}[Work]
+            Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1(3+x+x^2) + k_2(2-x+5x^2) + k_3(4-3x^2) = \id$. From this, we can get a linear system of equations, and an augmented matrix.
+            \begin{align*}
+                3k_1 + 2k_2 + 4k_3        & = 0 \\
+                xk_1 - xk_2 + 0xk_3       & = 0 \\
+                x^2k_1 - 5x^2k_2 -3x^3k_3 & = 0
+            \end{align*}
+            \begin{align*}
+                 & \begin{abmatrix}{3}{1}
+                       3 & 2  & 4  & 0 \\
+                       1 & -1 & 0  & 0 \\
+                       1 & -5 & -3 & 0
+                   \end{abmatrix} \xrightarrow[R_3 - R_2]{R_1 - 3R_2}
+                \begin{abmatrix}{3}{1}
+                    0 & 5  & 4  & 0 \\
+                    1 & -1 & 0  & 0 \\
+                    0 & -4 & -3 & 0
+                \end{abmatrix} \xrightarrow{R_3 + R_1}
+                \begin{abmatrix}{3}{1}
+                    0 & 1  & 1  & 0 \\
+                    1 & -1 & 0  & 0 \\
+                    0 & -4 & -3 & 0
+                \end{abmatrix} \xrightarrow{R_3 + 4R_1}               \\
+                 & \begin{abmatrix}{3}{1}
+                       0 & 1  & 1 & 0 \\
+                       1 & -1 & 0 & 0 \\
+                       0 & 0  & 1 & 0
+                   \end{abmatrix} \xrightarrow[R_2 + R_1]{R_1 - R_3}
+                \begin{abmatrix}{3}{1}
+                    0 & 1 & 0 & 0 \\
+                    1 & 0 & 0 & 0 \\
+                    0 & 0 & 1 & 0
+                \end{abmatrix} \xrightarrow{R_1 \leftrightarrow R_2}
+                \begin{abmatrix}{3}{1}
+                    1 & 0 & 0 & 0 \\
+                    0 & 1 & 0 & 0 \\
+                    0 & 0 & 1 & 0
+                \end{abmatrix}
+            \end{align*}
+            Since the only solution is the trivial solution, therefore $\{3+x+x^2,~~2-x+5x^2,~~4-3x^2\}$ are linearly independent.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{9}{For which real values of $\lambda$ do the following vectors form a linearly dependent set in $\bb{R}^3$?
-  \[
-    v_1 = \left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right), \quad v_2 = \left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right), \quad v_3 = \left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right)
-  \]}
+    \[
+        v_1 = \left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right), \quad v_2 = \left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right), \quad v_3 = \left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right)
+    \]}
 \begin{proof}[Work]
-  Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1\left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right) + k_2\left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right) + k_3\left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right) = (0,0,0)$. From this, we can get a linear system of equations, and matrix equation.
-  \begin{align*}
-    \lambda k_1 - \frac{1}{2}k_2 - \frac{1}{2}k_3  & = 0 \\
-    -\frac{1}{2}k_1 + \lambda k_2 -\frac{1}{2}k_3  & = 0 \\
-    -\frac{1}{2}k_1 - \frac{1}{2}k_2 + \lambda k_3 & = 0
-  \end{align*}
-  \begin{align*}
-    \begin{bmatrix}
-      \lambda      & -\frac{1}{2} & -\frac{1}{2} \\
-      -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
-      -\frac{1}{2} & -\frac{1}{2} & \lambda
-    \end{bmatrix}
-    \begin{bmatrix}
-      k_1 \\ k_2 \\ k_3
-    \end{bmatrix} =
-    \begin{bmatrix}
-      0 \\ 0 \\ 0
-    \end{bmatrix}
-  \end{align*}
-  Consider the determinant of the square matrix.
-  \begin{align*}
-     & \left\lvert\begin{array}{ccc}
-                    \lambda      & -\frac{1}{2} & -\frac{1}{2} \\
-                    -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
-                    -\frac{1}{2} & -\frac{1}{2} & \lambda
-                  \end{array}\right\rvert \overunderset{R_1 + R_2}{R_1 + R_3}{===}
-    \left\lvert\begin{array}{ccc}
-                 \lambda - 1  & \lambda - 1  & \lambda - 1  \\
-                 -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
-                 -\frac{1}{2} & -\frac{1}{2} & \lambda
-               \end{array}\right\rvert ===
-    (\lambda - 1)\left\lvert\begin{array}{ccc}
-                              1            & 1            & 1            \\
-                              -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
-                              -\frac{1}{2} & -\frac{1}{2} & \lambda
-                            \end{array}\right\rvert \overunderset{R_2 + \frac{1}{2}R_1}{R_3 + \frac{1}{2}R_1}{===} \\
-     & (\lambda - 1)\left\lvert\begin{array}{ccc}
-                                 1 & 1                   & 1                   \\
-                                 0 & \lambda+\frac{1}{2} & 0                   \\
-                                 0 & 0                   & \lambda+\frac{1}{2}
-                               \end{array}\right\rvert =
-    (\lambda - 1)(1)(\lambda+\frac{1}{2}) = (\lambda - 1)(\lambda+\frac{1}{2})^2
-  \end{align*}
-  When $\lambda = 1 \tor \lambda = -\frac{1}{2}$, the determinant of this matrix will be zero. By Theorem 4 of Lecture Notes 32, when the determinant is zero, the coefficient matrix is singular. By the Big Theorem, if the coefficient matrix is singular, then $A\vec{x} = \vec{0}$ does not only have the trivial solution, meaning that there exists $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right) + k_2\left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right) + k_3\left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right) = (0,0,0)$, where not all $k_i$ are zero. This means that these vectors are linearly dependent when $\lambda = 1 \tor \lambda = -\frac{1}{2}$.
+    Let $k_1, k_2, k_3 \in \bb{R} \tsuchthat k_1\left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right) + k_2\left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right) + k_3\left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right) = (0,0,0)$. From this, we can get a linear system of equations, and matrix equation.
+    \begin{align*}
+        \lambda k_1 - \frac{1}{2}k_2 - \frac{1}{2}k_3  & = 0 \\
+        -\frac{1}{2}k_1 + \lambda k_2 -\frac{1}{2}k_3  & = 0 \\
+        -\frac{1}{2}k_1 - \frac{1}{2}k_2 + \lambda k_3 & = 0
+    \end{align*}
+    \begin{align*}
+        \begin{bmatrix}
+            \lambda      & -\frac{1}{2} & -\frac{1}{2} \\
+            -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
+            -\frac{1}{2} & -\frac{1}{2} & \lambda
+        \end{bmatrix}
+        \begin{bmatrix}
+            k_1 \\ k_2 \\ k_3
+        \end{bmatrix} =
+        \begin{bmatrix}
+            0 \\ 0 \\ 0
+        \end{bmatrix}
+    \end{align*}
+    Consider the determinant of the square matrix.
+    \begin{align*}
+         & \left\lvert\begin{array}{ccc}
+                          \lambda      & -\frac{1}{2} & -\frac{1}{2} \\
+                          -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
+                          -\frac{1}{2} & -\frac{1}{2} & \lambda
+                      \end{array}\right\rvert \overunderset{R_1 + R_2}{R_1 + R_3}{===}
+        \left\lvert\begin{array}{ccc}
+                       \lambda - 1  & \lambda - 1  & \lambda - 1  \\
+                       -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
+                       -\frac{1}{2} & -\frac{1}{2} & \lambda
+                   \end{array}\right\rvert ===
+        (\lambda - 1)\left\lvert\begin{array}{ccc}
+                                    1            & 1            & 1            \\
+                                    -\frac{1}{2} & \lambda      & -\frac{1}{2} \\
+                                    -\frac{1}{2} & -\frac{1}{2} & \lambda
+                                \end{array}\right\rvert \overunderset{R_2 + \frac{1}{2}R_1}{R_3 + \frac{1}{2}R_1}{===} \\
+         & (\lambda - 1)\left\lvert\begin{array}{ccc}
+                                       1 & 1                   & 1                   \\
+                                       0 & \lambda+\frac{1}{2} & 0                   \\
+                                       0 & 0                   & \lambda+\frac{1}{2}
+                                   \end{array}\right\rvert =
+        (\lambda - 1)(1)(\lambda+\frac{1}{2}) = (\lambda - 1)(\lambda+\frac{1}{2})^2
+    \end{align*}
+    When $\lambda = 1 \tor \lambda = -\frac{1}{2}$, the determinant of this matrix will be zero. By Theorem 4 of Lecture Notes 32, when the determinant is zero, the coefficient matrix is singular. By the Big Theorem, if the coefficient matrix is singular, then $A\vec{x} = \vec{0}$ does not only have the trivial solution, meaning that there exists $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1\left(\lambda, -\frac{1}{2}, -\frac{1}{2}\right) + k_2\left(-\frac{1}{2}, \lambda, -\frac{1}{2}\right) + k_3\left(-\frac{1}{2}, -\frac{1}{2}, \lambda\right) = (0,0,0)$, where not all $k_i$ are zero. This means that these vectors are linearly dependent when $\lambda = 1 \tor \lambda = -\frac{1}{2}$.
 \end{proof}
 \qdash
 
 \question{13}{Show that if $S = \{v_1,v_2,\ldots,v_r\}$ is a linearly dependent set of vectors in a vector space $V$, and if $v_{r+1},\ldots,v_n$ are any vectors in $V$ that are not in $S$, then $\{v_1,v_2,\ldots,v_r,v_{r+1},\ldots,v_n\}$ is also linearly dependent.}
 \begin{proof}[Work]
-  By definition, if S is a linearly dependent set of vectors in $V$, then $\exists~ k_1,k_2,\ldots,k_r \in \bb{R}$ such that $k_1v_1 + k_2v_2 + \cdots + k_rv_r = \id$, where not all $k_i = 0$. Now consider $S' = S \cup \{v_{r+1},\ldots,v_n\}$, where $v_{r+1},\ldots,v_n$ are not in $S$. Consider $k_1,k_2,\ldots,k_r,k_{r+1},\ldots,k_n \in \bb{R}$ such that $k_1v_1 + k_2v_2 + \cdots + k_rv_r + k_{r+1}v_{r+1} + \cdots + k_nv_n = \id$.
-  \begin{align*}
-    k_1v_1 + k_2v_2 + \cdots + k_rv_r + k_{r+1}v_{r+1} + \cdots + k_nv_n & = \id &  & \lnot \forall k_i = 0 \\
-    k_1v_1 + k_2v_2 + \cdots + k_rv_r + 0v_{r+1} + \cdots + 0v_n         & = \id &  & \lnot \forall k_i = 0 \\
-    k_1v_1 + k_2v_2 + \cdots + k_rv_r + \id + \cdots + \id               & = \id &  & \lnot \forall k_i = 0 \\
-    k_1v_1 + k_2v_2 + \cdots + k_rv_r                                    & = \id &  & \lnot \forall k_i = 0 \\
-  \end{align*}
-  This final equation is known to exist, since we asserted at the beginning that $S$ was linearly dependent. Therefore, $S'$ must also be linearly dependent. Therefore, if $S = \{v_1,v_2,\ldots,v_r\}$ is a linearly dependent set of vectors in a vector space $V$, and if $v_{r+1},\ldots,v_n$ are any vectors in $V$ that are not in $S$, then $\{v_1,v_2,\ldots,v_r,v_{r+1},\ldots,v_n\}$ is also linearly dependent.
+    By definition, if S is a linearly dependent set of vectors in $V$, then $\exists~ k_1,k_2,\ldots,k_r \in \bb{R}$ such that $k_1v_1 + k_2v_2 + \cdots + k_rv_r = \id$, where not all $k_i = 0$. Now consider $S' = S \cup \{v_{r+1},\ldots,v_n\}$, where $v_{r+1},\ldots,v_n$ are not in $S$. Consider $k_1,k_2,\ldots,k_r,k_{r+1},\ldots,k_n \in \bb{R}$ such that $k_1v_1 + k_2v_2 + \cdots + k_rv_r + k_{r+1}v_{r+1} + \cdots + k_nv_n = \id$.
+    \begin{align*}
+        k_1v_1 + k_2v_2 + \cdots + k_rv_r + k_{r+1}v_{r+1} + \cdots + k_nv_n & = \id &  & \lnot \forall k_i = 0 \\
+        k_1v_1 + k_2v_2 + \cdots + k_rv_r + 0v_{r+1} + \cdots + 0v_n         & = \id &  & \lnot \forall k_i = 0 \\
+        k_1v_1 + k_2v_2 + \cdots + k_rv_r + \id + \cdots + \id               & = \id &  & \lnot \forall k_i = 0 \\
+        k_1v_1 + k_2v_2 + \cdots + k_rv_r                                    & = \id &  & \lnot \forall k_i = 0 \\
+    \end{align*}
+    This final equation is known to exist, since we asserted at the beginning that $S$ was linearly dependent. Therefore, $S'$ must also be linearly dependent. Therefore, if $S = \{v_1,v_2,\ldots,v_r\}$ is a linearly dependent set of vectors in a vector space $V$, and if $v_{r+1},\ldots,v_n$ are any vectors in $V$ that are not in $S$, then $\{v_1,v_2,\ldots,v_r,v_{r+1},\ldots,v_n\}$ is also linearly dependent.
 \end{proof}
 \qdash
 
 \question{21}{The functions $f_1(x) = x \tand f_2(x) = \cos x$ are linearly independent in $F(-\infty, \infty)$ because neither function is a scalar multiple of the other. Confirm the linear independence using Wroński's test.}
 \begin{proof}[Work]
-  According to the Wroński's test, $f_1 \tand f_1$ are linearly independent if $W(x)$ is not identically zero.
-  \begin{align*}
-    W(x) = \left\lvert \begin{array}{cc}
-                         x & \cos x  \\
-                         1 & -\sin x
-                       \end{array}\right\rvert = -x\sin x - \cos x
-  \end{align*}
-  When $x = 0$, $W(x) = -0\sin 0 - \cos 0 = 0 - 1 = -1 \neq 0$. Therefore $W$ is not identically zero. Therefore, $f_1(x) = x \tand f_2(x) = \cos x$ are linearly independent.
+    According to the Wroński's test, $f_1 \tand f_1$ are linearly independent if $W(x)$ is not identically zero.
+    \begin{align*}
+        W(x) = \left\lvert \begin{array}{cc}
+                               x & \cos x  \\
+                               1 & -\sin x
+                           \end{array}\right\rvert = -x\sin x - \cos x
+    \end{align*}
+    When $x = 0$, $W(x) = -0\sin 0 - \cos 0 = 0 - 1 = -1 \neq 0$. Therefore $W$ is not identically zero. Therefore, $f_1(x) = x \tand f_2(x) = \cos x$ are linearly independent.
 \end{proof}
 \qdash
 
@@ -195,332 +195,332 @@
 
 \question{4}{Which of the following form bases for $P_2$?}
 \begin{enumerate}
-  \qitem{a}{$1-3x+2x^2,~~1+x+4x^2,~~1-7x$}{
-    \begin{proof}[Work]
-      In order for $\{1-3x+2x^2,~~1+x+4x^2,~~1-7x\}$ to be a basis of $P_2$, it must be linearly independent and it must span $P_2$. Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1(1-3x+2x^2) + k_2(1+x+4x^2) + k_3(1-7x) = (b_1 + b_2x + b_3x^2)$.
-      \begin{align*}
-        1k_1  + 1k_2 + 1k_3          & = b_1 \\
-        -3xk_1 + 1xk_2 - 7xk_3       & = b_2 \\
-        2x^2k_1  + 4x^2k_2 + 0x^2k_3 & = b_3
-      \end{align*}
-      Consider the augmented matrix of this linear system of equations.
-      \begin{align*}
-        \begin{abmatrix}{3}{1}
-          1  & 1 & 1 & b_1 \\
-          -3 & 1 & -7 & b_2\\
-          2  & 4 & 0 & b_3
-        \end{abmatrix} \xrightarrow[R_3 - 2R_1]{R_2 + 3R_1}
-        \begin{bmatrix}
-          1 & 1 & 1  & b_1      \\
-          0 & 4 & -4 & b_2+3b_1 \\
-          0 & 2 & -2 & b_3-2b_1
-        \end{bmatrix} \xrightarrow{R_2 - 2R_3}
-        \begin{abmatrix}{3}{1}
-          1 & 1 & 1  & b_1               \\
-          0 & 0 & 0  & b_2+3b_1-b_3+4b_1 \\
-          0 & 2 & -2 & b_3-2b_1
-        \end{abmatrix}
-      \end{align*}
-      The second row of the augmented matrix represents $0 = b_2+3b_1-b_3+4b_1$. If $0 \neq b_2+3b_1-b_3+4b_1$, then there is no solution to the linear system of equations, and thus no coefficients for $k_1,k_2,k_3$ that satisfy the above condition. Therefore $\{1-3x+2x^2,~~1+x+4x^2,~~1-7x\}$ does not span $P_2$, and thus cannot be a basis for $P_2$.
-    \end{proof}
-  }
+    \qitem{a}{$1-3x+2x^2,~~1+x+4x^2,~~1-7x$}{
+        \begin{proof}[Work]
+            In order for $\{1-3x+2x^2,~~1+x+4x^2,~~1-7x\}$ to be a basis of $P_2$, it must be linearly independent and it must span $P_2$. Let $k_1,k_2,k_3 \in \bb{R} \tsuchthat k_1(1-3x+2x^2) + k_2(1+x+4x^2) + k_3(1-7x) = (b_1 + b_2x + b_3x^2)$.
+            \begin{align*}
+                1k_1  + 1k_2 + 1k_3          & = b_1 \\
+                -3xk_1 + 1xk_2 - 7xk_3       & = b_2 \\
+                2x^2k_1  + 4x^2k_2 + 0x^2k_3 & = b_3
+            \end{align*}
+            Consider the augmented matrix of this linear system of equations.
+            \begin{align*}
+                \begin{abmatrix}{3}{1}
+                    1  & 1 & 1 & b_1 \\
+                    -3 & 1 & -7 & b_2\\
+                    2  & 4 & 0 & b_3
+                \end{abmatrix} \xrightarrow[R_3 - 2R_1]{R_2 + 3R_1}
+                \begin{bmatrix}
+                    1 & 1 & 1  & b_1      \\
+                    0 & 4 & -4 & b_2+3b_1 \\
+                    0 & 2 & -2 & b_3-2b_1
+                \end{bmatrix} \xrightarrow{R_2 - 2R_3}
+                \begin{abmatrix}{3}{1}
+                    1 & 1 & 1  & b_1               \\
+                    0 & 0 & 0  & b_2+3b_1-b_3+4b_1 \\
+                    0 & 2 & -2 & b_3-2b_1
+                \end{abmatrix}
+            \end{align*}
+            The second row of the augmented matrix represents $0 = b_2+3b_1-b_3+4b_1$. If $0 \neq b_2+3b_1-b_3+4b_1$, then there is no solution to the linear system of equations, and thus no coefficients for $k_1,k_2,k_3$ that satisfy the above condition. Therefore $\{1-3x+2x^2,~~1+x+4x^2,~~1-7x\}$ does not span $P_2$, and thus cannot be a basis for $P_2$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{7}{Find the coordinate vector of $\vec{w}$ relative to the basis $S = \{\vec{u}_1, \vec{u}_2\}$ for $\bb{R}^2$.}
 \begin{enumerate}
-  \qitem{b}{$\vec{u}_1 = (2,-4),~~\vec{u}_2 = (3,8);~~\vec{w} = (1,1)$}{
-    \begin{proof}[Work]
-      Let $k_1, k_2 \in \bb{R} \tsuchthat k_1(2,-4) + k_2(3,8) = (1,1)$.
-      \begin{align*}
-        2k_1 + 3k_2  & = 1 \\
-        -4k_1 + 8k_3 & = 1
-      \end{align*}
-      \begin{align*}
-        \begin{abmatrix}{2}{1}
-          2  & 3 & 1 \\
-          -4 & 8 & 1
-        \end{abmatrix} \xrightarrow{R_2 + 2R_2}
-        \begin{abmatrix}{2}{1}
-          2  & 3 & 1 \\
-          0 & 14 & 3
-        \end{abmatrix} \xrightarrow{\frac{1}{14}R_2}
-        \begin{abmatrix}{2}{1}
-          2  & 3 & 1 \\
-          0 & 1 & \frac{3}{14}
-        \end{abmatrix} \xrightarrow{R_1 - 3R_2}
-        \begin{abmatrix}{2}{1}
-          2  & 0 & \frac{5}{14} \\
-          0 & 1 & \frac{3}{14}
-        \end{abmatrix} \xrightarrow{\frac{1}{2}R_1}
-        \begin{abmatrix}{2}{1}
-          1  & 0 & \frac{5}{28} \\
-          0 & 1 & \frac{3}{14}
-        \end{abmatrix}
-      \end{align*}
-      Therefore, $\frac{5}{28}(2,-4) + \frac{3}{14}(3,8) = (1,1)$, or in other terms $(1,1)_S = (\frac{5}{28},\frac{3}{14})$.
-    \end{proof}
-  }
-  \qitem{c}{$\vec{u}_1 = (1,1),~~\vec{u}_2 = (0,2);~~\vec{w} = (a,b)$}{
-    \begin{proof}[Work]
-      Let $k_1, k_2 \in \bb{R} \tsuchthat k_1(1,1) + k_2(0,2) = (a,b)$.
-      \begin{align*}
-        1k_1 + 0k_2 & = a \\
-        1k_1 + 2k_2 & = b
-      \end{align*}
-      \begin{align*}
-        \begin{abmatrix}{2}{1}
-          1 & 0 & a \\
-          1 & 2 & b
-        \end{abmatrix} \xrightarrow{R_2 - R_1}
-        \begin{abmatrix}{2}{1}
-          1 & 0 & a \\
-          0 & 2 & b-a
-        \end{abmatrix} \xrightarrow{\frac{1}{2}R_2}
-        \begin{abmatrix}{2}{1}
-          1 & 0 & a \\
-          0 & 1 & \frac{b-a}{2}
-        \end{abmatrix}
-      \end{align*}
-      Therefore, $a(1,1) + \frac{b-a}{2}(0,2) = (a,b)$, or in other terms $(a,b)_S = (a,\frac{b-a}{2})$.
-    \end{proof}
-  }
+    \qitem{b}{$\vec{u}_1 = (2,-4),~~\vec{u}_2 = (3,8);~~\vec{w} = (1,1)$}{
+        \begin{proof}[Work]
+            Let $k_1, k_2 \in \bb{R} \tsuchthat k_1(2,-4) + k_2(3,8) = (1,1)$.
+            \begin{align*}
+                2k_1 + 3k_2  & = 1 \\
+                -4k_1 + 8k_3 & = 1
+            \end{align*}
+            \begin{align*}
+                \begin{abmatrix}{2}{1}
+                    2  & 3 & 1 \\
+                    -4 & 8 & 1
+                \end{abmatrix} \xrightarrow{R_2 + 2R_2}
+                \begin{abmatrix}{2}{1}
+                    2  & 3 & 1 \\
+                    0 & 14 & 3
+                \end{abmatrix} \xrightarrow{\frac{1}{14}R_2}
+                \begin{abmatrix}{2}{1}
+                    2  & 3 & 1 \\
+                    0 & 1 & \frac{3}{14}
+                \end{abmatrix} \xrightarrow{R_1 - 3R_2}
+                \begin{abmatrix}{2}{1}
+                    2  & 0 & \frac{5}{14} \\
+                    0 & 1 & \frac{3}{14}
+                \end{abmatrix} \xrightarrow{\frac{1}{2}R_1}
+                \begin{abmatrix}{2}{1}
+                    1  & 0 & \frac{5}{28} \\
+                    0 & 1 & \frac{3}{14}
+                \end{abmatrix}
+            \end{align*}
+            Therefore, $\frac{5}{28}(2,-4) + \frac{3}{14}(3,8) = (1,1)$, or in other terms $(1,1)_S = (\frac{5}{28},\frac{3}{14})$.
+        \end{proof}
+    }
+    \qitem{c}{$\vec{u}_1 = (1,1),~~\vec{u}_2 = (0,2);~~\vec{w} = (a,b)$}{
+        \begin{proof}[Work]
+            Let $k_1, k_2 \in \bb{R} \tsuchthat k_1(1,1) + k_2(0,2) = (a,b)$.
+            \begin{align*}
+                1k_1 + 0k_2 & = a \\
+                1k_1 + 2k_2 & = b
+            \end{align*}
+            \begin{align*}
+                \begin{abmatrix}{2}{1}
+                    1 & 0 & a \\
+                    1 & 2 & b
+                \end{abmatrix} \xrightarrow{R_2 - R_1}
+                \begin{abmatrix}{2}{1}
+                    1 & 0 & a \\
+                    0 & 2 & b-a
+                \end{abmatrix} \xrightarrow{\frac{1}{2}R_2}
+                \begin{abmatrix}{2}{1}
+                    1 & 0 & a \\
+                    0 & 1 & \frac{b-a}{2}
+                \end{abmatrix}
+            \end{align*}
+            Therefore, $a(1,1) + \frac{b-a}{2}(0,2) = (a,b)$, or in other terms $(a,b)_S = (a,\frac{b-a}{2})$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{12}{Show that $\{A_1,A_2,A_3,A_4\}$ is a basis for $\mathcal{M}_{22}$, and express $A$ as a linear combination of the basis vectors.
-  \[
-    A_1 = \begin{bmatrix}
-      1 & 0 \\
-      1 & 0
-    \end{bmatrix},~~
-    A_2 = \begin{bmatrix}
-      1 & 1 \\
-      0 & 0
-    \end{bmatrix},~~
-    A_3 = \begin{bmatrix}
-      1 & 0 \\
-      0 & 1
-    \end{bmatrix},~~
-    A_4 = \begin{bmatrix}
-      0 & 0 \\
-      1 & 0
-    \end{bmatrix};~~
-    A = \begin{bmatrix}
-      6 & 2 \\
-      5 & 3
-    \end{bmatrix}
-  \]}
+    \[
+        A_1 = \begin{bmatrix}
+            1 & 0 \\
+            1 & 0
+        \end{bmatrix},~~
+        A_2 = \begin{bmatrix}
+            1 & 1 \\
+            0 & 0
+        \end{bmatrix},~~
+        A_3 = \begin{bmatrix}
+            1 & 0 \\
+            0 & 1
+        \end{bmatrix},~~
+        A_4 = \begin{bmatrix}
+            0 & 0 \\
+            1 & 0
+        \end{bmatrix};~~
+        A = \begin{bmatrix}
+            6 & 2 \\
+            5 & 3
+        \end{bmatrix}
+    \]}
 \begin{proof}[Proof of basis]
-  Let $k_1,k_2,k_3,k_4 \in \bb{R} \tsuchthat k_1\begin{bmatrix} 1 & 0 \\ 1 & 0 \end{bmatrix} + k_2\begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix} + k_3\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} + k_4\begin{bmatrix}0 & 0 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 6 & 2 \\ 5 & 3 \end{bmatrix}$.
-  \begin{align*}
-    1k_1 + 1k_2 + 1k_3 + 0k_4 & = 6 \\
-    0k_1 + 1k_2 + 0k_3 + 0k_4 & = 2 \\
-    1k_1 + 0k_2 + 0k_3 + 1k_4 & = 5 \\
-    0k_1 + 0k_2 + 1k_3 + 0k_4 & = 3
-  \end{align*}
-  Now consider only the coefficient matrix.
-  \begin{align*}
-    \begin{bmatrix}
-      1 & 1 & 1 & 0 \\
-      0 & 1 & 0 & 0 \\
-      1 & 0 & 0 & 1 \\
-      0 & 0 & 1 & 0
-    \end{bmatrix} \xrightarrow[R_3 + R_4,R_3 + R_2]{R_3 - R_1}
-    \begin{bmatrix}
-      1 & 1 & 1 & 0 \\
-      0 & 1 & 0 & 0 \\
-      0 & 0 & 0 & 1 \\
-      0 & 0 & 1 & 0
-    \end{bmatrix} \xrightarrow[R_1 - R_3]{R_1 - R_2}
-    \begin{bmatrix}
-      1 & 0 & 0 & 0 \\
-      0 & 1 & 0 & 0 \\
-      0 & 0 & 0 & 1 \\
-      0 & 0 & 1 & 0
-    \end{bmatrix} \xrightarrow{R_3 \leftrightarrow R_4}
-    \begin{bmatrix}
-      1 & 0 & 0 & 0 \\
-      0 & 1 & 0 & 0 \\
-      0 & 0 & 1 & 0 \\
-      0 & 0 & 0 & 1
-    \end{bmatrix}
-  \end{align*}
-  Since every column has a leading 1, $\{A_1,A_2,A_3,A_4\}$ are linearly independent. Since every row has a leading 1, $\{A_1,A_2,A_3,A_4\}$ spans $\mathcal{M}_{22}$. Therefore, since $\{A_1,A_2,A_3,A_4\}$ is linearly independent and spans $\mathcal{M}_{22}$, $\{A_1,A_2,A_3,A_4\}$ is a basis for $\mathcal{M}_{22}$.
+    Let $k_1,k_2,k_3,k_4 \in \bb{R} \tsuchthat k_1\begin{bmatrix} 1 & 0 \\ 1 & 0 \end{bmatrix} + k_2\begin{bmatrix} 1 & 1 \\ 0 & 0 \end{bmatrix} + k_3\begin{bmatrix} 1 & 0 \\ 0 & 1 \end{bmatrix} + k_4\begin{bmatrix}0 & 0 \\ 1 & 0 \end{bmatrix} = \begin{bmatrix} 6 & 2 \\ 5 & 3 \end{bmatrix}$.
+    \begin{align*}
+        1k_1 + 1k_2 + 1k_3 + 0k_4 & = 6 \\
+        0k_1 + 1k_2 + 0k_3 + 0k_4 & = 2 \\
+        1k_1 + 0k_2 + 0k_3 + 1k_4 & = 5 \\
+        0k_1 + 0k_2 + 1k_3 + 0k_4 & = 3
+    \end{align*}
+    Now consider only the coefficient matrix.
+    \begin{align*}
+        \begin{bmatrix}
+            1 & 1 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            1 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0
+        \end{bmatrix} \xrightarrow[R_3 + R_4,R_3 + R_2]{R_3 - R_1}
+        \begin{bmatrix}
+            1 & 1 & 1 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0
+        \end{bmatrix} \xrightarrow[R_1 - R_3]{R_1 - R_2}
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 0 & 1 \\
+            0 & 0 & 1 & 0
+        \end{bmatrix} \xrightarrow{R_3 \leftrightarrow R_4}
+        \begin{bmatrix}
+            1 & 0 & 0 & 0 \\
+            0 & 1 & 0 & 0 \\
+            0 & 0 & 1 & 0 \\
+            0 & 0 & 0 & 1
+        \end{bmatrix}
+    \end{align*}
+    Since every column has a leading 1, $\{A_1,A_2,A_3,A_4\}$ are linearly independent. Since every row has a leading 1, $\{A_1,A_2,A_3,A_4\}$ spans $\mathcal{M}_{22}$. Therefore, since $\{A_1,A_2,A_3,A_4\}$ is linearly independent and spans $\mathcal{M}_{22}$, $\{A_1,A_2,A_3,A_4\}$ is a basis for $\mathcal{M}_{22}$.
 \end{proof}
 \begin{proof}[A as a linear combination]
-  \begin{align*}
-    1k_1 + 1k_2 + 1k_3 + 0k_4 & = 6 \\
-    0k_1 + 1k_2 + 0k_3 + 0k_4 & = 2 \\
-    1k_1 + 0k_2 + 0k_3 + 1k_4 & = 5 \\
-    0k_1 + 0k_2 + 1k_3 + 0k_4 & = 3
-  \end{align*}
-  \begin{align*}
-     & \begin{abmatrix}{4}{1}
-         1 & 1 & 1 & 0 & 6 \\
-         0 & 1 & 0 & 0 & 2 \\
-         1 & 0 & 0 & 1 & 5 \\
-         0 & 0 & 1 & 0 & 3
-       \end{abmatrix} \xrightarrow[R_3 + R_4,R_3 + R_2]{R_3 - R_1}
-    \begin{abmatrix}{4}{1}
-      1 & 1 & 1 & 0 & 6 \\
-      0 & 1 & 0 & 0 & 2 \\
-      0 & 0 & 0 & 1 & 4 \\
-      0 & 0 & 1 & 0 & 3
-    \end{abmatrix} \xrightarrow[R_1 - R_3]{R_1 - R_2}              \\
-     & \begin{abmatrix}{4}{1}
-         1 & 0 & 0 & 0 & 1 \\
-         0 & 1 & 0 & 0 & 2 \\
-         0 & 0 & 0 & 1 & 4 \\
-         0 & 0 & 1 & 0 & 3
-       \end{abmatrix} \xrightarrow{R_3 \leftrightarrow R_4}
-    \begin{abmatrix}{4}{1}
-      1 & 0 & 0 & 0 & 1 \\
-      0 & 1 & 0 & 0 & 2 \\
-      0 & 0 & 1 & 0 & 3 \\
-      0 & 0 & 0 & 1 & 4
-    \end{abmatrix}
-  \end{align*}
-  Therefore, $1A_1 + 2A_2 + 3A_3 + 4A_4 = A$.
+    \begin{align*}
+        1k_1 + 1k_2 + 1k_3 + 0k_4 & = 6 \\
+        0k_1 + 1k_2 + 0k_3 + 0k_4 & = 2 \\
+        1k_1 + 0k_2 + 0k_3 + 1k_4 & = 5 \\
+        0k_1 + 0k_2 + 1k_3 + 0k_4 & = 3
+    \end{align*}
+    \begin{align*}
+         & \begin{abmatrix}{4}{1}
+               1 & 1 & 1 & 0 & 6 \\
+               0 & 1 & 0 & 0 & 2 \\
+               1 & 0 & 0 & 1 & 5 \\
+               0 & 0 & 1 & 0 & 3
+           \end{abmatrix} \xrightarrow[R_3 + R_4,R_3 + R_2]{R_3 - R_1}
+        \begin{abmatrix}{4}{1}
+            1 & 1 & 1 & 0 & 6 \\
+            0 & 1 & 0 & 0 & 2 \\
+            0 & 0 & 0 & 1 & 4 \\
+            0 & 0 & 1 & 0 & 3
+        \end{abmatrix} \xrightarrow[R_1 - R_3]{R_1 - R_2}              \\
+         & \begin{abmatrix}{4}{1}
+               1 & 0 & 0 & 0 & 1 \\
+               0 & 1 & 0 & 0 & 2 \\
+               0 & 0 & 0 & 1 & 4 \\
+               0 & 0 & 1 & 0 & 3
+           \end{abmatrix} \xrightarrow{R_3 \leftrightarrow R_4}
+        \begin{abmatrix}{4}{1}
+            1 & 0 & 0 & 0 & 1 \\
+            0 & 1 & 0 & 0 & 2 \\
+            0 & 0 & 1 & 0 & 3 \\
+            0 & 0 & 0 & 1 & 4
+        \end{abmatrix}
+    \end{align*}
+    Therefore, $1A_1 + 2A_2 + 3A_3 + 4A_4 = A$.
 \end{proof}
 \qdash
 
 \subsubsection*{4.5}
 
 \question{3}{Find a basis for the solution space of the homogeneous linear system, and find the dimension of that space.
-  \begin{align*}
-    1x_1 - 4x_2 + 3x_3 - 1x_4 & = 0 \\
-    2x_1 - 8x_2 + 6x_3 - 2x_4 & = 0
-  \end{align*}}
+    \begin{align*}
+        1x_1 - 4x_2 + 3x_3 - 1x_4 & = 0 \\
+        2x_1 - 8x_2 + 6x_3 - 2x_4 & = 0
+    \end{align*}}
 \begin{proof}[Work]
-  \begin{align*}
-    \begin{abmatrix}{4}{1}
-      1 & -4 & 3 & -1 & 0 \\
-      2 & -8 & 6 & -2 & 0
-    \end{abmatrix} \xrightarrow{R_2 -2R_1}
-    \begin{abmatrix}{4}{1}
-      1 & -4 & 3 & -1 & 0 \\
-      0 & 0  & 0 & 0  & 0
-    \end{abmatrix}
-  \end{align*}
-  Let $x_2 = t_2,~x_3 = t_3,~x_4 = t_4$, where $t_2,t_3,t_4$ are free parameters. $x_1 = 4t_2 - 3t_3 + 1t_4$. Therefore a solution to the homogeneous linear system takes the form
-  \begin{align*}
-    (x_1,x_2,x_3,x_4) & = (4t_2 - 3t_3 + 1t_4, t_2,t_3,t_4)                \\
-                      & = (4t_2,t_2,0,0) + (-3t_3,0,t_3,0) + (t_4,0,0,t_4) \\
-                      & = t_2(4,1,0,0) + t_3(-3,0,1,0) + t_4(1,0,0,1)
-  \end{align*}
-  Therefore a basis of the solution space is $\{(4,1,0,0),(-3,0,1,0),(1,0,0,1)\}$. Since there are three basis vectors, the dimension is the solution space is 3.
+    \begin{align*}
+        \begin{abmatrix}{4}{1}
+            1 & -4 & 3 & -1 & 0 \\
+            2 & -8 & 6 & -2 & 0
+        \end{abmatrix} \xrightarrow{R_2 -2R_1}
+        \begin{abmatrix}{4}{1}
+            1 & -4 & 3 & -1 & 0 \\
+            0 & 0  & 0 & 0  & 0
+        \end{abmatrix}
+    \end{align*}
+    Let $x_2 = t_2,~x_3 = t_3,~x_4 = t_4$, where $t_2,t_3,t_4$ are free parameters. $x_1 = 4t_2 - 3t_3 + 1t_4$. Therefore a solution to the homogeneous linear system takes the form
+    \begin{align*}
+        (x_1,x_2,x_3,x_4) & = (4t_2 - 3t_3 + 1t_4, t_2,t_3,t_4)                \\
+                          & = (4t_2,t_2,0,0) + (-3t_3,0,t_3,0) + (t_4,0,0,t_4) \\
+                          & = t_2(4,1,0,0) + t_3(-3,0,1,0) + t_4(1,0,0,1)
+    \end{align*}
+    Therefore a basis of the solution space is $\{(4,1,0,0),(-3,0,1,0),(1,0,0,1)\}$. Since there are three basis vectors, the dimension is the solution space is 3.
 \end{proof}
 \qdash
 
 \question{7}{Find bases for the following subspaces of $\bb{R}^3$.}
 \begin{enumerate}
-  \qitem{a}{The plane $3x-2y+5z = 0$.}{
-    \begin{proof}[Work]
-      \begin{align*}
-        3x-2y+5z                    & = 0 \\
-        x-\frac{2}{3}y+\frac{5}{3}z & = 0
-      \end{align*}
-      Let $y = t_y \tand z = t_z$, where $t_y \tand t_z$ are free parameters. $x = \frac{2}{3}t_y-\frac{5}{3}t_z$. Therefore a point on the plane $3x-2y+5z = 0$ takes the form
-      \begin{align*}
-        (x,y,z) & = (\frac{2}{3}t_y-\frac{5}{3}t_z,t_y,t_z)          \\
-                & = (\frac{2}{3}t_y,t_y,0) + (-\frac{5}{3}t_z,0,t_z) \\
-                & = t_y(\frac{2}{3},1,0) + t_z(-\frac{5}{3},0,1)
-      \end{align*}
-      Therefore a basis of the solution space is $\{(\frac{2}{3},1,0),(-\frac{5}{3},0,1)\}$.
-    \end{proof}
-  }
-  \qitem{b}{The plane $x-y = 0$.}{
-    \begin{proof}[Work]
-      \begin{align*}
-        x - y     & = 0 \\
-        x - y + z & = z
-      \end{align*}
-      Let $y = t_y \tand z = t_z$, where $t_y \tand t_z$ are free parameters $x = t_y$. Therefore a point on the plane $x-y=0$ takes the form
-      \begin{align*}
-        (x,y,z) & = (t_y,t_y,t_z)           \\
-                & = (t_y,t_y,0) + (0,0,t_z) \\
-                & = t_y(1,1,0) + t_z(0,0,1)
-      \end{align*}
-      Therefore a basis of the solution space is $\{(1,1,0),(0,0,1)\}$.
-    \end{proof}
-  }
-  \qitem{c}{The lines $x = 2t,~~y = -t,~~z = 4t$.}{
-    \begin{proof}[Work]
-      A point on the lines $x = 2t,~~y = -t,~~z = 4t$ take the form
-      \begin{align*}
-        (x,y,z) & = (2t,-t,4t) \\
-                & = t(2,-1,4)
-      \end{align*}
-      Therefore a basis of the solution space is $\{(2,-1,4)\}$.
-    \end{proof}
-  }
-  \qitem{c}{All the vectors of the form $(a,b,c), \twhere b = a + c$.}{
-    \begin{proof}[Work]
-      A vector which satisfies the conditions takes the form
-      \begin{align*}
-        (a,b,c) & = (a,a+c,c)           \\
-                & = (a,a,0) + (0,c,c)   \\
-                & = a(1,1,0) + c(0,1,1)
-      \end{align*}
-      Therefore a basis of the solution space is $\{(1,1,0),(0,1,1)\}$.
-    \end{proof}
-  }
+    \qitem{a}{The plane $3x-2y+5z = 0$.}{
+        \begin{proof}[Work]
+            \begin{align*}
+                3x-2y+5z                    & = 0 \\
+                x-\frac{2}{3}y+\frac{5}{3}z & = 0
+            \end{align*}
+            Let $y = t_y \tand z = t_z$, where $t_y \tand t_z$ are free parameters. $x = \frac{2}{3}t_y-\frac{5}{3}t_z$. Therefore a point on the plane $3x-2y+5z = 0$ takes the form
+            \begin{align*}
+                (x,y,z) & = (\frac{2}{3}t_y-\frac{5}{3}t_z,t_y,t_z)          \\
+                        & = (\frac{2}{3}t_y,t_y,0) + (-\frac{5}{3}t_z,0,t_z) \\
+                        & = t_y(\frac{2}{3},1,0) + t_z(-\frac{5}{3},0,1)
+            \end{align*}
+            Therefore a basis of the solution space is $\{(\frac{2}{3},1,0),(-\frac{5}{3},0,1)\}$.
+        \end{proof}
+    }
+    \qitem{b}{The plane $x-y = 0$.}{
+        \begin{proof}[Work]
+            \begin{align*}
+                x - y     & = 0 \\
+                x - y + z & = z
+            \end{align*}
+            Let $y = t_y \tand z = t_z$, where $t_y \tand t_z$ are free parameters $x = t_y$. Therefore a point on the plane $x-y=0$ takes the form
+            \begin{align*}
+                (x,y,z) & = (t_y,t_y,t_z)           \\
+                        & = (t_y,t_y,0) + (0,0,t_z) \\
+                        & = t_y(1,1,0) + t_z(0,0,1)
+            \end{align*}
+            Therefore a basis of the solution space is $\{(1,1,0),(0,0,1)\}$.
+        \end{proof}
+    }
+    \qitem{c}{The lines $x = 2t,~~y = -t,~~z = 4t$.}{
+        \begin{proof}[Work]
+            A point on the lines $x = 2t,~~y = -t,~~z = 4t$ take the form
+            \begin{align*}
+                (x,y,z) & = (2t,-t,4t) \\
+                        & = t(2,-1,4)
+            \end{align*}
+            Therefore a basis of the solution space is $\{(2,-1,4)\}$.
+        \end{proof}
+    }
+    \qitem{c}{All the vectors of the form $(a,b,c), \twhere b = a + c$.}{
+        \begin{proof}[Work]
+            A vector which satisfies the conditions takes the form
+            \begin{align*}
+                (a,b,c) & = (a,a+c,c)           \\
+                        & = (a,a,0) + (0,c,c)   \\
+                        & = a(1,1,0) + c(0,1,1)
+            \end{align*}
+            Therefore a basis of the solution space is $\{(1,1,0),(0,1,1)\}$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{11}{}
 \begin{enumerate}
-  \qitem{a}{Show that the set $W$ of all polynomials in $P_2$ such that $p(1) = 0$ is a subspace of $P_2$.}{
-    \begin{proof}
-      Axiom 1: Consider $p_a \tand p_b \in W$. Now consider $p_a + p_b$.
-      \[
-        (p_a + p_b)(x) = p_a(x) + p_b(x)
-      \]
-      When $x = 1$, $(p_a + p_b)(1) = p_a(1) + p_b(1) = 0 + 0 = 0$. Therefore Axiom 1 holds.
+    \qitem{a}{Show that the set $W$ of all polynomials in $P_2$ such that $p(1) = 0$ is a subspace of $P_2$.}{
+        \begin{proof}
+            Axiom 1: Consider $p_a \tand p_b \in W$. Now consider $p_a + p_b$.
+            \[
+                (p_a + p_b)(x) = p_a(x) + p_b(x)
+            \]
+            When $x = 1$, $(p_a + p_b)(1) = p_a(1) + p_b(1) = 0 + 0 = 0$. Therefore Axiom 1 holds.
 
-      Axiom 6: Consider $p \in W \tand k \in \bb{R}$. Now consider $k \cdot p$.
-      \[
-        (kp)(x) = kp(x)
-      \]
-      When $x = 1$, $(kp)(x) = kp(x) = k \cdot 0 = 0$. Therefore Axiom 6 holds. Since Axiom 1 and Axiom 6 hold for $W$, $W$ is a subspace of $P_2$.
-    \end{proof}
-  }
-  \qitem{b}{Make a conjecture about the dimesion of $W$.}{
-    \begin{proof}[Conjecture]
-      I conjecture that the dimension of $W$ is two.
-    \end{proof}
-  }
-  \qitem{c}{Confirm you conjecture by finding a basis for $W$.}{
-    \begin{proof}[Work]
-      A polynomial which satisfies the condition $p(1)=0$ must also satisfy the following identity.
-      \begin{align*}
-        p(1) & = p_0 + p_1(1) + p_2(1^2) = 0
-             & = p_0 + p_1 + p_2 = 0
-      \end{align*}
-      Let $p_1 = t_1 \tand p_2 = t_2$, where $t_1 \tand t_2$ are free parameters. $p_0 = -t_1-t_2$. Therefore a vector of coefficients takes the form
-      \begin{align*}
-        (p_0,p_1,p_2) & = (-t_1-t_2,t_1,t_2)          \\
-                      & = (-t_1,t_1,0) + (-t_2,0,t_2) \\
-                      & = t_1(-1,1,0) + t_2(-1,0,1)
-      \end{align*}
-      Therefore a basis of the solution space is $\{-1+x,~-1+x^2\}$. There are two basis vectors, so the dimension of the subspace is two.
-    \end{proof}
-  }
+            Axiom 6: Consider $p \in W \tand k \in \bb{R}$. Now consider $k \cdot p$.
+            \[
+                (kp)(x) = kp(x)
+            \]
+            When $x = 1$, $(kp)(x) = kp(x) = k \cdot 0 = 0$. Therefore Axiom 6 holds. Since Axiom 1 and Axiom 6 hold for $W$, $W$ is a subspace of $P_2$.
+        \end{proof}
+    }
+    \qitem{b}{Make a conjecture about the dimesion of $W$.}{
+        \begin{proof}[Conjecture]
+            I conjecture that the dimension of $W$ is two.
+        \end{proof}
+    }
+    \qitem{c}{Confirm you conjecture by finding a basis for $W$.}{
+        \begin{proof}[Work]
+            A polynomial which satisfies the condition $p(1)=0$ must also satisfy the following identity.
+            \begin{align*}
+                p(1) & = p_0 + p_1(1) + p_2(1^2) = 0
+                     & = p_0 + p_1 + p_2 = 0
+            \end{align*}
+            Let $p_1 = t_1 \tand p_2 = t_2$, where $t_1 \tand t_2$ are free parameters. $p_0 = -t_1-t_2$. Therefore a vector of coefficients takes the form
+            \begin{align*}
+                (p_0,p_1,p_2) & = (-t_1-t_2,t_1,t_2)          \\
+                              & = (-t_1,t_1,0) + (-t_2,0,t_2) \\
+                              & = t_1(-1,1,0) + t_2(-1,0,1)
+            \end{align*}
+            Therefore a basis of the solution space is $\{-1+x,~-1+x^2\}$. There are two basis vectors, so the dimension of the subspace is two.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{18}{Let $S$ be a basis for an $n$-dimesional vector space $V$. show that if $\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_r$ form a linearly independent set of vectors in $V$, then the coordinate vectors $(\vec{v}_1)_S,(\vec{v}_2)_S,\ldots,(\vec{v}_r)_S$ form a linearly independent set in $\bb{R}^n$, and conversely.}
 \begin{proof}
-  Let $S$ be a basis for an $n$-dimensional vector space $V$, and consider an linearly independent set of vectors in $V$, $\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_r$. Then, by definition for $k_1,\ldots,k_r \in \bb{R}$,
-  \[
-    k_1\vec{v}_1 + k_2\vec{v}_2 + \cdots + k_r\vec{v}_r = \id
-  \]
-  only has the trivial solution. Now consider a change of basis into base $S$. The equation now becomes
-  \[
-    k_1(\vec{v}_1)_S + k_2(\vec{v}_2)_S + \cdots + k_r(\vec{v}_r)_S = (\id)_S.
-  \]
-  However, $(\id)_S = \id$ for all basis, since it can only be obtained by a trivial linear combination, which produces a sum of $\id$. Therefore we have
-  \[
-    k_1(\vec{v}_1)_S + k_2(\vec{v}_2)_S + \cdots + k_r(\vec{v}_r)_S = \id
-  \]
-  which only has the trivial solution. Therefore the coordinate vectors $(\vec{v}_1)_S,(\vec{v}_2)_S,\ldots,(\vec{v}_r)_S$ form a linearly independent set in $\bb{R}^n$. Conversely, if $S$ is changed to the original basis for $V$, then the converse can be achieved.
+    Let $S$ be a basis for an $n$-dimensional vector space $V$, and consider an linearly independent set of vectors in $V$, $\vec{v}_1,\vec{v}_2,\ldots,\vec{v}_r$. Then, by definition for $k_1,\ldots,k_r \in \bb{R}$,
+    \[
+        k_1\vec{v}_1 + k_2\vec{v}_2 + \cdots + k_r\vec{v}_r = \id
+    \]
+    only has the trivial solution. Now consider a change of basis into base $S$. The equation now becomes
+    \[
+        k_1(\vec{v}_1)_S + k_2(\vec{v}_2)_S + \cdots + k_r(\vec{v}_r)_S = (\id)_S.
+    \]
+    However, $(\id)_S = \id$ for all basis, since it can only be obtained by a trivial linear combination, which produces a sum of $\id$. Therefore we have
+    \[
+        k_1(\vec{v}_1)_S + k_2(\vec{v}_2)_S + \cdots + k_r(\vec{v}_r)_S = \id
+    \]
+    which only has the trivial solution. Therefore the coordinate vectors $(\vec{v}_1)_S,(\vec{v}_2)_S,\ldots,(\vec{v}_r)_S$ form a linearly independent set in $\bb{R}^n$. Conversely, if $S$ is changed to the original basis for $V$, then the converse can be achieved.
 \end{proof}
 \qdash
 

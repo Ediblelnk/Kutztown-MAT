@@ -1,6 +1,6 @@
 \documentclass{article}
-\input{../templates/packages-article.tex}
-\input{../templates/macros.tex}
+\input{../../.latex/packages-article.tex}
+\input{../../.latex/macros.tex}
 
 \newcommand{\assignment}{Homework 6}
 
@@ -13,469 +13,469 @@
 
 \question{1.2}{Determine the values for which the system has no solutions, exactly one solution, or infinitely many solutions}
 \begin{enumerate}
-  \biitem{25}{\begin{tabular}{rcrcrcr}
-      $x$  & $+$ & $2y$ & $-$ & $3z$        & $=$ & $4$   \\
-      $3x$ & $-$ & $y$  & $+$ & $5z$        & $=$ & $2$   \\
-      $4x$ & $+$ & $y$  & $+$ & $(a^2-14)z$ & $=$ & $a+2$
-    \end{tabular}}
-  \begin{proof}[work]
-    \begin{align*}
-      \begin{amatrix}{3}
-        1 & 2 & -3 & 4 \\
-        3 & -1 & 5 & 2 \\
-        4 & 1 & a^2-14 & a+2
-      \end{amatrix}     & \xrightarrow[(-4,-8,12,-16)]{R_3 - 4R_1}
-      \begin{pmatrix}
-        1 & 2  & -3    & 4    \\
-        3 & -1 & 5     & 2    \\
-        0 & -7 & a^2-2 & a-14
-      \end{pmatrix} \xrightarrow[(-3,-6,9,-12)]{R_2 - 3R_1}                   \\
-      \begin{pmatrix}
-        1 & 2  & -3    & 4    \\
-        0 & -7 & 14    & -10  \\
-        0 & -7 & a^2-2 & a-14
-      \end{pmatrix} & \xrightarrow[(0, 7,-14,10)]{R_3 - R_2, -\frac{1}{7}R_2}
-      \begin{amatrix}{3}
-        1 & 2 & -3     & 4            \\
-        0 & 1 & -2     & \frac{10}{7} \\
-        0 & 0 & a^2-16 & a-4
-      \end{amatrix}
-    \end{align*}
-    $R_3$ represents the equation $(a^2-16)z = a-4$. If $a = 4$, there are infinitely many solutions, since $R_3$ leads to a full row of $0$'s. If $a = -4$, then there is no solution, since $R_3$ leads to $0 = -8$. If $a \neq \pm 4$, then there is exactly one solution to the system of equations.
-  \end{proof}
-  \biitem{27}{\begin{tabular}{rcrcr}
-      $x$  & $+$ & $2y$       & $=$ & $1$   \\
-      $2x$ & $+$ & $(a^2-5)y$ & $=$ & $a-1$
-    \end{tabular}}
-  \begin{proof}[work]
-    \begin{align*}
-      \begin{amatrix}{2}
-        1 & 2     & 1 \\
-        2 & a^2-5 & a-1
-      \end{amatrix} \xrightarrow[(-2,-4,-2)]{R_2 - 2R_1}
-      \begin{amatrix}{2}
-        1 & 2     & 1 \\
-        0 & a^2-9 & a-3
-      \end{amatrix}
-    \end{align*}
-    $R_2$ represents the equation $(a^2-9)y = a-3$. If $a = 3$, there are infinitely many solutions, since $R_2$ leads to a full row of $0$'s. If $a = -3$, then there is no solution, since $R_2$ leads to $0 = -6$. If $a \neq \pm 3$, then there is exactly one solution to the system of equations.
-  \end{proof}
-  \biitem{32}{Reduce $\begin{bmatrix}
-        2 & 1  & 3   \\
-        0 & -2 & -29 \\
-        3 & 4  & 5
-      \end{bmatrix}$ to rref without introducing fractions at any intermediate stage.}
-  \begin{proof}[work]
-    \begin{align*}
-      \begin{bmatrix}
-        2 & 1  & 3   \\
-        0 & -2 & -29 \\
-        3 & 4  & 5
-      \end{bmatrix} & \xrightarrow[(-2,-1,-3)]{R_3 - R_2}
-      \begin{bmatrix}
-        2 & 1  & 3   \\
-        0 & -2 & -29 \\
-        1 & 3  & 2
-      \end{bmatrix} \xrightarrow[(-2,-6,-4)]{R_1 - 2R_3}
-      \begin{bmatrix}
-        0 & -5 & -1  \\
-        0 & -2 & -29 \\
-        1 & 3  & 2
-      \end{bmatrix} \xrightarrow[(0,2,29)]{R_1 - R_2}     \\
-      \begin{bmatrix}
-        0 & -3 & 28  \\
-        0 & -2 & -29 \\
-        1 & 3  & 2
-      \end{bmatrix} & \xrightarrow[R_3 + R_1]{R_2 - R_1}
-      \begin{bmatrix}
-        0 & -3 & 28  \\
-        0 & 1  & -57 \\
-        1 & 0  & 30
-      \end{bmatrix} \xrightarrow[(0,3,-171)]{R_1 + 3R_2}
-      \begin{bmatrix}
-        0 & 0 & -143 \\
-        0 & 1 & -57  \\
-        1 & 0 & 30
-      \end{bmatrix} \xrightarrow[R_2+57R_1,R_3-30R_1]{-\frac{1}{143}R_1, R_1 \leftrightarrow R_3}
-      \begin{bmatrix}
-        1 & 0 & 0 \\
-        0 & 1 & 0 \\
-        0 & 0 & 1
-      \end{bmatrix}
-    \end{align*}
-  \end{proof}
+    \biitem{25}{\begin{tabular}{rcrcrcr}
+            $x$  & $+$ & $2y$ & $-$ & $3z$        & $=$ & $4$   \\
+            $3x$ & $-$ & $y$  & $+$ & $5z$        & $=$ & $2$   \\
+            $4x$ & $+$ & $y$  & $+$ & $(a^2-14)z$ & $=$ & $a+2$
+        \end{tabular}}
+    \begin{proof}[work]
+        \begin{align*}
+            \begin{apmatrix}{3}{1}
+                1 & 2 & -3 & 4 \\
+                3 & -1 & 5 & 2 \\
+                4 & 1 & a^2-14 & a+2
+            \end{apmatrix}   & \xrightarrow[(-4,-8,12,-16)]{R_3 - 4R_1}
+            \begin{pmatrix}
+                1 & 2  & -3    & 4    \\
+                3 & -1 & 5     & 2    \\
+                0 & -7 & a^2-2 & a-14
+            \end{pmatrix} \xrightarrow[(-3,-6,9,-12)]{R_2 - 3R_1}                   \\
+            \begin{pmatrix}
+                1 & 2  & -3    & 4    \\
+                0 & -7 & 14    & -10  \\
+                0 & -7 & a^2-2 & a-14
+            \end{pmatrix} & \xrightarrow[(0, 7,-14,10)]{R_3 - R_2, -\frac{1}{7}R_2}
+            \begin{apmatrix}{3}{1}
+                1 & 2 & -3     & 4            \\
+                0 & 1 & -2     & \frac{10}{7} \\
+                0 & 0 & a^2-16 & a-4
+            \end{apmatrix}
+        \end{align*}
+        $R_3$ represents the equation $(a^2-16)z = a-4$. If $a = 4$, there are infinitely many solutions, since $R_3$ leads to a full row of $0$'s. If $a = -4$, then there is no solution, since $R_3$ leads to $0 = -8$. If $a \neq \pm 4$, then there is exactly one solution to the system of equations.
+    \end{proof}
+    \biitem{27}{\begin{tabular}{rcrcr}
+            $x$  & $+$ & $2y$       & $=$ & $1$   \\
+            $2x$ & $+$ & $(a^2-5)y$ & $=$ & $a-1$
+        \end{tabular}}
+    \begin{proof}[work]
+        \begin{align*}
+            \begin{apmatrix}{2}{1}
+                1 & 2     & 1 \\
+                2 & a^2-5 & a-1
+            \end{apmatrix} \xrightarrow[(-2,-4,-2)]{R_2 - 2R_1}
+            \begin{apmatrix}{2}{1}
+                1 & 2     & 1 \\
+                0 & a^2-9 & a-3
+            \end{apmatrix}
+        \end{align*}
+        $R_2$ represents the equation $(a^2-9)y = a-3$. If $a = 3$, there are infinitely many solutions, since $R_2$ leads to a full row of $0$'s. If $a = -3$, then there is no solution, since $R_2$ leads to $0 = -6$. If $a \neq \pm 3$, then there is exactly one solution to the system of equations.
+    \end{proof}
+    \biitem{32}{Reduce $\begin{bmatrix}
+                2 & 1  & 3   \\
+                0 & -2 & -29 \\
+                3 & 4  & 5
+            \end{bmatrix}$ to rref without introducing fractions at any intermediate stage.}
+    \begin{proof}[work]
+        \begin{align*}
+            \begin{bmatrix}
+                2 & 1  & 3   \\
+                0 & -2 & -29 \\
+                3 & 4  & 5
+            \end{bmatrix} & \xrightarrow[(-2,-1,-3)]{R_3 - R_2}
+            \begin{bmatrix}
+                2 & 1  & 3   \\
+                0 & -2 & -29 \\
+                1 & 3  & 2
+            \end{bmatrix} \xrightarrow[(-2,-6,-4)]{R_1 - 2R_3}
+            \begin{bmatrix}
+                0 & -5 & -1  \\
+                0 & -2 & -29 \\
+                1 & 3  & 2
+            \end{bmatrix} \xrightarrow[(0,2,29)]{R_1 - R_2}     \\
+            \begin{bmatrix}
+                0 & -3 & 28  \\
+                0 & -2 & -29 \\
+                1 & 3  & 2
+            \end{bmatrix} & \xrightarrow[R_3 + R_1]{R_2 - R_1}
+            \begin{bmatrix}
+                0 & -3 & 28  \\
+                0 & 1  & -57 \\
+                1 & 0  & 30
+            \end{bmatrix} \xrightarrow[(0,3,-171)]{R_1 + 3R_2}
+            \begin{bmatrix}
+                0 & 0 & -143 \\
+                0 & 1 & -57  \\
+                1 & 0 & 30
+            \end{bmatrix} \xrightarrow[R_2+57R_1,R_3-30R_1]{-\frac{1}{143}R_1, R_1 \leftrightarrow R_3}
+            \begin{bmatrix}
+                1 & 0 & 0 \\
+                0 & 1 & 0 \\
+                0 & 0 & 1
+            \end{bmatrix}
+        \end{align*}
+    \end{proof}
 \end{enumerate}
 
 \question{1.3}{}
 \begin{enumerate}
-  \biitem{5h}{Calculate $(C^TB)A^T$, where $A = \begin{pmatrix}
-        3  & 0 \\
-        -1 & 2 \\
-        1  & 1
-      \end{pmatrix},~B = \begin{pmatrix}
-        4 & -1 \\
-        0 & 2
-      \end{pmatrix},~C = \begin{pmatrix}
-        1 & 4 & 2 \\
-        3 & 1 & 5
-      \end{pmatrix}$.}
-  \begin{proof}[work]
-    \begin{align*}
-       & \begin{pmatrix}
-           1 & 4 & 2 \\
-           3 & 1 & 5
-         \end{pmatrix} \xrightarrow{C^T}
-      \begin{pmatrix}
-        1 & 3 \\
-        4 & 1 \\
-        2 & 5
-      \end{pmatrix}  \xrightarrow{C^TB}
-      \begin{pmatrix}
-        1 \cdot 4 + 3 \cdot 0 & 1 \cdot -1 + 3 \cdot 2 \\
-        4 \cdot 4 + 1 \cdot 0 & 4 \cdot -1 + 1 \cdot 2 \\
-        2 \cdot 4 + 5 \cdot 0 & 2 \cdot -1 + 5 \cdot 2 \\
-      \end{pmatrix} =
-      \begin{pmatrix}
-        4  & 5  \\
-        16 & -2 \\
-        8  & 8
-      \end{pmatrix} \xrightarrow{C^TBA^T} \\
-       & \begin{pmatrix}
-           4  & 5  \\
-           16 & -2 \\
-           8  & 8
-         \end{pmatrix}
-      \begin{pmatrix}
-        3 & -1 & 1 \\
-        0 & 2  & 1
-      \end{pmatrix}  \xrightarrow{C^TBA^T}
-      \begin{pmatrix}
-        4 \cdot 3 + 5 \cdot 0  & 4 \cdot -1 + 5 \cdot 2  & 4 \cdot 1 + 5 \cdot 1  \\
-        16 \cdot 3 - 2 \cdot 0 & 16 \cdot -1 - 2 \cdot 2 & 16 \cdot 1 - 2 \cdot 1 \\
-        8 \cdot 3 + 8 \cdot 0  & 8 \cdot -1 + 8 \cdot 2  & 8 \cdot 1 + 8 \cdot 1
-      \end{pmatrix} =
-      \begin{pmatrix}
-        12 & 6   & 9  \\
-        48 & -20 & 14 \\
-        24 & 8   & 16
-      \end{pmatrix}
-    \end{align*}
-  \end{proof}
-  \biitem{10}{$A = \begin{bmatrix}
-        3 & -2 & 7 \\
-        6 & 5  & 4 \\
-        0 & 4  & 9
-      \end{bmatrix},~B = \begin{bmatrix}
-        6 & -2 & 4 \\
-        0 & 1  & 3 \\
-        7 & 7  & 5
-      \end{bmatrix},~AB = \begin{bmatrix}
-        67 & 41 & 41 \\
-        64 & 21 & 59 \\
-        63 & 67 & 57 \\
-      \end{bmatrix}, \tand BA = \begin{bmatrix}
-        6  & -6 & 70  \\
-        6  & 17 & 31  \\
-        63 & 41 & 122
-      \end{bmatrix}$.
-    \begin{enumerate}
-      \biitem{a}{express each column vector of $AB$ as a linear combination of the column vectors of $A$.}
-      \begin{proof}[work] Since each column vector of $AB$ is computed using a row of $A$ and a column of $B$, the linear combination will simply be the corresponding column of $B$.
+    \biitem{5h}{Calculate $(C^TB)A^T$, where $A = \begin{pmatrix}
+                3  & 0 \\
+                -1 & 2 \\
+                1  & 1
+            \end{pmatrix},~B = \begin{pmatrix}
+                4 & -1 \\
+                0 & 2
+            \end{pmatrix},~C = \begin{pmatrix}
+                1 & 4 & 2 \\
+                3 & 1 & 5
+            \end{pmatrix}$.}
+    \begin{proof}[work]
+        \begin{align*}
+             & \begin{pmatrix}
+                   1 & 4 & 2 \\
+                   3 & 1 & 5
+               \end{pmatrix} \xrightarrow{C^T}
+            \begin{pmatrix}
+                1 & 3 \\
+                4 & 1 \\
+                2 & 5
+            \end{pmatrix}  \xrightarrow{C^TB}
+            \begin{pmatrix}
+                1 \cdot 4 + 3 \cdot 0 & 1 \cdot -1 + 3 \cdot 2 \\
+                4 \cdot 4 + 1 \cdot 0 & 4 \cdot -1 + 1 \cdot 2 \\
+                2 \cdot 4 + 5 \cdot 0 & 2 \cdot -1 + 5 \cdot 2 \\
+            \end{pmatrix} =
+            \begin{pmatrix}
+                4  & 5  \\
+                16 & -2 \\
+                8  & 8
+            \end{pmatrix} \xrightarrow{C^TBA^T} \\
+             & \begin{pmatrix}
+                   4  & 5  \\
+                   16 & -2 \\
+                   8  & 8
+               \end{pmatrix}
+            \begin{pmatrix}
+                3 & -1 & 1 \\
+                0 & 2  & 1
+            \end{pmatrix}  \xrightarrow{C^TBA^T}
+            \begin{pmatrix}
+                4 \cdot 3 + 5 \cdot 0  & 4 \cdot -1 + 5 \cdot 2  & 4 \cdot 1 + 5 \cdot 1  \\
+                16 \cdot 3 - 2 \cdot 0 & 16 \cdot -1 - 2 \cdot 2 & 16 \cdot 1 - 2 \cdot 1 \\
+                8 \cdot 3 + 8 \cdot 0  & 8 \cdot -1 + 8 \cdot 2  & 8 \cdot 1 + 8 \cdot 1
+            \end{pmatrix} =
+            \begin{pmatrix}
+                12 & 6   & 9  \\
+                48 & -20 & 14 \\
+                24 & 8   & 16
+            \end{pmatrix}
+        \end{align*}
+    \end{proof}
+    \biitem{10}{$A = \begin{bmatrix}
+                3 & -2 & 7 \\
+                6 & 5  & 4 \\
+                0 & 4  & 9
+            \end{bmatrix},~B = \begin{bmatrix}
+                6 & -2 & 4 \\
+                0 & 1  & 3 \\
+                7 & 7  & 5
+            \end{bmatrix},~AB = \begin{bmatrix}
+                67 & 41 & 41 \\
+                64 & 21 & 59 \\
+                63 & 67 & 57 \\
+            \end{bmatrix}, \tand BA = \begin{bmatrix}
+                6  & -6 & 70  \\
+                6  & 17 & 31  \\
+                63 & 41 & 122
+            \end{bmatrix}$.
         \begin{enumerate}
-          \item[1.] $6\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 0\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 7\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}67 \\ 64 \\ 63\end{pmatrix}$.
-          \item[2.] $-2\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 1\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 7\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}41 \\ 21 \\ 67\end{pmatrix}$.
-          \item[3.] $4\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 3\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 5\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}41 \\ 59 \\ 57\end{pmatrix}$.
+            \biitem{a}{express each column vector of $AB$ as a linear combination of the column vectors of $A$.}
+            \begin{proof}[work] Since each column vector of $AB$ is computed using a row of $A$ and a column of $B$, the linear combination will simply be the corresponding column of $B$.
+                \begin{enumerate}
+                    \item[1.] $6\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 0\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 7\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}67 \\ 64 \\ 63\end{pmatrix}$.
+                    \item[2.] $-2\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 1\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 7\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}41 \\ 21 \\ 67\end{pmatrix}$.
+                    \item[3.] $4\begin{pmatrix}3 \\ 6 \\ 0\end{pmatrix} + 3\begin{pmatrix}-2 \\ 5 \\ 4\end{pmatrix} + 5\begin{pmatrix}7 \\ 4 \\ 9\end{pmatrix} = \begin{pmatrix}41 \\ 59 \\ 57\end{pmatrix}$.
+                \end{enumerate}
+            \end{proof}
+            \biitem{b}{express each column vector of $BA$ as a linear combination of the column vectors of $B$.}
+            \begin{proof}[work] Since each column vector of $BA$ is computed using a row of $B$ and a column of $A$, the linear combination will simply be the corresponding column of $A$.
+                \begin{enumerate}
+                    \item[1.] $3\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 6\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 0\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}6 \\ 6 \\ 63\end{pmatrix}$.
+                    \item[2.] $-2\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 5\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 4\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}-6 \\ 17 \\ 41\end{pmatrix}$.
+                    \item[3.] $7\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 4\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 9\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}70 \\ 31 \\ 122\end{pmatrix}$.
+                \end{enumerate}
+            \end{proof}
         \end{enumerate}
-      \end{proof}
-      \biitem{b}{express each column vector of $BA$ as a linear combination of the column vectors of $B$.}
-      \begin{proof}[work] Since each column vector of $BA$ is computed using a row of $B$ and a column of $A$, the linear combination will simply be the corresponding column of $A$.
+    }
+    \biitem{15}{Find all values of $k$, if any, that satisfy $\begin{bmatrix}k & 1 & 1\end{bmatrix}\begin{bmatrix}1 & 1 & 0 \\ 1 & 0 & 2 \\ 0 & 2 & -3\end{bmatrix}\begin{bmatrix}k \\ 1 \\ 1\end{bmatrix}$.}
+    \begin{proof}[work]
+        \begin{align*}
+            \begin{bmatrix}
+                k & 1 & 1
+            \end{bmatrix}
+            \begin{bmatrix}
+                1 & 1 & 0  \\
+                1 & 0 & 2  \\
+                0 & 2 & -3
+            \end{bmatrix}
+            \begin{bmatrix}
+                k \\ 1 \\ 1
+            \end{bmatrix} =
+            \begin{bmatrix}
+                k+1 & k+2 & -1
+            \end{bmatrix}
+            \begin{bmatrix}
+                k \\ 1 \\ 1
+            \end{bmatrix} =
+            \left[k(k + 1) + k + 2 - 1\right] = \left[(k+1)^2\right] & = \left[0\right] \\
+            k + 1                                                    & = 0              \\
+            k                                                        & = -1
+        \end{align*}
+    \end{proof}
+    \biitem{22}{
         \begin{enumerate}
-          \item[1.] $3\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 6\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 0\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}6 \\ 6 \\ 63\end{pmatrix}$.
-          \item[2.] $-2\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 5\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 4\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}-6 \\ 17 \\ 41\end{pmatrix}$.
-          \item[3.] $7\begin{pmatrix}6 \\ 0 \\ 7\end{pmatrix} + 4\begin{pmatrix}-2 \\ 1 \\ 7\end{pmatrix} + 9\begin{pmatrix}4 \\ 3 \\ 5\end{pmatrix} = \begin{pmatrix}70 \\ 31 \\ 122\end{pmatrix}$.
-        \end{enumerate}
-      \end{proof}
-    \end{enumerate}
-  }
-  \biitem{15}{Find all values of $k$, if any, that satisfy $\begin{bmatrix}k & 1 & 1\end{bmatrix}\begin{bmatrix}1 & 1 & 0 \\ 1 & 0 & 2 \\ 0 & 2 & -3\end{bmatrix}\begin{bmatrix}k \\ 1 \\ 1\end{bmatrix}$.}
-  \begin{proof}[work]
-    \begin{align*}
-      \begin{bmatrix}
-        k & 1 & 1
-      \end{bmatrix}
-      \begin{bmatrix}
-        1 & 1 & 0  \\
-        1 & 0 & 2  \\
-        0 & 2 & -3
-      \end{bmatrix}
-      \begin{bmatrix}
-        k \\ 1 \\ 1
-      \end{bmatrix} =
-      \begin{bmatrix}
-        k+1 & k+2 & -1
-      \end{bmatrix}
-      \begin{bmatrix}
-        k \\ 1 \\ 1
-      \end{bmatrix} =
-      \left[k(k + 1) + k + 2 - 1\right] = \left[(k+1)^2\right] & = \left[0\right] \\
-      k + 1                                                    & = 0              \\
-      k                                                        & = -1
-    \end{align*}
-  \end{proof}
-  \biitem{22}{
+            \biitem{a}{Show that if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.}
+            \begin{proof}
+                Consider
+                \[
+                    A_{n \times m} = \begin{bmatrix}
+                        a_{11} & a_{12} & \cdots & a_{1m} \\
+                        a_{21} & a_{22} & \cdots & a_{2m} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        0      & 0      & \cdots & 0      \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{n1} & a_{n2} & \cdots & a_{nm}
+                    \end{bmatrix}
+                    B_{m \times k} = \begin{bmatrix}
+                        b_{11} & b_{12} & \cdots & b_{1k} \\
+                        b_{21} & b_{22} & \cdots & b_{2k} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        b_{m1} & b_{m2} & \cdots & b_{mk}
+                    \end{bmatrix}.
+                \]
+                $AB$ can be expressed as a series of row vectors. These row vectors can be expressed as linear combinations from numbers of the row vectors from $A$, and the corresponding row of $B$. Here is an example:
+                \begin{align}
+                    a_{11}\begin{bmatrix} b_{11} & b_{12} & \cdots & b_{1k}\end{bmatrix} +
+                    a_{12}\begin{bmatrix} b_{21} & b_{22} & \cdots & b_{2k}\end{bmatrix} + \cdots +
+                    a_{1m}\begin{bmatrix} b_{m1} & b_{m2} & \cdots & b_{mk}\end{bmatrix} & = \\
+                    = \begin{bmatrix}ab_{11} & ab_{11} & \cdots & ab_{1k} \end{bmatrix}  &
+                \end{align}
+                Since there is a row of zeros, one of these equations will be:
+                \[
+                    0\begin{bmatrix} b_{11} & b_{12} & \cdots & b_{1k}\end{bmatrix} +
+                    0\begin{bmatrix} b_{21} & b_{22} & \cdots & b_{2k}\end{bmatrix} + \cdots +
+                    0\begin{bmatrix} b_{m1} & b_{m2} & \cdots & b_{mk}\end{bmatrix} =
+                    \begin{bmatrix} 0 & 0 & \cdots & 0 \end{bmatrix}.
+                \]
+                This represents a row of all zeros, which is contained within $AB$, at the same row at which it occurs in $A$. Therefore, if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.
+            \end{proof}
+            \biitem{b}{Find a similar result involving a column of zeros.}
+            \begin{proof}
+                Consider
+                \[
+                    A_{n \times m} = \begin{bmatrix}
+                        a_{11} & a_{12} & \cdots & a_{1m} \\
+                        a_{21} & a_{12} & \cdots & a_{2m} \\
+                        \vdots & \vdots & \ddots & \vdots \\
+                        a_{n1} & a_{n2} & \cdots & a_{nm}
+                    \end{bmatrix}
+                    B_{m \times k} = \begin{bmatrix}
+                        b_{11} & b_{12} & \cdots & 0      & \cdots & b_{1k} \\
+                        b_{21} & b_{22} & \cdots & 0      & \cdots & b_{2k} \\
+                        \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
+                        b_{m1} & b_{m2} & \cdots & 0      & \cdots & b_{mk}
+                    \end{bmatrix}.
+                \]
+                $AB$ can be expressed as a series of column vectors. These column vectors can be expressed as linear combinations from numbers of the column vectors from $B$, and the corresponding column of $A$. Here is an example:
+                \[
+                    b_{11}\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{1m}\end{bmatrix} +
+                    b_{21}\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{2m}\end{bmatrix} + \cdots +
+                    b_{m1}\begin{bmatrix} a_{1m} \\ a_{2m} \\ \vdots \\ a_{nm}\end{bmatrix} =
+                    \begin{bmatrix}ab_{11} \\ ab_{21} \\ \vdots \\ ab_{n1} \end{bmatrix}.
+                \]
+                Since there is a row of zeros, one of these equations will be:
+                \[
+                    0\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{1m}\end{bmatrix} +
+                    0\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{2m}\end{bmatrix} + \cdots +
+                    0\begin{bmatrix} a_{1m} \\ a_{2m} \\ \vdots \\ a_{nm}\end{bmatrix} =
+                    \begin{bmatrix}0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}.
+                \]
+                This represents a column of all zeros, which is contained within $AB$, at the same column at which it occurs in $A$. Therefore, if $B$ has a column of zeros and $A$ is any matrix for which $AB$ is defined, then $AB$ also has a column of zeros.
+            \end{proof}
+        \end{enumerate}}
+    \biitem{24}{Find the $4 \times 4$ matrix $A = [a_{ij}]$ whose entries satisfy the stated condition.
     \begin{enumerate}
-      \biitem{a}{Show that if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.}
-      \begin{proof}
-        Consider
-        \[
-          A_{n \times m} = \begin{bmatrix}
-            a_{11} & a_{12} & \cdots & a_{1m} \\
-            a_{21} & a_{22} & \cdots & a_{2m} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            0      & 0      & \cdots & 0      \\
-            \vdots & \vdots & \ddots & \vdots \\
-            a_{n1} & a_{n2} & \cdots & a_{nm}
-          \end{bmatrix}
-          B_{m \times k} = \begin{bmatrix}
-            b_{11} & b_{12} & \cdots & b_{1k} \\
-            b_{21} & b_{22} & \cdots & b_{2k} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            b_{m1} & b_{m2} & \cdots & b_{mk}
-          \end{bmatrix}.
-        \]
-        $AB$ can be expressed as a series of row vectors. These row vectors can be expressed as linear combinations from numbers of the row vectors from $A$, and the corresponding row of $B$. Here is an example:
-        \begin{align}
-          a_{11}\begin{bmatrix} b_{11} & b_{12} & \cdots & b_{1k}\end{bmatrix} +
-          a_{12}\begin{bmatrix} b_{21} & b_{22} & \cdots & b_{2k}\end{bmatrix} + \cdots +
-          a_{1m}\begin{bmatrix} b_{m1} & b_{m2} & \cdots & b_{mk}\end{bmatrix} & = \\
-          = \begin{bmatrix}ab_{11} & ab_{11} & \cdots & ab_{1k} \end{bmatrix}  &
-        \end{align}
-        Since there is a row of zeros, one of these equations will be:
-        \[
-          0\begin{bmatrix} b_{11} & b_{12} & \cdots & b_{1k}\end{bmatrix} +
-          0\begin{bmatrix} b_{21} & b_{22} & \cdots & b_{2k}\end{bmatrix} + \cdots +
-          0\begin{bmatrix} b_{m1} & b_{m2} & \cdots & b_{mk}\end{bmatrix} =
-          \begin{bmatrix} 0 & 0 & \cdots & 0 \end{bmatrix}.
-        \]
-        This represents a row of all zeros, which is contained within $AB$, at the same row at which it occurs in $A$. Therefore, if $A$ has a row of zeros and $B$ is any matrix for which $AB$ is defined, then $AB$ also has a row of zeros.
-      \end{proof}
-      \biitem{b}{Find a similar result involving a column of zeros.}
-      \begin{proof}
-        Consider
-        \[
-          A_{n \times m} = \begin{bmatrix}
-            a_{11} & a_{12} & \cdots & a_{1m} \\
-            a_{21} & a_{12} & \cdots & a_{2m} \\
-            \vdots & \vdots & \ddots & \vdots \\
-            a_{n1} & a_{n2} & \cdots & a_{nm}
-          \end{bmatrix}
-          B_{m \times k} = \begin{bmatrix}
-            b_{11} & b_{12} & \cdots & 0      & \cdots & b_{1k} \\
-            b_{21} & b_{22} & \cdots & 0      & \cdots & b_{2k} \\
-            \vdots & \vdots & \ddots & \vdots & \ddots & \vdots \\
-            b_{m1} & b_{m2} & \cdots & 0      & \cdots & b_{mk}
-          \end{bmatrix}.
-        \]
-        $AB$ can be expressed as a series of column vectors. These column vectors can be expressed as linear combinations from numbers of the column vectors from $B$, and the corresponding column of $A$. Here is an example:
-        \[
-          b_{11}\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{1m}\end{bmatrix} +
-          b_{21}\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{2m}\end{bmatrix} + \cdots +
-          b_{m1}\begin{bmatrix} a_{1m} \\ a_{2m} \\ \vdots \\ a_{nm}\end{bmatrix} =
-          \begin{bmatrix}ab_{11} \\ ab_{21} \\ \vdots \\ ab_{n1} \end{bmatrix}.
-        \]
-        Since there is a row of zeros, one of these equations will be:
-        \[
-          0\begin{bmatrix} a_{11} \\ a_{21} \\ \vdots \\ a_{1m}\end{bmatrix} +
-          0\begin{bmatrix} a_{12} \\ a_{22} \\ \vdots \\ a_{2m}\end{bmatrix} + \cdots +
-          0\begin{bmatrix} a_{1m} \\ a_{2m} \\ \vdots \\ a_{nm}\end{bmatrix} =
-          \begin{bmatrix}0 \\ 0 \\ \vdots \\ 0 \end{bmatrix}.
-        \]
-        This represents a column of all zeros, which is contained within $AB$, at the same column at which it occurs in $A$. Therefore, if $B$ has a column of zeros and $A$ is any matrix for which $AB$ is defined, then $AB$ also has a column of zeros.
-      \end{proof}
+        \biitem{a}{$a_{ij}=i+j$}
+        \begin{proof}[work]
+            \[
+                \begin{bmatrix}
+                    2 & 3 & 4 & 5 \\
+                    3 & 4 & 5 & 6 \\
+                    4 & 5 & 6 & 7 \\
+                    5 & 6 & 7 & 8
+                \end{bmatrix}
+            \]
+        \end{proof}
+        \biitem{b}{$a_{ij}=i^{j-1}$}
+        \begin{proof}[work]
+            \[
+                \begin{bmatrix}
+                    1 & 1 & 1  & 1  \\
+                    1 & 2 & 4  & 8  \\
+                    1 & 3 & 9  & 27 \\
+                    1 & 4 & 16 & 64 \\
+                \end{bmatrix}
+            \]
+        \end{proof}
+        \biitem{c}{$a_{ij}=\left\{
+                \begin{array}{rl}
+                    1  & \tif \left\lvert i-j\right\rvert > 1    \\
+                    -1 & \tif \left\lvert i-j\right\rvert \leq 1
+                \end{array}\right.$}
+        \begin{proof}[work]
+            \[
+                \begin{bmatrix}
+                    -1 & -1 & 1  & 1  \\
+                    -1 & -1 & -1 & 1  \\
+                    1  & -1 & -1 & -1 \\
+                    1  & 1  & -1 & -1 \\
+                \end{bmatrix}
+            \]
+        \end{proof}
     \end{enumerate}}
-  \biitem{24}{Find the $4 \times 4$ matrix $A = [a_{ij}]$ whose entries satisfy the stated condition.
-  \begin{enumerate}
-    \biitem{a}{$a_{ij}=i+j$}
+    \biitem{27}{How many $3 \times 3$ matrices $A$ can you find such that
+        \[
+            A\begin{bmatrix}
+                x \\ y \\ z
+            \end{bmatrix} =
+            \begin{bmatrix}
+                x+y \\
+                x-y \\
+                0
+            \end{bmatrix}
+        \]
+        for all choices of $x, y, \tand z$?}
     \begin{proof}[work]
-      \[
-        \begin{bmatrix}
-          2 & 3 & 4 & 5 \\
-          3 & 4 & 5 & 6 \\
-          4 & 5 & 6 & 7 \\
-          5 & 6 & 7 & 8
-        \end{bmatrix}
-      \]
+        \[
+            A = \begin{bmatrix}
+                1 & 1  & 0 \\
+                1 & -1 & 0 \\
+                0 & 0  & 0
+            \end{bmatrix}.
+        \]
+        Any other combination for the entries of $A$ will cause a different value to be in the resulting column matrix.
     \end{proof}
-    \biitem{b}{$a_{ij}=i^{j-1}$}
-    \begin{proof}[work]
-      \[
-        \begin{bmatrix}
-          1 & 1 & 1  & 1  \\
-          1 & 2 & 4  & 8  \\
-          1 & 3 & 9  & 27 \\
-          1 & 4 & 16 & 64 \\
-        \end{bmatrix}
-      \]
-    \end{proof}
-    \biitem{c}{$a_{ij}=\left\{
-        \begin{array}{rl}
-          1  & \tif \left\lvert i-j\right\rvert > 1    \\
-          -1 & \tif \left\lvert i-j\right\rvert \leq 1
-        \end{array}\right.$}
-    \begin{proof}[work]
-      \[
-        \begin{bmatrix}
-          -1 & -1 & 1  & 1  \\
-          -1 & -1 & -1 & 1  \\
-          1  & -1 & -1 & -1 \\
-          1  & 1  & -1 & -1 \\
-        \end{bmatrix}
-      \]
-    \end{proof}
-  \end{enumerate}}
-  \biitem{27}{How many $3 \times 3$ matrices $A$ can you find such that
-    \[
-      A\begin{bmatrix}
-        x \\ y \\ z
-      \end{bmatrix} =
-      \begin{bmatrix}
-        x+y \\
-        x-y \\
-        0
-      \end{bmatrix}
-    \]
-    for all choices of $x, y, \tand z$?}
-  \begin{proof}[work]
-    \[
-      A = \begin{bmatrix}
-        1 & 1  & 0 \\
-        1 & -1 & 0 \\
-        0 & 0  & 0
-      \end{bmatrix}.
-    \]
-    Any other combination for the entries of $A$ will cause a different value to be in the resulting column matrix.
-  \end{proof}
 \end{enumerate}
 
 \question{1.4}{}
 \begin{enumerate}
-  \biitem{17}{Use the given information to find $A$: $(I + 2A)^{-1}=\begin{bmatrix}-1 & 2 \\ 4 & 5\end{bmatrix}$.}
-  \begin{proof}[work]
-    \begin{align*}
-      \begin{bmatrix}
-        -1 & 2 \\
-        4  & 5
-      \end{bmatrix} \xrightarrow[I + 2A]{{(I + 2A)^{-1}}^{-1}}
-      \frac{1}{-13}
-      \begin{bmatrix}
-        5  & -2 \\
-        -4 & -1
-      \end{bmatrix} =
-      \begin{bmatrix}
-        -\frac{5}{13} & \frac{2}{13} \\
-        \frac{4}{13}  & \frac{1}{13}
-      \end{bmatrix} \xrightarrow[2A]{I + 2A - I}
-      \begin{bmatrix}
-        -\frac{18}{13} & \frac{2}{13}   \\
-        \frac{4}{13}   & -\frac{12}{13}
-      \end{bmatrix} \xrightarrow[A]{\frac{1}{2} \cdot 2A}
-      \begin{bmatrix}
-        -\frac{9}{13} & \frac{1}{13}  \\
-        \frac{2}{13}  & -\frac{6}{13}
-      \end{bmatrix}
-    \end{align*}
-  \end{proof}
-  \biitem{19e}{Given $A = \begin{bmatrix} 3 & 1 \\ 2 & 1\end{bmatrix}$, compute $p(A), \twhere p(x) = 2x^2-x+1$.}
-  \begin{proof}[work]
-    \begin{align*}
-      p(A) = 2A^2 - A + I & = 2\begin{bmatrix}
-                                 3 & 1 \\
-                                 2 & 1
-                               \end{bmatrix}^2 +
-      \begin{bmatrix}
-        -3 & -1 \\
-        -2 & -1
-      \end{bmatrix} +
-      \begin{bmatrix}
-        1 & 0 \\
-        0 & 1
-      \end{bmatrix}=
-      2\begin{bmatrix}
-         11 & 4 \\
-         8  & 3
-       \end{bmatrix} +
-      \begin{bmatrix}
-        -2 & -1 \\
-        -2 & 0
-      \end{bmatrix}                             \\
-                          & =
-      \begin{bmatrix}
-        22 & 8 \\
-        16 & 6
-      \end{bmatrix} +
-      \begin{bmatrix}
-        -2 & -1 \\
-        -2 & 0
-      \end{bmatrix} =
-      \begin{bmatrix}
-        20 & 7 \\
-        14 & 6
-      \end{bmatrix}
-    \end{align*}
-  \end{proof}
-  \biitem{27}{Consider the matrix
-    \[
-      A = \begin{bmatrix}
-        a_{11} & 0      & \cdots & 0      \\
-        0      & a_{22} & \cdots & 0      \\
-        \vdots & \vdots & \ddots & \vdots \\
-        0      & 0      & \cdots & a_{nn}
-      \end{bmatrix}
-    \]
-    where $a_{11} \cdot a_{22} \cdots a_{nn} \neq 0$. Show that $A$ is invertible and find its inverse.}
-  \begin{proof}
-    Consider $B = \begin{bmatrix}
-        \frac{1}{a_{11}} & 0                & \cdots & 0                \\
-        0                & \frac{1}{a_{22}} & \cdots & 0                \\
-        \vdots           & \vdots           & \ddots & \vdots           \\
-        0                & 0                & \cdots & \frac{1}{a_{nn}}
-      \end{bmatrix}$.
-    \begin{align*}
-      AB & = \begin{bmatrix}
-               a_{11} & 0      & \cdots & 0      \\
-               0      & a_{22} & \cdots & 0      \\
-               \vdots & \vdots & \ddots & \vdots \\
-               0      & 0      & \cdots & a_{nn}
-             \end{bmatrix}\begin{bmatrix}
-                            \frac{1}{a_{11}} & 0                & \cdots & 0                \\
-                            0                & \frac{1}{a_{22}} & \cdots & 0                \\
-                            \vdots           & \vdots           & \ddots & \vdots           \\
-                            0                & 0                & \cdots & \frac{1}{a_{nn}}
-                          \end{bmatrix} = \begin{bmatrix}
-                                            1      & 0      & \cdots & 0      \\
-                                            0      & 1      & \cdots & 0      \\
-                                            \vdots & \vdots & \ddots & \vdots \\
-                                            0      & 0      & \cdots & 1
-                                          \end{bmatrix} = I \\
-      BA & = \begin{bmatrix}
-               \frac{1}{a_{11}} & 0                & \cdots & 0                \\
-               0                & \frac{1}{a_{22}} & \cdots & 0                \\
-               \vdots           & \vdots           & \ddots & \vdots           \\
-               0                & 0                & \cdots & \frac{1}{a_{nn}}
-             \end{bmatrix}\begin{bmatrix}
-                            a_{11} & 0      & \cdots & 0      \\
-                            0      & a_{22} & \cdots & 0      \\
-                            \vdots & \vdots & \ddots & \vdots \\
-                            0      & 0      & \cdots & a_{nn}
-                          \end{bmatrix} = \begin{bmatrix}
-                                            1      & 0      & \cdots & 0      \\
-                                            0      & 1      & \cdots & 0      \\
-                                            \vdots & \vdots & \ddots & \vdots \\
-                                            0      & 0      & \cdots & 1
-                                          \end{bmatrix} = I
-    \end{align*}
-    Since $AB = I = BA$, therefore $B = A^{-1}$, the inverse of $A$. This also proves that $A$ is invertible.
-  \end{proof}
+    \biitem{17}{Use the given information to find $A$: $(I + 2A)^{-1}=\begin{bmatrix}-1 & 2 \\ 4 & 5\end{bmatrix}$.}
+    \begin{proof}[work]
+        \begin{align*}
+            \begin{bmatrix}
+                -1 & 2 \\
+                4  & 5
+            \end{bmatrix} \xrightarrow[I + 2A]{{(I + 2A)^{-1}}^{-1}}
+            \frac{1}{-13}
+            \begin{bmatrix}
+                5  & -2 \\
+                -4 & -1
+            \end{bmatrix} =
+            \begin{bmatrix}
+                -\frac{5}{13} & \frac{2}{13} \\
+                \frac{4}{13}  & \frac{1}{13}
+            \end{bmatrix} \xrightarrow[2A]{I + 2A - I}
+            \begin{bmatrix}
+                -\frac{18}{13} & \frac{2}{13}   \\
+                \frac{4}{13}   & -\frac{12}{13}
+            \end{bmatrix} \xrightarrow[A]{\frac{1}{2} \cdot 2A}
+            \begin{bmatrix}
+                -\frac{9}{13} & \frac{1}{13}  \\
+                \frac{2}{13}  & -\frac{6}{13}
+            \end{bmatrix}
+        \end{align*}
+    \end{proof}
+    \biitem{19e}{Given $A = \begin{bmatrix} 3 & 1 \\ 2 & 1\end{bmatrix}$, compute $p(A), \twhere p(x) = 2x^2-x+1$.}
+    \begin{proof}[work]
+        \begin{align*}
+            p(A) = 2A^2 - A + I & = 2\begin{bmatrix}
+                                         3 & 1 \\
+                                         2 & 1
+                                     \end{bmatrix}^2 +
+            \begin{bmatrix}
+                -3 & -1 \\
+                -2 & -1
+            \end{bmatrix} +
+            \begin{bmatrix}
+                1 & 0 \\
+                0 & 1
+            \end{bmatrix}=
+            2\begin{bmatrix}
+                 11 & 4 \\
+                 8  & 3
+             \end{bmatrix} +
+            \begin{bmatrix}
+                -2 & -1 \\
+                -2 & 0
+            \end{bmatrix}                             \\
+                                & =
+            \begin{bmatrix}
+                22 & 8 \\
+                16 & 6
+            \end{bmatrix} +
+            \begin{bmatrix}
+                -2 & -1 \\
+                -2 & 0
+            \end{bmatrix} =
+            \begin{bmatrix}
+                20 & 7 \\
+                14 & 6
+            \end{bmatrix}
+        \end{align*}
+    \end{proof}
+    \biitem{27}{Consider the matrix
+        \[
+            A = \begin{bmatrix}
+                a_{11} & 0      & \cdots & 0      \\
+                0      & a_{22} & \cdots & 0      \\
+                \vdots & \vdots & \ddots & \vdots \\
+                0      & 0      & \cdots & a_{nn}
+            \end{bmatrix}
+        \]
+        where $a_{11} \cdot a_{22} \cdots a_{nn} \neq 0$. Show that $A$ is invertible and find its inverse.}
+    \begin{proof}
+        Consider $B = \begin{bmatrix}
+                \frac{1}{a_{11}} & 0                & \cdots & 0                \\
+                0                & \frac{1}{a_{22}} & \cdots & 0                \\
+                \vdots           & \vdots           & \ddots & \vdots           \\
+                0                & 0                & \cdots & \frac{1}{a_{nn}}
+            \end{bmatrix}$.
+        \begin{align*}
+            AB & = \begin{bmatrix}
+                       a_{11} & 0      & \cdots & 0      \\
+                       0      & a_{22} & \cdots & 0      \\
+                       \vdots & \vdots & \ddots & \vdots \\
+                       0      & 0      & \cdots & a_{nn}
+                   \end{bmatrix}\begin{bmatrix}
+                                    \frac{1}{a_{11}} & 0                & \cdots & 0                \\
+                                    0                & \frac{1}{a_{22}} & \cdots & 0                \\
+                                    \vdots           & \vdots           & \ddots & \vdots           \\
+                                    0                & 0                & \cdots & \frac{1}{a_{nn}}
+                                \end{bmatrix} = \begin{bmatrix}
+                                                    1      & 0      & \cdots & 0      \\
+                                                    0      & 1      & \cdots & 0      \\
+                                                    \vdots & \vdots & \ddots & \vdots \\
+                                                    0      & 0      & \cdots & 1
+                                                \end{bmatrix} = I \\
+            BA & = \begin{bmatrix}
+                       \frac{1}{a_{11}} & 0                & \cdots & 0                \\
+                       0                & \frac{1}{a_{22}} & \cdots & 0                \\
+                       \vdots           & \vdots           & \ddots & \vdots           \\
+                       0                & 0                & \cdots & \frac{1}{a_{nn}}
+                   \end{bmatrix}\begin{bmatrix}
+                                    a_{11} & 0      & \cdots & 0      \\
+                                    0      & a_{22} & \cdots & 0      \\
+                                    \vdots & \vdots & \ddots & \vdots \\
+                                    0      & 0      & \cdots & a_{nn}
+                                \end{bmatrix} = \begin{bmatrix}
+                                                    1      & 0      & \cdots & 0      \\
+                                                    0      & 1      & \cdots & 0      \\
+                                                    \vdots & \vdots & \ddots & \vdots \\
+                                                    0      & 0      & \cdots & 1
+                                                \end{bmatrix} = I
+        \end{align*}
+        Since $AB = I = BA$, therefore $B = A^{-1}$, the inverse of $A$. This also proves that $A$ is invertible.
+    \end{proof}
 \end{enumerate}
 
 \end{document}
