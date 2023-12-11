@@ -36,3 +36,45 @@ The \bld{order} of a graph $G$ is $|V(G)|$, or the number of vertices.
 
 \subsubsection*{Size Definition}
 The \bld{size} of a graph $G$ is $|E(G)|$, or the number of edges.
+
+The graph $G$ from above has order $5$ and size $4$.
+
+\subsection{Connected Graphs}
+
+\subsubsection*{Subgraph Definition}
+Let $G \tand H$ be graphs. $H$ is a \bld{subgraph} of $G$, notated as $H \subseteq G$, if
+\[
+    V(H) \subseteq V(G) \tand E(H) \subseteq E(G).
+\]
+
+\subsubsection*{Proper Subgraph Definition}
+$H$ is a \bld{proper subgraph} of $G$ if $H \subseteq G$ and either
+\[
+    V(H) \subsetneq V(G) \tor E(H) \subsetneq E(G).
+\]
+
+\subsubsection*{Spanning Subgraph Definition}
+Graph $H$ is a \bld{spanning subgraph} if $H \subseteq G$ and $V(H) = V(G)$.
+
+\subsubsection*{Induced Subgraph Definition}
+Graph $H$ is a \bld{induced subgraph} if $H \subseteq G$ and if
+\[
+    u,v \in V(H) \tand u,v \in E(G) \implies u,v \in E(H).
+\]
+Essentially, $H$ contains all valid edges it can take from $G$. Notation for \bld{induced subgraph} is
+\[
+    G[S], \text{ where $S$ is a set of vertices from $G$}.
+\]
+
+\subsubsection*{Edge-induced Subgraph Definition}
+$G[X]$ is an \bld{edge-induced subgraph} of G if $G[X]$ has edge set $X \subseteq E(G)$ and a vertex set of all vertices incident with at least one edge of $X$. Interesting fact: $G[E(G)]$ removes any isolated vertices.
+
+\subsubsection*{More on Spanning and Induced Subgraphs}
+Let $G$ be a graph with vertex $v$ and edge $e$. Then,
+\begin{itemize}
+    \item $G-e$ is the \itl{spanning subgraph} of $G$ whose edge set is $E(G)-\{e\}$. 
+        \subitem This definition can be expanded to $G-X \tfor X \subseteq E(G)$.
+    \item $G-v$ is the \itl{induced subgraph} of $G$ whose vertex set is $V(G) - \{v\}$ and edge set includes all edges of $G$ except those incident with $v$. 
+        \subitem This definition can be expanded to $G-U \tfor U \subseteq V(G)$.
+\end{itemize}
+Let $G$ be a graph, $u,v \in V(G) \tand e = uv \notin E(G)$. Then $G+e$ is the graph with vertex set $V(G)$ and edge set $E(G) \cup \{e\}$. $G$ is a \itl{spanning subgraph} of $G+e$
