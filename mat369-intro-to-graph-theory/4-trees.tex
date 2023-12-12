@@ -76,3 +76,23 @@ A \bld{minimum spanning tree} is a spanning tree of minimum weight.
 
 \subsubsection*{Cayley's Theorem}
 There are $n^{n-2}$ distinct labeled trees on $n$ vertices.
+
+\subsubsection*{Prüfer Sequence}
+Encoding a Tree to a Sequence
+\begin{enumerate}
+    \item Start with a labeled tree T, and $i = 1$.
+    \item Let $b_i =$ smallest label on a leaf.
+    \item Let $a_i =$ label of the adjacent vertex of $b_1$.
+    \item Remove $b_i$ and record $a_i$ in the sequence.
+    \item Repeat with $b_{i+1} \tand a_{i+1}$.
+    \item Stop once only vertices remain.
+\end{enumerate}
+Decoding a Sequence to a Tree
+\begin{enumerate}
+    \item Start with $(a_1, \ldots, a_{n-2}) \tand i = 1$.
+    \item Let $b_i =$ smallest element of $\{1,\ldots,n\}$ \bld{not} in the sequence.
+    \item Draw edge $a_ib_i$.
+    \item Remove $a_i$ from the sequence and $b_i$ from the set.
+    \item Repeat with $b_{i+1} \tand a_{i+1}$.
+    \item Stop once the sequence is empty, and draw an edge between the last two elements in the set.
+\end{enumerate}

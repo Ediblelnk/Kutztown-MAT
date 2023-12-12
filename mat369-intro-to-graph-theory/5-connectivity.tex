@@ -1,1 +1,114 @@
 \section{Connectivity}
+
+\subsection{Cut Vertices}
+
+\subsubsection*{Cut-edge and Cut-vertex Definition}
+\begin{itemize}
+    \item \bld{Cut-edge}: Removing cut-edge $e$ creates a new component.
+    \item \bld{Cut-vertex}: Removing cut-vertex $v$ creates new components(s).
+\end{itemize}
+
+\subsubsection*{Leaves and Cut-vertices Theorem}
+Let $G$ be a connected graph with cut-edge $e=uv$. $v$ is a cut-vertex if and only if $\deg v \geq 2$, meaning that $v$ is not a leaf.
+
+\subsubsection*{Leaves and Cut-vertices Corollary 1}
+Every vertex of a non-trivial tree is either a leaf of a cut-vertex.
+
+\subsubsection*{Leaves and Cut-vertices Corollary 2}
+Let $G$ be a connected graph and of order at least 3. If $G$ contains a cut-edge, then $G$ contains a cut-vertex.
+
+\subsubsection*{Paths and Cut-vertices Theorem}
+Let $G$ be a connected graph with cut-vertex $v$. Let $u,w$ be vertices in different components of $G-v$. Then $v$ lies on every $u-w$ path in $G$.
+
+\subsubsection*{Paths and Cut-vertices Corollary}
+Let $G$ be connected. $v \in V(G)$ is a cut-vertex if and only if $\exists~ u,w \in V(G)-\{v\}$ such that $v$ lies on every $u-w$ path in $G$.
+
+\subsubsection*{Non-cut-vertex Theorem}
+Every nontrivial connected Graph contains at least 2 vertices that are not cut-vertices.
+
+\subsection{Blocks}
+
+\subsubsection*{Non-separable Definition}
+A graph is called \bld{non-separable} if...
+\begin{enumerate}
+    \item it is nontrivial,
+    \item it is connected,
+    \item it has no cut-vertices, meaning every edge is on a cycle.
+\end{enumerate}
+Otherwise, it is called \bld{separable}.
+
+\subsubsection*{Common Cycle and Non-separability Theorem}
+A graph of order at least 3 is non-separable if and only if every 2 vertices (pairwise) lie on a common cycle.
+
+\subsubsection*{Block Definition}
+A \bld{block} of $G$ is a maximal, \itl{non-separable} subgraph of $G$.
+
+\subsubsection*{Blocks are Equivalence Relations Theorem}
+Define a Relation $R$ on $E(G)$ where $eRf \tif e=f \tor e \tand f$ lie on a common cycle of $G$. $R$ is an equivalence relation, where equivalence classes of $R$ are edge-induced blocks of $G$.
+
+\subsubsection*{Blocks are Equivalence Relations Corollary}
+Let $B_1 \tand B_2$ be distinct blocks in a nontrivial connected graph $G$. Then,
+\begin{enumerate}
+    \item $E(B_1) \cap E(B_2) = \emptyset$, meaning $B_1 \tand B_2$ are edge disjoint.
+    \item $B_1 \tand B_2$ have at most 1 vertex in common.
+    \item The common vertex, if is exists, is a cut-vertex.
+\end{enumerate}
+
+\subsection{Connectivity}
+
+\subsubsection*{Vertex-cut and Minimum Vertex-cut Definition}
+\begin{itemize}
+    \item A \bld{vertex-cut} is a set $U \subseteq V(G)$ such that $G-U$ is disconnected.
+    \item A \bld{minimum vertex-cut} is a \itl{vertex-cut} of minimum cardinality.
+\end{itemize}
+
+\subsubsection*{Connectivity Definition}
+The \bld{connectivity} of graph $G$ is
+\[
+    \kappa(G) = \min\{|U|~\vert~U \subseteq V(G),~\text{such that $G-U$ is disconnected or trivial.}\}
+\]
+Note that $0 \leq \kappa(G) \leq n-1$.
+
+\subsubsection*{$k$-connectivity Definition}
+$G$ is called $k$-connected if $\kappa(G) \geq k$.
+
+\subsubsection*{Edge-cut, Minimal, and Minimum Edge-cut Definition}
+\begin{itemize}
+    \item An \bld{edge-cut} is a set $X \subseteq E(G)$ such that $G-X$ is disconnected.
+    \item A \bld{minimal edge-cut} is an \itl{edge-cut} $X$ where no proper subset of $X$ is also an edge-cut.
+    \item A \bld{minimum edge-cut} is an \itl{edge-cut} of minimum cardinality.
+\end{itemize}
+
+\subsubsection*{Edge-connectivity Definition}
+The \bld{edge-connectivity} of a nontrivial graph $G$ is
+\[
+    \lambda(G) = \min\{|X|~\vert~X \subseteq E(G),~\text{such that $G-X$ is disconnected or trivial.}\}
+\]
+Note that $0 \leq \lambda(G) \leq n-1$.
+
+\subsubsection*{$k$-edge-connectivity Definition}
+$G$ is called $k$-edge-connected if $\lambda(G) \geq k$.
+
+\subsubsection*{Edge-connectivity of Complete Graphs Theorem}
+\[
+    \forall~n \in \bb{N},~\lambda(K_n) = n-1
+\]
+
+\subsubsection*{Connectivity and Edge-connectivity Ordering Theorem}
+For a graph $G$,
+\[
+    \kappa(G) \leq \lambda(G) \leq \delta(G)
+\]
+\bld{IMPORTANT}: These proofs involve taking minimum-edge or minimum-vertex cuts and comparing their cardinalities.
+
+\subsubsection*{Cubic Connectivity Theorem}
+If graph $G$ is 3-regular, also called \itl{cubic}, then
+\[
+    \kappa(G) = \lambda(G)
+\]
+
+\subsubsection*{Upper Bound for Connectivity Theorem}
+If $G$ has order $n$ and size $m \geq n-1$, then
+\[
+    \kappa(G) \leq \lfloor \frac{2m}{n} \rfloor
+\]
