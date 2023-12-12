@@ -1,1 +1,78 @@
 \section{Trees}
+
+\subsection{Cut Edges}
+
+\subsubsection*{Cut-edge and Bridge Definition}
+An edge $e$ of graph $G$ is a \bld{cut-edge}, or \bld{bridge}, if $G-e$ has more components than $G$.
+
+\subsubsection*{Cut-edges and Cycles Theorem}
+An edge $e$ of a graph $G$ is a cut-edge if and only if $e$ lies on \itl{no} cycle in $G$.
+
+\subsection{Trees}
+
+\subsubsection*{Tree and Forest Definitions}
+A \bld{tree} is an acyclic connected graph. A \bld{forest} is an acyclic graph, where each component is a \itl{tree}. A \bld{Rooted tree} is a tree with a specific vertex designated as a root and drawn down.
+
+Every edge of a tree is a cut-edge.
+
+\subsubsection*{Unique Path in Trees Theorem}
+Graph $G$ is a tree if and only if every 2 vertices are connected by a unique path.
+
+\subsubsection*{Leaf Theorem}
+Every nontrivial tree has at least 2 leaves.
+
+\subsubsection*{Autumn Theorem}
+If tree $T$ has order $t \geq 1$, then $T-v$, where $v$ is a leaf, is a tree of order $t-1$.
+
+\subsubsection*{Tree Size Theorem}
+Every tree of order $n$ has size $n-1$.
+
+\subsubsection*{Forest Size Theorem}
+Every forest of order $n$ with $k$ components has size $n-k$.
+
+\subsubsection*{Minimum Size of a Connected Graph Theorem}
+The size of every connected graph of order $n$ is at least $n-1$. Trees has minimal size among connected graphs of given order.
+
+\subsubsection*{Tree Requirements Graph}
+Graph $G$ of order $n$ and size $m$. Then $G$ is a tree if it satisfies any 2 of these properties:
+\begin{enumerate}
+    \item $G$ is connected
+    \item $G$ acyclic
+    \item $m = n-1$
+\end{enumerate}
+
+\subsubsection*{Tree Isomorphic Subgraph Theorem}
+Let $T$ be a tree of order $k$. Then for any graph $G$ with $\delta(G) \geq k-1$, $T$ is isomorphic to a subgraph of $G$.
+
+\subsection{Minimum Spanning Tree}
+
+\subsubsection*{Spanning Tree Definition}
+Let $G$ be a connected graph. A spanning subgraph of $G$ that is a tree is called a \bld{spanning tree}.
+
+\subsubsection*{Spanning Tree Existence Theorem}
+Every connected graph contains a spanning tree.
+
+\subsubsection*{Minimum Spanning Tree Definition}
+A \bld{minimum spanning tree} is a spanning tree of minimum weight.
+
+\subsection*{Algorithms For Constructing Minimum Spanning Trees}
+
+\subsubsection*{Kruskal's Algorithm}
+\begin{enumerate}
+    \item Pick an edge of minimum weight.
+    \item Repeat, never allowing the chosen edges to produce a cycle.
+    \item Stop once you have a spanning tree.
+\end{enumerate}
+
+\subsubsection*{Prim's Algorithm}
+\begin{enumerate}
+    \item Choose any vertex $u \in V(G)$.
+    \item Let $e$ be an edge of minimum weight incident with $u$.
+    \item Continue picking edges of minimum weight weight from the set of edges having exactly one of its vertices incident with an already selected edge.
+    \item Stop once you have a spanning tree.
+\end{enumerate}
+
+\subsection{Counting Labeled Trees}
+
+\subsubsection*{Cayley's Theorem}
+There are $n^{n-2}$ distinct labeled trees on $n$ vertices.

@@ -1,1 +1,72 @@
 \section{Degrees}
+
+\subsection{Degree of a Vertex}
+
+\subsubsection*{Vertex Degree Definition}
+The \bld{degree} of a vertex $v$, denoted as $\deg v \tor \deg_G v$, is the number of edges incident with $v$. If the $\deg v = 0$, then $v$ is an \bld{isolated vertex}. If $\deg v = 1$, then $v$ is a \bld{leaf}.
+\begin{itemize}
+    \item $\delta(G) = \min\{\deg v ~|~ v \in V(G)\}$, the minimum degree of $G$
+    \item $\Delta(G) = \max\{\deg v ~|~ v \in V(G)\}$, the maximum degree of $G$
+\end{itemize}
+For any graph $G \tand v \in V(G)$,
+\[
+    0 \leq \delta(G) \leq \deg v \leq \Delta(G) \leq n-1.
+\]
+
+\subsubsection*{Neighborhood of a Vertex Definition}
+The \bld{neighborhood} of a vertex $v$, denoted as $N(v)$, is the set of all vertices adjacent to $v$. So $\lvert N(v) \rvert = \deg v$.
+
+\subsubsection*{Handshaking Theorem}
+For a graph $G$ of size $m$, the total degree of $G$ $\sum_{v \in V(G)} = 2m$.
+
+\subsubsection*{Handshaking Corollary}
+Every graph has an even number of odd degree vertices.
+
+\subsubsection*{Sum Degree and Connectivity Theorem}
+Consider graph $G$ of order $n$. If $\deg u + \deg v \geq n-1$ for all non-adjacent $(u,v) \in V(G)$, then $G$ is connected.
+
+\subsubsection*{Sum Degree and Connectivity Corollary}
+If $G$ has order $n$ and $\delta(G) \geq \frac{n-1}{2}$, then $G$ is connected.
+
+\subsection{Regular Graphs}
+
+\subsubsection*{Regular Graph Definition}
+Graph $G$ is \bld{regular} if every vertex has the same degree. Graph $G$ is \bld{$r$-regular} if every vertex has degree $r$.
+
+\subsubsection*{Regular Graph Existence Theorem}
+Let $r,n \in \bb{Z}$ such that $0 \leq r \leq n-1$. Then there exists an $r$-regular graph of order $n$ if and only if at least one of $r \tand n$ is even.
+
+\subsubsection*{Harary Graph}
+An Harary Graph, denoted as $H_{r,n}$, is an $r$-regular graph of order $n$.
+
+\subsubsection*{Induced Regular Subgraph Theorem}
+For every graph $G$, and every integer $r \geq \Delta(G)$, there exists on $r$-regular graph $H$, containing $G$ as an induced subgraph.
+
+\subsection{Degree Sequences}
+
+\subsubsection*{Degree Sequence Definition}
+A \bld{degree sequence} is a sequence of the degree of the vertices of a graph, typically, written in largest to smallest order.
+
+\subsubsection*{Graphical Degree Sequence Definition}
+A finite sequence of non-negative integers is \bld{graphical} if it is the degree sequence of some graph.
+
+\subsubsection*{Graphical Degree Sequence Theorem}
+A non-increasing sequence $S: d_1, d_2, \ldots, d_n$, where $n \geq n$, of non-negative integers is graphical if and only if
+\[
+    S_1: d_2 - 1, d_3 - 1, \ldots, d_{d_1 + 1}, d_{d_1 + 2}, d_n
+\]
+is graphical.
+
+\subsection{Graph and Matrices}
+
+\subsubsection*{Adjacency Matrix Definition}
+The \bld{adjacency matrix} of $G$ is the $n \times n$ matrix $A = [a_{ij}]$, where
+\[
+    a_{ij} = \left\{ 
+        \begin{array}{ll}
+            1, & \tif v_iv_j \in E(G) \\
+            0 & \text{otherwise};
+        \end{array}
+    \right.
+\]
+The entry $a_{ij}$ in $A^n$ is the number of walks of length $n$ from $v_i \tto v_j$.

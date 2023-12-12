@@ -78,3 +78,117 @@ Let $G$ be a graph with vertex $v$ and edge $e$. Then,
         \subitem This definition can be expanded to $G-U \tfor U \subseteq V(G)$.
 \end{itemize}
 Let $G$ be a graph, $u,v \in V(G) \tand e = uv \notin E(G)$. Then $G+e$ is the graph with vertex set $V(G)$ and edge set $E(G) \cup \{e\}$. $G$ is a \itl{spanning subgraph} of $G+e$
+
+\subsubsection*{Walk, Trail, Path, Circuit, and Cycle Definitions}
+Let $u,v \in V(G)$. A $u-v$ \bld{walk} in $G$ is a sequence of vertices
+\[
+    (u = v_0, v_1, \ldots, v_k = v)
+\]
+beginning with $u$, ending with $v$, and consecutive vertices are adjacent. 
+
+A \bld{trail} is a walk in which \itl{no edges} are repeated. A \bld{path} is a walk in which \itl{no vertices} are repeated. Every \itl{path} is a \itl{trail} is a \itl{walk}.
+
+A \bld{circuit} is a closed trail of length $\ge 3$. A \bld{cycle} is a circuit with no repeated vertices, except for the first and the last, which are the same. A \bld{$k$-cycle} is a cycle of length $k$. Every \itl{cycle} is a \itl{circuit} is a \itl{walk}.
+
+\subsubsection*{Closed and Open Walks}
+A $u-v$ walk with $u=v$ is called a \bld{closed} walk. A $u-v$ walk with $u \neq v$ is called a \bld{open} walk.
+
+\subsubsection*{Walk and Path Theorem}
+If $G$ contains a $u-v$ walk of length $\ell$, then $G$ contains a $u-v$ path of length $\leq \ell$.
+
+\subsubsection*{Connectivity Definition}
+A graph $G$ is said to be \bld{connected} if $\forall u,v \in V(G)$, $G$ contains a $u-v$ path. If this is not true, i.e. $\exists u,v \in V(G)$ where there is no $u-v$ path, then $G$ is said to be \bld{disconnected}.
+
+\subsubsection*{Component Definition}
+A connected subgraph of $G$ that is not a proper subgraph of any other connected subgraph of $G$ is a \bld{component} of $G$. The number of components of a graph $G$ is denoted by $k(G)$. A graph $G$ is connected if and only if $k(G) = 1$. Additionally, a graph is the union of its components.
+
+\subsubsection*{Components and Equivalence Relations Theorem}
+Define a relation $R$ on the $V(G)$ so that $uRv$ if $G$ contains a $u-v$ walk. Then $R$ is an equivalence relation.
+
+\subsubsection*{Subtractive Connectivity Theorem (weak)}
+Let $G$ be a graph of order $\geq 3$. If $\exists u,v \in V(G)$ such that $G-u$ and $G-v$ are connected, then $G$ is connected.
+
+\subsubsection*{Distance, Geodesic, Diameter, and Girth Definitions}
+The \bld{distance} between vertices $u \tand v$, denoted as $d(u,v) \tor d_G(u,v)$ is the smallest length of any $u-v$ path in $G$. If $u \tand v$ are in different components, then $d(u,v)$ is undefined.
+
+A $u-v$ path of shortest length $d(u,v)$ is called a \bld{geodesic}. The \bld{diameter} of a connected graph $G$, denoted as $\diam(G)$, is the largest \itl{geodesic} between any two vertices of $G$. The \bld{girth} of a connected graph $G$ is the length of the shortest cycle in $G$.
+
+\subsubsection*{Subtractive Connectivity Theorem (strong)}
+Let $G$ be a graph of order $\geq 3$. Then $G$ is connected if and only if $\exists u,v \in V(G)$ such that $G-u$ and $G-v$ are connected.
+
+\subsection{Common Classes of Graphs}
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        \bld{Name} & \bld{Symbol} & \bld{Order} & \bld{Size} \\
+        \hline
+        Path & $P_n$ & $n$ & $n-1$ \\
+        Cycle & $C_n$ & $n \geq 3$ & $n$ \\
+        Complete & $K_n$ & $n$ & $\binom{n}{2}$ \\
+        Complete Bipartite & $K_{s,t}$ & $s+t$ & $s \cdot t$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection*{Bipartite Graph Definition}
+$G$ is bipartite if $V(G)$ can be partitioned into partite sets $U \tand W$ so that every edge joins a vertex of $U$ and a vertex of $W$.
+
+\subsubsection*{Odd Cycle and Bipartite-ness}
+$G$ is bipartite if and only if $G$ contains no odd cycles.
+
+\subsubsection*{K-partite Definition}
+$G$ is a \bld{$k$-partite} graph if $V(G)$ can be partitioned into partite sets $U_1, \ldots, U_k$ so that every edge joins a vertex from $U_i$ and a vertex of $U_j$ where $i \neq j$.
+
+\subsection*{Constructing New Graphs from Old Graphs}
+\subsubsection*{Disjoint Union}
+For two graphs $G \tand H$, $G \cup H$ is defined as...
+\begin{align*}
+    V(G \cup H) & = V(G) \cup V(H) \\
+    E(G \cup H) & = E(G) \cup E(H)
+\end{align*}
+
+\subsubsection*{Complement}
+For one graph $G$, $\overline{G}$ is defined as...
+\begin{align*}
+    V(\overline{G}) & = V(G) \\
+    E(\overline{G}) & = \{uv | u,v \in V(G), u \neq v, uv \notin E(G)\}
+\end{align*}
+
+\subsubsection*{Join}
+For two graph, $G \tand H$, $G + H$ is defined as...
+\begin{center}
+    Start with $G \cup H$ and draw all edges join a vertex of $G$ and a vertex of $H$
+\end{center}
+
+\subsubsection*{Cartesian Product}
+For two graphs, $G \tand H$, $G \times H$ is defined as...
+\begin{align*}
+    V(G \times H) & = \{(u,v) | u \in V(G) \tand v \in V(H)\} \\
+    (u,v)-(x,y) & \tif u = x \tand vy \in E(H) \lor v = y \tand ux \in E(G)
+\end{align*}
+A cartesian product between two graphs has the practical effect of duplicating one graph, and connecting the duplicates in the way of the other graph.
+
+\subsubsection*{Complement Connectivity Theorem}
+If $G$ is disconnected, then $\overline{G}$ is connected.
+
+\subsection{Multigraphs and Digraphs}
+
+\subsubsection*{Multigraph Definition}
+A \bld{multigraph} is a graph where a pair of vertices may be joined by any finite number of edges.
+\begin{itemize}
+    \item Multiple edges: OK
+    \item Loops: NOT OK
+\end{itemize}
+
+\subsubsection*{Pseudograph Definition}
+A \bld{pseudograph} is a \itl{multigraph} where loops are allowed
+\begin{itemize}
+    \item Multiple edges: OK
+    \item Loops: OK
+\end{itemize}
+
+\subsubsection*{Digraph Definition}
+A \bld{directed graph} is a graph where $E(G)$ is a set of ordered pairs (rather than sets) of distinct vertices called directed edges, or arcs.
+
+\subsubsection*{Oriented Graph Definition}
+An \bld{oriented graph} is a \itl{digraph} in $\forall u,v \in V(G)$, $(u,v) \tand (v,u)$ are not \underbar{both} edges.

@@ -1,1 +1,39 @@
 \section{Isomorphic Graphs}
+
+\subsection{The Definition of Isomorphism}
+
+\subsubsection*{Graph Equality Definition}
+Two graphs are \bld{equal}, denoted as $G = H$, if $V(G) = V(H) \tand E(G) = E(H)$.
+
+\subsubsection*{Graph Isomorphic Definition}
+Two (labels) graphs $G \tand H$ are \bld{isomorphic}, denoted as $G \cong H$, if they have the same structure, meaning there is a \itl{bijection} $\phi: V(G) \to V(H)$ such that for $u,v \in V(G), \phi(u)\phi(v) \in E(H)$ if and only if $uv \in E(G)$.
+
+\subsubsection*{Isomorphic Degree Theorem}
+If $G \cong H$, with isomorphic $\phi: V(G) \to V(H)$, then $\deg_G u = \deg_H \phi(u)$.
+
+\subsubsection*{Isomorphic Degree Corollary}
+If $G \cong H$, their degree sequences are equal.
+
+\subsubsection*{Graph Invariants}
+\begin{itemize}
+    \item To prove $G \cong H$, find an isomorphism.
+    \item To prove $G \ncong H$, find a graph invariant, where $G \tand H$ differ.
+\end{itemize}
+\bld{Graph Invariants}
+\begin{itemize}
+    \item Order and Size
+    \item Degree Sequence
+    \item Cycles
+    \item Diameter
+    \item $k$ (number of components)
+    \item $k$-partite-ness
+    \item (Other things)
+\end{itemize}
+
+\subsubsection*{Adjacency and Non-adjacency under Isomorphism Theorem}
+$G \cong H$ if and only if $\overline{G} \cong \overline{H}$.
+
+\subsection{Isomorphism as a Relation}
+
+\subsubsection*{Equivalence Relations and Isomorphism Theorem}
+Isomorphism is an equivalence relation.
