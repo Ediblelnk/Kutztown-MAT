@@ -1,0 +1,73 @@
+\section{Vectors and the Geometry of Space}
+
+\subsection{Three-Dimensional Cartesian Space}
+
+\subsubsection*{Cartesian Coordinates in Three Dimensions}
+The \bld{projection} of a point $(x,y,z) \tin \bb{R}^3$ onto a plane is the point in that plane closest to $(x,y,z)$. The projection of the points constituting a given object onto a coordinate plane is often useful in helping to visualize or better understand the object.
+
+\subsubsection*{Distance in Three Dimensions}
+The distance between two points, $(x_1,y_1,z_1) \tand (x_2,y_2,z_2)$ is found by applying the \itl{Pythagorean Theorem} successively, and is
+\[
+    \sqrt{(x_1-x_2)^2 + (y_1-y_2)^2 + (z_1-z_2)^2}.
+\]
+
+\subsection{Vectors and Vector Algebra}
+
+\subsubsection*{Vector Terminology and Notation}
+In two- and three-dimensional space, vectors are often depicted as \bld{directed line segments}. Such a directed line segment begins at an \bld{initial point} $P$ and ends at a \bld{terminal point} $Q$, and the notation $\vvec{PQ}$ is used to refer to the vector.
+
+A subtle but very important point is that a vector is characterized \itl{entirely} by its direction and magnitude, not by its initial and terminal points.
+
+If a vector $\vec{u}$ is depicted with the origin as its initial point, the vector is said to be in \bld{standard position}. The \bld{component form} of $\vec{u}$ takes the form
+\[
+    \vec{u} = \langle u_1, \ldots, u_n \rangle
+\]
+Additionally, the length or \bld{norm} of a vector $\vec{u}$ is
+\[
+    \norm{\vec{u}} = \sqrt{u_1^2 + \cdots + u_n^2}.
+\]
+
+\subsubsection*{Vector Algebra}
+Vectors are added and scaled component-wise. Assume $\vec{u},\vec{v}, \tand \vec{w}$ represent vectors, while $a,b \in \bb{R}$.
+\[
+    \begin{array}{cc}
+        \text{Scalar Multiplication Properties}                    & \text{Vector Addition Properties}                             \\
+        a(\vec{u}+\vec{v}) = a\vec{u} + a\vec{v}                   & \vec{u} + \vec{v} = \vec{v} + \vec{u}                         \\
+        (a+b)\vec{u} = a\vec{v} + b\vec{u}                         & \vec{u} + (\vec{v} + \vec{w}) = (\vec{u} + \vec{v}) + \vec{w} \\
+        1\vec{u} = \vec{u};~0\vec{u} = \vec{0};~a\vec{0} = \vec{0} & \vec{u}+(-\vec{u}) = \vec{0}                                  \\
+        \norm{a\vec{u}} = |a| \cdot \norm{\vec{u}}
+    \end{array}
+\]
+
+\subsection{The Dot Product}
+
+\subsubsection*{The Dot Product and Its Properties}
+Given two vectors $\vec{u} = \langle u_1, \ldots, u_n \rangle \tand \vec{v} = \langle v_1, \ldots, v_n$, the \bld{dot product}, denoted as $\vec{u} \cdot \vec{v}$, is the scalar defined by
+\[
+    \vec{u} \cdot \vec{v} = u_1v_1 + \cdots + u_nv_n
+\]
+
+\subsubsection*{Properties of the Dot Product}
+Assume $\vec{u},\vec{v}, \tand \vec{w}$ represent vectors, while $a \in \bb{R}$.
+\[
+    \begin{array}{cc}
+        \vec{u} \cdot \vec{v} = \vec{v} \cdot \vec{u}                                     & \vec{0} \cdot \vec{u} = \vec{0}                                                \\
+        \vec{u} \cdot (\vec{v} + \vec{w}) = \vec{u} \cdot \vec{v} + \vec{u} \cdot \vec{w} & a(\vec{u} \cdot \vec{v}) = (a\vec{u}) \cdot \vec{v} = \vec{u} \cdot (a\vec{v}) \\
+        \vec{u} \cdot \vec{u} = \norm{\vec{u}}^2
+    \end{array}
+\]
+
+\subsubsection*{Dot Product and the Angle between Two Vector}
+If two nonzero vectors $\vec{u} \tand \vec{v}$ are depicted so that their initial points coincide, and if $\theta$ represents the smaller of the two angles formed by $\vec{u} \tand \vec{v}$, so that $0 \leq \theta \leq \pi$, then
+\[
+    \vec{u} \cdot \vec{v} = \norm{\vec{v}} \norm{\vec{u}} \cos \theta
+\]
+
+\subsubsection*{Orthogonal Vectors}
+Two vectors $\vec{u} \tand \vec{v}$ are \bld{orthogonal}, \bld{perpendicular}, or \bld{normal}, if $\vec{u} \cdot \vec{v} = 0$
+
+\subsection{The Cross Product}
+
+\subsection{Describing Lines and Planes}
+
+\subsection{Cylinders and Quadric Surfaces}

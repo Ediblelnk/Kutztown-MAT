@@ -34,26 +34,30 @@
 
 %augmented matrix environment
 \newenvironment{apmatrix}[2]{%
-  \left(\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
-    }{
-  \end{array}\right)
+    \left(\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
+        }{
+    \end{array}\right)
 }
 \newenvironment{abmatrix}[2]{%
-  \left[\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
-      }{
-    \end{array}\right]
+    \left[\begin{array}{@{~}*{#1}{c}|@{~}*{#2}{c}}
+            }{
+        \end{array}\right]
 }
 
 \newenvironment{determinant}[1]{
-  \left\lvert
-  \begin{array}{@{~}*{#1}{c}}
-    }{
-  \end{array}
-  \right\rvert
+    \left\lvert
+    \begin{array}{@{~}*{#1}{c}}
+        }{
+    \end{array}
+    \right\rvert
 }
 
 % graph theory
 \DeclareMathOperator{\diam}{\text{diam}}
+
+% calculus iii
+\newcommand{\vvec}{\overrightarrow}
+\newcommand{\norm}[1]{\lVert #1 \rVert}
 
 %lists
 \newcommand{\bitem}[1]{\item[\bld{#1.}]}
