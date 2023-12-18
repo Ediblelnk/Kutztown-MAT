@@ -17,7 +17,7 @@ Graphs are often represented pictorially. For example consider
 \begin{center}
     \begin{tikzpicture}
         \pgfmathsetmacro{\gsize}{2}
-    
+
         \foreach \rank/\elements/\size in {0/{,1,2}/3, 0.5/{5}/3, 1/{,4,3}/3} {
         \foreach[count = \i] \element in \elements {\node (\element) at (\i * \gsize - \size / 2 * \gsize, -\rank * \gsize) {$\element$};}
         }
@@ -26,7 +26,7 @@ Graphs are often represented pictorially. For example consider
     \end{tikzpicture}
 \end{center}
 \begin{itemize}
-\item Vertices $1 \tand 4$ are \bld{adjacent} because they are joined by an edge.
+    \item Vertices $1 \tand 4$ are \bld{adjacent} because they are joined by an edge.
     \item Vertex $2$ and edge $2-3$ are \bld{indicent}.
     \item Edges $2-3 \tand 3-4$ are \bld{adjacent}.
 \end{itemize}
@@ -72,10 +72,10 @@ $G[X]$ is an \bld{edge-induced subgraph} of G if $G[X]$ has edge set $X \subsete
 \subsubsection*{More on Spanning and Induced Subgraphs}
 Let $G$ be a graph with vertex $v$ and edge $e$. Then,
 \begin{itemize}
-    \item $G-e$ is the \itl{spanning subgraph} of $G$ whose edge set is $E(G)-\{e\}$. 
-        \subitem This definition can be expanded to $G-X \tfor X \subseteq E(G)$.
-    \item $G-v$ is the \itl{induced subgraph} of $G$ whose vertex set is $V(G) - \{v\}$ and edge set includes all edges of $G$ except those incident with $v$. 
-        \subitem This definition can be expanded to $G-U \tfor U \subseteq V(G)$.
+    \item $G-e$ is the \itl{spanning subgraph} of $G$ whose edge set is $E(G)-\{e\}$.
+          \subitem This definition can be expanded to $G-X \tfor X \subseteq E(G)$.
+    \item $G-v$ is the \itl{induced subgraph} of $G$ whose vertex set is $V(G) - \{v\}$ and edge set includes all edges of $G$ except those incident with $v$.
+          \subitem This definition can be expanded to $G-U \tfor U \subseteq V(G)$.
 \end{itemize}
 Let $G$ be a graph, $u,v \in V(G) \tand e = uv \notin E(G)$. Then $G+e$ is the graph with vertex set $V(G)$ and edge set $E(G) \cup \{e\}$. $G$ is a \itl{spanning subgraph} of $G+e$
 
@@ -84,7 +84,7 @@ Let $u,v \in V(G)$. A $u-v$ \bld{walk} in $G$ is a sequence of vertices
 \[
     (u = v_0, v_1, \ldots, v_k = v)
 \]
-beginning with $u$, ending with $v$, and consecutive vertices are adjacent. 
+beginning with $u$, ending with $v$, and consecutive vertices are adjacent.
 
 A \bld{trail} is a walk in which \itl{no edges} are repeated. A \bld{path} is a walk in which \itl{no vertices} are repeated. Every \itl{path} is a \itl{trail} is a \itl{walk}.
 
@@ -95,6 +95,17 @@ A $u-v$ walk with $u=v$ is called a \bld{closed} walk. A $u-v$ walk with $u \neq
 
 \subsubsection*{Walk and Path Theorem}
 If $G$ contains a $u-v$ walk of length $\ell$, then $G$ contains a $u-v$ path of length $\leq \ell$.
+\begin{proof}
+    Let $P = (u=u_0, u_1, \ldots, u_k = v)$ be a $u-v$ walk of smallest length $k \leq \ell$.
+
+    \begin{proof}[Claim]
+        $P$ is a $u-v$ path.
+
+        If \bld{not}, then $u_i = u_j$, for some $i \neq j$. Then $(u=u_0, u_1, \ldots, u_i = u_j, \ldots, u_k = v)$ will be a smaller $u-v$ than $P$. This contradicts our assertion that $P$ was the \itl{smallest} walk.
+    \end{proof}
+
+    Hence, $P$ is a $u-v$ path of length $k \leq \ell$.
+\end{proof}
 
 \subsubsection*{Connectivity Definition}
 A graph $G$ is said to be \bld{connected} if $\forall u,v \in V(G)$, $G$ contains a $u-v$ path. If this is not true, i.e. $\exists u,v \in V(G)$ where there is no $u-v$ path, then $G$ is said to be \bld{disconnected}.
@@ -104,9 +115,40 @@ A connected subgraph of $G$ that is not a proper subgraph of any other connected
 
 \subsubsection*{Components and Equivalence Relations Theorem}
 Define a relation $R$ on the $V(G)$ so that $uRv$ if $G$ contains a $u-v$ walk. Then $R$ is an equivalence relation.
+\begin{proof}
+    An equivalence relation must be reflexive, symmetric, and transitive.
+    \begin{enumerate}
+        \item Reflexive: $\forall~u \in V(G)$, $(u)$ is a $u-u$ walk, so $uRu$.
+        \item Symmetric: Suppose $uRv$. There is a $u-v$ walk $(u=u_0, u_1, \ldots, u_n = v)$. Then reversing the walk gives the $v-u$ walk $(v=u_n, \ldots, u_1, u_0 = u)$. So $vRu$.
+        \item Transitive: Suppose $uRv \tand vRw$. There is a $u-v$ walk $(u=u_0, u_1, \ldots, u_n = v)$, and $v-w$ walk $(v=v_0, v_1, \ldots, v_m = w)$. Then there is a $u-w$ walk $(u=u_0, u_1, \ldots, u_n = v = v_0, \ldots, v_m = w)$. So $uRw$.
+    \end{enumerate}
+\end{proof}
+What are the equivalence classes?
+\begin{align*}
+    [u] & = \{v \in V(G) ~|~ uRv\}                                 \\
+        & = \{v \in V(G) ~|~ \text{there is a $u-v$ walk in $G$}\} \\
+        & = \text{the connected component containing $u$}
+\end{align*}
 
 \subsubsection*{Subtractive Connectivity Theorem (weak)}
-Let $G$ be a graph of order $\geq 3$. If $\exists u,v \in V(G)$ such that $G-u$ and $G-v$ are connected, then $G$ is connected.
+Let $G$ be a graph of order $\geq 3$. If $\exists~ u,v \in V(G)$ such that $G-u$ and $G-v$ are connected, then $G$ is connected.
+\begin{proof}
+    Suppose $G$ has order at least 3 and $\exists~ u,v \in V(G)$ such that $G-u \tand G-v$ are connected. Let $x,y \in V(G)$.
+    \begin{enumerate}
+        \item[Case 1] $\{x,y\} \neq \{u,v\}$, meaning at least one is different. Say (WLOG) $u \notin \{x,y\}$.
+
+            Then $x,y \in V(G-u)$, which is connected, contains an $x-y$ walk.
+        \item[Case 2] $\{x,y\} = \{u,v\}$. Say (WLOG) $x=u \tand y=v$.
+
+            Consider $z \in V(G-u) \tand z \in V(G-v)$.
+
+            Then $x,z \in V(G-v)$ contains a $x-z$ walk $(x=x_0, \ldots, x_n = z)$, since it is connected.
+
+            Then $z,y \in V(G-u)$ contains a $z-y$ walk $(z=z_0, \ldots, z_m = y)$, since it is connected.
+
+            Now consider $(x=x_0, \ldots, x_n = z = z_0, \ldots, z_m = y))$. This is an $x-y$ walk in $G$.
+    \end{enumerate}
+\end{proof}
 
 \subsubsection*{Distance, Geodesic, Diameter, and Girth Definitions}
 The \bld{distance} between vertices $u \tand v$, denoted as $d(u,v) \tor d_G(u,v)$ is the smallest length of any $u-v$ path in $G$. If $u \tand v$ are in different components, then $d(u,v)$ is undefined.
@@ -114,18 +156,33 @@ The \bld{distance} between vertices $u \tand v$, denoted as $d(u,v) \tor d_G(u,v
 A $u-v$ path of shortest length $d(u,v)$ is called a \bld{geodesic}. The \bld{diameter} of a connected graph $G$, denoted as $\diam(G)$, is the largest \itl{geodesic} between any two vertices of $G$. The \bld{girth} of a connected graph $G$ is the length of the shortest cycle in $G$.
 
 \subsubsection*{Subtractive Connectivity Theorem (strong)}
-Let $G$ be a graph of order $\geq 3$. Then $G$ is connected if and only if $\exists u,v \in V(G)$ such that $G-u$ and $G-v$ are connected.
+Let $G$ be a graph of order $\geq 3$. Then $G$ is connected if and only if $\exists~ u,v \in V(G)$ such that $G-u$ and $G-v$ are connected.
+\begin{proof}
+    $\implies$ is already proven by the weak version of this theorem.
+
+    $\impliedby$ Suppose $G$ is connected. Then $\exists~ u,v \in V(G)$ such that $d(u,v) = \diam(G)$.
+
+    Suppose to the contrary, WLOG, that $G-v$ is disconnected. Then $exists~x,y \in V(G-v)$ such that there is no $x-y$ walk  in $G-v$. But $G$ is connected, so there exist $x-u \tand u-y$ paths in $G$.
+
+    Let $P'$ be an $x-u$ geodesic in $G$ and $P''$ be a $u-y$ geodesic in $G$.
+
+    $v$ cannot be on $P' \tor P''$ because if it was, then $d(x,u) > d(u,v) \tor d(y,u) > d(u,v)$, violating our assertion that $d(u,v) = \diam(G)$.
+
+    Then $P'P''$ $x-u-y$ is an $x-y$ walk in $G-v$.
+
+    This contradicts our selection that $x \tand y$ do not have a walk in $G-v$. Hence $G-v \tand G-u$ are connected.
+\end{proof}
 
 \subsection{Common Classes of Graphs}
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
         \hline
-        \bld{Name} & \bld{Symbol} & \bld{Order} & \bld{Size} \\
+        \bld{Name}         & \bld{Symbol} & \bld{Order} & \bld{Size}     \\
         \hline
-        Path & $P_n$ & $n$ & $n-1$ \\
-        Cycle & $C_n$ & $n \geq 3$ & $n$ \\
-        Complete & $K_n$ & $n$ & $\binom{n}{2}$ \\
-        Complete Bipartite & $K_{s,t}$ & $s+t$ & $s \cdot t$ \\
+        Path               & $P_n$        & $n$         & $n-1$          \\
+        Cycle              & $C_n$        & $n \geq 3$  & $n$            \\
+        Complete           & $K_n$        & $n$         & $\binom{n}{2}$ \\
+        Complete Bipartite & $K_{s,t}$    & $s+t$       & $s \cdot t$    \\
         \hline
     \end{tabular}
 \end{center}
@@ -150,7 +207,7 @@ For two graphs $G \tand H$, $G \cup H$ is defined as...
 \subsubsection*{Complement}
 For one graph $G$, $\overline{G}$ is defined as...
 \begin{align*}
-    V(\overline{G}) & = V(G) \\
+    V(\overline{G}) & = V(G)                                            \\
     E(\overline{G}) & = \{uv | u,v \in V(G), u \neq v, uv \notin E(G)\}
 \end{align*}
 
@@ -163,8 +220,8 @@ For two graph, $G \tand H$, $G + H$ is defined as...
 \subsubsection*{Cartesian Product}
 For two graphs, $G \tand H$, $G \times H$ is defined as...
 \begin{align*}
-    V(G \times H) & = \{(u,v) | u \in V(G) \tand v \in V(H)\} \\
-    (u,v)-(x,y) & \tif u = x \tand vy \in E(H) \lor v = y \tand ux \in E(G)
+    V(G \times H) & = \{(u,v) | u \in V(G) \tand v \in V(H)\}                 \\
+    (u,v)-(x,y)   & \tif u = x \tand vy \in E(H) \lor v = y \tand ux \in E(G)
 \end{align*}
 A cartesian product between two graphs has the practical effect of duplicating one graph, and connecting the duplicates in the way of the other graph.
 
