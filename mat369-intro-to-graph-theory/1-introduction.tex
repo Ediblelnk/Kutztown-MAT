@@ -134,19 +134,19 @@ What are the equivalence classes?
 Let $G$ be a graph of order $\geq 3$. If $\exists~ u,v \in V(G)$ such that $G-u$ and $G-v$ are connected, then $G$ is connected.
 \begin{proof}
     Suppose $G$ has order at least 3 and $\exists~ u,v \in V(G)$ such that $G-u \tand G-v$ are connected. Let $x,y \in V(G)$.
-    \begin{enumerate}
-        \item[Case 1] $\{x,y\} \neq \{u,v\}$, meaning at least one is different. Say (WLOG) $u \notin \{x,y\}$.
+    \begin{enumerate}[start=1,label={\bfseries Case \arabic*:},leftmargin=0.75in]
+        \item $\{x,y\} \neq \{u,v\}$, meaning at least one is different. Say (WLOG) $u \notin \{x,y\}$.
 
-            Then $x,y \in V(G-u)$, which is connected, contains an $x-y$ walk.
-        \item[Case 2] $\{x,y\} = \{u,v\}$. Say (WLOG) $x=u \tand y=v$.
+              Then $x,y \in V(G-u)$, which is connected, contains an $x-y$ walk.
+        \item $\{x,y\} = \{u,v\}$. Say (WLOG) $x=u \tand y=v$.
 
-            Consider $z \in V(G-u) \tand z \in V(G-v)$.
+              Consider $z \in V(G-u) \tand z \in V(G-v)$.
 
-            Then $x,z \in V(G-v)$ contains a $x-z$ walk $(x=x_0, \ldots, x_n = z)$, since it is connected.
+              Then $x,z \in V(G-v)$ contains a $x-z$ walk $(x=x_0, \ldots, x_n = z)$, since it is connected.
 
-            Then $z,y \in V(G-u)$ contains a $z-y$ walk $(z=z_0, \ldots, z_m = y)$, since it is connected.
+              Then $z,y \in V(G-u)$ contains a $z-y$ walk $(z=z_0, \ldots, z_m = y)$, since it is connected.
 
-            Now consider $(x=x_0, \ldots, x_n = z = z_0, \ldots, z_m = y))$. This is an $x-y$ walk in $G$.
+              Now consider $(x=x_0, \ldots, x_n = z = z_0, \ldots, z_m = y))$. This is an $x-y$ walk in $G$.
     \end{enumerate}
 \end{proof}
 
@@ -157,10 +157,11 @@ A $u-v$ path of shortest length $d(u,v)$ is called a \bld{geodesic}. The \bld{di
 
 \subsubsection*{Subtractive Connectivity Theorem (strong)}
 Let $G$ be a graph of order $\geq 3$. Then $G$ is connected if and only if $\exists~ u,v \in V(G)$ such that $G-u$ and $G-v$ are connected.
-\begin{proof}
-    $\implies$ is already proven by the weak version of this theorem.
-
-    $\impliedby$ Suppose $G$ is connected. Then $\exists~ u,v \in V(G)$ such that $d(u,v) = \diam(G)$.
+\begin{proof}[Proof $\implies$]
+    This direction is already proven by the weak version of this theorem.
+\end{proof}
+\begin{proof}[Proof $\impliedby$]
+    Suppose $G$ is connected. Then $\exists~ u,v \in V(G)$ such that $d(u,v) = \diam(G)$.
 
     Suppose to the contrary, WLOG, that $G-v$ is disconnected. Then $exists~x,y \in V(G-v)$ such that there is no $x-y$ walk  in $G-v$. But $G$ is connected, so there exist $x-u \tand u-y$ paths in $G$.
 
@@ -190,8 +191,55 @@ Let $G$ be a graph of order $\geq 3$. Then $G$ is connected if and only if $\exi
 \subsubsection*{Bipartite Graph Definition}
 $G$ is bipartite if $V(G)$ can be partitioned into partite sets $U \tand W$ so that every edge joins a vertex of $U$ and a vertex of $W$.
 
-\subsubsection*{Odd Cycle and Bipartite-ness}
+\subsubsection*{Odd Cycle and Bipartite-ness Theorem}
 $G$ is bipartite if and only if $G$ contains no odd cycles.
+\begin{proof}[Proof $\implies$]
+    Via contradiction, suppose $G$ contains an odd cycle $C$ and $G$ is bipartite with partite sets $U \tand V$.
+    \[
+        C = (u_1,u_2,\ldots,u_{2n},u_{2n+1},u_1)
+    \]
+    Without loss of generality, assume $u_1 \in U$. Then $u_1,u_3,u_5,\ldots,u_{2n+1} \in U$. But $u_{2n+1}$ and $u_1$ are adjacent and both are in $U$.
+\end{proof}
+\begin{proof}[Proof $\impliedby$]
+    Suppose $G$ has no odd cycles. Assume $G$ is connected, or a connected component of a larger graph. Let $u \in V(G)$.
+
+    Define
+    \begin{align*}
+        U & = \{v \in V(G) ~|~ d(u,v) ~\text{is even.}\} \\
+        W & = \{v \in V(G) ~|~ d(u,v) ~\text{is odd.}\}
+    \end{align*}
+    This is a partition of $V(G)$ and $u \in U$ as $d(u,u) = 0$, which is even.
+
+    Prove every edge join a vertex in $U$ and a vertex in $W$.
+    \begin{proof}[Subproof]
+        Suppose, to the contrary, there are $v,w \in W$ with $vw \in E(G)$.
+
+        Note that $d(u,v) \tand d(u,w)$ are odd. Let
+        \begin{align*}
+            d(u,v) & = 2s+1                          \\
+            d(u,w) & = 2t+1 & \tfor s,t \in \bb{Z}^+
+        \end{align*}
+        Consider
+        \begin{align*}
+            P'  & = (u=v_0,v_1,\ldots,v_{2s+1} = v) \\
+            P'' & = (u=w_0,w_1,\ldots,w_{2t+1} = w)
+        \end{align*}
+        $P' \tand P''$ have $u$ in common, and maybe other vertices as well. Let $x$ be the last vertex in common.
+
+        So $x=v_i$ for some $0 \leq i \leq 2s+1 \tand d(u,v_i) = i$.
+
+        So $x=w_i$ for some $0 \leq i \leq 2t+1 \tand d(u,w_i) = i$.
+        \begin{align*}
+            P'  & = (u=v_0,v_1,\ldots,v_i,\ldots,v_{2s+1} = v) \\
+            P'' & = (u=w_0,w_1,\ldots,w_i,\ldots,w_{2t+1} = w)
+        \end{align*}
+        Since $vw \in E(G)$, we have a cycle $C = (v_i,v_{i+1},\ldots,v_{2s+1},w_{2t+1},w_{2t},\ldots,w_i=v_i)$ of length
+        \[
+            \underbrace{2s+1-i+1}_\text{top row} + \underbrace{2t+1-i}_\text{bottom row} = 2s + 2t - 2i + 1 = 2(s+t-i)+1
+        \]
+        So $C$ is an odd cycle, which contradicts our assertion that $G$ has \uln{no} odd cycles.
+    \end{proof}
+\end{proof}
 
 \subsubsection*{K-partite Definition}
 $G$ is a \bld{$k$-partite} graph if $V(G)$ can be partitioned into partite sets $U_1, \ldots, U_k$ so that every edge joins a vertex from $U_i$ and a vertex of $U_j$ where $i \neq j$.
@@ -227,6 +275,15 @@ A cartesian product between two graphs has the practical effect of duplicating o
 
 \subsubsection*{Complement Connectivity Theorem}
 If $G$ is disconnected, then $\overline{G}$ is connected.
+\begin{proof}
+    Let $u,v \in V(\overline{G})$.
+    \begin{enumerate}[start=1,label={\bfseries Case \arabic*:},leftmargin=0.75in]
+        \item If $u,v$ are in different components of $G$, then $u,v \in E(\comp{G})$, so $(u,v)$ is a walk in $\comp{G}$.
+        \item If $u,v$ are in the same component of $G$, then $\exists~ w \in V(G)$ in a different component. So $uw, wv \in E(\comp{G})$.
+
+              Hence $(u,w,v)$ is a $u-v$ walk.
+    \end{enumerate}
+\end{proof}
 
 \subsection{Multigraphs and Digraphs}
 

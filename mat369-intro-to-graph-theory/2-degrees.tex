@@ -21,12 +21,39 @@ For a graph $G$ of size $m$, the total degree of $G$ $\sum_{v \in V(G)} = 2m$.
 
 \subsubsection*{Handshaking Corollary}
 Every graph has an even number of odd degree vertices.
+\begin{proof}
+    By handshaking,
+    \[
+        2m = \sum_{v \in V(G)} \deg(v) = \sum_{v \in V_1(G)} \deg(v) + \sum_{v \in V_2(G)} \deg(v),~\twhere
+    \]
+    \begin{align*}
+        V_1(G) & = ~\text{set of all odd degree vertices}  \\
+        V_2(G) & = ~\text{set of all even degree vertices}
+    \end{align*}
+    \[
+        2m - \sum_{v \in V_2(G)} \deg(v) ~= \sum_{v \in V_1(G)} \deg(v) \text{,  so $|V_1(G)|$ must be even}.
+    \]
+\end{proof}
 
 \subsubsection*{Sum Degree and Connectivity Theorem}
 Consider graph $G$ of order $n$. If $\deg u + \deg v \geq n-1$ for all non-adjacent $(u,v) \in V(G)$, then $G$ is connected.
+\begin{proof}
+    Let $x,y \in V(G)$.
+    \begin{enumerate}[start=1,label={\bfseries Case \arabic*:},leftmargin=0.75in]
+        \item If $x,y$ are adjacent, then $(x,y)$ is a walk in $G$.
+        \item If $x,y$ are \uln{not} adjacent, then $\deg u + \deg v \geq n-1$, by assumption. Since there are only $n-2$ vertices in $G$ besides $x \tand y$, $x \tand y$ must have a common neighbor $w \in V(G)$. Then $(x,w,y)$ is a walk in $G$.
+    \end{enumerate}
+\end{proof}
 
 \subsubsection*{Sum Degree and Connectivity Corollary}
 If $G$ has order $n$ and $\delta(G) \geq \frac{n-1}{2}$, then $G$ is connected.
+\begin{proof}
+    If $u,v \in V(G)$ are not adjacent, then
+    \[
+        \deg u + \deg v \geq \delta(G) + \delta(G) = \frac{n-1}{2} + \frac{n-1}{2} = n-1.
+    \]
+    Hence, by the previous theorem, $G$ is connected.
+\end{proof}
 
 \subsection{Regular Graphs}
 
@@ -62,11 +89,11 @@ is graphical.
 \subsubsection*{Adjacency Matrix Definition}
 The \bld{adjacency matrix} of $G$ is the $n \times n$ matrix $A = [a_{ij}]$, where
 \[
-    a_{ij} = \left\{ 
-        \begin{array}{ll}
-            1, & \tif v_iv_j \in E(G) \\
-            0 & \text{otherwise};
-        \end{array}
+    a_{ij} = \left\{
+    \begin{array}{ll}
+        1, & \tif v_iv_j \in E(G) \\
+        0  & \text{otherwise};
+    \end{array}
     \right.
 \]
 The entry $a_{ij}$ in $A^n$ is the number of walks of length $n$ from $v_i \tto v_j$.
