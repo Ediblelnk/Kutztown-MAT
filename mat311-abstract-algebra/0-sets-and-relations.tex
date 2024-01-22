@@ -1,0 +1,54 @@
+\section{Sets and Relations}
+
+\subsubsection*{Definition: What \itl{is} Abstract Algebra}
+\begin{itemize}
+    \item Algebra: procedures for performing operations, i.e. $+,-,\times,\div$, and methods for solving equations. It uses bld{specific} operations on \bld{specific} objects.
+    \item Abstract Algebra: discuss \bld{general} structures and the relationships between the elements of these structures.
+\end{itemize}
+
+\subsection{Sets}
+
+\subsubsection*{Definition: Set}
+A set is a collection of objects. These objects are called "elements". A set is typically uppercase, and elements are typically lowercase.
+
+\subsubsection*{Set Notation}
+\begin{enumerate}
+    \item List Notation:
+    \begin{align*}
+        B & = \{\text{John}, \text{Paul}, \text{Ringo}, \text{George}\} \\
+        \bb{N} & = \{1,2,3,\ldots\}
+    \end{align*}
+    \item Set-builder Notation:
+    \[
+        B = \{b : b ~\text{is a Beatle}\}
+    \]
+\end{enumerate}
+
+\subsubsection*{Well-Defined Sets}
+Sets must be \bld{well-defined}. That is, given set $S$ and any element $x$, either $x \in S \tor x \notin S$.
+
+\subsubsection*{Definition: Subset}
+A set $A$ is a subset of set $B$, written as $A \subseteq B$, if every element of $A$ is also in $B$.
+
+Note: every non-empty set has at least two subsets:
+\begin{itemize}
+    \item The set itself
+    \item $\emptyset$
+\end{itemize}
+
+\subsubsection*{Definition: Proper Subset}
+If $A \subseteq B \tbut A \not = B$, then $A$ is a \bld{proper subset} of $B$, written $A \subset B \tor A \subsetneq B$.
+
+Note: A set $B$ is an \itl{improper subset} of itself.
+
+\subsubsection*{Definition: Cartesian Product}
+Let $A \tand B$ be sets. The set $A \times B = \{(a,b) : a \in A \tand b \in B\}$ is the cartesian product of $A \tand B$.
+
+Note: $A \times B = B \times A \iff A = B, \tor A \times B = \emptyset$.
+
+\subsubsection*{Example}
+Let $A = \{c : c ~\text{is a primary color}\}$ and let $B = \{\epsilon, \delta\}$. Find:
+\begin{enumerate}
+    \item $B \times B = \{(\epsilon, \epsilon),(\epsilon,\delta),(\delta,\epsilon),(\delta,\delta)\}$
+    \item $A \times \emptyset = \emptyset$
+\end{enumerate}
