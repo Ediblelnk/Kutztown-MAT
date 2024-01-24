@@ -52,3 +52,57 @@ Let $A = \{c : c ~\text{is a primary color}\}$ and let $B = \{\epsilon, \delta\}
     \item $B \times B = \{(\epsilon, \epsilon),(\epsilon,\delta),(\delta,\epsilon),(\delta,\delta)\}$
     \item $A \times \emptyset = \emptyset$
 \end{enumerate}
+
+\subsection{Relations}
+
+\subsubsection*{Definition: Relation}
+A \bld{relation} between sets $A \tand B$ is a subset $\mathcal{R}$ of $A \times B$. It is a collection of ordered pairs. Note: $(a,b) \in \mathcal{R} \equiv a\mathcal{R}b$ means "$a$ is related to $b$".
+
+\subsubsection*{Definition: Function}
+A \bld{function} is a relation in which no two of the ordered pairs have the same first term. Note: if $f:\bb{R} \rightarrow \bb{R}$ is a function, then is passes the vertical-line test.
+
+\subsubsection*{Definition: One-to-One}
+A function is \bld{one-to-one}, or \bld{injective}, if no two ordered pairs have the same \uln{second} term.
+
+To prove $f$ is one-to-one, first assume that $f(x_1) = f(x_2)$, then show that $x_1 = x_2$.
+
+\subsubsection*{Definition: Onto}
+A function $f: X \rightarrow Y$ is \bld{onto}, or \bld{surjective}, if the codomain is equal to the range, meaning every element $y \in Y$ has some $x \in X$ such that $f(x) = y$.
+
+\subsubsection*{Definition: One-to-One Correspondence}
+A function $f: X \rightarrow Y$ is a \bld{one-to-one correspondence}, or a \bld{bijection}, if it is both one-to-one and onto.
+
+\subsection{Partitions and Equivalence Relations}
+
+\subsubsection*{Definition: Partition}
+A \bld{partition} of a set $S$ is a collection of non-empty subsets of $S$ such that:
+\begin{enumerate}
+    \item The union of these subsets is $S$.
+    \item These subsets are pairwise disjoint.
+\end{enumerate}
+Note: these subsets are called \bld{cells} of the partition.
+
+\subsubsection*{Definition: Equivalence Relation}
+An \bld{equivalence relation} $\mathcal{R}$ on a set $S$ must be:
+\begin{enumerate}
+    \item Reflexive, meaning $x\mathcal{R}x \qquad \forall~x \in S$.
+    \item Symmetric, meaning $\tif x\mathcal{R}y, \tthen y\mathcal{R}x$.
+    \item Transitive, meaning $\tif x\mathcal{R}y \tand y\mathcal{R}z, \tthen x\mathcal{R}z$.
+\end{enumerate}
+
+\subsubsection*{Definition: Equivalence Class}
+\[
+    \overline{x} = \{y \in S : x\mathcal{R}y\} ~\text{is the equivalence class of $x$}
+\]
+
+\subsubsection*{Example}
+Let $S = \bb{R}$. Define $x\mathcal{R}y$ iff $x \geq y$. Is $\mathcal{R}$ an equivalence relation on $S$?
+\begin{enumerate}
+    \item Is $\mathcal{R}$ reflexive? $\forall x \in S, x\mathcal{R}x$, so YES.
+    \item Is $\mathcal{R}$ symmetric? Consider 5 and 1: $5 \geq 1 \tbut 1 \ngeq 5$, so NO.
+    \item Is $\mathcal{R}$ transitive? If $x \geq y \tand y \geq z \tthen x \geq z$, so YES.
+\end{enumerate}
+Since $\mathcal{R}$ is not symmetric, it is not an equivalence relation on $S$.
+
+\subsubsection*{Note on Partition Cells and Equivalence Classes}
+Partitions give rise to equivalence relations and vice versa. The \itl{cells} of the partition are analogous to the \itl{equivalence classes} of the equivalence relation.
