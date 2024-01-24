@@ -1,0 +1,64 @@
+\documentclass{article}
+\input{../../.latex/article.tex}
+\input{../../.latex/macros.tex}
+
+\newcommand{\assignment}{Section 1.1 1-12, Section 1.2 1-16}
+
+\lhead{MAT 340 Differential Equations}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+\subsection*{1.1}
+In Problems 1-12, a differential equation is given along with the field or problem area in which it arises. Classify each as an ordinary differential equation (ODE) or a partial differential equation (PDE), give the order, and indicate the independent and dependent variables. If the equation is an ordinary differential equation, indicate whether the equation is linear or nonlinear.
+\begin{enumerate}
+    \qitem{1}{$5\frac{d^2 x}{d t^2} + 4\frac{dx}{dt} + 9x = 2\cos 3t$}{answer}
+    \qitem{2}{$\frac{d^2 y}{d x^2} -2x\frac{dy}{dx} + 2y = 0$}{answer}
+    \qitem{3}{$\frac{dy}{dx} = \frac{y(2-3x)}{x(1-3y)}$}{answer}
+    \qitem{4}{$\frac{\partial^2 u}{\partial x^2} + \frac{\partial^2 u}{\partial y^2} = 0$}{answer}
+    \qitem{5}{$y \left[1 + \left(\frac{dy}{dx}\right)^2\right] = C$}{answer}
+    \qitem{6}{$\frac{dx}{dt} = k(4-x)(1-x)$, where $k$ is a constant}{answer}
+    \qitem{7}{$\frac{dp}{dt} = kp(P-p)$, where $k$ and $P$ are constants}{answer}
+    \qitem{8}{$\sqrt{1-y}\frac{d^2 y}{dx^2} + 2x\frac{dy}{dx} = 0$}{answer}
+    \qitem{9}{$x\frac{d^2 y}{dx^2} + \frac{dy}{dx} + xy = 0$}{answer}
+    \qitem{10}{$8\frac{d^4 y}{dx^2} = x(1-x)$}{answer}
+    \qitem{11}{$\frac{\partial N}{\partial t} = \frac{\partial^2 N}{\partial r^2} + \frac{1}{r} \frac{\partial N}{\partial r} + kN$, where $k$ is a constant}{answer}
+    \qitem{12}{$\frac{d^2 y}{dx^2} - 0.1(1-y^2)\frac{dy}{dx} + 9y = 0$}{answer}
+\end{enumerate}
+
+\subsection*{1.2}
+\subsubsection*{1}
+\begin{enumerate}
+    \qitem{(a)}{Show that $\phi(x) = x^2$ is an explicit solution to $x\frac{dy}{dx} = 2y$}{answer}
+    \qitem{(b)}{Show that $\phi(x) = e^x - x$ is an explicit solution to $\frac{dy}{dx} + y^2 = e^{2x} + (1-2x)e^x + x^2 - 1$}{answer}
+    \qitem{(c)}{Show that $\phi(x) = x^2 - x^{-1}$ is an explicit solution to $x^2\frac{d^2 y}{dx^2} = 2y$ on the interval $(0,\infty)$}{answer}
+\end{enumerate}
+\subsubsection*{2}
+\begin{enumerate}
+    \qitem{(a)}{Show that $y^2 + x - 3 = 0$ is an implicit solution to $\frac{dy}{dx} = -\frac{1}{2y}$ on the interval $(-\infty,3)$.}{answer}
+    \qitem{(b)}{Show that $xy^3 - xy^3 \sin x = 1$ is an implicit solution to $\frac{dy}{dx} = \frac{(x \cos x + \sin x - 1)y}{3(x-x \sin x)}$ on the interval $(0,\pi/2)$.}{answer}
+\end{enumerate}
+In Problems 3-8, determine whether the given function is a solution to the given differential equation.
+\begin{enumerate}
+    \qitem{3}{$y = \sin x + x^2$,\qquad$\frac{d^2y}{dx^2} + y = x^2 + 2$}{answer}
+    \qitem{4}{$x = 2\cos t - 3\sin t$,\qquad$x'' + x = 0$}{answer}
+    \qitem{5}{$\theta = 2e^{3t} - e^{2t}$,\qquad$\frac{d^2\theta}{dt^2} - \theta\frac{d\theta}{dt} + 3\theta = -2e^{2t}$}{answer}
+    \qitem{6}{$x = \cos 2t$,\qquad$\frac{dx}{dt} + tx = \sin 2t$}{answer}
+    \qitem{7}{$y = e^{2x} - 3e^{-x}$,\qquad$\frac{d^2y}{dx^2} - \frac{dy}{dx} - 2y = 0$}{answer}
+    \qitem{8}{$y = 3\sin 2x + e^{-x}$,\qquad$y'' + 4y = 5e^{-x}$}{answer}
+\end{enumerate}
+In Problems 9-13, determine whether the given relation is an implicit solution to the given differential equation. Assume that the relationship does define y implicitly as a function of $x$ and use implicit differentiation.
+\begin{enumerate}
+    \qitem{9}{$x^2 + y^2 = 4$,\qquad$\frac{dy}{dx} = \frac{x}{y}$}{answer}
+    \qitem{10}{$y - \ln y = x^2 + 1$,\qquad$\frac{dy}{dx} = \frac{2xy}{y-1}$}{answer}
+    \qitem{11}{$e^{xy} + y = x - 1$,\qquad$\frac{dy}{dx} = \frac{e^{-xy}-y}{e^{-xy}+x}$}{answer}
+    \qitem{12}{$x^2 - \sin(x+y) = 1$,\qquad$\frac{dy}{dx} = 2x\sec(x+y)-1$}{answer}
+    \qitem{13}{$\sin y + xy - x^3 = 2$,\qquad$y'' = \frac{6xy' + (y')^3\sin y - 2(y')^2}{3x^2 - y}$}{answer}
+    \qitem{14}{Show that $\phi(x) = c_1\sin x + c_2\cos x$ is a solution to $\frac{d^2y}{dx^2} + y = 0$ for any choice of the constants $c_1 \tand c_2$. Thus, $c_1\sin x + c_2\cos x$ is a two-parameter family of solutions to the differential equation.}{answer}
+    \qitem{15}{Verify that $\phi(x) = \frac{2}{1-ce^x}$, where $c$ is an arbitrary constant, is a one-parameter family of solutions to $\frac{dy}{dx} = \frac{y(y-2)}{2}$. Graph the solution curves corresponding to $c=0,\pm 1, \pm 2$, using the same coordinate axes.}{answer}
+    \qitem{16}{Verify that $x^2 + cy^2 = 1$, where $c$ is an arbitrary nonzero constant, is a one-parameter family of implicit solutions to $\frac{dy}{dx} = \frac{xy}{x^2 - 1}$ and graph several of the solution curves using the same coordinate axes.}{answer}
+\end{enumerate}
+
+\end{document}
