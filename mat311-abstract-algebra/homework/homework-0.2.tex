@@ -13,35 +13,68 @@
 
 \question{12}{Let $A = \{1,2,3\} \tand B = \{2,4,6\}$. For each relation between $A \tand B$ given as a subset of $A \times B$, decide whether it is a function mapping $A$ into $B$. If it is a function, decide whether it is one to one and whether it is onto $B$.}
 \begin{enumerate}
-    \qitem{a}{$\{(1,4),(2,4),(3,6)\}$}{answer}
-    \qitem{b}{$\{(1,4),(2,6),(3,4)\}$}{answer}
-    \qitem{c}{$\{(1,6),(1,2),(1,4)\}$}{answer}
-    \qitem{d}{$\{(2,2),(1,6),(3,4)\}$}{answer}
-    \qitem{e}{$\{(1,6),(2,6),(4,6)\}$}{answer}
-    \qitem{f}{$\{(1,2),(2,6),(2,4)\}$}{answer}
+    \qitem{a}{$\{(1,4),(2,4),(3,6)\}$}{Since no two ordered pairs have the same first term, this \bld{is a function}. Since $(1,4)$ and $(2,4)$ share a second term, this function \bld{is \itl{not} one to one}. Since 2 does not appear in the relation in the second term, this function \bld{is \itl{not} onto $B$}.}
+    \qitem{b}{$\{(1,4),(2,6),(3,4)\}$}{Since no two ordered pairs have the same first term, this \bld{is a function}. Since $(1,4)$ and $(3,4)$ share a second term, this function \bld{is \itl{not} one to one}. Since 2 does not appear in the relation in the second term, this function \bld{is \itl{not} onto $B$}.}
+    \qitem{c}{$\{(1,6),(1,2),(1,4)\}$}{Since $(1,6)$ and $(1,2)$ share a first term, this \bld{is \itl{not} a function}.}
+    \qitem{d}{$\{(2,2),(1,6),(3,4)\}$}{Since no two ordered pairs have the same first term, this \bld{is a function}. Since no two ordered pairs share the same second term, this function \bld{is one to one}. Since every element of $B$ appears in the range of the function, it \bld{is onto $B$}.}
+    \qitem{e}{$\{(1,6),(2,6),(3,6)\}$}{Since no two ordered pairs have the same first term, this \bld{is a function}. Since $(1,6)$ and $(2,6)$ share a second term, this function \bld{is \itl{not} one to one}. Since 2 does not appear in the relation in the second term, this function \bld{is \itl{not} onto $B$}.}
+    \qitem{f}{$\{(1,2),(2,6),(2,4)\}$}{Since $(2,6)$ and $(2,4)$ share a first term, this \bld{is \itl{not} a function}.}
 \end{enumerate}
 
-\question{16}{List the elements of the power set of the given set and give the cardinality of the power set.}
+\question{16}{List the elements of the power set $\mathcal{P}$ of the given set and give the cardinality of the power set.}
 \begin{enumerate}
-    \qitem{a}{$\emptyset$}{answer}
-    \qitem{b}{$\{a\}$}{answer}
-    \qitem{c}{$\{a,b\}$}{answer}
-    \qitem{d}{$\{a,b,c\}$}{answer}
+    \qitem{a}{$\emptyset$}{$|\{\emptyset\}| = 1$}
+    \qitem{b}{$\{a\}$}{$|\{\emptyset, \{a\}\}| = 2$}
+    \qitem{c}{$\{a,b\}$}{$|\{\emptyset, \{a\}, \{b\}, \{a,b\}\}| = 4$}
+    \qitem{d}{$\{a,b,c\}$}{$|\{\emptyset, \{a\}, \{b\}, \{c\}, \{a,b\}, \{a,c\}, \{b,c\}, \{a,c,b\}\}| = 8$}
 \end{enumerate}
 
 \question{17}{Let $A$ be a finite set, and let $|A| = s$. Based on the preceding exercise, make a conjecture about the value of $|\mathcal{P}(A)|$. Then try to prove your conjecture.}
+Based on the previous exercise, I conjecture that $|\mathcal{P}(A)| = 2^s$.
+\begin{proof}
+    We shall conduct a \itl{proof through induction}.
+
+    \bld{Base case}: Let $A = \emptyset \tand s = 0$. $\mathcal{P}(A) = \{\emptyset\}, \tand |\mathcal{P}(A)| = 1 = 2^0$. Thus the base case holds.
+
+    \bld{Inductive hypothesis}: Let $|A| = k$ for some $k \in \bb{Z}^{\geq0}$, and assume that $|\mathcal{P}(A)| = 2^k$.
+
+    \bld{Inductive case}: Consider $|A| = k$. Let us add an element $e$ to $A$ to create $A'$. To consider $\mathcal{P}(A')$, start with all of the sets in $\mathcal{P}(A)$, which has a cardinality of $2^k$ via the inductive hypothesis.
+
+    \indent For each of these sets, we have a choice when we add it to $\mathcal{P}(A')$ to include element $e$ or to leave it alone, which are two choices. We will end with the original sets of the $\mathcal{P}(A)$ without $e$, along with these sets with $e$, in $\mathcal{P}(A')$. Each of these groups has a cardinality of $2^k$, so the cardinality of $\mathcal{P}(A')$ must be
+    \[
+        2^k + 2^k = 2 \cdot 2^k = 2^{k+1}.
+    \]
+
+    Thus, the inductive case holds, and the conjecture is correct.
+\end{proof}
 
 \noindent In Exercises 23 through 27, find the number of different partitions of a set having the given number of elements.
 \begin{enumerate}
-    \qitem{23}{1 element}{answer}
-    \qitem{25}{3 elements}{answer}
+    \qitem{23}{1 element}{There is a single partition, $\{\{e\}\}$}
+    \qitem{25}{3 elements}{There are 5 partitions, \[\{\{e_1\}, \{e_2\}, \{e_3\}\},~~~ \{\{e_1\}, \{e_2,e_3\}\},~~~ \{\{e_1, e_2\}, \{e_3\}\},~~~ \{\{e_1, e_3\}, \{e_2\}\},~~~ \{\{e_1, e_2, e_3\}\}\]}
 \end{enumerate}
 
 \noindent In Exercises 29 through 34, determine whether the given relation is an equivalence relation on the set. Describe the partition arising from each equivalence relation.
 \begin{enumerate}
-    \qitem{29}{$n\mathcal{R}m \tin \bb{Z} \tif nm > 0$}{answer}
-    \qitem{31}{$x\mathcal{R}y \tin \bb{R} \tif |x| = |y|$}{answer}
-    \qitem{33}{$n\mathcal{R}m \tin \bb{Z}^+ \tif n \tand m$ have the same number of digits in the usual base ten notation}{answer}
+    \qitem{29}{$n\mathcal{R}m \tin \bb{Z} \tif nm > 0$}{Consider $0 \in \bb{Z}$. We know $0 \cdot 0 \ngtr 0$, thus $0$ is not related to itself. So the relation is not reflexive, and cannot be an equivalence relation.}
+    \qitem{31}{$x\mathcal{R}y \tin \bb{R} \tif |x| = |y|$}{
+        A equivalence relation must be reflexive, symmetric, and transitive.
+        \begin{enumerate}
+            \item Reflexive: Consider $x \in \bb{R}$. We know $|x|=|x|$, thus $\mathcal{R}$ is reflexive.
+            \item Symmetric: Assume $x\mathcal{R}y$. We know $|x| = |y|$ also implies $|y| = |x|$, thus $y\mathcal{R}x$. So $\mathcal{R}$ is symmetric.
+            \item Transitive: Assume $x\mathcal{R}y \tand y\mathcal{R}z$. We $|x| = |y| \tand |y| = |z|$ which implies $|x| = |z|$, thus $z\mathcal{R}x$. So $\mathcal{R}$ is transitive.
+        \end{enumerate}
+        The partition resulting from this equivalence relation will be sets $\overline{x} = \{x, -x\}$ for each $x \in \bb{R}$.
+    }
+    \qitem{33}{$n\mathcal{R}m \tin \bb{Z}^+ \tif n \tand m$ have the same number of digits in the usual base ten notation}{
+        A equivalence relation must be reflexive, symmetric, and transitive.
+        \begin{enumerate}
+            \item Reflexive: Consider $x \in \bb{Z}^+$. We know a number has the same digits as itself, thus $\mathcal{R}$ is reflexive.
+            \item Symmetric: Assume $x\mathcal{R}y$. We know $x \tand y$ have the same number of digits, implying $y \tand x$ have the same number of digits, thus $y\mathcal{R}x$. So $\mathcal{R}$ is symmetric.
+            \item Transitive: Assume $x\mathcal{R}y \tand y\mathcal{R}z$. We know $x \tand y$ have the same number of digits, and that $y \tand z$ have the same number of digits, which implies $x \tand z$ have the same number of digits, thus $z\mathcal{R}x$. So $\mathcal{R}$ is transitive.
+        \end{enumerate}
+        The partition resulting from this equivalence relation will be classes where each member has the same number of digits, i.e. all single digit numbers will be in a class, all 2 digit numbers will be in a class, all three digit numbers will be in a class, etc.
+    }
 \end{enumerate}
 
 \end{document}
