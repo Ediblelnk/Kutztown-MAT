@@ -29,28 +29,85 @@ In Exercises 7 through 11, determine whether the binary operation $*$ defined is
                 a*(b*c) & = a * \frac{bc}{2} = \frac{a\frac{bc}{2}}{2} = \frac{1}{4} \cdot abc \\
                 (a*b)*c & = \frac{ab}{2} * c = \frac{\frac{ab}{2}c}{2} = \frac{1}{4} \cdot abc
             \end{align*}
+            Thus, $*$ is associative.
         \end{enumerate}
-        Thus, $*$ is associative.
     }
     \qitem{11}{$*$ defined on $\bb{Z}^+$ by letting $a*b=a^b$}{
-        $*$ is not commutative.
+        $*$ is neither commutative nor associative.
         \begin{enumerate}
             \item Commutative: $2*3 = 2^3 = 8 \neq 3*2 = 3^2 = 9$. Thus $*$ is not commutative.
+            \item Associative: Consider $2,3,3$.
+            \begin{align*}
+                2 * (3 * 3) & = 2 * 9 = 2^9 = 512 \\
+                (2 * 3) * 3 & = 6 * 3 = 6^3 = 216
+            \end{align*}
+            Thus $*$ is not associative.
         \end{enumerate}
     }
 \end{enumerate}
 
 In Exercises 17 through 22, determine whether the definition of $*$ does give a binary operation on the set. In the event that $*$ is \itl{not} a binary operation, state whether condition 1 (uniquely defined), condition 2 (closed), or both of these conditions are violated.
 \begin{enumerate}
-    \qitem{17}{On $\bb{Z}^+$, define $*$ by letting $a*b = a-b$.}{answer}
-    \qitem{19}{On $\bb{R}$, define $*$ by letting $a*b = a-b$.}{answer}
-    \qitem{21}{On $\bb{Z}^+$, define $*$ by letting $a*b=c$, where $c$ is at least 5 more than $a+b$.}{answer}
+    \qitem{17}{On $\bb{Z}^+$, define $*$ by letting $a*b = a-b$.}{
+        $*$ is not a binary operation on $\bb{Z}^+$. Consider $a = 1 \tand b = 2$: $1*2 = 1-2 = -1 \notin \bb{Z}^+$. Thus $\bb{Z}^+$ is not closed under $*$. It is, however, uniquely defined for all $a,b \in \bb{Z}^+$.
+    }
+    \qitem{19}{On $\bb{R}$, define $*$ by letting $a*b = a-b$.}{
+        $*$ is a binary operation on $\bb{R}$.
+    }
+    \qitem{21}{On $\bb{Z}^+$, define $*$ by letting $a*b=c$, where $c$ is at least 5 more than $a+b$.}{
+        $*$ is not a binary operation on $\bb{Z}^+$. Consider $a = 1 \tand b = 1$: $1*1 = 7 \tand 8$. Thus $*$ is not uniquely defined. It is, however, closed.
+    }
 \end{enumerate}
 
 \question{23}{Let $H$ be the subset of $M_2(\bb{R})$ consisting of all matrices of the form $\begin{bmatrix} a & -b \\ b & a\end{bmatrix}$ for $a,b \in \bb{R}$. Is $H$ closed under}
 \begin{enumerate}
-    \qitem{a}{matrix addition?}{answer}
-    \qitem{b}{matrix multiplication?}{answer}
+    \qitem{a}{matrix addition?}{
+        Consider $\begin{bmatrix}
+            a & -b \\
+            b & a 
+        \end{bmatrix} \tand \begin{bmatrix}
+            c & -d \\
+            d & c
+        \end{bmatrix}$.
+        \[
+            \begin{bmatrix}
+                a & -b \\
+                b & a 
+            \end{bmatrix} + \begin{bmatrix}
+                c & -d \\
+                d & c
+            \end{bmatrix} = \begin{bmatrix}
+                a+c & -(b+d) \\
+                b+d & a+c
+            \end{bmatrix}
+        \]
+        Since this take the form of $H$, $H$ is closed under matrix addition.
+    }
+    \qitem{b}{matrix multiplication?}{
+        Consider $\begin{bmatrix}
+            a & -b \\
+            b & a 
+        \end{bmatrix} \tand \begin{bmatrix}
+            c & -d \\
+            d & c
+        \end{bmatrix}$.
+        \[
+            \begin{bmatrix}
+                a & -b \\
+                b & a 
+            \end{bmatrix}\begin{bmatrix}
+                c & -d \\
+                d & c
+            \end{bmatrix} = \begin{bmatrix}
+                ac - bd & -ad - bc \\
+                bc + ad & -bd + ac
+            \end{bmatrix} = \begin{bmatrix}
+                ac - bd & -(ad + bc) \\
+                ad + bc & ac - bd
+            \end{bmatrix}
+        \]
+        Since this takes the form of $H$, $H$ is closed under matrix multiplication.
+    }
 \end{enumerate}
 
 \end{document}
