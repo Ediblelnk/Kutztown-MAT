@@ -23,3 +23,43 @@ A binary operation $*$ on a set $S$ is associative if
 \[
     \forall~ a,b,c \in S, \qquad a * (b * c) = (a * b) * c.
 \]
+
+\subsection{Finite Sets}
+
+\subsubsection*{Example}
+Let $S = \{a,b,c,d\}$. Define a binary operation $*$ on $S$ using the following table. Complete the table so that $*$ is commutative.
+\[
+    \begin{array}{c|cccc}
+        * & a & b & c & d \\
+        \hline
+        a & b & d & a & a \\
+        b & d & a & c & b \\
+        c & a & c & b & b \\
+        d & a & b & b & c 
+    \end{array}
+\]
+
+Note: $*$ is commutative iff the table is symmetric along the main diagonal.
+
+\noindent Is $*$ associative? Why or why not? \bld{No},
+\begin{align*}
+    a * (b*c) = a*c & = a \\
+    (a*b)*c) = d*c & = b
+\end{align*}
+
+\subsubsection*{Example}
+Suppose that $*$ is associative and commutative operation on a set $S$. Show that $H = \{a \in S : a * a = a\}$ is closed under $*$. Note that the elements of $H$ are called \bld{idenmptents} of the binary operation $*$.
+\begin{proof}
+    Let $a,b \in H$. Show $a*b \in H$.
+
+    \noindent We know $a*a=a \tand b*b=b$. Show $(a*b)*(a*b)=a*b$.
+    \begin{align*}
+        LHS & = (a*b)*(a*b) \\
+        & = a*(b*a)*b & & \text{since $*$ is associative} \\
+        & = a*(a*b)*b & & \text{since $*$ is commutative} \\
+        & = (a*a)*(b*b) & & \text{since $*$ is associative} \\
+        & = a*b & \\
+        & = RHS
+    \end{align*}
+    Thus, $H$ is closed under $*$.
+\end{proof}
