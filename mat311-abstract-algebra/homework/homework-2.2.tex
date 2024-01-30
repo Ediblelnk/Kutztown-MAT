@@ -16,8 +16,8 @@ Exercises 1 through 4 concern the binary operation $*$ defined on $S = \{a,b,c,d
     \qitem{1}{Compute $b*d$, $c*c$, and $[(a*c)*e]*a$}{
         Here are the computations:
         \begin{align*}
-            b*d & = e \\
-            c*c & = b \\
+            b*d                         & = e \\
+            c*c                         & = b \\
             [(a*c)*e]*a = [c*e]*a = a*a & = a
         \end{align*}
     }
@@ -33,11 +33,11 @@ Exercises 1 through 4 concern the binary operation $*$ defined on $S = \{a,b,c,d
         \bld{2.28 Table}
         \[
             \begin{array}{c|cccc}
-                * & a & b & c & d \\
+                * & a & b       & c       & d       \\
                 \hline
-                a & a & b & c & \bld{d} \\
-                b & b & d & \bld{a} & c \\
-                c & c & a & d & b \\
+                a & a & b       & c       & \bld{d} \\
+                b & b & d       & \bld{a} & c       \\
+                c & c & a       & d       & b       \\
                 d & d & \bld{c} & \bld{b} & a
             \end{array}
         \]
@@ -57,7 +57,22 @@ In Exercise 27 and 28, either prove the statement or give a counterexample.
             Thus any binary operation on a set consisting of a single element is commutative and associative.
         \end{proof}
     }
-    \qitem{28}{Every commutative binary operation on a set having just two elements is associative.}{answer}
+    \qitem{28}{Every commutative binary operation on a set having just two elements is associative.}{
+        We shall conduct a proof through counterexample.
+        \begin{proof}
+            Consider $S = \{a,b\}$ with $*$ such that $\begin{array}{c|cc}
+                    * & a & b \\
+                    \hline
+                    a & b & a \\
+                    b & a & a
+                \end{array}$.
+            \begin{align*}
+                a*(a*b) = a * a & = b \\
+                (a*a)*b = b * b & = a
+            \end{align*}
+            Since we assert that $b \neq a$, thus $a*(a*b) \neq (a*a)*b$, so $S$ is a binary operation, which is commutative, but not associative.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{36}{Suppose that $*$ is an \itl{associative binary operation} on a set $S$. Let $H = \{a \in S : a * x = x * a ~\text{for all}~ x \in S\}$. Show that $H$ is closed under $*$. (We think of $H$ as consisting of all elements of $S$ that \itl{commute} with every element in $S$.)}
