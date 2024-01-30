@@ -76,5 +76,20 @@ In Exercise 27 and 28, either prove the statement or give a counterexample.
 \end{enumerate}
 
 \question{36}{Suppose that $*$ is an \itl{associative binary operation} on a set $S$. Let $H = \{a \in S : a * x = x * a ~\text{for all}~ x \in S\}$. Show that $H$ is closed under $*$. (We think of $H$ as consisting of all elements of $S$ that \itl{commute} with every element in $S$.)}
+\begin{proof}
+    Consider $a,b,c,d \in H$. We need to show that $(a*b)*(c*d) = (c*d)*(a*b)$ for $H$ to be closed under $*$, since that is the defining property of $H$.
+    \begin{align*}
+        LHS & = (a*b)*(c*d) \\
+        & = a*(b*c)*d && \text{(1) $*$ is associative} \\
+        & = a*(c*b)*d && \text{(2) elements in $H$ are commutative} \\
+        & = (a*c)*(b*d) && \text{(1)} \\
+        & = (c*a)*(d*b) && \text{(2)} \\
+        & = c*(a*d)*b && \text{(1)} \\
+        & = c*(d*a)*b && \text{(2)} \\
+        & = (c*d)*(a*b) && \text{1} \\
+        & = RHS
+    \end{align*}
+    Thus we can conclude that $(a*b)*(c*d) = (c*d)*(a*b)$, and $H$ is closed under $*$.
+\end{proof}
 
 \end{document}
