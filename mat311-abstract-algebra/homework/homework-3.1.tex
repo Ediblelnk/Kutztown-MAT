@@ -13,11 +13,31 @@
 
 Computations
 \begin{enumerate}
-    \qitem{1}{What three things must be check to determine whether a function $\phi: S \mapsto S'$ is an isomorphism of a binary structure $\langle S, * \rangle \twith \langle S', *' \rangle$?}{answer}
+    \qitem{1}{What three things must be check to determine whether a function $\phi: S \mapsto S'$ is an isomorphism of a binary structure $\langle S, * \rangle \twith \langle S', *' \rangle$?}{$\phi$ must be \itl{one-to-one}, \itl{onto}, and \itl{operation preserving}.}
 \end{enumerate}
 In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorphism of the first binary structure with the second. If it is not an isomorphism, why not?
 \begin{enumerate}
-    \qitem{3}{$\struct{\bb{Z},+} \twith \struct{\bb{Z},+} \twhere \phi(n) = 2n \tfor n \in \bb{Z}$}{answer}
+    \qitem{3}{$\struct{\bb{Z},+} \twith \struct{\bb{Z},+} \twhere \phi(n) = 2n \tfor n \in \bb{Z}$}{
+        An isomorphism must be one-to-one, onto, and operation preserving.
+        \begin{proof}
+            \begin{enumerate}
+                \item One-to-one: Assume $\phi(n_1) = \phi(n_2)$ for some $n_1,n_2 \in \bb{Z}$.
+                \begin{align*}
+                    \phi(n_1) & = \phi(n_2) \\
+                    2n_1 & = 2n_2 \\
+                    n_1 & = n_2
+                \end{align*}
+                Thus $\phi$ is one-to-one.
+                \item Onto: Let $y \in \bb{Z}$. Let us find $n \in \bb{Z}$ such that $y = \phi(x)$
+                \begin{align*}
+                    y & = \phi(n) \\
+                    y & = 2n \\
+                    y/2 & = n
+                \end{align*}
+                $y/2$ is not always an integer, so we cannot say that $\phi$ is onto. Therefore, $\phi$ is not an isomorphism in this case.
+            \end{enumerate}
+        \end{proof}
+    }
     \qitem{5}{$\struct{\bb{Q},+} \twith \struct{\bb{Q},+} \twhere \phi(x) = x/2 \tfor x \in \bb{Q}$}{answer}
     \qitem{7}{$\struct{\bb{R},\cdot} \twith \struct{\bb{R},\cdot} \twhere \phi(x) = x^3 \tfor x \in \bb{R}$}{answer}
 \end{enumerate}
