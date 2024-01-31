@@ -1,0 +1,41 @@
+\documentclass{article}
+\input{../../.latex/article.tex}
+\input{../../.latex/macros.tex}
+
+\newcommand{\assignment}{Section 3, p34 1-7odd, 17, 21, 25}
+
+\lhead{MAT 311 Abstract Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+Computations
+\begin{enumerate}
+    \qitem{1}{What three things must be check to determine whether a function $\phi: S \mapsto S'$ is an isomorphism of a binary structure $\langle S, * \rangle \twith \langle S', *' \rangle$?}{answer}
+\end{enumerate}
+In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorphism of the first binary structure with the second. If it is not an isomorphism, why not?
+\begin{enumerate}
+    \qitem{3}{$\struct{\bb{Z},+} \twith \struct{\bb{Z},+} \twhere \phi(n) = 2n \tfor n \in \bb{Z}$}{answer}
+    \qitem{5}{$\struct{\bb{Q},+} \twith \struct{\bb{Q},+} \twhere \phi(x) = x/2 \tfor x \in \bb{Q}$}{answer}
+    \qitem{7}{$\struct{\bb{R},\cdot} \twith \struct{\bb{R},\cdot} \twhere \phi(x) = x^3 \tfor x \in \bb{R}$}{answer}
+\end{enumerate}
+\begin{enumerate}
+    \qitem{17}{The map $\phi: \bb{Z} \mapsto \bb{Z}$ defined by $\phi(n) = n+1 \tfor n \in \bb{Z}$ is one to one and onto $\bb{Z}$.}{
+        Give the definition of a binary operation $*$ on $\bb{Z}$ such that $\phi$ is an isomorphism mapping
+        \begin{enumerate}
+            \qitem{a}{$\struct{\bb{Z},\cdot}$ onto $\struct{\bb{Z},*}$}{answer}
+            \qitem{b}{$\struct{\bb{Z},*}$ onto $\struct{\bb{Z},\cdot}$}{answer}
+        \end{enumerate}
+    }
+\end{enumerate}
+In Exercises 21 and 22, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
+\begin{enumerate}
+    \qitem{21}{A function $\phi: S \mapsto S'$ is an \itl{isomorphism} if and only if $\phi(a*b) = \phi(a) *' \phi(b)$.}{answer}
+\end{enumerate}
+\begin{enumerate}
+    \qitem{25}{Continuing the ideas of Exercise 24 can a binary structure have the left identity element $e_L$ and a right identity element $e_R$ where $e_L \neq e_R$? If so, given an example, using an operation on a finite set $S$. If not, prove that it is impossible.}{answer}
+\end{enumerate}
+
+\end{document}

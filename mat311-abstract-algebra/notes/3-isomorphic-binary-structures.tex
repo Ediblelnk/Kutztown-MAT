@@ -1,11 +1,80 @@
 \section{Isomorphic Binary Structures}
 
 \subsubsection*{Definition: Binary Algebraic Structure}
-A \bld{binary algebraic structure} $<S,*>$ is a set $S$ together with a binary operation $*$.
+A \bld{binary algebraic structure} $\langle S,*\rangle$ is a set $S$ together with a binary operation $*$.
 
 \subsubsection*{Definition: Isomorphism}
-Let $<S,*> \tand <S',*'$ be binary structures. An \bld{isomorphism} of $S$ with $S'$ is a \itl{one-to-one} function $\phi: S \mapsto S'$ such that
+Let $\langle S,*\rangle \tand \langle S',*' \rangle$ be binary structures. An \bld{isomorphism} of $S$ with $S'$ is a \itl{one-to-one} function $\phi: S \mapsto S'$ such that
 \[
     \forall~~ x,y \in S, \qquad \phi(x*y) = \phi(x) *' \phi(y).
 \]
-Notation: $<S,*> \simeq <S',*'>$
+Notation: $\langle S,*\rangle \simeq \langle S',*'\rangle$
+
+\subsubsection*{Example 1}
+Prove that $\langle \bb{R},+\rangle \simeq \langle \bb{R}^+, \cdot \rangle$.
+
+\begin{proof}
+    Consider $\phi: \bb{R} \mapsto \bb{R}^+, \twhere \phi(x) = e^x$.
+    \begin{enumerate}
+        \item One-to-one: Assume $\phi(x_1) = \phi(x_2)$ for some $x_1,x_2 \in \bb{R}$.
+        \begin{align*}
+            \phi(x_1) & = \phi(x_2) \\
+            e^{x_1} & = e^(x_2) \\
+            \ln e^{x_1} & = \ln e^{x_1} \\
+            x_1 & = x_2
+        \end{align*}
+        Thus $\phi$ is one-to-one.
+        \item Onto: Let $y \in \bb{R}^+$. Let us find $x \in \bb{R}$ such that $y = \phi(x)$.
+        \begin{align*}
+            y & = \phi(x) = e^x \\
+            \ln y & = \ln e^x = x
+        \end{align*}
+        Choose $x = \ln y$. Thus $\phi$ is onto.
+        \item Operation Preserving: Need to show that $\phi(x + y) = \phi(x) \cdot \phi(y)$.
+        \begin{align*}
+            \phi(x+y) & = e^{x+y} \\
+            & = e^x \cdot e^y \\
+            & = \phi(x) \cdot \phi(y)
+        \end{align*}
+        Thus $\phi$ is operation preserving.
+    \end{enumerate}
+    Since $\phi$ is one-to-one, onto, and operation preserving, thus $\phi$ is an isomorphism of $\langle \bb{R},+\rangle \tand \langle \bb{R}^+, \cdot \rangle$, and $\langle \bb{R},+\rangle \simeq \langle \bb{R}^+, \cdot \rangle$.
+\end{proof}
+
+\subsubsection*{Definition: Identity Element}
+Let $\langle S, * \rangle$ be an algebraic structure. An element $e \in S$ is the identity element $\id$ for $*$ if for all $s \in S$:
+\[
+    \underbrace{\overbrace{e * s}^{\text{left}~\id} = \overbrace{s * e}^{\text{right}~\id}}_{\text{two-sided}~\id} = s
+\]
+
+\subsubsection*{Theorem: Identity Uniqueness}
+A binary structure $\langle S, * \rangle$ has at most one identity element.
+
+\begin{proof}
+    Assume $e_1 \tand e_2$ are both identity elements for $\langle S, * \rangle$. Thus,
+    \begin{align*}
+        e_1 * e_2 & = e_1 && \text{since $e_1$ is $\id$} \\
+        e_1 * e_2 & = e_2 && \text{since $e_2$ is $\id$}
+    \end{align*}
+    Since binary operations are uniquely defined, $e_1 = e_2$ must be true.
+    $\therefore$ $\langle S, * \rangle$ has at most one identity element.
+\end{proof}
+
+\subsubsection*{Theorem: Isomorphism and Identity}
+Suppose $\langle S, * \rangle$ has identity element $e$. If $\phi: S \mapsto S'$ is an isomorphism of $\langle S, * \rangle$ with $\langle S', *' \rangle$, then $\phi(e)$ is the identity element for $\langle S', *' \rangle$.
+
+\begin{proof}
+    Assume $\langle S, * \rangle$ has identity $e$ and $\phi: S \mapsto S'$ is an isomorphism. Let $s' \in S'$.
+    \begin{align*}
+        \phi(e) *' s' & = \phi(e) *' \phi(s) \\
+        & = \phi(e * s) && \text{since $\phi$ is operation preserving} \\
+        & = \phi(s) = s'
+    \end{align*}
+    Thus $\phi(e) *' s' = s'$.
+    \begin{align*}
+        s' *' \phi(e) & = \phi(s) *' \phi(e) \\
+        & = \phi(s * e) && \text{since $\phi$ is operation preserving} \\
+        & = \phi(s) = s'
+    \end{align*}
+    Thus $s' *' \phi(e) = s'$. So $\phi(e) *' s' = s' *' \phi(e) = s'$. Thus $\phi(e)$ is the identity of $\langle S', *' \rangle$.
+\end{proof}
