@@ -2,7 +2,7 @@
 \input{../../.latex/article.tex}
 \input{../../.latex/macros.tex}
 
-\newcommand{\assignment}{Section 3, p34 1-7odd, 17, 21, 25}
+\newcommand{\assignment}{Section 3, p34 1-7 odd, 17, 21, 25}
 
 \lhead{MAT 311 Abstract Algebra}
 \chead{\assignment}
@@ -20,42 +20,120 @@ In Exercises 2 through 10, determine whether the given map $\phi$ is an isomorph
     \qitem{3}{$\struct{\bb{Z},+} \twith \struct{\bb{Z},+} \twhere \phi(n) = 2n \tfor n \in \bb{Z}$}{
         An isomorphism must be one-to-one, onto, and operation preserving.
         \begin{proof}
-            \begin{enumerate}
-                \item One-to-one: Assume $\phi(n_1) = \phi(n_2)$ for some $n_1,n_2 \in \bb{Z}$.
-                \begin{align*}
-                    \phi(n_1) & = \phi(n_2) \\
-                    2n_1 & = 2n_2 \\
-                    n_1 & = n_2
-                \end{align*}
-                Thus $\phi$ is one-to-one.
-                \item Onto: Let $y \in \bb{Z}$. Let us find $n \in \bb{Z}$ such that $y = \phi(x)$
-                \begin{align*}
-                    y & = \phi(n) \\
-                    y & = 2n \\
-                    y/2 & = n
-                \end{align*}
-                $y/2$ is not always an integer, so we cannot say that $\phi$ is onto. Therefore, $\phi$ is not an isomorphism in this case.
-            \end{enumerate}
+            Onto: Let $y \in \bb{Z}$. Let us find $n \in \bb{Z}$ such that $y = \phi(x)$
+            \begin{align*}
+                y & = \phi(n) \\
+                y & = 2n \\
+                y/2 & = n
+            \end{align*}
+            $y/2$ is not always an integer, so we cannot say that $\phi$ is onto. Therefore, $\phi$ is not an isomorphism between $\struct{\bb{Z},+} \tand \struct{\bb{Z},+}$.
         \end{proof}
     }
-    \qitem{5}{$\struct{\bb{Q},+} \twith \struct{\bb{Q},+} \twhere \phi(x) = x/2 \tfor x \in \bb{Q}$}{answer}
-    \qitem{7}{$\struct{\bb{R},\cdot} \twith \struct{\bb{R},\cdot} \twhere \phi(x) = x^3 \tfor x \in \bb{R}$}{answer}
+    \qitem{5}{$\struct{\bb{Q},+} \twith \struct{\bb{Q},+} \twhere \phi(x) = x/2 \tfor x \in \bb{Q}$}{
+        An isomorphism must be one-to-one, onto, and operation preserving.
+        \begin{proof}
+            \begin{enumerate}
+                \item One-to-one: Assume $\phi(x_1) = \phi(x_2)$ for some $x_1,x_2 \in \bb{Q}$.
+                \begin{align*}
+                    \phi(x_1) & = \phi(x_2) \\
+                    \frac{x_1}{2} & = \frac{x_2}{2} \\
+                    x_1 & = x_2
+                \end{align*}
+                Thus $\phi$ is one-to-one.
+                \item Onto: Let $y \in \bb{Q}$. Let us find $x \in \bb{Q}$ such that $y = \phi(x)$
+                \begin{align*}
+                    y & = \phi(x) \\
+                    y & = \frac{x}{2} \\
+                    2y & = x
+                \end{align*}
+                Choose $x = 2y$. Thus $\phi$ is onto.
+                \item Operation Preserving: Need to show that $\phi(x+y) = \phi(x) + \phi(y)$.
+                \begin{align*}
+                    \phi(x+y) & = \frac{x+y}{2} \\
+                    & = \frac{x}{2} + \frac{y}{2} \\
+                    & = \phi(x) + \phi(y)
+                \end{align*}
+                Thus $\phi$ is operation preserving.
+            \end{enumerate}
+            Since $\phi$ is one-to-one, onto, and operation preserving, it is an isomorphism between $\struct{\bb{Q},+} \tand \struct{\bb{Q},+}$.
+        \end{proof}
+    }
+    \qitem{7}{$\struct{\bb{R},\cdot} \twith \struct{\bb{R},\cdot} \twhere \phi(x) = x^3 \tfor x \in \bb{R}$}{
+        An isomorphism must be one-to-one, onto, and operation preserving.
+        \begin{proof}
+            \begin{enumerate}
+                \item One-to-one: Assume $\phi(x_1) = \phi(x_2)$ for some $x_1,x_2 \in \bb{R}$.
+                \begin{align*}
+                    \phi(x_1) & = \phi(x_2) \\
+                    x_1^3 & = x_2^3 \\
+                    x_1 & = x_2
+                \end{align*}
+                Thus $\phi$ is one-to-one.
+                \item Onto: Let $y \in \bb{R}$. Let us find $x \in \bb{R}$ such that $y = \phi(x)$.
+                \begin{align*}
+                    y & = \phi(x) \\
+                    y & = x^3 \\
+                    \sqrt[3]{y} & = x
+                \end{align*}
+                Choose $x = \sqrt[3]{x}$. Thus $\phi$ is onto.
+                \item Operation Preserving: Need to show that $\phi(x \cdot y) = \phi(x) \cdot \phi(y)$.
+                \begin{align*}
+                    \phi(x \cdot y) & = (xy)^3 \\
+                    & = x^3 \cdot y^3 \\
+                    & = \phi(x) \cdot \phi(y)
+                \end{align*}
+                Thus $\phi$ is operation preserving.
+            \end{enumerate}
+            Since $\phi$ is one-to-one, onto, and operation preserving, it is an isomorphism between $\struct{\bb{R},\cdot} \tand \struct{\bb{R},\cdot}$.
+        \end{proof}
+    }
 \end{enumerate}
 \begin{enumerate}
     \qitem{17}{The map $\phi: \bb{Z} \mapsto \bb{Z}$ defined by $\phi(n) = n+1 \tfor n \in \bb{Z}$ is one to one and onto $\bb{Z}$.}{
         Give the definition of a binary operation $*$ on $\bb{Z}$ such that $\phi$ is an isomorphism mapping
         \begin{enumerate}
-            \qitem{a}{$\struct{\bb{Z},\cdot}$ onto $\struct{\bb{Z},*}$}{answer}
-            \qitem{b}{$\struct{\bb{Z},*}$ onto $\struct{\bb{Z},\cdot}$}{answer}
+            \qitem{a}{$\struct{\bb{Z},\cdot}$ onto $\struct{\bb{Z},*}$}{
+                Since $\phi$ is already one-to-one and onto, we just need to define $*$ so that $\phi$ is operation preserving. Consider $a*b = ab-a-b+2$
+                \begin{align*}
+                    \phi(x) * \phi(y) & = (x+1) * (y+1) \\
+                    & = (x+1)(y+1)-(x+1)-(y+1)+2 \\
+                    & = xy+x+y+1-x-1-y-1+2 \\
+                    & = xy+1 \\
+                    & = \phi(x \cdot y)
+                \end{align*}
+                $\phi(x) * \phi(y) = \phi(x \cdot y)$, meaning $\phi$ is operation preserving. Along with being one-to-one and onto, $\phi$ is thus an isomorphism between $\struct{\bb{Z},\cdot} \tand \struct{\bb{Z},*}$.
+            }
+            \qitem{b}{$\struct{\bb{Z},*}$ onto $\struct{\bb{Z},\cdot}$}{
+                Since $\phi$ is already one-to-one and onto, we just need to define $*$ so that $\phi$ is operation preserving. Consider $a*b = ab+a+b$
+                \begin{align*}
+                    \phi(x*y) & = \phi(xy+x+y) \\
+                    & = xy+x+y+1 \\
+                    & = (x+1)(y+1) \\
+                    & = \phi(x) \cdot \phi(y)
+                \end{align*}
+                $\phi(x) * \phi(y) = \phi(x \cdot y)$, meaning $\phi$ is operation preserving. Along with being one-to-one and onto, $\phi$ is thus an isomorphism between $\struct{\bb{Z},\cdot} \tand \struct{\bb{Z},*}$.
+            }
         \end{enumerate}
     }
 \end{enumerate}
 In Exercises 21 and 22, correct the definition of the italicized term without reference to the text, if correction is needed, so that it is in a form acceptable for publication.
 \begin{enumerate}
-    \qitem{21}{A function $\phi: S \mapsto S'$ is an \itl{isomorphism} if and only if $\phi(a*b) = \phi(a) *' \phi(b)$.}{answer}
+    \qitem{21}{A function $\phi: S \mapsto S'$ is an \itl{isomorphism} if and only if $\phi(a*b) = \phi(a) *' \phi(b)$.}{
+        A function $\phi: S \mapsto S'$ is an \itl{operation preserving} if and only if $\phi(a*b) = \phi(a) *' \phi(b)$.
+    }
 \end{enumerate}
 \begin{enumerate}
-    \qitem{25}{Continuing the ideas of Exercise 24 can a binary structure have the left identity element $e_L$ and a right identity element $e_R$ where $e_L \neq e_R$? If so, given an example, using an operation on a finite set $S$. If not, prove that it is impossible.}{answer}
+    \qitem{25}{Continuing the ideas of Exercise 24 can a binary structure have the left identity element $e_L$ and a right identity element $e_R$ where $e_L \neq e_R$? If so, given an example, using an operation on a finite set $S$. If not, prove that it is impossible.}{
+        We shall conduct a proof by contradiction
+        \begin{proof}
+            Let $e_L \tand e_R$ be left- and right-sided identities, respectively, such that $e_L \neq e_R$. Let us consider $e_L * e_R$.
+            \begin{align*}
+                e_L * e_R & = e_L && \text{since $e_R$ is an identity from the right} \\
+                e_L * e_R & = e_R && \text{since $e_L$ is an identity from the left}
+            \end{align*}
+            Since a binary structure is uniquely defined, we must conclude that $e_L = e_R$. However, this contradicts our assertion that $e_L \neq e_L$. Therefore, there \itl{cannot} be a binary structure such that the left identity and right identity are distinct.
+        \end{proof}
+    }
 \end{enumerate}
 
 \end{document}
