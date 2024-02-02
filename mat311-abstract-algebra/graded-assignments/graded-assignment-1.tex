@@ -1,0 +1,35 @@
+\documentclass{article}
+\input{../../.latex/article.tex}
+\input{../../.latex/macros.tex}
+
+\newcommand{\assignment}{Graded Assignment \#1}
+
+\lhead{MAT 311 Abstract Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+\question{1}{[2 points each] Which of the following are binary operations on the given sets? If it is not an operation, explain why.}
+\begin{enumerate}
+    \qitem{(a)}{$S=\bb{R}^+ \twith a*b=a\ln b$}{answer}
+    \qitem{(b)}{$S=\bb{R} \twhere a*b$ is the root of the equation $x^2-a^2b^2=0$}{answer}
+\end{enumerate}
+
+\question{2}{[2 points each] Consider the binary operation $*$ defined on $\bb{R}^+$ by $a*b=\frac{ab}{a+b+1}$}
+\begin{enumerate}
+    \qitem{(a)}{Is $*$ commutative? Explain.}{answer}
+    \qitem{(b)}{Is $*$ associative? Explain.}{answer}
+\end{enumerate}
+
+\question{3}{[3 points] Let $E$ denote the set of all even integers. Prove that $\struct{\bb{Z},+} \simeq \struct{E,+}$.}
+
+\question{4}{[3 points each] Prove that isomorphism is an equivalence relation among binary structures. To do this, you need to prove the following three properties:}
+\begin{enumerate}
+    \qitem{(a)}{Reflexive: Every binary structure is isomorphic to itself. Hint: let $\struct{S,*}$ be a binary structure and define $\phi: S \rightarrow S$ by $\phi(x)=x$. Prove that $\phi$ is an isomorphism.}{answer}
+    \qitem{(b)}{Symmetric: For binary structures $\struct{S_1,*} \tand \struct{S_2,*}$, if $S_1 \simeq S_2$ then $S_2 \simeq S_1$. Hint: assume $\phi: S_1 \rightarrow S_2$ is an isomorphism and prove that $\phi^{-1}: S_2 \rightarrow S_1$ is also an isomorphism.}{answer}
+    \qitem{(c)}{Transtiive: For binary structures $\struct{S_1,*},~\struct{S_2,*'}, \tand \struct{S_3,*''}$, if $S_1 \simeq S_2 \tand S_2 \simeq S_3 \tthen S_1 \simeq S_3$. Hind: assume $\phi_1: S_1 \rightarrow S_2 \tand \phi_2: S_2 \rightarrow S_3$ are isomorphisms and prove that $\phi_2 \circ \phi_1: S_1 \rightarrow S_3$ is also an isomorphism.}{answer}
+\end{enumerate}
+
+\end{document}
