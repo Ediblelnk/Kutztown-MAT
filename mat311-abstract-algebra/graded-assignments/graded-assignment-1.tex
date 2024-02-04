@@ -13,14 +13,57 @@
 
 \question{1}{[2 points each] Which of the following are binary operations on the given sets? If it is not an operation, explain why.}
 \begin{enumerate}
-    \qitem{(a)}{$S=\bb{R}^+ \twith a*b=a\ln b$}{answer}
-    \qitem{(b)}{$S=\bb{R} \twhere a*b$ is the root of the equation $x^2-a^2b^2=0$}{answer}
+    \qitem{(a)}{$S=\bb{R}^+ \twith a*b=a\ln b$}{
+        A binary operation must be uniquely defined and closed.
+        \begin{proof}
+            Consider $a = 1 \tand b = \frac{1}{e}$. Both $a \tand b \in \bb{R}^+$, but
+            \[
+                a*b = a \ln b = 1 \ln \frac{1}{e} = 1 \cdot -1 = -1 \notin \bb{R}^+.
+            \]
+            Thus $S$ is not closed under $*$, and $*$ cannot be a binary operation.
+        \end{proof}
+    }
+    \qitem{(b)}{$S=\bb{R} \twhere a*b$ is the root of the equation $x^2-a^2b^2=0$}{
+        A binary operation must be uniquely defined and closed.
+        \begin{proof}
+            Consider $a = 2 \tand b = 1$.
+            \begin{align*}
+                a*b = x^2 - a^2b^2 & = 0 \\
+                x^2 - 2^2 1^2 & = \\
+                x^2 - 4 & = 0 \\
+                (x-2)(x+2) & = 0 \\
+                x & = \pm 2
+            \end{align*}
+            Since there are two solutions, $S$ is not uniquely defined under $*$, and $*$ cannot be a binary operation.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{2}{[2 points each] Consider the binary operation $*$ defined on $\bb{R}^+$ by $a*b=\frac{ab}{a+b+1}$}
 \begin{enumerate}
-    \qitem{(a)}{Is $*$ commutative? Explain.}{answer}
-    \qitem{(b)}{Is $*$ associative? Explain.}{answer}
+    \qitem{(a)}{Is $*$ commutative? Explain.}{
+        $*$ is commuatative.
+        \begin{proof}
+            Consider $a*b \tand b*a \tfor a,b \in \bb{R}^+$:
+            \[
+                a*b = \frac{ab}{a+b+1} = \frac{ba}{b+a+1} = b*a
+            \]
+            Since $a*b = b*a$ for all $a,b \in \bb{R}^+$, $*$ is commutative.
+        \end{proof}
+    }
+    \qitem{(b)}{Is $*$ associative? Explain.}{
+        $*$ is associative.
+        \begin{proof}
+            Consider $a,b,c \in \bb{R}^+$:
+            \begin{align*}
+                (a*b)*c & = \frac{ab}{a+b+1}*c = \frac{\frac{ab}{a+b+1}c}{\frac{ab}{a+b+1} +c+1} = \frac{abc}{(a+b+1)(\frac{ab}{a+b+1}+c+1)} \\
+                & = \frac{abc}{ab+ac+bc+a+b+c+1} \\ \\
+                a*(b*c) & = a*\frac{bc}{b+c+1} = \frac{a\frac{bc}{b+c+1}}{a+\frac{bc}{b+c+1}+1} = \frac{abc}{(b+c+1)(a+\frac{bc}{b+c+1}+1)} \\
+                & = \frac{abc}{ab+ac+bc+a+b+c+1}
+            \end{align*}
+            Thus $(a*b)*c = a*(b*c)$, and $*$ is associative.
+        \end{proof}
+    }
 \end{enumerate}
 
 \question{3}{[3 points] Let $E$ denote the set of all even integers. Prove that $\struct{\bb{Z},+} \simeq \struct{E,+}$.}
