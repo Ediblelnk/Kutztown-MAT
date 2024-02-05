@@ -20,3 +20,49 @@ Note: $G$ does not \itl{need} to be commutative.
 
 \subsubsection*{Definition: Abelian Group}
 A group $G$ is \bld{Abelian} if its binary operation is \bld{commutative}.
+
+\subsubsection*{Theorem: Cancellation Laws}
+If $\group{G, *}$ is a group, then the left and right cancellation laws hold in $G$.
+\begin{itemize}
+    \item \bld{Left}:
+    \[
+        \tif a*b = a*c \tthen b = c
+    \]
+    \item \bld{Right}:
+    \[
+        \tif b*a = c*a \tthen b = c
+    \]
+\end{itemize}
+\begin{proof}[Proof for Left]
+    Assume $\group{G,*}$ is a group and $a*b=a*c$:
+    \begin{align*}
+        a*b & = a*c \\
+        \overline{a}*a*b & = \overline{a}*a*c && \mathfrak{G}_3 \\
+        e*b & = e*c && \mathfrak{G}_3 \\
+        b & = c && \mathfrak{G}_2
+    \end{align*}
+\end{proof}
+The proof for right cancellation follows the same structure.
+
+\subsubsection*{Theorem: Unique Solutions}
+If $\group{G,*}$ is a group and if $a,b \in G$, then $a*x=b \tand y*a=b$ have unique solutions $x$ and $y$ in G.
+\begin{proof}
+    Assume $\group{G,*}$ is a group and consider $a*x=b$ for $a,b \in G$.
+    \begin{align*}
+        a*x & = b \\
+        \overline{a} * (a*x) & = \overline{a} * b && \mathfrak{G}_3 \\
+        (\overline{a} * a) *x & = \overline{a} * b && \mathfrak{G}_1 \\
+        e * x & = \overline{a} * b && \mathfrak{G}_3 \\
+        x & = \overline{a} * b && \mathfrak{G}_2
+    \end{align*}
+    Assume $x_1 \tand x_2$ are both solutions to the above equation.
+    \[
+        a*x_1 =b \tand a * x_2 = b
+    \]
+    Thus $a*x_1 = a*x_2$. By left cancellation,
+    \[
+        x_1 = x_2
+    \]
+    Thus the solution is unique.
+\end{proof}
+The $y*a=b$ proof follows the same structure.
