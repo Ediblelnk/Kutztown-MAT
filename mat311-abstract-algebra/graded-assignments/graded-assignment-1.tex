@@ -28,11 +28,11 @@
         \begin{proof}
             Consider $a = 2 \tand b = 1$.
             \begin{align*}
-                a*b = x^2 - a^2b^2 & = 0 \\
-                x^2 - 2^2 1^2 & = \\
-                x^2 - 4 & = 0 \\
-                (x-2)(x+2) & = 0 \\
-                x & = \pm 2
+                a*b = x^2 - a^2b^2 & = 0     \\
+                x^2 - 2^2 1^2      & =       \\
+                x^2 - 4            & = 0     \\
+                (x-2)(x+2)         & = 0     \\
+                x                  & = \pm 2
             \end{align*}
             Since there are two solutions, $S$ is not uniquely defined under $*$, and $*$ cannot be a binary operation.
         \end{proof}
@@ -57,9 +57,9 @@
             Consider $a,b,c \in \bb{R}^+$:
             \begin{align*}
                 (a*b)*c & = \frac{ab}{a+b+1}*c = \frac{\frac{ab}{a+b+1}c}{\frac{ab}{a+b+1} +c+1} = \frac{abc}{(a+b+1)(\frac{ab}{a+b+1}+c+1)} \\
-                & = \frac{abc}{ab+ac+bc+a+b+c+1} \\ \\
-                a*(b*c) & = a*\frac{bc}{b+c+1} = \frac{a\frac{bc}{b+c+1}}{a+\frac{bc}{b+c+1}+1} = \frac{abc}{(b+c+1)(a+\frac{bc}{b+c+1}+1)} \\
-                & = \frac{abc}{ab+ac+bc+a+b+c+1}
+                        & = \frac{abc}{ab+ac+bc+a+b+c+1}                                                                                     \\ \\
+                a*(b*c) & = a*\frac{bc}{b+c+1} = \frac{a\frac{bc}{b+c+1}}{a+\frac{bc}{b+c+1}+1} = \frac{abc}{(b+c+1)(a+\frac{bc}{b+c+1}+1)}  \\
+                        & = \frac{abc}{ab+ac+bc+a+b+c+1}
             \end{align*}
             Thus $(a*b)*c = a*(b*c)$, and $*$ is associative.
         \end{proof}
@@ -68,29 +68,29 @@
 
 \question{3}{[3 points] Let $E$ denote the set of all even integers. Prove that $\struct{\bb{Z},+} \simeq \struct{E,+}$.}
 \begin{proof}
-    An isomorphism must be one-to-one, onto, and operation preserving. Consider $\phi:  \bb{Z} \rightarrow E \tsuchthat \phi(n) = 2n$.
+    An isomorphism must be one-to-one, onto, and operation preserving. Consider $\phi:  \bb{Z} \rightarrow E$ such that $\phi(n) = 2n$.
     \begin{enumerate}
         \item One-to-one: Assume $\phi(n_1) = \phi(n_2)$ for $n_1,n_2 \in \bb{Z}$.
-        \begin{align*}
-            \phi(n_1) & = \phi(n_2) \\
-            2n_1 & = 2n_2 \\
-            n_1 & = n_2
-        \end{align*}
-        Thus $\phi$ is one-to-one.
+              \begin{align*}
+                  \phi(n_1) & = \phi(n_2) \\
+                  2n_1      & = 2n_2      \\
+                  n_1       & = n_2
+              \end{align*}
+              Thus $\phi$ is one-to-one.
         \item Onto: Let $m \in E$ Let us find $n \in \bb{Z}$ such that $m = \phi(n)$. Since $m$ is an even integer, it can be represented as $m = 2k$, where $k \in \bb{Z}$.
-        \begin{align*}
-            m & = \phi(n) \\
-            2k & = 2n \\
-            k = n
-        \end{align*}
-        Choose $n = k$. Thus $\phi$ is onto.
+              \begin{align*}
+                  m  & = \phi(n) \\
+                  2k & = 2n      \\
+                  k = n
+              \end{align*}
+              Choose $n = k$. Thus $\phi$ is onto.
         \item Operation Preserving: Need to show that $\phi(n + m) = \phi(n) + \phi(m)$
-        \begin{align*}
-            \phi(n + m) & = 2(n+m) \\
-            & = 2n + 2m \\
-            & = \phi(n) + \phi(m)
-        \end{align*}
-        Thus $\phi$ is operation preserving.
+              \begin{align*}
+                  \phi(n + m) & = 2(n+m)            \\
+                              & = 2n + 2m           \\
+                              & = \phi(n) + \phi(m)
+              \end{align*}
+              Thus $\phi$ is operation preserving.
     \end{enumerate}
     Since $\phi$ is one-to-one, onto, and operation preserving, thus $\phi$ is an isomorphism of $\struct{\bb{Z},+} \tand \struct{E,+}$, and $\struct{\bb{Z},+} \simeq \struct{E,+}$.
 \end{proof}
@@ -98,9 +98,106 @@
 
 \question{4}{[3 points each] Prove that isomorphism is an equivalence relation among binary structures. To do this, you need to prove the following three properties:}
 \begin{enumerate}
-    \qitem{(a)}{Reflexive: Every binary structure is isomorphic to itself. Hint: let $\struct{S,*}$ be a binary structure and define $\phi: S \rightarrow S$ by $\phi(x)=x$. Prove that $\phi$ is an isomorphism.}{answer}
-    \qitem{(b)}{Symmetric: For binary structures $\struct{S_1,*} \tand \struct{S_2,*}$, if $S_1 \simeq S_2$ then $S_2 \simeq S_1$. Hint: assume $\phi: S_1 \rightarrow S_2$ is an isomorphism and prove that $\phi^{-1}: S_2 \rightarrow S_1$ is also an isomorphism.}{answer}
-    \qitem{(c)}{Transtiive: For binary structures $\struct{S_1,*},~\struct{S_2,*'}, \tand \struct{S_3,*''}$, if $S_1 \simeq S_2 \tand S_2 \simeq S_3 \tthen S_1 \simeq S_3$. Hind: assume $\phi_1: S_1 \rightarrow S_2 \tand \phi_2: S_2 \rightarrow S_3$ are isomorphisms and prove that $\phi_2 \circ \phi_1: S_1 \rightarrow S_3$ is also an isomorphism.}{answer}
+    \qitem{(a)}{Reflexive: Every binary structure is isomorphic to itself. Hint: let $\struct{S,*}$ be a binary structure and define $\phi: S \rightarrow S$ by $\phi(x)=x$. Prove that $\phi$ is an isomorphism.}{
+        An isomorphism must be one-to-one, onto, and operation preserving.
+        \begin{proof}
+            Consider $\phi: S \rightarrow S$ such that $\phi(x)=x$.
+            \begin{enumerate}[1.]
+                \item One-to-one: Assume $\phi(x_1) = \phi(x_2)$ for some $x_1,x_2 \in S$.
+                      \begin{align*}
+                          \phi(x_1) & = \phi(x_2) \\
+                          x_1       & = x_2
+                      \end{align*}
+                      Thus $\phi$ is one-to-one.
+                \item Onto: Let $y \in S$. Let us find $x \in S$ such that $y = \phi(x)$.
+                      \begin{align*}
+                          y & = \phi(x) \\
+                          y & = x
+                      \end{align*}
+                      Choose $x = y$. This $\phi$ is onto.
+                \item Operation Preserving: Need to show that $\phi(x*y) = \phi(x)*\phi(y)$.
+                      \begin{align*}
+                          \phi(x*y) & = x*y               \\
+                                    & = \phi(x) * \phi(y)
+                      \end{align*}
+                      Thus $\phi$ is operation preserving.
+            \end{enumerate}
+            Since $\phi$ is one-to-one, onto, and operation preserving, $\phi$ is an isomorphism of $\struct{S,*} \tand \struct{S,*}$, and $\struct{S,*} \simeq \struct{S,*}$.
+        \end{proof}
+    }
+    \qitem{(b)}{Symmetric: For binary structures $\struct{S_1,*} \tand \struct{S_2,*'}$, if $S_1 \simeq S_2$ then $S_2 \simeq S_1$. Hint: assume $\phi: S_1 \rightarrow S_2$ is an isomorphism and prove that $\phi^{-1}: S_2 \rightarrow S_1$ is also an isomorphism.}{
+        An isomorphism must be one-to-one, onto, and operation preserving.
+        \begin{proof}
+            Consider $\phi^{-1}: S_2 \rightarrow S_1$. Such an operation must exist, since $\phi$ is bijective by definition.
+            \begin{enumerate}[1.]
+                \item One-to-one: Assume $\phi^{-1}(x_1) = \phi^{-1}(x_2)$ for $x_1,x_2 \in S_2$.
+                      \begin{align*}
+                          \phi^{-1}(x_1)       & = \phi^{-1}(x_2)       \\
+                          \phi(\phi^{-1}(x_1)) & = \phi(\phi^{-1}(x_2)) \\
+                          x_1                  & = x_2
+                      \end{align*}
+                      Thus $\phi^{-1}$ is one-to-one.
+                \item Onto: Let $y \in S_1$. Let us find $x \in S_2$ such that $y = \phi^{-1}(x)$.
+                      \begin{align*}
+                          y       & = \phi^{-1}(x)       \\
+                          \phi(y) & = \phi(\phi^{-1}(x)) \\
+                          \phi(y) & = x
+                      \end{align*}
+                      Choose $x = \phi(y)$. Thus $\phi^{-1}$ is onto.
+                \item Operation Preserving: Need to show that $\phi^{-1}(x*'y) = \phi^{-1}(x) * \phi^{-1}(y)$. But first, consider $a,b \in S_1$.
+                      \begin{align*}
+                          \phi(a*b)          & = \phi(a) *' \phi(b)            &  & \text{since $\phi$ is an isomorphism and thus operation preserving} \\
+                          \phi^{-1}\phi(a*b) & = \phi^{-1}(\phi(a) *' \phi(b))                                                                          \\
+                          a*b                & = \phi^{-1}(\phi(a) *' \phi(b))
+                      \end{align*}
+                      We can use the equation $a*b = \phi^{-1}(\phi(a) *' \phi(b))$ to help us show that $\phi^{-1}(x*'y) = \phi^{-1}(x) * \phi^{-1}(y)$.
+                      \begin{align*}
+                          \phi^{-1}(x) * \phi^{-1}(y) & = \phi^{-1}(\phi(\phi^{-1}(x)) *' \phi(\phi^{-1}(y))) \\
+                                                      & = \phi^{-1}(x *' y)
+                      \end{align*}
+                      Thus $\phi^{-1}$ is operation preserving.
+            \end{enumerate}
+            Since $\phi^{-1}$ is one-to-one, onto, and operation preserving, $\phi^{-1}$ is an isomorphism of $\struct{S_2,*'} \tand \struct{S_1,*}$, and $\struct{S_2,*'} \simeq \struct{S_1,*}$.
+        \end{proof}
+    }
+    \qitem{(c)}{Transitive: For binary structures $\struct{S_1,*},~\struct{S_2,*'}, \tand \struct{S_3,*''}$, if $S_1 \simeq S_2 \tand S_2 \simeq S_3 \tthen S_1 \simeq S_3$. Hind: assume $\phi_1: S_1 \rightarrow S_2 \tand \phi_2: S_2 \rightarrow S_3$ are isomorphisms and prove that $\phi_2 \circ \phi_1: S_1 \rightarrow S_3$ is also an isomorphism.}{
+        An isomorphism must be one-to-one, onto, and operation preserving.
+        \begin{proof}
+            Consider $\phi_2 \circ \phi_1: S_1 \rightarrow S_3$.
+            \begin{enumerate}[1.]
+                \item One-to-one: Assume $\phi_2 \circ \phi_1(x_1) = \phi_2 \circ \phi_1(x_2)$ for some $x_1,x_2 \in S_3$.
+                      \begin{align*}
+                          \phi_2 \circ \phi_1(x_1) & = \phi_2 \circ \phi_1(x_2)                                                                  \\
+                          \phi_2(\phi_1(x_1))      & = \phi_2(\phi_1(x_2))                                                                       \\
+                          \phi_1(x_1)              & = \phi_1(x_2)              &  & \text{since $\phi_2$ is an isomorphism and thus one-to-one} \\
+                          x_1                      & = x_2                      &  & \text{since $\phi_1$ is an isomorphism and thus one-to-one}
+                      \end{align*}
+                      Thus $\phi_2 \circ \phi_1$ is one-to-one.
+                \item Onto: Let $y \in S_3$. Let us find $x \in S_1$ such that $y = \phi_2 \circ \phi_1(x)$.
+                      \begin{align*}
+                          y                                & = \phi_2 \circ \phi_1(x)                                                                                                                           \\
+                          \phi_2^{-1}(y)                   & = \phi_2^{-1} \circ \phi_2 \circ \phi_1(x)                   &  & \text{since $\phi_2$ is bijective, and has a well-defined inverse $\phi_2^{-1}$} \\
+                          \phi_1^{-1} \circ \phi_2^{-1}(y) & = \phi_1^{-1} \circ \phi_2^{-1} \circ \phi_2 \circ \phi_1(x) &  & \text{since $\phi_1$ is bijective, and has a well-defined inverse $\phi_1^{-1}$} \\
+                          \phi_1^{-1} \circ \phi_2^{-1}(y) & = \phi_1^{-1} \circ \phi_1(x)                                                                                                                      \\
+                          \phi_1^{-1} \circ \phi_2^{-1}(y) & = x                                                                                                                                                \\
+                      \end{align*}
+                      Choose $x = \phi_1^{-1} \circ \phi_2^{-1}(y)$. Thus $\phi_2 \circ \phi_1$ is onto.
+                \item Operation Preserving: Need to show that $\phi_2 \circ \phi_1(x*y)=\phi_2 \circ \phi_1(x)*''\phi_2 \circ \phi_1(y)$. Let us use the following equations to help with this. Let $a,b \in S_1$ and $\alpha,\beta \in S_2$
+                      \begin{align*}
+                          \phi_1(a*b)           & = \phi_1(a) *' \phi_1(b)           &  & \text{since $\phi_1$ is an isomorphism and operation preserving} \\
+                          \phi_2(\alpha*'\beta) & = \phi_2(\alpha) *'' \phi_2(\beta) &  & \text{since $\phi_2$ is an isomorphism and operation preserving} \\
+                      \end{align*}
+                      We can compose these two equations to help us show $\phi_2 \circ \phi_1(x*y)=\phi_2 \circ \phi_1(x)*''\phi_2 \circ \phi_1(y)$:
+                      \begin{align*}
+                          \phi_2 \circ \phi_1(x*y) & = \phi_2(\phi_1(x) *' \phi_1(x))                  \\
+                                                   & = \phi_2(\phi_1(x)) *'' \phi_2(\phi_1(y))         \\
+                                                   & = \phi_2 \circ \phi_1(x)*''\phi_2 \circ \phi_1(y)
+                      \end{align*}
+                      Thus $\phi_2 \circ \phi_1$ is operation preserving.
+            \end{enumerate}
+            Since $\phi_2 \circ \phi_1$ is one-to-one, onto, and operation preserving, $\phi_2 \circ \phi_1$ is an isomorphism of $\struct{S_1,*}$ and $\struct{S_3,*''}$, thus $\struct{S_1,*} \simeq \struct{S_3,*''}$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \end{document}
