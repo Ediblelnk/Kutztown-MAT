@@ -66,3 +66,69 @@ If $\group{G,*}$ is a group and if $a,b \in G$, then $a*x=b \tand y*a=b$ have un
     Thus the solution is unique.
 \end{proof}
 The $y*a=b$ proof follows the same structure.
+
+\subsubsection*{Theorem: Unique Identity and Inverse}
+If $\group{G,*}$ is a group, then th identity element and the inverse of each element are unique.
+
+\subsubsection*{Theorem: Inverse of Two Elements}
+Let $\group{G,*}$ be a group. Then for all $a,b \in G$, we have $(a*b)' = a' * b'$.
+\begin{proof}
+    \begin{align*}
+        (a*b)*(a*b)' & = e && \text{by definition of $\mathfrak{G}_3$} \\
+        a*b*(a*b)' & = e && \text{$\mathfrak{G}_1$, associativity} \\
+        (a'*a)*b*(a*b)' & = a'*e && \mathfrak{G}_1 \\
+        b*(a*b)' & = a'*e && \mathfrak{G}_3 \\
+        b'*b(a*b)' & = b'*a'*e \\
+        (a*b)' & = b'*a' && \mathfrak{G}_1,~\mathfrak{G}_3
+    \end{align*}
+\end{proof}
+
+\subsection{Finite Groups and Group Tables}
+
+\subsubsection*{Cayley Tables}
+Let $\group{G,*}$ be a finite group.
+\begin{enumerate}
+    \item If $\norm{G} = 1$, then $G = \{e\}$, where $e$ is the identity.
+    \[
+        \begin{array}{c|c}
+            * & e \\
+            \hline
+            e & e
+        \end{array}
+    \]
+    This is known as the \bld{trivial group}.
+    \item If $\norm{G} = 2$, then $G = \{e,a\}$.
+    \[
+        \begin{array}{c|cc}
+            * & e & a \\
+            \hline
+            e & e & a \\
+            a & a & e
+        \end{array}
+    \]
+    Note: by $\mathfrak{G}_3$, $e$ must appear in every row and column of a group table, and exactly once.
+    \item If $\norm{G} = 3$, then $G = \{e,a,b\}$
+    \[
+        \begin{array}{c|ccc}
+            * & e & a & b \\
+            \hline
+            e & e & a & b \\
+            a & a & b & e \\
+            b & b & e & a
+        \end{array}
+    \]
+    \bld{Claim}: No row or column of a Cayley Table may contain the same element twice.
+    \begin{proof}
+        Let $a,x,y \in G$ for $\group{G,*}$, where $x \neq y$. Consider the Cayley Table:
+        \[
+            \begin{array}{c|cccccc}
+                * & e & a & \cdots & x & \cdots & y \\
+                \hline
+                e & e & a & \cdots & x & \cdots & y \\
+                a & a & \_ & \cdots & a*x & \cdots & a*y
+            \end{array}
+        \]
+        Suppose a row can have the same element twice, say $a*x = a*y$. By left cancellation $x=y$, a contradiction. Thus no row or column can have the same element twice.
+    \end{proof}
+    By the pigeon-hole principle, each element of a group must be represented in each row and column exactly once.
+\end{enumerate}
