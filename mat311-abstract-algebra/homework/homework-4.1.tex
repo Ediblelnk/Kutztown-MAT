@@ -51,7 +51,7 @@ In Exercises 1 through 6, determine whether the binary operation $*$ gives a gro
                             nm + n0 & = n(m+0) = nm
                         \end{align*}
                         Thus $\group{n\bb{Z}, +}$ has an identity.
-                        
+
                         \item Inverse: Consider $nm + n\overline{m} = n0$
                         \begin{align*}
                             nm + n\overline{m} & = n0 \\
@@ -63,18 +63,79 @@ In Exercises 1 through 6, determine whether the binary operation $*$ gives a gro
                     Because $\group{n\bb{Z}, +}$ is closed, associative, has an identity, and an inverse for every element, it is a group.
                 \end{proof}
             }
-            \qitem{b}{$\group{n\bb{Z}, +} \simeq \group{\bb{Z},+}$.}{answer}
+            \qitem{b}{$\group{n\bb{Z}, +} \simeq \group{\bb{Z},+}$.}{
+                An isomorphism must be one-to-one, onto, and operation preserving.
+                \begin{proof}
+                    Consider $\phi: n\bb{Z} \rightarrow \bb{Z}$ such that $\phi(x) = x/n$. We know such a $\phi$ is closed because $x$ takes the form of $nz$ for some $z \in \bb{Z}$.
+                    \begin{enumerate}
+                        \item One-to-one: Consider $\phi(x_1) = \phi(x_2)$ for $x_1,x_2 \in n\bb{Z}$
+                        \begin{align*}
+                            \phi(x_1) & = \phi(x_2) \\
+                            x_1/n & = x_2/n \\
+                            x_1 & = x_2
+                        \end{align*}
+                        Thus $\phi$ is one-to-one
+                        \item Onto: Let $y \in \bb{Z}$. Let us find $x \in n\bb{Z}$ such that $y = \phi(x)$.
+                        \begin{align*}
+                            y & = \phi(x) \\
+                            y & = x/n \\
+                            ny & = x
+                        \end{align*}
+                        Choose $x = ny$. Thus $\phi$ is onto.
+                        \item Operation Preserving: Need to show that $\phi(x+y) = \phi(x) + \phi(y)$
+                        \begin{align*}
+                            \phi(x+y) & = \frac{x+y}{n} \\
+                            & = \frac{x}{n} + \frac{y}{n} \\
+                            & = \phi(x) + \phi(y)
+                        \end{align*}
+                        Thus $\phi$ is operation preserving.
+                    \end{enumerate}
+                    Since $\phi$ is one-to-one, onto, and operation preserving, thus it is an isomorphism. Further, this means that $\group{n\bb{Z}, +} \simeq \group{\bb{Z},+}$.
+                \end{proof}
+            }
         \end{enumerate}
     }
 \end{enumerate}
 In exercises 11 through 18, determine whether the given set of matrices under the specified operation, matrix addition or multiplication, is a group.
 \begin{enumerate}
-    \qitem{11}{All $n \times n$ diagonal matrices under matrix addition.}{answer}
-    \qitem{12}{All $n \times n$ diagonal matrices under matrix multiplication.}{answer}
-    \qitem{13}{All $n \times n$ diagonal matricies with no zero diagonal entry under matrix multiplication.}{answer}
-    \qitem{14}{All $n \times n$ diagonal matricies with all diagonal entries 1 or -1 under matrix multiplication}{answer}
-    \qitem{15}{All $n \times n$ upper-triangular matricies under matrix multiplication.}{answer}
-    \qitem{16}{All $n \times n$ upper-triangular matricies under matrix addition.}{answer}
+    \qitem{11}{All $n \times n$ diagonal matrices under matrix addition.}{
+        Matrix addition is known to be associative. The identity matrix will simply be the zero matrix. A matrix's inverse will just the matrix with every entry negated. This is a group.
+    }
+    \qitem{12}{All $n \times n$ diagonal matrices under matrix multiplication.}{
+        Since any matrix times the zero matrix will be the zero matrix, this means there is no identity matrix. This is not a group.
+    }
+    \qitem{13}{All $n \times n$ diagonal matricies with no zero diagonal entry under matrix multiplication.}{
+        The identity matrix will be the traditional diagonal matrix will entries all 1, and since there are no zero diagonal entries, every matrix will be invertible. Matrix multiplication is known to be associative, and diagonal matrix multiplication is known to be closed. This is a group.
+    }
+    \qitem{14}{All $n \times n$ diagonal matricies with all diagonal entries 1 or -1 under matrix multiplication}{This is a subset of the previous group, so if it is closed, then it will be a group. Let $a_i, b_i \in \{1,-1\}$ for all $1 \leq i \leq n$
+    \begin{align*}
+        \begin{bmatrix}
+            a_1 & 0 & \cdots & 0 \\
+            0 & a_2 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_n
+        \end{bmatrix}
+        \begin{bmatrix}
+            b_1 & 0 & \cdots & 0 \\
+            0 & b_2 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & b_n
+        \end{bmatrix}=
+        \begin{bmatrix}
+            a_1b_1 & 0 & \cdots & 0 \\
+            0 & a_2b_2 & \cdots & 0 \\
+            \vdots & \vdots & \ddots & \vdots \\
+            0 & 0 & \cdots & a_nb_n
+        \end{bmatrix}
+    \end{align*}
+    Since $1 \cdot -1 = -1 \cdot 1 = -1 \tand 1 \cdot 1 = -1 \cdot -1 = 1$, we know $a_i\cdot b_j$ will be in $\{1,-1\}$. Thus, this is closed, and a group.
+    }
+    \qitem{15}{All $n \times n$ upper-triangular matricies under matrix multiplication.}{
+        Since any matrix times the zero matrix will be the zero matrix, this means there is no identity matrix. This is not a group.
+    }
+    \qitem{16}{All $n \times n$ upper-triangular matricies under matrix addition.}{
+        Matrix addition is known to be associative. The identity matrix will simply be the zero matrix. A matrix's inverse will just the matrix with every entry negated. This is a group.
+    }
 \end{enumerate}
 
 \end{document}
