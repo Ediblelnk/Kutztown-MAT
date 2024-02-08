@@ -11,5 +11,128 @@
 \begin{document}
 \section*{\assignment}
 
+\begin{enumerate}
+    \qitem{8}{We can also consider multiplication $\cdot_n$ modulo $n$ in $\bb{Z}_n$. For example, $5 \cdot_7 6 = 2$. The set $\{1,3,5,7\}$ with multiplication $\cdot_8$ modulo 8 is a group. Give the table for this group.}{
+        Cayley Table:
+        \[
+            \begin{array}{c|cccc}
+                \cdot_8 & 1 & 3 & 5 & 7 \\
+                1 & 1 & 3 & 5 & 7 \\
+                3 & 3 & 1 & 7 & 5 \\
+                5 & 5 & 7 & 1 & 3 \\
+                7 & 7 & 5 & 3 & 1
+            \end{array}
+        \]
+    }
+\end{enumerate}
+In Exercise 11 through 18, determine whether the given set of matrices under the specified operation or multiplication, is a group.
+\begin{enumerate}
+    \qitem{19}{Let $S$ be the set of all real numbers except $-1$. Define $*$ on $S$ by
+    \[
+        a*b = a+b+ab
+    \]}{
+    Complete the following:
+        \begin{enumerate}
+            \qitem{a}{Show that $*$ give a binary operation on $S$.}{
+                A binary operation is closed and uniquely defined.
+                \begin{proof}
+                    \begin{enumerate}
+                        \item Closed: Consider if $a*b = -1$.
+                        \begin{align*}
+                            a*b & = -1 \\
+                            a+b+ab & = -1 \\
+                            b(1+a) & = -(1+a) \\
+                            b(1+a)+(1+a) & = 0 \\
+                            (b+1)(a+1) & = 0 \\
+                            b & = -1 \tor a = -1
+                        \end{align*}
+                        Since we are only considering $a,b \in S$.
+                        \item Uniquely defined:
+                        \[
+                            a*b = a+b+ab
+                        \]
+                        Since addition $+$ and multiplication $\cdot$ are uniquely defined, the result of $a+b+ab$, which consists of addition and multiplication, will always yield with a single result. Thus $*$ is uniquely defined.
+                    \end{enumerate}
+                    Since $*$ is uniquely defined and closed, thus it is a binary operation on $S$.
+                \end{proof}
+            }
+            \qitem{b}{Show that $\group{S,*}$ is a group}{
+                A group is closed, associative, has an identity, and has an inverse for every element.
+                \begin{proof}
+                    \begin{enumerate}
+                        \item Associative: Consider $a,b \in S$.
+                        \begin{align*}
+                            a*(b*c) & = a*(b+c+bc) \\
+                            & = a + (b+c+bc) + a(b+c+bc) \\
+                            & = a+b+c+bc+ab+ac+abc \\ \\
+                            (a*b)*c & = (a+b+ab)*c \\
+                            & = (a+b+ab) + c + (a+b+ab)c \\
+                            & = a+b+c+ab+ac+bc+abc
+                        \end{align*}
+                        Thus $*$ is associative for $S$.
+                        \item Identity: Consider $e = 0$
+                        \begin{align*}
+                            a * e & = a + 0 + a0 = a \\
+                            e * a & = 0 + a + 0a = a \\
+                        \end{align*}
+                        Thus $S$ has an identity element under $*$.
+                        \item Inverse: Consider $a*a'=e$.
+                        \begin{align*}
+                            a*a' & = e \\
+                            a + a' + aa' & = 0 \\
+                            a' + aa' & = -a \\
+                            a'(1+a) & = -a \\
+                            a' & = \frac{-a}{1+a}
+                        \end{align*}
+                        Since $S$ does not include $-1$, this will always be a defined value, thus every element has an inverse.
+                    \end{enumerate}
+                    Since $\group{S, *}$ is closed, associative, has an identity, and has an inverse for every element, it is a group.
+                \end{proof}
+            }
+            \qitem{c}{Find the solution of the equation $2*x*3=7$ in $S$}{
+                We can use the properties of the group to help us solve this.
+                \begin{align*}
+                    2*x*3 & = 7 \\
+                    2 + x + 3 + 2x + 6 + 3x + 6x & = 7 \\
+                    11 + 12x & = 7 \\
+                    12x & = -4 \\
+                    x & = -\frac{1}{3}
+                \end{align*}
+            }
+        \end{enumerate}
+    }
+\end{enumerate}
+\bld{Concepts}
+\begin{enumerate}
+    \qitem{23}{The following "definitions" of a group are taken verbatim, including spelling and punctuation, from papers of students who write a bit too quickly and carelessly.}{
+        Critizie them.
+        \begin{enumerate}
+            \qitem{a}{[Refer to book]}{answer}
+            \qitem{b}{[Refer to book]}{answer}
+            \qitem{c}{[Refer to book]}{answer}
+            \qitem{d}{[Refer to book]}{answer}
+        \end{enumerate}
+    }
+    \qitem{25}{Mark each of the following.}{
+        True or False:
+        \begin{enumerate}
+            \qitem{a}{A group may have more than one identity element.}{false}
+            \qitem{b}{Any two groups of three elements are ismorphic.}{true, because there is only one kind of group with three elements.}
+            \qitem{c}{In a group, each linear equation has a solution.}{true, since a group is closed.}
+            \qitem{d}{The proper attitude toward a definition is to memorize it so that you can reproduce it word for word as in the text.}{neither, whatever works best for the indivdual.}
+            \qitem{e}{Any definition a person gives for a group is correct provided that everything that is a group by that person's definition is also a group by the definition in the text.}{false, it could be that something from the text is a group but not by the person's definition.}
+            \qitem{f}{Any definition a person gives for a group is correct provided he or she can show that everything that satifies the definition satifies the one in the text and conversely.}{true}
+            \qitem{g}{Every finite group of at most three elements is abelian.}{true, since the corresponding single, dual, and triple element groups are all commutative.}
+            \qitem{h}{An equation of the form $a*x=c$ always has a unique solution in a group.}{true.}
+            \qitem{i}{The empty set can be considered a group}{false, there is no identity element}
+            \qitem{j}{Every group is a binary algebraic structure}{true, because a group requires a binary operation on a closed set.}
+        \end{enumerate}
+    }
+\end{enumerate}
+\bld{Theory}
+\begin{enumerate}
+    \qitem{31}{If $*$ is a binary operation on a set $S$, an element $x$ of $S$ is an \bld{idempotent for} $*$ if $x*x=x$. Prove that a group has exactly one idempotent element. (You may use any theorems proved so far in the text.)}{answer}
+    \qitem{35}{Show that if $(a*b)^2 = a^2*b^2$ for $a \tand b$ in a group $G$, then $a*b = b*a$. See Exercise 33 for the meaning of $a^2$.}{answer}
+\end{enumerate}
 
 \end{document}
