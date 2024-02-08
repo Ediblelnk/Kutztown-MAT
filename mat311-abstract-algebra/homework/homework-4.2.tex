@@ -131,8 +131,35 @@ In Exercise 11 through 18, determine whether the given set of matrices under the
 \end{enumerate}
 \bld{Theory}
 \begin{enumerate}
-    \qitem{31}{If $*$ is a binary operation on a set $S$, an element $x$ of $S$ is an \bld{idempotent for} $*$ if $x*x=x$. Prove that a group has exactly one idempotent element. (You may use any theorems proved so far in the text.)}{answer}
-    \qitem{35}{Show that if $(a*b)^2 = a^2*b^2$ for $a \tand b$ in a group $G$, then $a*b = b*a$. See Exercise 33 for the meaning of $a^2$.}{answer}
+    \qitem{31}{If $*$ is a binary operation on a set $S$, an element $x$ of $S$ is an \bld{idempotent for} $*$ if $x*x=x$. Prove that a group has exactly one idempotent element. (You may use any theorems proved so far in the text.)}{
+        Claim: The only idempotent element for a group is the identity element.
+        \begin{proof}
+            Consider $e*e$:
+            \[
+                e*e = e
+            \]
+            Thus $e$ is idempotent. Consider if any other element were idempotent, meaning $a*a=a$ for some $a \neq e$.
+            \begin{align*}
+                a*a & = a \\
+                a*a & = a*e && \mathfrak{G}_2 \\
+                a & = e && \text{left cancellation law}
+            \end{align*}
+            However, thus contradicts our assertion that $a \neq e$. Thus the only idempotent element in any group is the identity element.
+        \end{proof}
+    }
+    \qitem{35}{Show that if $(a*b)^2 = a^2*b^2$ for $a \tand b$ in a group $G$, then $a*b = b*a$. See Exercise 33 for the meaning of $a^2$.}{
+        $a^n = \underbrace{a*a*\cdots*a}_n$
+        \begin{proof}
+            Let $(a*b)^2 = a^2*b^2$ for group $G$.
+            \begin{align*}
+                (a*b)^2 & = a^2*b^2 \\
+                (a*b)*(a*b) & = (a*a)*(b*b) && \text{by definition} \\
+                a*(b*a)*b & = a*(a*b)*b && \mathfrak{G}_1 \\
+                b*a & = a*b && \text{left, right cancellation laws}
+            \end{align*}
+            Thus $b*a = a*b$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \end{document}
