@@ -1,9 +1,9 @@
 \section{Isomorphic Binary Structures}
 
-\subsubsection*{Definition: Binary Algebraic Structure}
+\subsubsection{Def. Binary Algebraic Structure}
 A \bld{binary algebraic structure} $\langle S,*\rangle$ is a set $S$ together with a binary operation $*$.
 
-\subsubsection*{Definition: Isomorphism}
+\subsubsection{Def. Isomorphism}
 Let $\langle S,*\rangle \tand \langle S',*' \rangle$ be binary structures. An \bld{isomorphism} of $S$ with $S'$ is a \itl{one-to-one} function $\phi: S \mapsto S'$ such that
 \[
     \forall~~ x,y \in S, \qquad \phi(x*y) = \phi(x) *' \phi(y).
@@ -41,13 +41,13 @@ Prove that $\langle \bb{R},+\rangle \simeq \langle \bb{R}^+, \cdot \rangle$.
     Since $\phi$ is one-to-one, onto, and operation preserving, thus $\phi$ is an isomorphism of $\langle \bb{R},+\rangle \tand \langle \bb{R}^+, \cdot \rangle$, and $\langle \bb{R},+\rangle \simeq \langle \bb{R}^+, \cdot \rangle$.
 \end{proof}
 
-\subsubsection*{Definition: Identity Element}
+\subsubsection{Def. Identity Element}
 Let $\langle S, * \rangle$ be an algebraic structure. An element $e \in S$ is the identity element $\id$ for $*$ if for all $s \in S$:
 \[
     \underbrace{\overbrace{e * s}^{\text{left}~\id} = \overbrace{s * e}^{\text{right}~\id}}_{\text{two-sided}~\id} = s
 \]
 
-\subsubsection*{Theorem: Identity Uniqueness}
+\subsubsection{Thm. Identity Uniqueness}
 A binary structure $\langle S, * \rangle$ has at most one identity element.
 
 \begin{proof}
@@ -60,7 +60,7 @@ A binary structure $\langle S, * \rangle$ has at most one identity element.
     $\therefore$ $\langle S, * \rangle$ has at most one identity element.
 \end{proof}
 
-\subsubsection*{Theorem: Isomorphism and Identity}
+\subsubsection{Thm. Isomorphism and Identity}
 Suppose $\langle S, * \rangle$ has identity element $e$. If $\phi: S \mapsto S'$ is an isomorphism of $\langle S, * \rangle$ with $\langle S', *' \rangle$, then $\phi(e)$ is the identity element for $\langle S', *' \rangle$.
 
 \begin{proof}

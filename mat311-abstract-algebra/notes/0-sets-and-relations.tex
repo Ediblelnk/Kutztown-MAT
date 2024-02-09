@@ -1,6 +1,6 @@
 \section{Sets and Relations}
 
-\subsubsection*{Definition: What \itl{is} Abstract Algebra}
+\subsubsection{Def. What \itl{is} Abstract Algebra}
 \begin{itemize}
     \item Algebra: procedures for performing operations, i.e. $+,-,\times,\div$, and methods for solving equations. It uses bld{specific} operations on \bld{specific} objects.
     \item Abstract Algebra: discuss \bld{general} structures and the relationships between the elements of these structures.
@@ -8,7 +8,7 @@
 
 \subsection{Sets}
 
-\subsubsection*{Definition: Set}
+\subsubsection{Def. Set}
 A set is a collection of objects. These objects are called "elements". A set is typically uppercase, and elements are typically lowercase.
 
 \subsubsection*{Set Notation}
@@ -27,7 +27,7 @@ A set is a collection of objects. These objects are called "elements". A set is 
 \subsubsection*{Well-Defined Sets}
 Sets must be \bld{well-defined}. That is, given set $S$ and any element $x$, either $x \in S \tor x \notin S$.
 
-\subsubsection*{Definition: Subset}
+\subsubsection{Def. Subset}
 A set $A$ is a subset of set $B$, written as $A \subseteq B$, if every element of $A$ is also in $B$.
 
 Note: every non-empty set has at least two subsets:
@@ -36,12 +36,12 @@ Note: every non-empty set has at least two subsets:
     \item $\emptyset$
 \end{itemize}
 
-\subsubsection*{Definition: Proper Subset}
+\subsubsection{Def. Proper Subset}
 If $A \subseteq B \tbut A \not = B$, then $A$ is a \bld{proper subset} of $B$, written $A \subset B \tor A \subsetneq B$.
 
 Note: A set $B$ is an \itl{improper subset} of itself.
 
-\subsubsection*{Definition: Cartesian Product}
+\subsubsection{Def. Cartesian Product}
 Let $A \tand B$ be sets. The set $A \times B = \{(a,b) : a \in A \tand b \in B\}$ is the cartesian product of $A \tand B$.
 
 Note: $A \times B = B \times A \iff A = B, \tor A \times B = \emptyset$.
@@ -55,26 +55,26 @@ Let $A = \{c : c ~\text{is a primary color}\}$ and let $B = \{\epsilon, \delta\}
 
 \subsection{Relations}
 
-\subsubsection*{Definition: Relation}
+\subsubsection{Def. Relation}
 A \bld{relation} between sets $A \tand B$ is a subset $\mathcal{R}$ of $A \times B$. It is a collection of ordered pairs. Note: $(a,b) \in \mathcal{R} \equiv a\mathcal{R}b$ means "$a$ is related to $b$".
 
-\subsubsection*{Definition: Function}
+\subsubsection{Def. Function}
 A \bld{function} is a relation in which no two of the ordered pairs have the same first term. Note: if $f:\bb{R} \rightarrow \bb{R}$ is a function, then is passes the vertical-line test.
 
-\subsubsection*{Definition: One-to-One}
+\subsubsection{Def. One-to-One}
 A function is \bld{one-to-one}, or \bld{injective}, if no two ordered pairs have the same \uln{second} term.
 
 To prove $f$ is one-to-one, first assume that $f(x_1) = f(x_2)$, then show that $x_1 = x_2$.
 
-\subsubsection*{Definition: Onto}
+\subsubsection{Def. Onto}
 A function $f: X \rightarrow Y$ is \bld{onto}, or \bld{surjective}, if the codomain is equal to the range, meaning every element $y \in Y$ has some $x \in X$ such that $f(x) = y$.
 
-\subsubsection*{Definition: One-to-One Correspondence}
+\subsubsection{Def. One-to-One Correspondence}
 A function $f: X \rightarrow Y$ is a \bld{one-to-one correspondence}, or a \bld{bijection}, if it is both one-to-one and onto.
 
 \subsection{Partitions and Equivalence Relations}
 
-\subsubsection*{Definition: Partition}
+\subsubsection{Def. Partition}
 A \bld{partition} of a set $S$ is a collection of non-empty subsets of $S$ such that:
 \begin{enumerate}
     \item The union of these subsets is $S$.
@@ -82,7 +82,7 @@ A \bld{partition} of a set $S$ is a collection of non-empty subsets of $S$ such 
 \end{enumerate}
 Note: these subsets are called \bld{cells} of the partition.
 
-\subsubsection*{Definition: Equivalence Relation}
+\subsubsection{Def. Equivalence Relation}
 An \bld{equivalence relation} $\mathcal{R}$ on a set $S$ must be:
 \begin{enumerate}
     \item Reflexive, meaning $x\mathcal{R}x \qquad \forall~x \in S$.
@@ -90,7 +90,7 @@ An \bld{equivalence relation} $\mathcal{R}$ on a set $S$ must be:
     \item Transitive, meaning $\tif x\mathcal{R}y \tand y\mathcal{R}z, \tthen x\mathcal{R}z$.
 \end{enumerate}
 
-\subsubsection*{Definition: Equivalence Class}
+\subsubsection{Def. Equivalence Class}
 \[
     \overline{x} = \{y \in S : x\mathcal{R}y\} ~\text{is the equivalence class of $x$}
 \]
