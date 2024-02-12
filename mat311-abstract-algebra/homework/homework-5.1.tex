@@ -1,0 +1,24 @@
+\documentclass{article}
+\input{../../.latex/article.tex}
+\input{../../.latex/macros.tex}
+
+\newcommand{\assignment}{Section 5 Subgroups, p55 \#1-9,11,15,17}
+
+\lhead{MAT 311 Abstract Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+In Exercises 1 through 6, determine whether the given subset of the complex numbers is a subgroup of the group $\bb{C}$ of complex numbers under addition.
+\begin{enumerate}
+    \qitem{1}{$\bb{R}$}{This is a subgroup. A real number plus a real number will always yield a real number, and the inverse is just the negative of the real number.}
+    \qitem{2}{$\bb{Q}^+$}{This is not a subgroup. Consider $1 \in \bb{Q}^+$. It has no inverse in $\bb{Q}^+$.}
+    \qitem{3}{$7\bb{Z}$}{This is a subgroup. A multiple of 7 plus another multiple of 7 will always result in a multiple of 7, and the inverse is just he negative of the multiple of 7.}
+    \qitem{4}{The set $i\bb{R}$ of pure imaginary numbers including $0$.}{This is a subgroup. An imaginary number plus an imaginary number will always yield an imaginary number, assuming zero is included. The inverse is just the negative of the imaginary number.}
+    \qitem{5}{The set $\pi\bb{Q}$ of rational multiples of $\pi$.}{This is a subgroup. $\pi\frac{a}{b} + \pi\frac{c}{d} = \pi(\frac{a}{b}+\frac{c}{d})$. The inverse will for $\pi\frac{a}{b}$ is just $-\pi\frac{a}{b}$.}
+    \qitem{6}{The set $\{\pi^n : n \in \bb{Z}\}$}{This is not a subgroup, because it is not closed. Consider $\pi + \pi = 2\pi$. This will not be an integer power of $\pi$.}
+\end{enumerate}
+
+\end{document}
