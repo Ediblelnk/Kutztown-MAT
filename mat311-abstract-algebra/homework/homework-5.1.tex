@@ -19,6 +19,22 @@ In Exercises 1 through 6, determine whether the given subset of the complex numb
     \qitem{4}{The set $i\bb{R}$ of pure imaginary numbers including $0$.}{This is a subgroup. An imaginary number plus an imaginary number will always yield an imaginary number, assuming zero is included. The inverse is just the negative of the imaginary number.}
     \qitem{5}{The set $\pi\bb{Q}$ of rational multiples of $\pi$.}{This is a subgroup. $\pi\frac{a}{b} + \pi\frac{c}{d} = \pi(\frac{a}{b}+\frac{c}{d})$. The inverse will for $\pi\frac{a}{b}$ is just $-\pi\frac{a}{b}$.}
     \qitem{6}{The set $\{\pi^n : n \in \bb{Z}\}$}{This is not a subgroup, because it is not closed. Consider $\pi + \pi = 2\pi$. This will not be an integer power of $\pi$.}
+    \qitem{7}{Which of the sets in Exercises 1 through 6 are subgroups of the group $\bb{C}^*$ of nonzero complex numbers under multiplication?}{$\bb{Q}^+$ and the set $\{\pi^n : n \in \bb{Z}\}$. All the other sets include the number 0, so they are not even subsets of $\bb{C}^*$.}
+\end{enumerate}
+In Exercises 8 through 13, determine whether the given set of invertible $n \times n$ matrices with real number entries is a subgroup of $GL(n,\bb{R})$.
+\begin{enumerate}
+    \qitem{8}{The $n \times n$ matrices with determinant 2}{It is known that $\det(AB) = \det(A) \cdot \det(B)$. Since we know that for any $A,B \in GL(n, \bb{R})$, the determinant will be $2$, we know that $\det(AB) = 2 \cdot 2 = 4 \neq 2$. Thus this subset is not closed under matrix multiplication.}
+    \qitem{9}{The diagonal $n \times n$ matrices with no zeros on the diagonal}{It is well known that diagonal matrices are closed under matrix multiplication. Additionally, since an invertible matrix times an invertible matrix always results in an invertible matrix, the resulting matrix will never have a determinant of zero. This is a subgroup of $GL(n, \bb{R})$.}
+    \qitem{11}{The $n \times n$ matrices with determinant $-1$}{It is known that $\det(AB) = \det(A) \cdot \det(B)$. Since we know that for any $A,B \in GL(n, \bb{R})$, the determinant will be $-1$, we know that $\det(AB) = -1 \cdot -1 = 1 \neq -1$. Thus this subset is not closed under matrix multiplication.}
+\end{enumerate}
+Let $F$ be the set of all real-valued functions with domain $\bb{R}$ and let $\tilde{F}$ be the subset of $F$ consisting of those functions that have a nonzero value at every point in $\bb{R}$. In Exercises 14 through 19, determine whether the given subset of $F$ with the induced operation is (a) a subgroup of the group $F$ under addition, (b) a subgroup of the group $\tilde{F}$ under multiplication.
+\begin{enumerate}
+    \qitem{15}{The subset $F'$ of all $f \in F$ such that $f(1) = 0$}{
+        \bld{A.} Consider $f,g \in F'$. $(f+g)(1) = f(1) + g(1) = 0+0 = 0$. The defining property of $F'$ is maintained. The inverse of any $f \in F'$ will just be $-f$, meaning $-f(x) = -1 \cdot f(x)$. This is a subgroup. \bld{B.} The defining property of $F'$ is that it has a zero value at $1$, and thus isn't a subset of $\tilde{F}$.
+    }
+    \qitem{17}{The subset $\tilde{F}'$ of all $f \in \tilde{F}$ such that $f(0) = 1$}{
+        \bld{A.} Since the identity function of addition $f(x) = 0 ~~\forall~x \in \bb{R}$ is not part of $\tilde{F}$, $\tilde{F}'$ is not closed under function addition. \bld{B.} Consider $f,g \in \tilde{F}'$. $(f \cdot g)(0) = f(0) \cdot g(0) = 1 \cdot 1 = 1$. The defining property of $\tilde{F}'$ is maintained. The inverse of any $f \in \tilde{F}'$ will be $\frac{1}{f}$, which will always be defined since $f(x) \neq 0$ for any value of $x$. This is a subgroup.
+    }
 \end{enumerate}
 
 \end{document}
