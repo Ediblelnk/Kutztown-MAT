@@ -1,0 +1,41 @@
+\section{First-order Ordinary Differential Equations}
+A first-order ordinary differential equation takes the form
+\[
+    \frac{dy}{dx} = f(x,y), \qquad x \in I
+\]
+
+\subsection{Separable Equations}
+Assume $f(x,y)$ be separable, meaning that
+\[
+    f(x,y) = g(x)\cdot h(y)
+\]
+for some $g \tand h$. Then,
+\begin{align*}
+    \frac{dy}{dx} & = g(x)h(x) \\
+    \frac{dy}{h(y)} & = g(x)dx \\
+    \int \frac{dy}{h(y)} & = \int g(x)dx \\
+\end{align*}
+Letting $H(y) = \int \frac{dy}{h(y)}$ and $G(x) = \int g(x)dx$, the solution to the first-order ODE is then
+\[
+    H(y) = G(x) + C
+\]
+
+\subsubsection*{Example}
+from pg. 46, \#8
+\begin{align*}
+    \frac{dy}{dx} & = \frac{1}{xy^3} = \frac{1}{x} \cdot \frac{1}{y^3} \\
+    \int y^3dy & = \int \frac{dx}{x} \\
+    \frac{y^4}{4} + C_1 & = \ln |x| + C_2 \\
+    y^4 & = 4\ln |x| + K
+\end{align*}
+
+\subsection{Linear Equations}
+A \bld{linear} first-order equation is an equation that can be expressed in the form
+\[
+    a_1(x)\frac{dy}{dx} + a_0(x)y = b(x),
+\]
+where $a_1(x), a_0(x), \tand b(x)$ depend only on the independent variable $x$, not on $y$. If $a_0(x)$ is identically zero, then the above equation reduces to
+\begin{align*}
+    a_1(x)\frac{dy}{dx} & = b(x) && (\text{assume}~a_0(x) = 0) \\
+    y(x) & = \int \frac{b(x)}{a_0(x)}dx + C && (\text{as long as $a_1(x) \neq 0$})
+\end{align*}
