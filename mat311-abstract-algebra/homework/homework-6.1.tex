@@ -20,8 +20,41 @@ In Exercises 1 through 4, find the quotient and remainder, according to the divi
 \end{enumerate}
 Theory
 \begin{enumerate}
-    \qitem{45}{Let $r \tand s$ be positive integers. Show that $\{nr+ms : n,m \in \bb{Z}\}$ is a subgroup of $\bb{Z}$}{answer}
-    \qitem{46}{Let $a \tand s$ be elements of a group $G$. Show that if $ab$ has finite order $n$, then $ba$ also has order $n$}{answer}
+    \qitem{45}{Let $r \tand s$ be positive integers. Show that $X = \{nr+ms : n,m \in \bb{Z}\}$ is a subgroup of $\bb{Z}$}{
+        A subgroup is closed under the operation of the group and closed under inverses.
+        \begin{proof}
+            Consider $a, \tand b \in X$, where $a = n_1r+m_1s$ and $b = n_2r+m_2s$.
+            \begin{align*}
+                a + b & = (n_1r+m_1s) + (n_2r+m_2s) \\
+                & = (n_1r+n_2r) + (m_1s+m_2s) \\
+                & = (n_1+n_2)r + (m_1+m_2)s
+            \end{align*}
+            Since $n_1 + n_2 \in \bb{Z}$ and $m_1 + m_2 \in \bb{Z}$, $a+b$ takes the form of elements in $X$. Now consider $a = nr + ms \in X$. We know $a^{-1}$ exists since $a$ is also in $\bb{Z}$.
+            \begin{align*}
+                a^{-1} & = (nr + ms)^{-1} \\
+                & = -(nr + ms) && \text{since we are using $\bb{Z}$ with addition} \\
+                & = (-n)r + (-m)s
+            \end{align*}
+            We know $-n \tand -m \in \bb{Z}$, thus $a^{-1} \in X$. Thus $X$ is a subgroup of $\bb{Z}$, $X < \bb{Z}$
+        \end{proof}
+    }
+    \qitem{46}{Let $a \tand b$ be elements of a group $G$. Show that if $ab$ has finite order $n$, then $ba$ also has order $n$}{
+        When we say $a$ has order $n$, it means that in the cyclic group that $a^n = e$.
+        \begin{proof}
+            Assume $\struct{ab}$ has order $n$. This means that
+            \begin{align*}
+                (ab)^n & = e \\
+                a^nb^n & = e \\
+            \end{align*}
+            If we assume that $a^n = c$, for some $c \in G$, then it must follow that $b^n = c^{-1}$, since $a^nb^n = cc^{-1} = e$. Now let us consider the order of $\struct{ba}$.
+            \begin{align*}
+                (ba)^n & = b^na^n \\
+                & = c^{-1}c && \text{since $a^n = c,~b^n = c^{-1}$}\\
+                & = e
+            \end{align*}
+            Since $(ba)^n = e$, we can say that $ba$ has order $n$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \end{document}
