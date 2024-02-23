@@ -28,9 +28,44 @@ A subgroup of a cyclic group is cyclic.
     Thus every element of $H$ takes the form $(a^m)^q$, and $H$ is cyclic, with generator $\struct{a^m}$.
 \end{proof}
 
-\subsubsection*{Def. Cyclic Group of Order n}
+\subsubsection{Def. Cyclic Group of Order n}
 If $G$ is a cyclic group of \itl{order} $n$, then
 \[
     G = \struct{a} = \underbrace{\{e = a^0, a^1, a^2, \ldots, a^{n-1}\}}_{n~\text{elements}} \tand a^n = e.
 \]
 We say the \itl{order of $a$ is $n$}, meaning $a^n = e$. Otherwise, the order of $a$ is infinite, and hence the order of $G$ is infinite.
+
+\subsubsection{Thm. Cyclic Groups and the Integer}
+Let $G = \struct{a}$.
+\begin{enumerate}
+    \item Every cyclic group of order $n$ is isomorphic to $\group{\bb{Z}_n,+_n}$.
+    \item Every cyclic group of order infinity is isomorphic to $\group{\bb{Z}, +}$.
+\end{enumerate}
+
+\begin{proof}
+    \begin{enumerate}
+        \item Let $G = \struct{a}$ be a cyclic group of order $n$. Then
+        \[
+            G = \{e=a^0, a^1, a^2, \ldots, a^{n-1}\}
+        \]
+        Consider $\bb{Z}_n = \{0,1,2,\ldots,n-1\}$. Define $\phi: \bb{Z}_n \rightarrow G$ by $\phi(x) = a^x$.
+        \begin{enumerate}
+            \item One-to-one: assume $a^x = a^y$. Then $x=y$. Thus $\phi$ is one-to-one.
+            \item Onto: let $a^x \in G$. Then choose $x \in \bb{Z}_n$, and $\phi(x) = a^x$. Thus, $\phi$ is onto.
+            \item Operation Preserving: $\phi(x+y) = a^{x+y} = a^xa^y = \phi(x)\phi(y)$. Thus $\phi$ is operation preserving.
+        \end{enumerate}
+        Thus $\phi$ is an isomorphism and $\group{\bb{Z}_n,+_n} \simeq G$.
+        \item Follows nearly identical as above.
+    \end{enumerate}
+\end{proof}
+
+\subsubsection*{Note}
+The above theorem implies that all cyclic groups of order $n$ are isomorphic to each other, and all cyclic groups of order infinity are isomorphic to each other. This is because isomorphism is an equivalence relation.
+
+\subsection{Subgroups of Cyclic Groups}
+
+\subsubsection{Thm. Order of Subgroups of Cyclic Groups}
+Let $G = \struct{a}$ by a cyclic group of order $n$. Let $b \in G$ and let $b = a^s$ for $s \in \bb{Z}$. Then $\struct{b}$ is a cyclic subgroup of $G$ containing $\frac{n}{d}$ elements, where $d = \gcd(n,s)$.
+
+\subsubsection*{Cly. Order of Subgroups of Cyclic Groups}
+If $G = \group{a}$ is a cyclic group of order $n$, then the other generators of $G$ are the elements of the form $a^r$ where $\gcd(n,r) = 1$.

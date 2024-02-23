@@ -43,16 +43,15 @@ Theory
         \begin{proof}
             Assume $\struct{ab}$ has order $n$. This means that
             \begin{align*}
-                (ab)^n & = e \\
-                a^nb^n & = e \\
+                (ab)^n & = e && \text{for some smallest positive integer $n$}\\
+                a(ba)^{n-1}b & = e \\
+                ba(ba)^{-1}ba & = ba \\
+                (ba)^{n+1} & = ba \\
+                (ba)^n & = e
             \end{align*}
-            If we assume that $a^n = c$, for some $c \in G$, then it must follow that $b^n = c^{-1}$, since $a^nb^n = cc^{-1} = e$. Now let us consider the order of $\struct{ba}$.
-            \begin{align*}
-                (ba)^n & = b^na^n \\
-                & = c^{-1}c && \text{since $a^n = c,~b^n = c^{-1}$}\\
-                & = e
-            \end{align*}
-            Since $(ba)^n = e$, we can say that $ba$ has order $n$.
+            Thus, $ba$ has order $\leq n$. Assume that $ba$ has order $< n$, say $m$. Thus, $(ba)^m = e$. By a similar argument as above, we can show that $(ab)^m = e$. This contradicts our assumption that the order of $ab$ is $n$.
+
+            $\therefore$ the order of $ba$ must be exactly $n$.
         \end{proof}
     }
 \end{enumerate}
