@@ -14,7 +14,11 @@
 In Exercises 8 through 11, find the number of generators of a cyclic group having the given order
 \begin{enumerate}
     \qitem{9}{$8$}{$8$ has prime factorization of $2^3$, so generators are $\{1,3,5,7\}$.}
-    \qitem{11}{$60$}{$60$ has prime factorization of $2^2\cdot 3 \cdot 5$, so generators are $\{1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59\}$}
+    \qitem{11}{$60$}{$60$ has prime factorization of $2^2\cdot 3 \cdot 5$. Generators are
+        \[
+            \{1,7,11,13,17,19,23,29,31,37,41,43,47,49,53,59\}
+        \]
+    }
 \end{enumerate}
 In Exercises 17 through 21, find the number of elements in the indicated cyclic group.
 \begin{enumerate}
@@ -23,22 +27,66 @@ In Exercises 17 through 21, find the number of elements in the indicated cyclic 
 \end{enumerate}
 In Exercises 22 through 24, find all the subgroups of the given group, and draw the subgroup diagram for the subgroups.
 \begin{enumerate}
-    \qitem{23}{$\bb{Z}_{36}$}{answer}
-    \qitem{24}{$\bb{Z}_8$}{answer}
+    \qitem{23}{$\bb{Z}_{36}$}{
+        Subgroups and their generators:
+        \begin{itemize}
+            \item $\struct{1} = \struct{5} = \struct{7} = \struct{11} = \struct{13} = \struct{17} = \struct{19} = \struct{23} = \struct{25} = \struct{29} = \struct{31} = \struct{35} = \bb{Z}_{36}$
+            \item $\struct{2} = \struct{10} = \struct{14} = \struct{22} = \struct{26} = \struct{34} = \{0,2,4,6,8,10,12,14,16,18,20,22,24,26,28,30,32,34\}$
+            \item $\struct{3} = \struct{15} = \struct{21} = \struct{33} = \{0,3,6,9,12,15,18,21,24,27,30,33\}$
+            \item $\struct{4} = \struct{8} = \struct{16} = \struct{20} = \struct{28} = \struct{32} = \{0,4,8,12,16,20,24,28,32\}$
+            \item $\struct{6} = \struct{30} = \{0,6,12,18,24,30\}$
+            \item $\struct{9} = \struct{27} = \{0,9,18,27\}$
+            \item $\struct{12} = \struct{24} = \{0,12,24\}$
+            \item $\struct{18} = \{0,18\}$
+        \end{itemize}
+    }
+    \qitem{24}{$\bb{Z}_8$}{
+        Subgroups and their generators:
+        \begin{itemize}
+            \item $\struct{1} = \struct{3} = \struct{5} = \struct{7} = \bb{Z}_8$
+            \item $\struct{2} = \struct{6} = \{0,2,4,6\}$
+            \item $\struct{4} = \{0,4\}$
+        \end{itemize}
+    }
 \end{enumerate}
 In Exercises 25 through 29, find all the orders of the subgroups of the given group.
 \begin{enumerate}
-    \qitem{25}{$\bb{Z}_6$}{answer}
-    \qitem{27}{$\bb{Z}_12$}{answer}
+    \qitem{25}{$\bb{Z}_6$}{
+        $|\struct{1}| = |\struct{5}| = 6$. $|\struct{2}| = \struct{4} = 3$. $|\struct{3}| = 2$.
+    }
+    \qitem{27}{$\bb{Z}_{12}$}{
+        $|\struct{1}| = |\struct{5}| = |\struct{7}| = |\struct{11}| = 12$. $|\struct{2}| = |\struct{10}| = 6$. $|\struct{3}| = |\struct{9}| = 4$. $|\struct{4}| = |\struct{8}| = 3$. $|\struct{6}| = 2$.
+    }
 \end{enumerate}
 In Exercises 33 through 37, either give an example of a group with the property described, or explain why no example exists.
 \begin{enumerate}
-    \qitem{35}{A cyclic group having only one generator}{answer}
-    \qitem{37}{A finite cyclic group having four generators}{answer}
+    \qitem{35}{A cyclic group having only one generator}{Consider $\bb{Z}_2 = \{0,1\}$. The only generator for this group is $\struct{1}$.}
+    \qitem{37}{A finite cyclic group having four generators}{Consider $\bb{Z}_{8}$. This group has four generators: $\struct{1}, \struct{3}, \struct{5}, \struct{7}$.}
 \end{enumerate}
 Theory
 \begin{enumerate}
-    \qitem{50}{Let $G$ be a group and suppose $a \in G$ generates a cyclic subgroup of order $2$ and is the \itl{unique} such element. Show that $ax = xa$ for all $x \in G$. Hint: Consider $(xax^{-1})^2$}{answer}
+    \qitem{50}{Let $G$ be a group and suppose $a \in G$ generates a cyclic subgroup of order $2$ and is the \itl{unique} such element. Show that $ax = xa$ for all $x \in G$. Hint: Consider $(xax^{-1})^2$}{
+        Assume the above.
+        \begin{proof}
+            Consider $(xax^{-1})^2$.
+            \begin{align*}
+                (xax^{-1})^2 & = xax'xax'                                       \\
+                             & = xa^2x'                                         \\
+                             & = xx' = e  &  & \text{because by def. $a^2 = e$}
+            \end{align*}
+            Since $(xax^{-1})^2 = e$, but $a^2 =e$ and $a$ is the \itl{unique} such element to do so, it follows that
+            \[
+                xax^{-1} = a.
+            \]
+            We can now manipulate this equation.
+            \begin{align*}
+                xax^{-1}  & = a  \\
+                xax^{-1}x & = ax \\
+                xa        & = ax
+            \end{align*}
+            Thus we conclude that $xa = ax$, for all $x \in G$.
+        \end{proof}
+    }
 \end{enumerate}
 
 \end{document}
