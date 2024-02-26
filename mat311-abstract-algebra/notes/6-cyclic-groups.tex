@@ -67,5 +67,23 @@ The above theorem implies that all cyclic groups of order $n$ are isomorphic to 
 \subsubsection{Thm. Order of Subgroups of Cyclic Groups}
 Let $G = \struct{a}$ by a cyclic group of order $n$. Let $b \in G$ and let $b = a^s$ for $s \in \bb{Z}$. Then $\struct{b}$ is a cyclic subgroup of $G$ containing $\frac{n}{d}$ elements, where $d = \gcd(n,s)$.
 
-\subsubsection*{Cly. Order of Subgroups of Cyclic Groups}
+\subsubsection{Cly. Order of Subgroups of Cyclic Groups}
 If $G = \group{a}$ is a cyclic group of order $n$, then the other generators of $G$ are the elements of the form $a^r$ where $\gcd(n,r) = 1$.
+
+\subsubsection*{Cyclic Subgroup Diagrams}
+Example cyclic diagram for $\bb{Z}_{12} = \struct{Z}$.
+\begin{center}
+    \begin{tikzpicture}
+        \foreach \rank/\elements/\size in {1/{Z}/1, 2/{2,3}/2, 3/{4,6}/3, 4/{0}/2} {
+        \foreach[count = \i] \element in \elements {\node (\element) at (\i - \size / 2, -\rank) {$\struct{\element}$};}
+        }
+        \foreach \j/\l in {Z/2, Z/3, 2/4, 2/6, 3/6, 4/0, 6/0} {\draw (\j) -- (\l);}
+    \end{tikzpicture}
+\end{center}
+
+\subsection{Infinite Cyclic Groups}
+The subgroups of $\group{\bb{Z},+}$ are of the form $\group{n\bb{Z}, +}$ for $n \in \bb{Z}$. For example,
+\begin{align*}
+    2\bb{Z} & = \{\ldots, -4,-2,0,2,4,\ldots\} \\
+    5\bb{Z} & = \{\ldots, -10,-5,0,5,10,\ldots\}
+\end{align*}

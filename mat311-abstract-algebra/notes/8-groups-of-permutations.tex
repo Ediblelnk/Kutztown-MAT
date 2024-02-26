@@ -1,0 +1,51 @@
+\section{Groups of Permutations}
+
+\bld{IDEA}: A \itl{permutation} of a set can be thought of as a rearrangement of the elements of the set.
+
+\subsubsection{Def. Permutation}
+A permutation of a set $A$ is a function $\phi: A \rightarrow A$ that is both one-to-one and onto. This means $\phi$ is a bijection from $A$ to itself.
+
+Note: We will use "tabular notation" for $\phi$.
+
+\subsubsection*{Example}
+Let $A = \{1,2,3,4,5,6\}$ and consider two permutations of $A$: 
+
+$f = \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    6 & 1 & 3 & 5 & 4 & 2
+\end{pmatrix}$ and $g = \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 \\
+    2 & 3 & 1 & 6 & 5 & 4
+\end{pmatrix}$. Note that the operation of \itl{permutation multiplication} is function composition. That is, $fg = f \circ g$.
+\begin{enumerate}
+    \item $fg = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        1 & 3 & 6 & 2 & 4 & 5
+    \end{pmatrix}$
+    \item $g^2f = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        6 & 3 & 2 & 5 & 4 & 1
+    \end{pmatrix}$
+    \item $f^{-1}g = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        6 & 3 & 2 & 1 & 4 & 5
+    \end{pmatrix}$
+\end{enumerate}
+
+\subsubsection{Permutations Multiplication and Groups}
+Let $A$ be a nonempty set and let $S_A$ be the collection of all permutations of $A$. Then $S_A$ is a group under permutation multiplication.
+\begin{proof}
+    Note Permutation Multiplication is a binary operation on $S_A$.
+    \begin{itemize}
+        \item[$\mathfrak{G}_1$] Let $f,g,h \in S_A$. Let $a \in A$
+        \begin{align*}
+            [f(gh)](a) & = [f \circ (g \circ h)](a) \\
+            & = f((g\circ h)(a)) \\
+            & = f(g(h(a))) = (f\circ g)h(a) = [(fg)h](a)
+        \end{align*}
+        $\therefore \group{S_A, +}$ is associative.
+        \item[$\mathfrak{G}_2$] Let $i(a) = a$ for all $a \in A$. Then $i$ is the identity permutation.
+        \item[$\mathfrak{G}_3$] Every permutation in $S_A$ is bijective, so every permutation has an inverse.
+    \end{itemize}
+    $\therefore S_A$ is a group.
+\end{proof}
