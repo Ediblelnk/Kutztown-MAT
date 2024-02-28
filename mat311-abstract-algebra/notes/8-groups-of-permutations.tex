@@ -32,7 +32,7 @@ $f = \begin{pmatrix}
     \end{pmatrix}$
 \end{enumerate}
 
-\subsubsection{Permutations Multiplication and Groups}
+\subsubsection{Thm. Permutations Multiplication and Groups}
 Let $A$ be a nonempty set and let $S_A$ be the collection of all permutations of $A$. Then $S_A$ is a group under permutation multiplication.
 \begin{proof}
     Note Permutation Multiplication is a binary operation on $S_A$.
@@ -49,3 +49,37 @@ Let $A$ be a nonempty set and let $S_A$ be the collection of all permutations of
     \end{itemize}
     $\therefore S_A$ is a group.
 \end{proof}
+
+\subsubsection{Def. Symmetric Group}
+Let $A$ be the finite set $A =\{1,2,3,\ldots,n\}$. The group of all permutations of $A$ is called the \bld{symmetric group}, denoted $S_n$.
+
+Note: $|S_n| = n!$
+
+\subsubsection*{Example}
+Consider $S_3$, which would be the group of all permutations of the set $A = \{1,2,3\}$. This set is also known as $D_3$, the group of symmetries of an equilateral triangle, where a symmetry is a movement of a shape to make it coincide with its former position. The letter $D$ is used because this type of group is called a \itl{dihedral group}, which are the groups of symmetries of regular polygons that include rotations and reflections.
+
+Labeling the vertices of the triangle $1,2, \tand 3$, we get the following, where $\rho$ are rotations and $\mu$ are reflections.
+\begin{align*}
+    \rho_0 & = \begin{pmatrix}
+        1 & 2 & 3 \\
+        1 & 2 & 3
+    \end{pmatrix} & \mu_1 & = \begin{pmatrix}
+        1 & 2 & 3 \\
+        1 & 3 & 2
+    \end{pmatrix} \\
+    \rho_1 & = \begin{pmatrix}
+        1 & 2 & 3 \\
+        2 & 3 & 1
+    \end{pmatrix} & \mu_2 & = \begin{pmatrix}
+        1 & 2 & 3 \\
+        3 & 2 & 1
+    \end{pmatrix} \\
+    \rho_2 & = \begin{pmatrix}
+        1 & 2 & 3 \\
+        3 & 1 & 2
+    \end{pmatrix} & \mu_3 & = \begin{pmatrix}
+        1 & 2 & 3 \\
+        2 & 1 & 3
+    \end{pmatrix}
+\end{align*}
+However, when we consider $D_4$, the dihedral group consisting of symmetries of a square, we notice that $S_4 \neq D_4$.

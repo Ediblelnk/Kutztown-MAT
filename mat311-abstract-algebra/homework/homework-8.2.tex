@@ -1,0 +1,48 @@
+\documentclass{article}
+\input{../../.latex/article.tex}
+\input{../../.latex/macros.tex}
+
+\newcommand{\assignment}{Section 8, p83 \# 11-17, 23-26}
+
+\lhead{MAT 311 Abstract Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+\begin{align*}
+    \sigma & = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        3 & 1 & 4 & 5 & 6 & 2
+    \end{pmatrix} & \tau & = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        2 & 4 & 1 & 3 & 6 & 5
+    \end{pmatrix} & \mu & = \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        5 & 2 & 4 & 3 & 1 & 6
+    \end{pmatrix}
+\end{align*}
+Let $A$ be a set and let $\sigma \in S_A$. For a fixed $a \in A$, the set
+\[
+    \mathcal{O}_{a.\sigma} = \{\sigma^n(a) : n \in \bb{Z}\}
+\]
+is the \bld{orbit} of $a$ \bld{under} $\sigma$. In Exercises 11 through 13, find the orbit of 1 under the permutation defined prior to Exercise 1.
+\begin{enumerate}
+    \qitem{11}{$\sigma$}{$1 \mapsto 3 \mapsto 4 \mapsto 5 \mapsto 6 \mapsto 2 \mapsto 1$}
+    \qitem{12}{$\tau$}{$1 \mapsto 2 \mapsto 4 \mapsto 3 \mapsto 1$}
+    \qitem{13}{$\mu$}{$1 \mapsto 5 \mapsto 1$}
+    \qitem{14}{In Table 8.8 (not shown), we used $\rho_0,\rho_1,\rho_2,\mu_1,\mu_2,\mu_3$ as the names of the 6 elements of $S_3$. Some authors use the notations $\epsilon,\rho,\rho^2,\phi,\rho\phi,\rho^2\phi$ for these elements. Verify \itl{geometrically} that their six expression do give all of $S_3$.}{answer}
+    \qitem{15}{With reference to Exercise 14, give a similar alternative labeling for the 8 elements of $D_4$ in Table 8.12 (not shown)}{answer}
+    \qitem{16}{Find the number of elements in the set $\{\rho \in S_4 : \rho(3) = 3\}$.}{answer}
+    \qitem{17}{Find the number of elements in the set $\{\rho \in S_5 : \rho(2) = 5\}$.}{answer}
+\end{enumerate}
+In this section we discussed the group of symmetries of an equilateral triangle and of a square. In Exercises 23 through 26, give a group that we have discussed in the text that is isomorphic to the group of symmetries of the indicated figure. You may want to label some special points on the figure, write some permutations corresponding to symmetries, and compute some products of permutations.
+\begin{enumerate}
+    \qitem{23}{The figure in Fig. 8.21 (a)}{answer}
+    \qitem{24}{The figure in Fig. 8.21 (b)}{answer}
+    \qitem{25}{The figure in Fig. 8.21 (b)}{answer}
+    \qitem{26}{The figure in Fig. 8.21 (b)}{answer}
+\end{enumerate}
+
+\end{document}
