@@ -83,3 +83,82 @@ Labeling the vertices of the triangle $1,2, \tand 3$, we get the following, wher
     \end{pmatrix}
 \end{align*}
 However, when we consider $D_4$, the dihedral group consisting of symmetries of a square, we notice that $S_4 \neq D_4$.
+
+\subsubsection{Thm. Cayley's Theorem}
+Every group is isomorphic to a group of permutations.
+
+\begin{proof}
+    Let $G$ be a group, and let $a \in G$ be fixed. Define $\pi_a: G \rightarrow G$ by
+    \[
+        \pi_a(x) = ax, \qquad \forall~x \in G
+    \]
+    First, we prove that $\pi_a$ is a permutation of $G$.
+    \begin{proof}
+        A permutation is one-to-one and onto.
+        \begin{enumerate}
+            \item One-to-one: Assume $\pi_a(x_1) = \pi_a(x_1)$ for $x_1,x_2 \in G$.
+            \begin{align*}
+                \pi_a(x_1) & = \pi_a(x_1) \\
+                ax_1 & = ax_2 \\
+                x_1 & = x_2 && \text{by left cancellation}
+            \end{align*}
+            Thus $\pi_a$ is one-to-one.
+            \item Onto: Let $y \in G$. Show $\exists~x \in G$ such that $y = \pi_a(x)$.
+            \begin{align*}
+                y & = \pi_a(x) = ax \\
+                a^{-1}y = x
+            \end{align*}
+            Choose $x = a^{-1}y$. Thus $\pi_a$ is onto.
+        \end{enumerate}
+        Thus $\pi_a$ is a permutation of $G$.
+    \end{proof}
+    Let $G^* = \{\pi_a : a \in G\}$. We must show that $G^*$ is a group (consisting of permutations). It suffices to show that $G^*$ is a subgroup of $S_G$, the group of all permutations of $G$. Note: $G^* \subseteq S_G$.
+    \begin{proof}
+        A subgroup is closed under the operation and inverses.
+        \begin{enumerate}
+            \item Closed under operation of $S_G$: Consider $\pi_a, \pi_b \in G^*$ for $a,b \in G$. For $x \in G$,
+            \[
+                (\pi_a \circ \pi_b)(x) = \pi_a(bx) = abx = \pi_{ab}(x)
+            \]
+            Since $ab \in G$, we know that $\pi_{ab} \in G^*$, so $G^*$ is closed under the operation.
+            \item Closed under inverses: Let $\pi_a \in G^*$. Since $\pi_a$ is a bijection, we know $\pi_a$ has an inverse $(\pi_a)^{-1}$. Note: $\pi_e$ is the identity of $S_G$. Consider $(\pi_a)^{-1} = \pi_{a^{-1}}$. For $x \in G$,
+            \begin{align*}
+                (\pi_{a^{-1}} \circ \pi_a)(x) = a^{-1}ax = ex & = \pi_e(x) \\
+                (\pi_a \circ \pi_{a^{-1}})(x) = aa^{-1}x = ex & = \pi_e(x) \\
+            \end{align*}
+            Thus $(\pi_a)^{-1} = \pi_{a^{-1}} \in G^*$, and $G^*$ is closed under inverses.
+        \end{enumerate}
+        Thus $G^* \leq S_G$.
+    \end{proof}
+    It remains to be proven that $G \simeq G^*$. Consider $\phi: G \rightarrow G6*$, by
+    \[
+        \pi(a) = \pi_a.
+    \]
+    \begin{proof}
+        An isomorphism is onto-to-one, onto, and operation preserving.
+        \begin{enumerate}
+            \item One-to-one: Let $\phi(a) = \phi(b)$ for $a,b \in G$.
+            \begin{align*}
+                \phi(a) & = \phi(b) \\
+                \pi_a & = \pi_b
+            \end{align*}
+            Using $x \in G$,
+            \begin{align*}
+                \pi_a(x) & = \pi_b(x) \\
+                ax & = bx \\
+                a & = b && \text{by right cancellation}
+            \end{align*}
+            Thus $\phi$ is one-to-one.
+            \item Onto: Given any $\pi_a \in G^*$, $\exists~a \in G$, such that $\phi(a) = \pi_a$. Thus $\phi$ is onto.
+            \item Operation Preserving: Show $\phi(ab) = \phi(a) \circ \phi(b)$, $\forall~a,b \in G$.
+            \begin{align*}
+                \phi(ab) & = \pi_{ab} \\
+                & = \pi_a \circ \pi_b \\
+                & = \phi(a) \circ phi(b)
+            \end{align*}
+            Thus $\phi$ is operation preserving.
+        \end{enumerate}
+        Thus $\phi$ is an isomorphism, and $G \simeq G^*$.
+    \end{proof}
+    Thus group $G$ is isomorphic to a group of permutations $G^*$.
+\end{proof}
