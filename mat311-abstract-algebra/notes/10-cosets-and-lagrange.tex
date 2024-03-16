@@ -1,0 +1,72 @@
+\section{Cosets and the Theorem of Lagrange}
+
+\subsubsection{Thm. Relation for Cosets}
+Let $H \leq G$. Let the relation $\sim_L$ be defined on $G$ by $a \sim_L b$ if and only if $a^{-1}b \in H$ for all $a,b \in G$. Similarly, let the relation $\sim_R$ be defined on $G$ by $a \sim_R b$ if and only if $ab^{-1} \in H$ for all $a,b \in G$. Then $\sim_L \tand \sim_R$ are both equivalence relations on $G$.
+
+\begin{proof}[Proof of $\sim_L$]
+    Let $G$ be a group and $H \leq G$. Define $a\ sim_L b$ by $a^{-1}b \in H$.
+    \begin{enumerate}
+        \item Reflexive on $G$:
+        \[
+            a^{-1}a = e \in H
+        \]
+        Thus $\sim_L$ is reflexive.
+        \item Symmetric on $G$: Assume $a \sim_L b$. Since $a^{-1}b \in H$,
+        \begin{align*}
+            (a^{-1}b)^{-1} & \in H \\
+            b^{-1}(a^{-1})^{-1} & \in H \\
+            b^{-1}a & \in H
+        \end{align*}
+        Thus $\sim_L$ is symmetric.
+        \item Transitive on $G$ Assume $a \sim_L b$ and $b \sim_L c$. Since $a^{-1}b \in H$ and $b^{-1}c \in H$,
+        \begin{align*}
+            (a^{-1}b)(b^{-1}c) & \in H \\
+            a^{-1}bb^{-1}c & \in H \\
+            a^{-1}c \in H
+        \end{align*}
+        Thus $\sim_L$ is transitive.
+    \end{enumerate}
+    Therefore, $\sim_L$ is an equivalence relation.
+\end{proof}
+(The proof for $\sim-R$ is essentially the same.)
+
+\subsubsection*{Note}
+Recall that equivalence relations define a partition on a set. Let $a \in G$ be fixed. The partition cell containing $a$ consists of all arbitrary $x \in G$ such that $a \sim_L x$. This implies $a^{-1}x \in H$, so there exists $h \in H$ such that $a^{-1}x = h$. That is, there exists $h \in H$ such that $x = ah$. Therefore, the partition cell containing $a$ is $\{ah : h \in H\}$.
+
+\subsubsection{Def. Coset}
+Let $G$ be a group and $H \leq G$. For any element $a \in G$, the symbol $aH$ denotes the set of all products $ah$ as $a$ remains fixed and $h$ ranges over $H$. The set $aH$ is called the \bld{left coset} of $H$ in $G$. Similarly, $Ha = \{ha : h \in H\}$ is the \bld{right coset} of $H$ in $G$.
+
+\subsubsection*{Notes}
+Cosets of $G$ are subsets of $G$. If $G$ is Abelian, then the left and right cosets are the same. That is, $aH = Ha$ for all $a \in G$.
+
+If $a \in Hb$, then $Ha = Hb$.
+\begin{proof}
+    Assume $a \in Hb$. We must show that $Ha \subseteq Hb$ and $Ha \supseteq Hb$.
+    \begin{proof}[$Ha \subseteq Hb$]
+        Let $x \in Ha$. We know $\exists~h_1 \in H$ such that $x = h_1a$.
+
+        Since $a \in Hb$, we know $\exists~h_2 \in H$ such that $a = h_2b$.
+
+        So $x = h_1a = h_1(h_2b) = (h_1h_2)b$. $h_1h_2 \in H$, so $x \in Hb$.
+    \end{proof}
+    \begin{proof}[$Ha \supseteq Hb$]
+        Let $y \in Hb$. We know $\exists~h_3 \in H$ such that $y = h_3b$.
+
+        Since $a \in Hb$, we know $\exists~h_2 \in H$ such that $a = h_2b \implies b = h_2^{-1}a$.
+
+        So $y = h_3b = h_3(h_2^{-1}a) = (h_3h_2^{-1})a$. $h_3h_2^{-1} \in H$, so $y = Ha$.
+    \end{proof}
+    Thus $Ha \subseteq Hb$ and $Ha \supseteq Hb$ and therefore $Ha = Hb$.
+\end{proof}
+
+\subsubsection*{Note}
+A consequence of above is that a given coset can be written in more than one way. if a coset of $H$ has $n$ elements, say $a_1,a_2,\ldots,a_n$, then it can be written $n$ different ways: $Ha_1,Ha_2,\ldots,Ha_n$.
+
+\subsubsection*{Example}
+Consider $D_4$, the symmetries of a square. Let $H = \{\rho_0,\mu_2\}$. List the right cosets of $H$ in $D_4$ and the elements of each coset. See table 8.12 (not shown).
+\begin{align*}
+    H\rho_0 & = \{\rho_0, \mu_2\} = H\mu_2 \\
+    H\rho_1 & = \{\rho_1, \delta_1\} = H\delta_1 \\
+    H\rho_2 & = \{\rho_2, \mu_1\} = H\mu_1 \\
+    H\rho_3 & = \{\rho_3, \delta_2\} = H\delta_2
+\end{align*}

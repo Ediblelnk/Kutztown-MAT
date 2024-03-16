@@ -1,0 +1,68 @@
+\documentclass{article}
+\input{../../.latex/article.tex}
+\input{../../.latex/macros.tex}
+
+\newcommand{\assignment}{Section 10, p102 \#1,3,5,6,9,10,13,15}
+
+\lhead{MAT 311 Abstract Algebra}
+\chead{\assignment}
+\rhead{Peter Schaefer}
+
+\begin{document}
+\section*{\assignment}
+
+Computations
+\begin{enumerate}
+    \qitem{1}{Find all the cosets of the subgroup $4\bb{Z}$ of $\bb{Z}$.}{
+        $\{4n : n \in \bb{Z}\},~\{4n+1 : n \in \bb{Z}\},~\{4n+2 : n \in \bb{Z}\},~\{4n+3 : n \in \bb{Z}\}$
+    }
+    \qitem{3}{Find all the cosets of the subgroup $\struct{2}$ of $\bb{Z}_{12}$.}{
+        $\{0,2,4,6,8,10\},~\{1,3,5,7,9,11\}$
+    }
+    \qitem{5}{Find all the cosets of the subgroup $\struct{18}$ of $\bb{Z}_{36}$.}{
+        $\{n, n+18\}$ for $n \in \{0,1,2,\ldots,17\}$
+    }
+    \qitem{6}{Find all the left cosets of the subgroup $\{\rho_0,\mu_2\}$ of the group $D_4$ given by Table 8.12.
+    \begin{center}
+        \includegraphics*[width=200px]{assets/table8.12.png}
+    \end{center}
+    }{
+        Left cosets:
+        \begin{align*}
+            \rho_0H & = \{\rho_0, \mu_2\} = \mu_2H \\
+            \rho_1H & = \{\rho_1, \delta_2\} = \delta_2H \\
+            \rho_2H & = \{\rho_2, \mu_1\} = \mu_1H \\
+            \rho_3H & = \{\rho_3, \delta_1\} = \delta_1H
+        \end{align*}
+    }
+    \qitem{9}{Repeat Exercise 6 for the subgroup $\{\rho_0,\rho_2\}$ of $D_4$}{
+        Left cosets:
+        \begin{align*}
+            \rho_0H & = \{\rho_0,\rho_2\} = \rho_2H \\
+            \rho_1H & = \{\rho_1,\rho_3\} = \rho_3H \\
+            \mu_1H & = \{\mu_1,\mu_2\} = \mu_2H \\
+            \delta_1H & = \{\delta_1,\delta_2\} = \delta_2H
+        \end{align*}
+    }
+    \qitem{10}{Repeat the preceding exercise, but find the right cosets this time. Are they the same as the left cosets?}{
+        Right cosets:
+        \begin{align*}
+            H\rho_0 & = \{\rho_0,\rho_2\} = H\rho_2 \\
+            H\rho_1 & = \{\rho_1,\rho_3\} = H\rho_3 \\
+            H\mu_1 & = \{\mu_1,\mu_2\} = H\mu_2 \\
+            H\delta_1 & = \{\delta_1,\delta_2\} = H\delta_2
+        \end{align*}
+        Yes, they are the same as the left cosets.
+    }
+    \qitem{13}{Find the index of $struct{\mu_1}$ in the group $S_3$, using notation of Example 10.7}{
+        $|G:\struct{\mu_1}| = 3$, because $|G| = 6 = 3 \cdot 2 = |G:\struct{\mu_1}||\struct{\mu_1}|$
+    }
+    \qitem{15}{Let $\sigma = (1,2,5,4)(2,3)$ in $S_5$. Find the index of $\struct{\sigma}$ in $S_5$.}{
+        According to the Theorem of Lagrange, $|G:H| = \frac{|G|}{|H|}$. In this instance, $G = S_5$, so $|G| = 5! = 120$. $\sigma = (1,2,5,4)(2,3) = (1,2,3,5,4)$, so $\sigma^5 = \sigma^0$. This means $|\struct{\sigma}| = 5$. Thus we have the following.
+        \[
+            |G:H| = \frac{|G|}{|H|} = \frac{120}{5} = 24
+        \]
+    }
+\end{enumerate}
+
+\end{document}

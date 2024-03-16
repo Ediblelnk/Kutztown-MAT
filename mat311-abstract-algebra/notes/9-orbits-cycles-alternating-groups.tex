@@ -1,0 +1,84 @@
+\section{Orbits, Cycles, and the Alternating Groups}
+
+Consider the set $A = \{1,2,3,\ldots,8\}$ and let $\sigma \in S_8$ be defined by $\sigma = \begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+    3 & 5 & 6 & 4 & 7 & 1 & 2 & 8
+\end{pmatrix}$. How does $\sigma$ "move" elements in $A$?
+\begin{align*}
+    & 1 \mapsto 3 \mapsto 6 \mapsto 1 \\
+    & 2 \mapsto 5 \mapsto 7 \mapsto 2 \\
+    & 8 \mapsto 8
+\end{align*}
+
+\subsubsection{Def. Orbits}
+The \bld{orbits} of a permutation $\sigma$ are the equivalence class of $A$ determined by $a\sim b$ if and only if $b = \sigma^n(a)$ for some $n \in \bb{Z}$.
+
+\subsubsection{Def. Cycle}
+A permutation is a cycle if it has \itl{at most} \bld{one} orbit containing more than one element.
+
+\subsubsection*{Example}
+Writing $\begin{pmatrix}
+    1 & 2 & 3 & 4 & 5 \\
+    3 & 2 & 5 & 1 & 4
+\end{pmatrix}$ as a cycle.
+\begin{align*}
+    (1,3,5,4)
+\end{align*}
+Note: elements that are not moved by the permutation do \bld{not} appear in the cycle.
+
+\subsubsection*{Example}
+In $S_8$, perform $(1,3,6)(2,8)(4,7,5)$ and express the answer as a permutation.
+\[
+    \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 \\
+        3 & 8 & 6 & 7 & 4 & 1 & 5 & 2
+    \end{pmatrix}
+\]
+In $S_6$, write $(1,4,5,6)(2,1,5)$ as a permutation. Does $(2,1,5)(1,4,5,6)$ result in the same permutation? No, they do not.
+\[
+    \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        6 & 4 & 3 & 5 & 2 & 1
+    \end{pmatrix} \neq
+    \begin{pmatrix}
+        1 & 2 & 3 & 4 & 5 & 6 \\
+        4 & 1 & 3 & 2 & 6 & 5
+    \end{pmatrix}
+\]
+
+\subsubsection*{Notes}
+Disjoint cycles commute. Every permutation $\sigma$ of a finite set can be expressed asa product of disjoint cycles.
+
+\subsubsection{Def. Transposition}
+A cycle of length two (2) is called a \bld{transposition}.
+
+\subsubsection*{Note}
+Every cycle can be expressed as a product of one or more transpositions, although it is \itl{not} unique.
+
+In $S_5$,
+\begin{align*}
+    (1,2,3,4,5) & = (1,5)(1,4)(1,3)(1,2) \\
+    & = (5,4)(5,3)(5,2)(5,1) \\
+    & = (5,4)(5,2)(5,1)(1,4)(3,2)(4,1)
+\end{align*}
+
+\subsubsection{Def. Even and Odd Permutations}
+A permutation is \bld{even} if it can be expressed as a product of an even number of transpositions. A permutation is \bld{odd} if it can be expressed as a product of an odd number of transpositions.
+
+\subsubsection*{Note}
+If $i$ is the identity permutation, then $i$ is even.
+
+\subsubsection{Thm. Permutations are either Even or Odd}
+If $\sigma \in S_n$, then $\sigma$ cannot be both even and odd.
+\begin{proof}
+    Let $\sigma \in S_n$ and assume $\sigma$ can be both even and odd. Note that $\sigma^{-1}$ is also both even and odd. But, $i = \sigma\sigma^{-1}$ is even, while $\sigma$ is odd and $\sigma^{-1}$ is even, or $\sigma$ is even and $\sigma^{-1}$ is odd. This would imply that $i$ could be odd, which is a contradiction.
+\end{proof}
+
+\subsubsection*{Recall}
+$S_n$ is the group of all permutations on $\{1,2,3,\ldots,n\}$. Each of these permutations can be expressed as a product of \itl{transpositions}. Even though this breakdown is not unique, the above theorem shows that every breakdown of a particular permutation must either be even or odd. All of the even permutations are given a special designation.
+
+\subsubsection{Def. The Alternating Group}
+The set of all even permutations in $S_n$ is called the \bld{alternating group} on $\{1,2,\ldots,n\}$, denoted as $A_n$.
+
+\subsubsection*{Notes}
+The alternating group $A_n$ is a subgroup of $S_n$. Additionally, recall that $|S_n| = n!$. Thus $|A_n| = \frac{n!}{2}$.
