@@ -1,0 +1,5 @@
+from cryptography.fernet import Fernet
+key = b"yYxuLL0DhszbKo4WqettJelf81ni3sSRvtqY6k9nev0="
+f = Fernet(key)
+token = b"gAAAAABl3CFMzZXKcJJzwikLJcBEoMYeGi8FrQIYvBT_Pb5YMCSG2ak38NxdsiJBIOwMvYt5XppAydj2SQ4A2SJBaOY3ZdvoqzcsMpFo1mSVw15suJH96WztdN7fenzv5QC3J_6Ubhb99m9SqUqtDIll2ep3kIbSur45SPspw9lv8TUV_oWuaHLJnna2OLpvtHQAKtsta6uhI-g2Pmyn9h950oBDrL_og=="
+f.decrypt(token)
