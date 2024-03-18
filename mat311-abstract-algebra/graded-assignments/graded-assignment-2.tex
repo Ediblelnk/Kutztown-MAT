@@ -93,12 +93,17 @@ Knowing these identities, let us determine the final two elements of this subgro
         2 & 1 & 5 & 3 & 4
     \end{pmatrix}
 \end{align*}
-The subgroup generated is the set $\{\id,f,g,g^2,fg,fg^2\}$, with operation table
+The subgroup generated is the group $\{\id,f,g,g^2,fg,fg^2\}$, with operation table
 \[
     \begin{array}{c|cccccc}
-    \circ & \id & f & g & g^2 & fg & fg^2 \\
-    \hline
-    \id & \id & f & g & g^2 & fg & fg^2
+        \circ & \id & f & g & g^2 & fg & fg^2 \\
+        \hline
+        \id   & \id  & f    & g    & g^2  & fg   & fg^2 \\
+        f     & f    & \id  & fg   & fg^2 & g    & g^2 \\
+        g     & g    & fg   & g^2  & \id  & fg^2 & f \\
+        g^2   & g^2  & fg^2 & \id  & g    & f    & fg \\
+        fg    & fg   & g    & fg^2 & f    & g^2  & \id \\
+        fg^2  & fg^2 & g^2  & f    & fg   & \id  & g
     \end{array}
 \]
 
