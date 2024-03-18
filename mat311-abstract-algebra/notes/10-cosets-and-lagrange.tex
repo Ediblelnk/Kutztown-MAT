@@ -70,3 +70,39 @@ Consider $D_4$, the symmetries of a square. Let $H = \{\rho_0,\mu_2\}$. List the
     H\rho_2 & = \{\rho_2, \mu_1\} = H\mu_1 \\
     H\rho_3 & = \{\rho_3, \delta_2\} = H\delta_2
 \end{align*}
+
+\subsubsection{Thm. One-to-one Correspondence of Cosets}
+If $Ha$ is any coset of $H$ in $G$, then there is a one-to-one correspondence from $H$ to $Ha$.
+\begin{proof}
+    Define $f: H \rightarrow Ha$ by $f(h) = ha$.
+    \begin{enumerate}
+        \item One-to-one: Let $f(h_1) = f(h_2)$.
+        \begin{align*}
+            h_1a & = h_2a \\
+            h_1 & = h_2
+        \end{align*}
+        Thus $f$ is one-to-one.
+        \item Onto: Let $ha \in Ha$. Choose $h$, and $f(h) = ha$. So $f$ is onto.
+    \end{enumerate}
+    Thus $f$ is a one-to-one correspondence from $H$ to $Ha$.
+\end{proof}
+\bld{Consequence}: Any coset $Ha$ of $H$ has the same number of elements as $H$ and thus all cosets of $H$ in $G$ have the same cardinality.
+
+\subsubsection{Thm. Lagrange's Theorem}
+Let $G$ be a finite group and let $H$ be a subgroup of $G$. The order of $G$ is a multiple of the order of $H$. Or, the order of $H$ is a divisor of the order of $G$.
+\[
+    |G| = |H| \cdot |G:H|
+\]
+
+\subsubsection{Def. Index of H in G}
+The \bld{index of $H$ in $G$}, denoted as $(G:H) \tor |G:H|$, is the number of cosets of $H$ in $G$.
+
+\subsubsection{Cor. Groups of Prime Order}
+If $G$ is a group with a prime number $p$ elements, then $G$ is a cyclic group. Furthermore, any element $a \neq \id$ in $G$ is a generator in $G$.
+\begin{proof}
+    Let $G$ be a group having $p$ elements, where $p$ is prime. If $a \in G$ but $a \neq \id$, then the order of $a$ is some integer $m \neq 1$.
+
+    Then $\group{a} = \{a,a^2,\ldots, a^m = \id\}$ has $m$ elements, $|\group{a}| = m$.
+
+    By Lagrange's Theorem, the order of $G$ is a multiple of $|\group{a}|$. But $|G|$ is prime $p$, and $m \neq 1$, so $p = m$. So $|\group{a}| = |G|$, and thus $\group{a} = G$.
+\end{proof}
