@@ -1,0 +1,66 @@
+\section{Direct Products and Finitely Generated Abelian Groups}
+
+\subsection{Summary of Groups}
+
+\subsubsection*{Finite Groups}
+
+\begin{tabular}[center]{cll}
+    Order & Symbol & Name \& Notes \\
+    \hline
+    $n$ & $\bb{Z} = \{0,1,\ldots,n-1\}$ & All order $n$ cyclic groups are isomorphic to $\group{\bb{Z}_n, +_n}$ \\
+    $n!$ & $S_n =$ all permutations of $\{1,2,\ldots,n\}$ & "Symmetric group" \\
+    $\frac{n!}{2}$ & $A_n =$ all even permutations of $S_n$ & "Alternating group" \\
+    $2n$ & $D_n$ all symmetries of a regular $n$-gon & "Dihedral group"
+\end{tabular}
+
+\subsubsection*{Infinite Groups}
+
+\begin{tabular}[center]{cc}
+    Symbol & Notes \\
+    $\bb{Z} = \{\ldots,-2,-1,0,1,2,\ldots\}$ & All infinite cyclic groups are isomorphic to $\group{\bb{Z},+}$ \\
+    $\bb{Q},~\bb{R},~\bb{C}$ & only under $+$ \\
+    $\bb{Q}^*,~\bb{R}^*,\bb{C}^*$ & only under $\cdot$ \\
+    $S_A$ & only when $A$ is an infinite set
+\end{tabular}
+
+\subsubsection*{IDEA}
+Use known groups as building blocks to form new groups.
+
+\subsubsection{Def. Generalized Cartesian Product}
+The Cartesian product of sets $S_1,S_2,\ldots,S_n$ is the set of all ordered $n$-tuples $(a_1,a_2.\ldots,a_n)$ where $a_i \in S_i$ for $i \in \{1,2,\ldots,n\}$
+
+Notation: $S_1 \times S_2 \times \cdots \times S_n$ or $\prod^n_{i=1} S_i$
+
+\subsubsection{Thm. Group of Direct Products}
+Let $G_1,G_2,\ldots,G_n$ be groups. For $(a_1,a_2,\ldots,a_n),(b_1,b_2,\ldots,b_n) \in \prod_{i=1}^{n} G_i$, define the binary operation \itl{multiplication by components by}
+\[
+    (a_1,a_2,\ldots,a_n)(b_1,b_2,\ldots,b_n) = (a_1b_1,a_2b_2,\ldots,a_nb_n).
+\]
+Then $\prod_{i=1}^{n} G_i$ is a group called the \bld{direct product of the groups} $G_i$.
+\begin{proof}
+    A group must be associative, have an identity, and have inverses for every element
+    \begin{enumerate}
+        \item $\mathfrak{G}_1$: Associative. Consider
+        \[
+            (a_1,a_2,\ldots,a_n)(b_1,b_2,\ldots,b_n)(c_1,c_2,\ldots,c_n) \in \prod_{i=1}^{n} G_i.
+        \]
+        Then,
+        \begin{align*}
+            (a_1,a_2,\ldots,a_n)[(b_1,b_2,\ldots,b_n)(c_1,c_2,\ldots,c_n)] & = (a_1,a_2,\ldots,a_n)(b_1c_1,b_2c_2,\ldots,b_nc_n) \\
+            & = (a_1b_1c_1,a_2b_2c_2,\ldots,a_nb_nc_n) \\
+            [(a_1,a_2,\ldots,a_n)(b_1,b_2,\ldots,b_n)](c_1,c_2,\ldots,c_n) & = (a_1b_1,a_2b_2,\ldots,a_nb_n)(c_1,c_2,\ldots,c_n) \\
+            & = (a_1b_1c_1,a_2b_2c_2,\ldots,a_nb_nc_n)
+        \end{align*}
+        Thus multiplication by components is associative.
+        \item $\mathfrak{G}_2$: Identity Exists.
+
+        Note that each $G_i \tfor i \in \{1,2,\ldots,n\}$ is a group, so each has an identity $e_i$. It is clear that $(e_1,e_2,\ldots,e_n)$ is the identity of $\prod_{i=1}^{n} G_i$.
+        \item $\mathfrak{G}_3$: Inverses Exist.
+        
+        Note that each $G_i \tfor i \in \{1,2,\ldots,n\}$ is a group, so each $a_i$ has inverse $a_i^{-1}$. It is clear that
+        \[
+            (a_1,a_2,\ldots,a_n)^{-1} = (a_1^{-1},a_2^{-1},\ldots,a_n^{-1}).
+        \]
+    \end{enumerate}
+    Thus $\prod_{i=1}^{n} G_i$ is a group.
+\end{proof}
